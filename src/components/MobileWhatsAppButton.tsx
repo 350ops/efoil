@@ -28,7 +28,7 @@ export function MobileWhatsAppButton() {
     >
       <IconButton
         href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
-        icon="message"
+        icon="whatsapp"
         variant="primary"
         size="l"
         tooltip="Book via WhatsApp"
