@@ -12,6 +12,7 @@ import {
 } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
 import { Projects } from "@/components/work/Projects";
+import { CheckoutButton } from "@/components/CheckoutButton";
 
 const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
 
@@ -135,14 +136,21 @@ export default function Work() {
                 ))}
               </Column>
 
-              <Button
-                href={`https://wa.me/${whatsappNumber}?text=Hi! I'd like to book the ${pkg.name} eFoil package.`}
-                variant={pkg.popular ? "primary" : "secondary"}
-                size="l"
-                fillWidth
-              >
-                Book via WhatsApp
-              </Button>
+              <Column gap="12" fillWidth>
+                <CheckoutButton
+                  packageId={pkg.id}
+                  packageName={pkg.name}
+                  popular={pkg.popular}
+                />
+                <Button
+                  href={`https://wa.me/${whatsappNumber}?text=Hi! I have questions about the ${pkg.name} eFoil package.`}
+                  variant="tertiary"
+                  size="s"
+                  fillWidth
+                >
+                  Questions? WhatsApp Us
+                </Button>
+              </Column>
             </Column>
           ))}
         </Grid>
