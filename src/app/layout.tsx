@@ -4,16 +4,15 @@ import "@/resources/custom.css";
 
 import classNames from "classnames";
 
+import type { opacity, SpacingToken } from "@once-ui-system/core";
 import {
   Background,
   Column,
   Flex,
   Meta,
-  opacity,
   RevealFx,
-  SpacingToken,
 } from "@once-ui-system/core";
-import { Footer, Header, RouteGuard, Providers } from "@/components";
+import { Footer, Header, RouteGuard, Providers, MobileWhatsAppButton } from "@/components";
 import { baseURL, effects, fonts, style, dataStyle, home } from "@/resources";
 
 export async function generateMetadata() {
@@ -162,6 +161,7 @@ export default async function RootLayout({
               <RouteGuard>{children}</RouteGuard>
             </Flex>
           </Flex>
+          <MobileWhatsAppButton />
           <Footer />
         </Column>
       </Providers>

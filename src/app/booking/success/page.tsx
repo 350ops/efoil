@@ -22,7 +22,7 @@ export async function generateMetadata() {
 
 export default function BookingSuccess() {
   return (
-    <Column maxWidth="s" gap="xl" paddingY="xl" horizontal="center">
+    <Column maxWidth="s" gap="xl" paddingY="xl" paddingX="16" horizontal="center" s={{ gap: "l", paddingY: "l", paddingX: "12" }}>
       <Card
         fillWidth
         padding="48"
@@ -31,6 +31,7 @@ export default function BookingSuccess() {
         horizontal="center"
         background="brand-alpha-weak"
         radius="xl"
+        s={{ padding: "32", gap: "20", radius: "l" }}
       >
         <Row
           background="brand-alpha-strong"
@@ -38,40 +39,42 @@ export default function BookingSuccess() {
           padding="20"
           horizontal="center"
           vertical="center"
+          s={{ padding: "16" }}
         >
-          <Text variant="display-strong-l">✓</Text>
+          <Text variant="display-strong-l" s={{ variant: "display-strong-m" }}>✓</Text>
         </Row>
         
-        <Heading as="h1" variant="display-strong-l" align="center">
+        <Heading as="h1" variant="display-strong-l" align="center" s={{ variant: "display-strong-m" }}>
           Booking Confirmed!
         </Heading>
         
-        <Text variant="body-default-l" onBackground="neutral-weak" align="center">
+        <Text variant="body-default-l" onBackground="neutral-weak" align="center" s={{ variant: "body-default-m" }}>
           Thank you for booking your eFoil experience. We've sent a confirmation email with all the details.
         </Text>
 
-        <Column gap="m" fillWidth horizontal="center" paddingTop="l">
-          <Text variant="heading-default-m" align="center">
+        <Column gap="m" fillWidth horizontal="center" paddingTop="l" s={{ gap: "12", paddingTop: "m" }}>
+          <Text variant="heading-default-m" align="center" s={{ variant: "heading-default-s" }}>
             What happens next?
           </Text>
-          <Column gap="s" horizontal="center">
-            <Text variant="body-default-m" onBackground="neutral-weak" align="center">
+          <Column gap="s" horizontal="center" s={{ gap: "8" }}>
+            <Text variant="body-default-m" onBackground="neutral-weak" align="center" s={{ variant: "body-default-s" }}>
               1. You'll receive a confirmation email within minutes
             </Text>
-            <Text variant="body-default-m" onBackground="neutral-weak" align="center">
+            <Text variant="body-default-m" onBackground="neutral-weak" align="center" s={{ variant: "body-default-s" }}>
               2. Our team will contact you to confirm delivery details
             </Text>
-            <Text variant="body-default-m" onBackground="neutral-weak" align="center">
+            <Text variant="body-default-m" onBackground="neutral-weak" align="center" s={{ variant: "body-default-s" }}>
               3. We'll arrive at your location with everything you need
             </Text>
           </Column>
         </Column>
 
-        <Row gap="16" paddingTop="l" wrap horizontal="center">
+        <Row gap="16" paddingTop="l" wrap horizontal="center" fillWidth s={{ direction: "column", gap: "12", paddingTop: "m" }}>
           <Button
             href="/"
             variant="primary"
             size="l"
+            s={{ fillWidth: true }}
           >
             Back to Home
           </Button>
@@ -79,6 +82,7 @@ export default function BookingSuccess() {
             href={`https://wa.me/${whatsappNumber}`}
             variant="secondary"
             size="l"
+            s={{ fillWidth: true }}
           >
             Contact Us on WhatsApp
           </Button>

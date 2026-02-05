@@ -51,7 +51,7 @@ export default function About() {
     },
   ];
   return (
-    <Column maxWidth="m">
+    <Column maxWidth="m" paddingX="16" s={{ paddingX: "12" }}>
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -84,7 +84,7 @@ export default function About() {
             top="64"
             fitHeight
             position="sticky"
-            s={{ position: "relative", style: { top: "auto" } }}
+            s={{ position: "relative", style: { top: "auto" }, paddingX: "0", paddingBottom: "m" }}
             xs={{ style: { top: "auto" } }}
             minWidth="160"
             paddingX="l"
@@ -109,13 +109,14 @@ export default function About() {
             )}
           </Column>
         )}
-        <Column className={styles.blockAlign} flex={9} maxWidth={40}>
+        <Column className={styles.blockAlign} flex={9} maxWidth={40} s={{ paddingX: "0" }}>
           <Column
             id={about.intro.title}
             fillWidth
             minHeight="160"
             vertical="center"
             marginBottom="32"
+            s={{ marginBottom: "24", minHeight: "0" }}
           >
             {about.calendar.display && (
               <Row
@@ -131,14 +132,16 @@ export default function About() {
                 style={{
                   backdropFilter: "blur(var(--static-space-1))",
                 }}
+                s={{ fillWidth: true }}
               >
                 <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
-                <Row paddingX="8">Schedule a call</Row>
+                <Row paddingX="8" s={{ paddingX: "4" }}>Schedule a call</Row>
                 <IconButton
                   href={about.calendar.link}
                   data-border="rounded"
                   variant="secondary"
                   icon="chevronRight"
+                  size="s"
                 />
               </Row>
             )}
@@ -162,6 +165,7 @@ export default function About() {
                 horizontal="center"
                 fitWidth
                 data-border="rounded"
+                s={{ paddingTop: "16", paddingBottom: "4", gap: "12", fillWidth: true }}
               >
                 {social
                       .filter((item) => item.essential)
@@ -180,7 +184,7 @@ export default function About() {
                             variant="secondary"
                           />
                         </Row>
-                        <Row hide s={{ hide: false }}>
+                        <Row hide s={{ hide: false, fillWidth: true }}>
                           <IconButton
                             size="l"
                             key={`${item.name}-icon`}
@@ -207,10 +211,10 @@ export default function About() {
               <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
                 {about.work.title}
               </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
+              <Column fillWidth gap="l" marginBottom="40" s={{ gap: "m", marginBottom: "32" }}>
                 {about.work.experiences.map((experience, index) => (
                   <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
-                    <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
+                    <Row fillWidth horizontal="between" vertical="end" marginBottom="4" s={{ direction: "column", horizontal: "start", vertical: "start", gap: "4", marginBottom: "8" }}>
                       <Text id={experience.company} variant="heading-strong-l">
                         {experience.company}
                       </Text>
@@ -221,7 +225,7 @@ export default function About() {
                     <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
                       {experience.role}
                     </Text>
-                    <Column as="ul" gap="16">
+                    <Column as="ul" gap="16" s={{ gap: "12" }}>
                       {experience.achievements.map(
                         (achievement: React.ReactNode, index: number) => (
                           <Text
@@ -266,7 +270,7 @@ export default function About() {
               <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
                 {about.studies.title}
               </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
+              <Column fillWidth gap="l" marginBottom="40" s={{ gap: "m", marginBottom: "32" }}>
                 {about.studies.institutions.map((institution, index) => (
                   <Column key={`${institution.name}-${index}`} fillWidth gap="4">
                     <Text id={institution.name} variant="heading-strong-l">
@@ -291,7 +295,7 @@ export default function About() {
               >
                 {about.technical.title}
               </Heading>
-              <Column fillWidth gap="l">
+              <Column fillWidth gap="l" s={{ gap: "m" }}>
                 {about.technical.skills.map((skill, index) => (
                   <Column key={`${skill}-${index}`} fillWidth gap="4">
                     <Text id={skill.title} variant="heading-strong-l">
@@ -301,7 +305,7 @@ export default function About() {
                       {skill.description}
                     </Text>
                     {skill.tags && skill.tags.length > 0 && (
-                      <Row wrap gap="8" paddingTop="8">
+                      <Row wrap gap="8" paddingTop="8" s={{ gap: "6", paddingTop: "6" }}>
                         {skill.tags.map((tag, tagIndex) => (
                           <Tag key={`${skill.title}-${tagIndex}`} size="l" prefixIcon={tag.icon}>
                             {tag.name}

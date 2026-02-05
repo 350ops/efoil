@@ -58,7 +58,7 @@ const packages = [
 
 export default function Work() {
   return (
-    <Column maxWidth="l" paddingY="xl" gap="xl">
+    <Column maxWidth="l" paddingY="xl" paddingX="16" gap="xl" s={{ paddingY: "l", paddingX: "12", gap: "l" }}>
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -74,18 +74,18 @@ export default function Work() {
       />
 
       {/* Hero Section */}
-      <Column horizontal="center" gap="m">
-        <Heading variant="display-strong-l" align="center">
+      <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+        <Heading variant="display-strong-l" align="center" s={{ variant: "display-strong-m" }}>
           Choose Your eFoil Experience
         </Heading>
-        <Text variant="body-default-l" onBackground="neutral-weak" align="center">
+        <Text variant="body-default-l" onBackground="neutral-weak" align="center" s={{ variant: "body-default-m" }}>
           Premium Audi e-tron eFoil delivered to your yacht, boat, or resort anywhere in the Maldives
         </Text>
       </Column>
 
       {/* Pricing Cards */}
       <RevealFx translateY="16">
-        <Grid columns="3" gap="24" fillWidth s={{ columns: 1 }}>
+        <Grid columns="3" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
           {packages.map((pkg) => (
             <Column
               key={pkg.id}
@@ -94,6 +94,7 @@ export default function Work() {
               background={pkg.popular ? "brand-alpha-weak" : "neutral-alpha-weak"}
               border={pkg.popular ? "brand-alpha-medium" : "neutral-alpha-weak"}
               radius="l"
+              s={{ padding: "24", gap: "16", radius: "m" }}
             >
               {pkg.popular && (
                 <Row horizontal="center">
@@ -112,22 +113,22 @@ export default function Work() {
               )}
               
               <Column gap="4" horizontal="center">
-                <Heading as="h3" variant="heading-strong-l" align="center">
+                <Heading as="h3" variant="heading-strong-l" align="center" s={{ variant: "heading-strong-m" }}>
                   {pkg.name}
                 </Heading>
-                <Row gap="4" vertical="end" horizontal="center">
-                  <Text variant="display-strong-l">{pkg.price}</Text>
-                  <Text variant="body-default-m" onBackground="neutral-weak">
+                <Row gap="4" vertical="end" horizontal="center" s={{ direction: "column", gap: "0", vertical: "center" }}>
+                  <Text variant="display-strong-l" s={{ variant: "display-strong-m" }}>{pkg.price}</Text>
+                  <Text variant="body-default-m" onBackground="neutral-weak" s={{ variant: "body-default-s" }}>
                     {pkg.unit}
                   </Text>
                 </Row>
               </Column>
 
-              <Text variant="body-default-m" onBackground="neutral-weak" align="center">
+              <Text variant="body-default-m" onBackground="neutral-weak" align="center" s={{ variant: "body-default-s" }}>
                 {pkg.description}
               </Text>
 
-              <Column gap="8" paddingY="m">
+              <Column gap="8" paddingY="m" s={{ paddingY: "12", gap: "6" }}>
                 {pkg.features.map((feature) => (
                   <Row key={feature} gap="8" vertical="center">
                     <Text onBackground="brand-strong">✓</Text>
@@ -158,12 +159,12 @@ export default function Work() {
 
       {/* Equipment Section */}
       <RevealFx translateY="16">
-        <Column gap="l" paddingY="xl">
-          <Column horizontal="center" gap="m">
-            <Heading as="h2" variant="display-strong-m" align="center">
+        <Column gap="l" paddingY="xl" s={{ gap: "m", paddingY: "l" }}>
+          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+            <Heading as="h2" variant="display-strong-m" align="center" s={{ variant: "display-strong-s" }}>
               Premium Equipment Details
             </Heading>
-            <Text variant="body-default-l" onBackground="neutral-weak" align="center">
+            <Text variant="body-default-l" onBackground="neutral-weak" align="center" s={{ variant: "body-default-m" }}>
               Learn more about the Audi e-tron eFoil experience
             </Text>
           </Column>
@@ -180,18 +181,20 @@ export default function Work() {
           horizontal="center"
           background="neutral-alpha-weak"
           radius="xl"
+          s={{ padding: "32", gap: "20", radius: "l" }}
         >
-          <Heading as="h2" variant="heading-strong-xl" align="center">
+          <Heading as="h2" variant="heading-strong-xl" align="center" s={{ variant: "heading-strong-l" }}>
             Questions About Booking?
           </Heading>
-          <Text variant="body-default-l" onBackground="neutral-weak" align="center">
+          <Text variant="body-default-l" onBackground="neutral-weak" align="center" s={{ variant: "body-default-m" }}>
             Our team is here to help you plan the perfect eFoil experience in the Maldives
           </Text>
-          <Row gap="16" wrap horizontal="center">
+          <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column", gap: "12" }}>
             <Button
               href={`https://wa.me/${whatsappNumber}`}
               variant="primary"
               size="l"
+              s={{ fillWidth: true }}
             >
               WhatsApp Us
             </Button>
@@ -199,6 +202,7 @@ export default function Work() {
               href="mailto:hello@efoil.rent"
               variant="secondary"
               size="l"
+              s={{ fillWidth: true }}
             >
               Send Email
             </Button>
