@@ -41,29 +41,29 @@ export default function BookingSuccess() {
           vertical="center"
           s={{ padding: "16" }}
         >
-          <Text variant="display-strong-l" s={{ variant: "display-strong-m" }}>✓</Text>
+          <Text variant="display-strong-l">✓</Text>
         </Row>
         
-        <Heading as="h1" variant="display-strong-l" align="center" s={{ variant: "display-strong-m" }}>
+        <Heading as="h1" variant="display-strong-l" align="center">
           Booking Confirmed!
         </Heading>
         
-        <Text variant="body-default-l" onBackground="neutral-weak" align="center" s={{ variant: "body-default-m" }}>
+        <Text variant="body-default-l" onBackground="neutral-weak" align="center">
           Thank you for booking your eFoil experience. We've sent a confirmation email with all the details.
         </Text>
 
         <Column gap="m" fillWidth horizontal="center" paddingTop="l" s={{ gap: "12", paddingTop: "m" }}>
-          <Text variant="heading-default-m" align="center" s={{ variant: "heading-default-s" }}>
+          <Text variant="heading-default-m" align="center">
             What happens next?
           </Text>
           <Column gap="s" horizontal="center" s={{ gap: "8" }}>
-            <Text variant="body-default-m" onBackground="neutral-weak" align="center" s={{ variant: "body-default-s" }}>
+            <Text variant="body-default-m" onBackground="neutral-weak" align="center">
               1. You'll receive a confirmation email within minutes
             </Text>
-            <Text variant="body-default-m" onBackground="neutral-weak" align="center" s={{ variant: "body-default-s" }}>
+            <Text variant="body-default-m" onBackground="neutral-weak" align="center">
               2. Our team will contact you to confirm delivery details
             </Text>
-            <Text variant="body-default-m" onBackground="neutral-weak" align="center" s={{ variant: "body-default-s" }}>
+            <Text variant="body-default-m" onBackground="neutral-weak" align="center">
               3. We'll arrive at your location with everything you need
             </Text>
           </Column>
