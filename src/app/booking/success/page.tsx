@@ -69,12 +69,11 @@ export default function BookingSuccess() {
           </Column>
         </Column>
 
-        <Row gap="16" paddingTop="l" wrap horizontal="center" fillWidth s={{ direction: "column", gap: "12", paddingTop: "m" }}>
+        <Row gap="16" paddingTop="l" wrap horizontal="center" s={{ direction: "column", gap: "12", paddingTop: "m" }}>
           <Button
             href="/"
             variant="primary"
             size="l"
-            s={{ fillWidth: true }}
           >
             Back to Home
           </Button>
@@ -82,7 +81,6 @@ export default function BookingSuccess() {
             href={`https://wa.me/${whatsappNumber}`}
             variant="secondary"
             size="l"
-            s={{ fillWidth: true }}
           >
             Contact Us on WhatsApp
           </Button>
