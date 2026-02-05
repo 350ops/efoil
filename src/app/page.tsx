@@ -68,12 +68,12 @@ export default function Home() {
             </RevealFx>
           )}
           <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16" s={{ paddingBottom: "12" }}>
-            <Heading wrap="balance" variant="display-strong-xl" align="center" s={{ variant: "display-strong-l" }}>
+            <Heading wrap="balance" variant="display-strong-xl" align="center">
               {home.headline}
             </Heading>
           </RevealFx>
           <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32" s={{ paddingBottom: "20" }}>
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l" align="center" s={{ variant: "heading-default-m" }}>
+            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l" align="center">
               {home.subline}
             </Text>
           </RevealFx>
@@ -87,7 +87,7 @@ export default function Home() {
                 size="l"
                 weight="strong"
                 arrowIcon
-                s={{ fillWidth: true }}
+               
               >
                 Book Your eFoil
               </Button>
@@ -97,7 +97,7 @@ export default function Home() {
                 href="/about"
                 variant="secondary"
                 size="l"
-                s={{ fillWidth: true }}
+               
               >
                 Learn More
               </Button>
@@ -131,10 +131,10 @@ export default function Home() {
       <RevealFx translateY="16" delay={0.2} fillWidth>
         <Column fillWidth gap="xl" paddingY="xl" s={{ gap: "l", paddingY: "l" }}>
           <Column horizontal="center" gap="m" s={{ gap: "12" }}>
-            <Heading as="h2" variant="display-strong-m" align="center" s={{ variant: "display-strong-s" }}>
+            <Heading as="h2" variant="display-strong-m" align="center">
               How It Works
             </Heading>
-            <Text variant="body-default-l" onBackground="neutral-weak" align="center" s={{ variant: "body-default-m" }}>
+            <Text variant="body-default-l" onBackground="neutral-weak" align="center">
               Experience the thrill of flying above the Maldives in three simple steps
             </Text>
           </Column>
@@ -157,12 +157,12 @@ export default function Home() {
                 vertical="center"
                 s={{ padding: "12" }}
               >
-                <Text variant="display-strong-m" onBackground="brand-strong" s={{ variant: "display-strong-s" }}>1</Text>
+                <Text variant="display-strong-m" onBackground="brand-strong">1</Text>
               </Flex>
-              <Heading as="h3" variant="heading-strong-l" align="center" s={{ variant: "heading-strong-m" }}>
+              <Heading as="h3" variant="heading-strong-l" align="center">
                 Choose
               </Heading>
-              <Text variant="body-default-m" onBackground="neutral-weak" align="center" s={{ variant: "body-default-s" }}>
+              <Text variant="body-default-m" onBackground="neutral-weak" align="center">
                 Select your package—hourly, half-day, or full-day experiences. Tell us your yacht, boat, or resort location.
               </Text>
             </Column>
@@ -184,12 +184,12 @@ export default function Home() {
                 vertical="center"
                 s={{ padding: "12" }}
               >
-                <Text variant="display-strong-m" onBackground="brand-strong" s={{ variant: "display-strong-s" }}>2</Text>
+                <Text variant="display-strong-m" onBackground="brand-strong">2</Text>
               </Flex>
-              <Heading as="h3" variant="heading-strong-l" align="center" s={{ variant: "heading-strong-m" }}>
+              <Heading as="h3" variant="heading-strong-l" align="center">
                 Book
               </Heading>
-              <Text variant="body-default-m" onBackground="neutral-weak" align="center" s={{ variant: "body-default-s" }}>
+              <Text variant="body-default-m" onBackground="neutral-weak" align="center">
                 Secure your session with easy online payment. We'll confirm your booking and coordinate delivery.
               </Text>
             </Column>
@@ -211,12 +211,12 @@ export default function Home() {
                 vertical="center"
                 s={{ padding: "12" }}
               >
-                <Text variant="display-strong-m" onBackground="brand-strong" s={{ variant: "display-strong-s" }}>3</Text>
+                <Text variant="display-strong-m" onBackground="brand-strong">3</Text>
               </Flex>
-              <Heading as="h3" variant="heading-strong-l" align="center" s={{ variant: "heading-strong-m" }}>
+              <Heading as="h3" variant="heading-strong-l" align="center">
                 Fly
               </Heading>
-              <Text variant="body-default-m" onBackground="neutral-weak" align="center" s={{ variant: "body-default-s" }}>
+              <Text variant="body-default-m" onBackground="neutral-weak" align="center">
                 Our team arrives with everything you need. After a quick briefing, you'll be flying above crystal-clear waters.
               </Text>
             </Column>
@@ -231,10 +231,10 @@ export default function Home() {
             <Line maxWidth={48} />
           </Row>
           <Column horizontal="center" gap="m" s={{ gap: "12" }}>
-            <Heading as="h2" variant="display-strong-m" align="center" s={{ variant: "display-strong-s" }}>
+            <Heading as="h2" variant="display-strong-m" align="center">
               Premium Equipment
             </Heading>
-            <Text variant="body-default-l" onBackground="neutral-weak" align="center" s={{ variant: "body-default-m" }}>
+            <Text variant="body-default-l" onBackground="neutral-weak" align="center">
               Ride the revolutionary Audi e-tron eFoil—engineered for performance and safety
             </Text>
           </Column>
@@ -262,7 +262,7 @@ export default function Home() {
               variant="secondary"
               size="m"
               arrowIcon
-              s={{ fillWidth: true }}
+             
             >
               View Full Gallery
             </Button>
@@ -277,10 +277,10 @@ export default function Home() {
       <RevealFx translateY="16" delay={0.2} fillWidth>
         <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
           <Column horizontal="center" gap="m" s={{ gap: "12" }}>
-            <Heading as="h2" variant="display-strong-m" align="center" s={{ variant: "display-strong-s" }}>
+            <Heading as="h2" variant="display-strong-m" align="center">
               We Come to You
             </Heading>
-            <Text variant="body-default-l" onBackground="neutral-weak" align="center" s={{ variant: "body-default-m" }}>
+            <Text variant="body-default-l" onBackground="neutral-weak" align="center">
               Direct delivery anywhere in the Maldives
             </Text>
           </Column>
@@ -294,7 +294,7 @@ export default function Home() {
               radius="l"
               s={{ padding: "20", gap: "8", radius: "m" }}
             >
-              <Heading as="h3" variant="heading-strong-m" align="center" s={{ variant: "heading-strong-s" }}>
+              <Heading as="h3" variant="heading-strong-m" align="center">
                 Luxury Yachts
               </Heading>
               <Text variant="body-default-s" onBackground="neutral-weak" align="center">
@@ -309,7 +309,7 @@ export default function Home() {
               radius="l"
               s={{ padding: "20", gap: "8", radius: "m" }}
             >
-              <Heading as="h3" variant="heading-strong-m" align="center" s={{ variant: "heading-strong-s" }}>
+              <Heading as="h3" variant="heading-strong-m" align="center">
                 Liveaboards & Boats
               </Heading>
               <Text variant="body-default-s" onBackground="neutral-weak" align="center">
@@ -324,7 +324,7 @@ export default function Home() {
               radius="l"
               s={{ padding: "20", gap: "8", radius: "m" }}
             >
-              <Heading as="h3" variant="heading-strong-m" align="center" s={{ variant: "heading-strong-s" }}>
+              <Heading as="h3" variant="heading-strong-m" align="center">
                 Island Resorts
               </Heading>
               <Text variant="body-default-s" onBackground="neutral-weak" align="center">
@@ -346,10 +346,10 @@ export default function Home() {
           radius="xl"
           s={{ padding: "32", gap: "20", radius: "l" }}
         >
-          <Heading as="h2" variant="display-strong-m" align="center" s={{ variant: "display-strong-s" }}>
+          <Heading as="h2" variant="display-strong-m" align="center">
             Ready to Fly?
           </Heading>
-          <Text variant="body-default-l" onBackground="neutral-weak" align="center" s={{ variant: "body-default-m" }}>
+          <Text variant="body-default-l" onBackground="neutral-weak" align="center">
             Book your eFoil experience today and create unforgettable memories in the Maldives
           </Text>
           <Button
@@ -358,7 +358,7 @@ export default function Home() {
             size="l"
             weight="strong"
             arrowIcon
-            s={{ fillWidth: true }}
+           
           >
             View Packages & Book Now
           </Button>

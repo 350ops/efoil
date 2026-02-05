@@ -75,10 +75,10 @@ export default function Work() {
 
       {/* Hero Section */}
       <Column horizontal="center" gap="m" s={{ gap: "12" }}>
-        <Heading variant="display-strong-l" align="center" s={{ variant: "display-strong-m" }}>
+        <Heading variant="display-strong-l" align="center">
           Choose Your eFoil Experience
         </Heading>
-        <Text variant="body-default-l" onBackground="neutral-weak" align="center" s={{ variant: "body-default-m" }}>
+        <Text variant="body-default-l" onBackground="neutral-weak" align="center">
           Premium Audi e-tron eFoil delivered to your yacht, boat, or resort anywhere in the Maldives
         </Text>
       </Column>
@@ -113,18 +113,18 @@ export default function Work() {
               )}
               
               <Column gap="4" horizontal="center">
-                <Heading as="h3" variant="heading-strong-l" align="center" s={{ variant: "heading-strong-m" }}>
+                <Heading as="h3" variant="heading-strong-l" align="center">
                   {pkg.name}
                 </Heading>
                 <Row gap="4" vertical="end" horizontal="center" s={{ direction: "column", gap: "0", vertical: "center" }}>
-                  <Text variant="display-strong-l" s={{ variant: "display-strong-m" }}>{pkg.price}</Text>
-                  <Text variant="body-default-m" onBackground="neutral-weak" s={{ variant: "body-default-s" }}>
+                  <Text variant="display-strong-l">{pkg.price}</Text>
+                  <Text variant="body-default-m" onBackground="neutral-weak">
                     {pkg.unit}
                   </Text>
                 </Row>
               </Column>
 
-              <Text variant="body-default-m" onBackground="neutral-weak" align="center" s={{ variant: "body-default-s" }}>
+              <Text variant="body-default-m" onBackground="neutral-weak" align="center">
                 {pkg.description}
               </Text>
 
@@ -161,10 +161,10 @@ export default function Work() {
       <RevealFx translateY="16">
         <Column gap="l" paddingY="xl" s={{ gap: "m", paddingY: "l" }}>
           <Column horizontal="center" gap="m" s={{ gap: "12" }}>
-            <Heading as="h2" variant="display-strong-m" align="center" s={{ variant: "display-strong-s" }}>
+            <Heading as="h2" variant="display-strong-m" align="center">
               Premium Equipment Details
             </Heading>
-            <Text variant="body-default-l" onBackground="neutral-weak" align="center" s={{ variant: "body-default-m" }}>
+            <Text variant="body-default-l" onBackground="neutral-weak" align="center">
               Learn more about the Audi e-tron eFoil experience
             </Text>
           </Column>
@@ -183,10 +183,10 @@ export default function Work() {
           radius="xl"
           s={{ padding: "32", gap: "20", radius: "l" }}
         >
-          <Heading as="h2" variant="heading-strong-xl" align="center" s={{ variant: "heading-strong-l" }}>
+          <Heading as="h2" variant="heading-strong-xl" align="center">
             Questions About Booking?
           </Heading>
-          <Text variant="body-default-l" onBackground="neutral-weak" align="center" s={{ variant: "body-default-m" }}>
+          <Text variant="body-default-l" onBackground="neutral-weak" align="center">
             Our team is here to help you plan the perfect eFoil experience in the Maldives
           </Text>
           <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column", gap: "12" }}>
@@ -194,7 +194,7 @@ export default function Work() {
               href={`https://wa.me/${whatsappNumber}`}
               variant="primary"
               size="l"
-              s={{ fillWidth: true }}
+             
             >
               WhatsApp Us
             </Button>
@@ -202,7 +202,7 @@ export default function Work() {
               href="mailto:hello@efoil.rent"
               variant="secondary"
               size="l"
-              s={{ fillWidth: true }}
+             
             >
               Send Email
             </Button>

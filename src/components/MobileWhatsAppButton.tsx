@@ -24,13 +24,13 @@ export function MobileWhatsAppButton() {
       position="fixed"
       bottom="24"
       right="16"
-      zIndex={100}
+      zIndex={10}
     >
       <IconButton
         href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
         icon="message"
         variant="primary"
-        size="xl"
+        size="l"
         tooltip="Book via WhatsApp"
         style={{
           boxShadow: "0 8px 24px rgba(0, 0, 0, 0.3)",
