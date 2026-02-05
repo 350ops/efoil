@@ -14,26 +14,26 @@ import {
 import { home } from "./index";
 
 // IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL: string = "https://demo.magic-portfolio.com";
+const baseURL: string = "https://efoil.rent";
 
 const routes: RoutesConfig = {
   "/": true,
   "/about": true,
   "/work": true,
-  "/blog": true,
+  "/blog": false, // Enable when blog content is ready
   "/gallery": true,
 };
 
 const display: DisplayConfig = {
-  location: true,
-  time: true,
-  themeSwitcher: true,
+  location: false, // Not needed for business site
+  time: false, // Not needed for business site
+  themeSwitcher: false, // Keep consistent dark theme
 };
 
 // Enable password protection on selected routes
 // Set password in the .env file, refer to .env.example
 const protectedRoutes: ProtectedRoutesConfig = {
-  "/work/automate-design-handovers-with-a-figma-to-code-pipeline": true,
+  // No protected routes currently configured
 };
 
 // Import and set font for each variant
@@ -73,13 +73,13 @@ const fonts: FontsConfig = {
 
 // default customization applied to the HTML in the main layout.tsx
 const style: StyleConfig = {
-  theme: "system", // dark | light | system
-  neutral: "gray", // sand | gray | slate | custom
-  brand: "cyan", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
-  accent: "red", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
+  theme: "dark", // dark | light | system - Dark theme for premium feel
+  neutral: "slate", // sand | gray | slate | custom
+  brand: "cyan", // Ocean/water theme colors
+  accent: "aqua", // Complementary water color
   solid: "contrast", // color | contrast
   solidStyle: "flat", // flat | plastic
-  border: "playful", // rounded | playful | conservative
+  border: "rounded", // rounded | playful | conservative - Clean, premium look
   surface: "translucent", // filled | translucent
   transition: "all", // all | micro | macro
   scaling: "100", // 90 | 95 | 100 | 105 | 110
@@ -184,20 +184,18 @@ const mailchimp: MailchimpConfig = {
   },
 };
 
-// default schema data
+// default schema data - Optimized for local SEO in Maldives
 const schema: SchemaConfig = {
-  logo: "",
-  type: "Organization",
-  name: "Once UI",
+  logo: "/images/og/home.jpg",
+  type: "LocalBusiness",
+  name: "eFoil Maldives - Premium eFoil Rentals",
   description: home.description,
-  email: "lorant@once-ui.com",
+  email: "hello@efoil.rent",
 };
 
-// social links
+// social links for SEO
 const sameAs: SameAsConfig = {
-  threads: "https://www.threads.com/@once_ui",
-  linkedin: "https://www.linkedin.com/company/once-ui/",
-  discord: "https://discord.com/invite/5EyAQ4eNdS",
+  instagram: "https://www.instagram.com/efoil.rent/",
 };
 
 // social sharing configuration for blog posts

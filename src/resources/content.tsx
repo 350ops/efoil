@@ -2,48 +2,33 @@ import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/
 import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "Selene",
-  lastName: "Yu",
-  name: `Selene Yu`,
-  role: "Design Engineer",
+  firstName: "eFoil",
+  lastName: "Maldives",
+  name: `eFoil Maldives`,
+  role: "Premium eFoil Rental Service",
   avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  email: "hello@efoil.rent",
+  location: "Indian/Maldives", // IANA time zone identifier
+  languages: ["English", "Dhivehi"], // Languages supported
 };
 
 const newsletter: Newsletter = {
   display: true,
-  title: <>Subscribe to {person.firstName}'s Newsletter</>,
-  description: <>My weekly newsletter about creativity and engineering</>,
+  title: <>Get Exclusive eFoil Offers</>,
+  description: <>Subscribe for special rates, new destinations, and eFoil tips for the Maldives</>,
 };
 
 const social: Social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
-  // Set essentials: true for links you want to show on the about page
-  {
-    name: "GitHub",
-    icon: "github",
-    link: "https://github.com/once-ui-system",
-    essential: true,
-  },
-  {
-    name: "LinkedIn",
-    icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
-    essential: true,
-  },
   {
     name: "Instagram",
     icon: "instagram",
-    link: "https://www.instagram.com/once_ui/",
-    essential: false,
+    link: "https://www.instagram.com/efoil.rent/",
+    essential: true,
   },
   {
-    name: "Threads",
-    icon: "threads",
-    link: "https://www.threads.com/@once_ui",
+    name: "WhatsApp",
+    icon: "whatsapp",
+    link: `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344"}`,
     essential: true,
   },
   {
@@ -58,175 +43,126 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  title: `eFoil Rental Maldives | Audi e-tron eFoil Delivery to Yachts & Resorts`,
+  description: `Experience the thrill of flying above the crystal-clear waters of the Maldives. Premium Audi e-tron eFoil rentals delivered directly to your yacht, boat, or resort. Book your unforgettable eFoil adventure today.`,
+  headline: <>Fly Above the Maldives</>,
   featured: {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Once UI</strong>{" "}
+        <strong className="ml-4">Audi e-tron</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          Featured work
+          Premium eFoil Experience
         </Text>
       </Row>
     ),
-    href: "/work/building-once-ui-a-customizable-design-system",
+    href: "/work/audi-etron-efoil-experience",
   },
   subline: (
     <>
-    I'm Selene, a design engineer at <Text as="span" size="xl" weight="strong">ONCE UI</Text>, where I craft intuitive <br /> user experiences. After hours, I build my own projects.
-</>
+      Premium <Text as="span" size="xl" weight="strong">Audi e-tron eFoil</Text> rentals delivered directly to your yacht, boat, or resort. <br />Experience the ultimate water adventure in paradise.
+    </>
   ),
 };
 
 const about: About = {
   path: "/about",
   label: "About",
-  title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  title: `About eFoil Maldives | Premium Electric Hydrofoil Rentals`,
+  description: `Learn about the premier eFoil rental service in the Maldives. We deliver Audi e-tron eFoils to yachts, boats, and resorts across the atolls.`,
   tableOfContent: {
     display: true,
     subItems: false,
   },
   avatar: {
-    display: true,
+    display: false,
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: "https://cal.com/efoil-maldives",
   },
   intro: {
     display: true,
-    title: "Introduction",
+    title: "Your Gateway to Flying on Water",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        eFoil Maldives is the premier electric hydrofoil rental service in the Maldives. 
+        We bring the revolutionary Audi e-tron eFoil experience directly to you—whether you're 
+        on a luxury yacht, liveaboard, or at an island resort. Our professional team handles 
+        everything from delivery to instruction, ensuring you have an unforgettable experience 
+        gliding above the pristine waters of the Indian Ocean.
       </>
     ),
   },
   work: {
-    display: true, // set to false to hide this section
-    title: "Work Experience",
+    display: true,
+    title: "Why Choose Us",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Direct Delivery",
+        timeframe: "To Your Location",
+        role: "Yacht, Boat & Resort Service",
         achievements: [
-          <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
-          </>,
-          <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
-          </>,
+          <>We deliver premium Audi e-tron eFoils directly to your yacht, liveaboard, or resort anywhere in the Maldives.</>,
+          <>Professional setup and safety briefing included with every rental.</>,
         ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Premium Equipment",
+        timeframe: "Audi e-tron eFoil",
+        role: "World-Class Technology",
         achievements: [
-          <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
-          </>,
-          <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
-          </>,
+          <>Experience the cutting-edge Audi e-tron eFoil—engineered for performance, safety, and an unmatched riding experience.</>,
+          <>All equipment is meticulously maintained and sanitized between each use.</>,
+        ],
+        images: [],
+      },
+      {
+        company: "Expert Instruction",
+        timeframe: "Beginners Welcome",
+        role: "Professional Guidance",
+        achievements: [
+          <>Our certified instructors will have you flying in no time, regardless of your experience level.</>,
+          <>Personalized sessions tailored to your skill level and goals.</>,
         ],
         images: [],
       },
     ],
   },
   studies: {
-    display: true, // set to false to hide this section
+    display: false,
     title: "Studies",
-    institutions: [
-      {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
-      },
-      {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
-      },
-    ],
+    institutions: [],
   },
   technical: {
-    display: true, // set to false to hide this section
-    title: "Technical skills",
+    display: true,
+    title: "The Experience",
     skills: [
       {
-        title: "Figma",
+        title: "Choose Your Package",
         description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
+          <>Select from hourly rentals, half-day adventures, or full-day experiences. Group packages available.</>
         ),
-        tags: [
-          {
-            name: "Figma",
-            icon: "figma",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+        tags: [],
+        images: [],
       },
       {
-        title: "Next.js",
+        title: "We Come to You",
         description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
+          <>Our team delivers the eFoil to your location—yacht, boat, or resort—anywhere in the Maldives.</>
         ),
-        tags: [
-          {
-            name: "JavaScript",
-            icon: "javascript",
-          },
-          {
-            name: "Next.js",
-            icon: "nextjs",
-          },
-          {
-            name: "Supabase",
-            icon: "supabase",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+        tags: [],
+        images: [],
+      },
+      {
+        title: "Fly Above Paradise",
+        description: (
+          <>Experience the thrill of gliding above crystal-clear waters with stunning reef and marine life below.</>
+        ),
+        tags: [],
+        images: [],
       },
     ],
   },
@@ -235,67 +171,61 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "Writing about design and tech...",
-  description: `Read what ${person.name} has been up to recently`,
-  // Create new blog posts by adding a new .mdx file to app/blog/posts
-  // All posts will be listed on the /blog route
+  title: "eFoil Tips & Maldives Adventures",
+  description: `Discover eFoil riding tips, best locations in the Maldives, and stories from our adventures on the water.`,
 };
 
 const work: Work = {
   path: "/work",
-  label: "Work",
-  title: `Projects – ${person.name}`,
-  description: `Design and dev projects by ${person.name}`,
-  // Create new project pages by adding a new .mdx file to app/blog/posts
-  // All projects will be listed on the /home and /work routes
+  label: "Experience",
+  title: `eFoil Packages & Experiences | eFoil Maldives`,
+  description: `Explore our eFoil rental packages, from hourly sessions to multi-day adventures in the Maldives.`,
 };
 
 const gallery: Gallery = {
   path: "/gallery",
   label: "Gallery",
-  title: `Photo gallery – ${person.name}`,
-  description: `A photo collection by ${person.name}`,
-  // Images by https://lorant.one
-  // These are placeholder images, replace with your own
+  title: `eFoil Gallery | Flying Above the Maldives`,
+  description: `See the Audi e-tron eFoil in action across the stunning waters of the Maldives. Premium electric hydrofoil experiences.`,
   images: [
     {
-      src: "/images/gallery/horizontal-1.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-4.jpg",
-      alt: "image",
+      src: "/images/gallery/sailboat.jpg",
+      alt: "Luxury yacht in the crystal-clear waters of the Maldives - eFoil delivery destination",
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/horizontal-3.jpg",
-      alt: "image",
+      src: "/images/gallery/Performance_midnightblue_01 Background Removed.png",
+      alt: "Audi e-tron eFoil board top view - Premium electric hydrofoil rental Maldives",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/vertical-1.jpg",
-      alt: "image",
+      src: "/images/gallery/performance_3 Background Removed.png",
+      alt: "Audi e-tron eFoil complete setup with hydrofoil - Flying above water Maldives",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/performance_2 Background Removed.png",
+      alt: "Audi e-tron eFoil side view showing hydrofoil wings - Electric surfboard Maldives",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/Mast80 Background Removed.png",
+      alt: "Audi e-tron eFoil mast and motor unit - High-performance electric hydrofoil",
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/vertical-2.jpg",
-      alt: "image",
+      src: "/images/gallery/Wing_Set_1350x400_75e8167e-01ee-4f38-845e-b14cd24573c6 Background Removed.png",
+      alt: "Audi e-tron eFoil wing set - Premium carbon fiber hydrofoil wings",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/Batterie01 Background Removed.png",
+      alt: "Audi e-tron eFoil battery pack - Long-lasting power for extended sessions",
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/horizontal-2.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/horizontal-4.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-3.jpg",
-      alt: "image",
+      src: "/images/gallery/Controller01 Background Removed.png",
+      alt: "Audi e-tron eFoil wireless controller - Intuitive speed control",
       orientation: "vertical",
     },
   ],
