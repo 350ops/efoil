@@ -186,7 +186,7 @@ const mailchimp: MailchimpConfig = {
 
 // default schema data - Optimized for local SEO in Maldives
 const schema: SchemaConfig = {
-  logo: "/images/og/home.jpg",
+  logo: "/images/logofoil.png",
   type: "LocalBusiness",
   name: "eFoil Maldives - Premium eFoil Rentals",
   description: home.description,

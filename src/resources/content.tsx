@@ -6,7 +6,7 @@ const person: Person = {
   lastName: "Maldives",
   name: `eFoil Maldives`,
   role: "Premium eFoil Rental Service",
-  avatar: "/images/avatar.jpg",
+  avatar: "/images/logofoil.png",
   email: "hello@efoil.rent",
   location: "Indian/Maldives", // IANA time zone identifier
   languages: ["English", "Dhivehi"], // Languages supported
