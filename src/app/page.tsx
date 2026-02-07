@@ -221,7 +221,7 @@ export default function Home() {
             </Text>
           </RevealFx>
           <RevealFx paddingTop="12" delay={0.4} horizontal="center" fillWidth s={{ paddingTop: "8" }}>
-            <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column", gap: "12" }}>
+            <Column gap="16" horizontal="center" fillWidth s={{ gap: "12" }}>
               <Button
                 id="book-now"
                 data-border="rounded"
@@ -230,6 +230,7 @@ export default function Home() {
                 size="l"
                 weight="strong"
                 arrowIcon
+                fillWidth
               >
                 Book Your eFoil
               </Button>
@@ -239,10 +240,11 @@ export default function Home() {
                 href="/about"
                 variant="secondary"
                 size="l"
+                fillWidth
               >
                 Learn More
               </Button>
-            </Row>
+            </Column>
           </RevealFx>
         </Column>
       </Column>
@@ -276,92 +278,71 @@ export default function Home() {
               How It Works
             </Heading>
             <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-              Experience the thrill of flying above the Maldives in three simple steps
+              Three steps to flying above the Maldives
             </Text>
           </Column>
           
-          <Grid columns="3" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
-            {/* Step 1: Choose */}
-            <Column
-              padding="32"
-              gap="20"
-              horizontal="center"
-              background="neutral-alpha-weak"
-              radius="l"
-              s={{ padding: "24", gap: "16", radius: "m" }}
-            >
-              <Flex
-                background="brand-alpha-medium"
-                radius="full"
-                padding="16"
-                horizontal="center"
-                vertical="center"
-                s={{ padding: "12" }}
-              >
-                <Text variant="display-strong-m" onBackground="brand-strong">1</Text>
-              </Flex>
-              <Heading as="h3" variant="heading-strong-l" align="center">
-                Choose
-              </Heading>
-              <Text variant="body-default-m" onBackground="neutral-weak" align="center">
-                Select your package—hourly, half-day, or full-day experiences. Tell us your yacht, boat, or resort location.
-              </Text>
-            </Column>
+          {/* Steps — connected vertical layout */}
+          <Column fillWidth gap="0" horizontal="center">
+            {[
+              {
+                num: "01",
+                title: "Choose",
+                desc: "Pick your package and tell us your location—yacht, resort, or island.",
+                icon: "📍",
+              },
+              {
+                num: "02",
+                title: "Book",
+                desc: "Pay securely online. We confirm and handle all delivery logistics.",
+                icon: "✓",
+              },
+              {
+                num: "03",
+                title: "Fly",
+                desc: "Our instructor arrives with everything. After a quick briefing, you're airborne.",
+                icon: "🌊",
+              },
+            ].map((step, idx) => (
+              <Row key={step.num} fillWidth gap="24" s={{ gap: "16" }}>
+                {/* Left: number + connector line */}
+                <Column horizontal="center" vertical="center" gap="0" style={{ minWidth: 48 }}>
+                  <Flex
+                    horizontal="center"
+                    vertical="center"
+                    style={{
+                      width: 48,
+                      height: 48,
+                      borderRadius: "50%",
+                      border: "2px solid var(--brand-solid-strong)",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <Text variant="label-strong-m" onBackground="brand-strong">{step.num}</Text>
+                  </Flex>
+                  {idx < 2 && (
+                    <Column
+                      style={{
+                        width: 2,
+                        height: 48,
+                        background: "var(--neutral-alpha-medium)",
+                      }}
+                    />
+                  )}
+                </Column>
 
-            {/* Step 2: Book */}
-            <Column
-              padding="32"
-              gap="20"
-              horizontal="center"
-              background="neutral-alpha-weak"
-              radius="l"
-              s={{ padding: "24", gap: "16", radius: "m" }}
-            >
-              <Flex
-                background="brand-alpha-medium"
-                radius="full"
-                padding="16"
-                horizontal="center"
-                vertical="center"
-                s={{ padding: "12" }}
-              >
-                <Text variant="display-strong-m" onBackground="brand-strong">2</Text>
-              </Flex>
-              <Heading as="h3" variant="heading-strong-l" align="center">
-                Book
-              </Heading>
-              <Text variant="body-default-m" onBackground="neutral-weak" align="center">
-                Secure your session with easy online payment. We'll confirm your booking and coordinate delivery.
-              </Text>
-            </Column>
-
-            {/* Step 3: Fly */}
-            <Column
-              padding="32"
-              gap="20"
-              horizontal="center"
-              background="neutral-alpha-weak"
-              radius="l"
-              s={{ padding: "24", gap: "16", radius: "m" }}
-            >
-              <Flex
-                background="brand-alpha-medium"
-                radius="full"
-                padding="16"
-                horizontal="center"
-                vertical="center"
-                s={{ padding: "12" }}
-              >
-                <Text variant="display-strong-m" onBackground="brand-strong">3</Text>
-              </Flex>
-              <Heading as="h3" variant="heading-strong-l" align="center">
-                Fly
-              </Heading>
-              <Text variant="body-default-m" onBackground="neutral-weak" align="center">
-                Our team arrives with everything you need. After a quick briefing, you'll be flying above crystal-clear waters.
-              </Text>
-            </Column>
-          </Grid>
+                {/* Right: content */}
+                <Column gap="4" paddingBottom="24" style={{ paddingTop: 8 }} s={{ paddingBottom: "20" }}>
+                  <Heading as="h3" variant="heading-strong-l">
+                    {step.title}
+                  </Heading>
+                  <Text variant="body-default-m" onBackground="neutral-weak">
+                    {step.desc}
+                  </Text>
+                </Column>
+              </Row>
+            ))}
+          </Column>
         </Column>
       </RevealFx>
 
