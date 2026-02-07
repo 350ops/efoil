@@ -22,6 +22,9 @@ const routes: RoutesConfig = {
   "/work": true,
   "/blog": false, // Enable when blog content is ready
   "/gallery": true,
+  "/yachts": true,
+  "/resorts": true,
+  "/partners": true,
 };
 
 const display: DisplayConfig = {

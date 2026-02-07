@@ -5,6 +5,17 @@ import { baseURL, routes as routesConfig } from "@/resources";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date().toISOString().split("T")[0];
 
+  // Priority map for SEO-important pages
+  const priorityMap: Record<string, number> = {
+    "/": 1.0,
+    "/work": 0.9,
+    "/yachts": 0.85,
+    "/resorts": 0.85,
+    "/partners": 0.8,
+    "/about": 0.7,
+    "/gallery": 0.6,
+  };
+
   // Static routes from config (only include enabled routes)
   const staticRoutes: MetadataRoute.Sitemap = Object.entries(routesConfig)
     .filter(([, enabled]) => enabled)
@@ -12,7 +23,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseURL}${route === "/" ? "" : route}`,
       lastModified: now,
       changeFrequency: route === "/" ? "weekly" : "monthly",
-      priority: route === "/" ? 1.0 : route === "/work" ? 0.9 : 0.7,
+      priority: priorityMap[route] ?? 0.5,
     }));
 
   // Blog posts (only if blog route is active)
