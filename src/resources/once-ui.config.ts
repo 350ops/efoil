@@ -20,7 +20,7 @@ const routes: RoutesConfig = {
   "/": true,
   "/about": true,
   "/work": true,
-  "/blog": false, // Enable when blog content is ready
+  "/blog": true,
   "/gallery": true,
   "/yachts": true,
   "/resorts": true,

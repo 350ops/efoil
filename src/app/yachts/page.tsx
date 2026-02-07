@@ -13,6 +13,7 @@ import {
 } from "@once-ui-system/core";
 import { baseURL, person, about } from "@/resources";
 import { RequestAvailabilityForm } from "@/components/RequestAvailabilityForm";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
 
@@ -105,6 +106,7 @@ export default function YachtsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <Breadcrumbs items={[{ name: "Yacht eFoil Delivery", href: "/yachts" }]} />
 
       {/* Hero */}
       <Column fillWidth horizontal="center" gap="l" s={{ gap: "m" }}>
@@ -306,6 +308,40 @@ export default function YachtsPage() {
       {/* Availability Form */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
         <RequestAvailabilityForm />
+      </RevealFx>
+
+      {/* Cross-linking */}
+      <RevealFx translateY="16" delay={0.2} fillWidth>
+        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
+          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+            <Heading as="h2" variant="display-strong-m" align="center">
+              Explore More
+            </Heading>
+          </Column>
+          <Grid columns="3" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
+            <Column padding="24" gap="12" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "20", radius: "m" }}>
+              <Heading as="h3" variant="heading-strong-s" align="center">View Packages</Heading>
+              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+                Browse hourly, half-day, and full-day eFoil rental packages with transparent pricing.
+              </Text>
+              <Button href="/work" variant="tertiary" size="s" arrowIcon>Packages</Button>
+            </Column>
+            <Column padding="24" gap="12" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "20", radius: "m" }}>
+              <Heading as="h3" variant="heading-strong-s" align="center">Resort Partners</Heading>
+              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+                Add eFoil sessions to your resort's activity menu with zero capital investment.
+              </Text>
+              <Button href="/resorts" variant="tertiary" size="s" arrowIcon>Resorts</Button>
+            </Column>
+            <Column padding="24" gap="12" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "20", radius: "m" }}>
+              <Heading as="h3" variant="heading-strong-s" align="center">What Is an eFoil?</Heading>
+              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+                New to electric hydrofoils? Read our complete beginner's guide.
+              </Text>
+              <Button href="/blog/what-is-an-efoil" variant="tertiary" size="s" arrowIcon>Learn More</Button>
+            </Column>
+          </Grid>
+        </Column>
       </RevealFx>
     </Column>
   );

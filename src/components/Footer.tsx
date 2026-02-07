@@ -1,13 +1,69 @@
-import { Row, SmartLink, Text } from "@once-ui-system/core";
+import { Column, Grid, Row, SmartLink, Text } from "@once-ui-system/core";
 import { person, social } from "@/resources";
 import { TrackedSocialIcon } from "./TrackedSocialIcon";
 import styles from "./Footer.module.scss";
+
+const footerLinks = [
+  {
+    heading: "Services",
+    links: [
+      { label: "eFoil Packages", href: "/work" },
+      { label: "Yacht Delivery", href: "/yachts" },
+      { label: "Resort Partnership", href: "/resorts" },
+      { label: "Partner Network", href: "/partners" },
+    ],
+  },
+  {
+    heading: "Learn",
+    links: [
+      { label: "What Is eFoiling?", href: "/what-is-efoiling" },
+      { label: "Safety Guide", href: "/blog/efoil-safety-guide" },
+      { label: "Rental vs Buying", href: "/blog/efoil-rental-vs-buying" },
+      { label: "Blog", href: "/blog" },
+    ],
+  },
+  {
+    heading: "Company",
+    links: [
+      { label: "About", href: "/about" },
+      { label: "Gallery", href: "/gallery" },
+    ],
+  },
+];
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <Row as="footer" fillWidth padding="8" horizontal="center" s={{ direction: "column" }}>
+    <Column as="footer" fillWidth padding="8" horizontal="center">
+      {/* Footer Links Grid */}
+      <Grid
+        columns="3"
+        gap="32"
+        maxWidth="m"
+        fillWidth
+        paddingX="16"
+        paddingTop="40"
+        paddingBottom="24"
+        s={{ columns: 1, gap: "24", paddingTop: "32", paddingBottom: "20", paddingX: "12" }}
+      >
+        {footerLinks.map((section) => (
+          <Column key={section.heading} gap="12" s={{ gap: "8" }}>
+            <Text variant="label-strong-s" onBackground="neutral-strong" marginBottom="4">
+              {section.heading}
+            </Text>
+            {section.links.map((link) => (
+              <SmartLink key={link.href} href={link.href}>
+                <Text variant="body-default-s" onBackground="neutral-weak">
+                  {link.label}
+                </Text>
+              </SmartLink>
+            ))}
+          </Column>
+        ))}
+      </Grid>
+
+      {/* Bottom Bar */}
       <Row
         className={styles.mobile}
         maxWidth="m"
@@ -46,6 +102,6 @@ export const Footer = () => {
         </Row>
       </Row>
       <Row height="80" hide s={{ hide: false }} />
-    </Row>
+    </Column>
   );
 };

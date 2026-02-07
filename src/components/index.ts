@@ -12,3 +12,4 @@ export { CheckoutButton } from "@/components/CheckoutButton";
 export { MobileWhatsAppButton } from "@/components/MobileWhatsAppButton";
 export { RequestAvailabilityForm } from "@/components/RequestAvailabilityForm";
 export { PartnerApplicationForm } from "@/components/PartnerApplicationForm";
+export { Breadcrumbs } from "@/components/Breadcrumbs";

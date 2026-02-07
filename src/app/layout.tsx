@@ -30,8 +30,59 @@ export async function generateMetadata() {
       path: home.path,
       image: home.image,
     }),
+    verification: {
+      google: process.env.GOOGLE_SITE_VERIFICATION || undefined,
+    },
   };
 }
+
+const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${baseURL}/#organization`,
+  name: "eFoil Maldives",
+  url: baseURL,
+  logo: {
+    "@type": "ImageObject",
+    url: `${baseURL}/images/logofoil.png`,
+  },
+  email: "hello@efoil.rent",
+  telephone: `+${whatsappNumber}`,
+  description:
+    "Premium eFoil rental service in the Maldives. Electric hydrofoil delivery to yachts, boats, and resorts across all atolls.",
+  areaServed: {
+    "@type": "Country",
+    name: "Maldives",
+  },
+  sameAs: ["https://www.instagram.com/efoil.rent/"],
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: `+${whatsappNumber}`,
+      contactType: "reservations",
+      availableLanguage: ["English", "Dhivehi"],
+    },
+    {
+      "@type": "ContactPoint",
+      email: "hello@efoil.rent",
+      contactType: "customer service",
+    },
+  ],
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${baseURL}/#website`,
+  name: "eFoil Maldives",
+  url: baseURL,
+  description: home.description,
+  publisher: {
+    "@id": `${baseURL}/#organization`,
+  },
+};
 
 export default async function RootLayout({
   children,
@@ -52,6 +103,16 @@ export default async function RootLayout({
       )}
     >
       <head>
+        <script
+          id="organization-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          id="website-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         <script
           id="theme-init"
           dangerouslySetInnerHTML={{

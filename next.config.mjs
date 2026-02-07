@@ -55,6 +55,16 @@ const nextConfig = {
       // Gallery aliases
       { source: "/photos", destination: "/gallery", permanent: true },
       { source: "/media", destination: "/gallery", permanent: true },
+
+      // Informational page aliases
+      { source: "/efoil", destination: "/what-is-efoiling", permanent: true },
+      { source: "/efoiling", destination: "/what-is-efoiling", permanent: true },
+      { source: "/what-is-efoil", destination: "/what-is-efoiling", permanent: true },
+      { source: "/hydrofoil", destination: "/what-is-efoiling", permanent: true },
+
+      // Blog aliases
+      { source: "/articles", destination: "/blog", permanent: true },
+      { source: "/guides", destination: "/blog", permanent: true },
     ];
   },
 };

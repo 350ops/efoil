@@ -235,6 +235,7 @@ export default function Home() {
             loop
             muted
             playsInline
+            preload="metadata"
             style={{
               width: "100%",
               height: "auto",
@@ -243,7 +244,6 @@ export default function Home() {
             }}
           >
             <source src="/images/gallery/gliding.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
           </video>
         </Column>
       </RevealFx>
@@ -430,6 +430,77 @@ export default function Home() {
               <Text variant="body-default-s" onBackground="neutral-weak" align="center">
                 From luxury resorts to private islands across the Maldives
               </Text>
+            </Column>
+          </Grid>
+        </Column>
+      </RevealFx>
+
+      {/* Services Section — Internal Links */}
+      <RevealFx translateY="16" delay={0.2} fillWidth>
+        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
+          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+            <Heading as="h2" variant="display-strong-m" align="center">
+              Our Services
+            </Heading>
+            <Text variant="body-default-l" onBackground="neutral-weak" align="center">
+              Tailored eFoil experiences for every setting
+            </Text>
+          </Column>
+
+          <Grid columns="3" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
+            <Column
+              padding="32"
+              gap="16"
+              horizontal="center"
+              background="neutral-alpha-weak"
+              radius="l"
+              s={{ padding: "24", gap: "12", radius: "m" }}
+            >
+              <Heading as="h3" variant="heading-strong-m" align="center">
+                Yacht Delivery
+              </Heading>
+              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+                eFoil delivered to your yacht or superyacht at anchor. Instructor, equipment, and safety gear included. We handle everything.
+              </Text>
+              <Button href="/yachts" variant="secondary" size="s" arrowIcon>
+                Yacht Service
+              </Button>
+            </Column>
+            <Column
+              padding="32"
+              gap="16"
+              horizontal="center"
+              background="neutral-alpha-weak"
+              radius="l"
+              s={{ padding: "24", gap: "12", radius: "m" }}
+            >
+              <Heading as="h3" variant="heading-strong-m" align="center">
+                Resort Partnership
+              </Heading>
+              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+                Add a premium water sport to your resort's activity menu. No capital investment, no maintenance — we handle operations.
+              </Text>
+              <Button href="/resorts" variant="secondary" size="s" arrowIcon>
+                Resort Programme
+              </Button>
+            </Column>
+            <Column
+              padding="32"
+              gap="16"
+              horizontal="center"
+              background="neutral-alpha-weak"
+              radius="l"
+              s={{ padding: "24", gap: "12", radius: "m" }}
+            >
+              <Heading as="h3" variant="heading-strong-m" align="center">
+                Partner Network
+              </Heading>
+              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+                Join our network of certified eFoil operators. Equipment, training, and booking infrastructure provided.
+              </Text>
+              <Button href="/partners" variant="secondary" size="s" arrowIcon>
+                Become a Partner
+              </Button>
             </Column>
           </Grid>
         </Column>

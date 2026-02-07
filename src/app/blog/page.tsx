@@ -1,16 +1,20 @@
-import { Column, Heading, Meta, Schema } from "@once-ui-system/core";
+import { Column, Heading, Meta, Schema, Text } from "@once-ui-system/core";
 import { Mailchimp } from "@/components";
 import { Posts } from "@/components/blog/Posts";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { baseURL, blog, person, newsletter } from "@/resources";
 
 export async function generateMetadata() {
-  return Meta.generate({
-    title: blog.title,
-    description: blog.description,
-    baseURL: baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent(blog.title)}`,
-    path: blog.path,
-  });
+  return {
+    ...Meta.generate({
+      title: blog.title,
+      description: blog.description,
+      baseURL: baseURL,
+      image: `/api/og/generate?title=${encodeURIComponent(blog.title)}`,
+      path: blog.path,
+    }),
+    alternates: { canonical: "/blog" },
+  };
 }
 
 export default function Blog() {
@@ -29,17 +33,17 @@ export default function Blog() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Heading marginBottom="l" variant="heading-strong-xl" marginLeft="24">
+      <Breadcrumbs items={[{ name: "Blog", href: "/blog" }]} />
+      <Heading marginBottom="8" variant="heading-strong-xl" marginLeft="24">
         {blog.title}
       </Heading>
+      <Text variant="body-default-l" onBackground="neutral-weak" marginLeft="24" marginBottom="l">
+        {blog.description}
+      </Text>
       <Column fillWidth flex={1} gap="40">
         <Posts range={[1, 1]} thumbnail />
-        <Posts range={[2, 3]} columns="2" thumbnail direction="column" />
+        <Posts range={[2]} columns="2" thumbnail direction="column" />
         <Mailchimp marginBottom="l" />
-        <Heading as="h2" variant="heading-strong-xl" marginLeft="l">
-          Earlier posts
-        </Heading>
-        <Posts range={[4]} columns="2" />
       </Column>
     </Column>
   );

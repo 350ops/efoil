@@ -13,6 +13,7 @@ import {
 } from "@once-ui-system/core";
 import { baseURL, person, about } from "@/resources";
 import { PartnerApplicationForm } from "@/components/PartnerApplicationForm";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
 
@@ -105,6 +106,7 @@ export default function PartnersPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <Breadcrumbs items={[{ name: "Partner Operator Network", href: "/partners" }]} />
 
       {/* Hero */}
       <Column fillWidth horizontal="center" gap="l" s={{ gap: "m" }}>
@@ -310,6 +312,40 @@ export default function PartnersPage() {
       {/* Partner Application Form */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
         <PartnerApplicationForm />
+      </RevealFx>
+
+      {/* Cross-linking */}
+      <RevealFx translateY="16" delay={0.2} fillWidth>
+        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
+          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+            <Heading as="h2" variant="display-strong-m" align="center">
+              Explore More
+            </Heading>
+          </Column>
+          <Grid columns="3" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
+            <Column padding="24" gap="12" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "20", radius: "m" }}>
+              <Heading as="h3" variant="heading-strong-s" align="center">Yacht Delivery</Heading>
+              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+                See how we deliver eFoil experiences to yachts and superyachts across the Maldives.
+              </Text>
+              <Button href="/yachts" variant="tertiary" size="s" arrowIcon>Yacht Service</Button>
+            </Column>
+            <Column padding="24" gap="12" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "20", radius: "m" }}>
+              <Heading as="h3" variant="heading-strong-s" align="center">Resort Programme</Heading>
+              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+                Learn about our resort partnership model for guest eFoil experiences.
+              </Text>
+              <Button href="/resorts" variant="tertiary" size="s" arrowIcon>Resort Partners</Button>
+            </Column>
+            <Column padding="24" gap="12" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "20", radius: "m" }}>
+              <Heading as="h3" variant="heading-strong-s" align="center">Rental vs Buying</Heading>
+              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+                Understand the economics of eFoil rental operations vs equipment purchase.
+              </Text>
+              <Button href="/blog/efoil-rental-vs-buying" variant="tertiary" size="s" arrowIcon>Cost Guide</Button>
+            </Column>
+          </Grid>
+        </Column>
       </RevealFx>
     </Column>
   );
