@@ -13,6 +13,7 @@ import {
 import { baseURL, about, person, work } from "@/resources";
 import { Projects } from "@/components/work/Projects";
 import { CheckoutButton } from "@/components/CheckoutButton";
+import { RequestAvailabilityForm } from "@/components/RequestAvailabilityForm";
 
 const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
 
@@ -175,42 +176,9 @@ export default function Work() {
         </Column>
       </RevealFx>
 
-      {/* Contact Section */}
+      {/* Availability Form */}
       <RevealFx translateY="16">
-        <Column
-          fillWidth
-          padding="48"
-          gap="24"
-          horizontal="center"
-          background="neutral-alpha-weak"
-          radius="xl"
-          s={{ padding: "32", gap: "20", radius: "l" }}
-        >
-          <Heading as="h2" variant="heading-strong-xl" align="center">
-            Questions About Booking?
-          </Heading>
-          <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-            Our team is here to help you plan the perfect eFoil experience in the Maldives
-          </Text>
-          <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column", gap: "12" }}>
-            <Button
-              href={`https://wa.me/${whatsappNumber}`}
-              variant="primary"
-              size="l"
-             
-            >
-              WhatsApp Us
-            </Button>
-            <Button
-              href="mailto:hello@efoil.rent"
-              variant="secondary"
-              size="l"
-             
-            >
-              Send Email
-            </Button>
-          </Row>
-        </Column>
+        <RequestAvailabilityForm />
       </RevealFx>
     </Column>
   );

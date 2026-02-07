@@ -10,3 +10,5 @@ export { ThemeToggle } from "@/components/ThemeToggle";
 export { CustomMDX } from "@/components/mdx";
 export { CheckoutButton } from "@/components/CheckoutButton";
 export { MobileWhatsAppButton } from "@/components/MobileWhatsAppButton";
+export { RequestAvailabilityForm } from "@/components/RequestAvailabilityForm";
+export { PartnerApplicationForm } from "@/components/PartnerApplicationForm";

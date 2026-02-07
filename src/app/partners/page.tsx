@@ -12,6 +12,7 @@ import {
   Line,
 } from "@once-ui-system/core";
 import { baseURL, person, about } from "@/resources";
+import { PartnerApplicationForm } from "@/components/PartnerApplicationForm";
 
 const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
 
@@ -306,37 +307,9 @@ export default function PartnersPage() {
         </Column>
       </RevealFx>
 
-      {/* CTA */}
+      {/* Partner Application Form */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column
-          fillWidth padding="48" gap="24" horizontal="center"
-          background="brand-alpha-weak" radius="xl"
-          s={{ padding: "32", gap: "20", radius: "l" }}
-        >
-          <Heading as="h2" variant="display-strong-m" align="center">
-            Ready to Join the Network?
-          </Heading>
-          <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-            Start your eFoil operator business with proven equipment and a growing demand
-          </Text>
-          <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column", gap: "12" }}>
-            <Button
-              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi, I'd like to apply as an eFoil partner operator.")}`}
-              variant="primary"
-              size="l"
-              weight="strong"
-            >
-              Apply via WhatsApp
-            </Button>
-            <Button
-              href="mailto:hello@efoil.rent?subject=Partner Operator Application"
-              variant="secondary"
-              size="l"
-            >
-              Send Email
-            </Button>
-          </Row>
-        </Column>
+        <PartnerApplicationForm />
       </RevealFx>
     </Column>
   );
