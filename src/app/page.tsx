@@ -29,6 +29,138 @@ export async function generateMetadata() {
   };
 }
 
+const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "eFoil Rental Maldives",
+  description:
+    "Premium Audi e-tron eFoil rental service with delivery to yachts, boats, and resorts across the Maldives. Includes professional instruction and all safety equipment.",
+  provider: {
+    "@type": "Organization",
+    name: "eFoil Maldives",
+    url: baseURL,
+    logo: `${baseURL}/images/logofoil.png`,
+    email: "hello@efoil.rent",
+    telephone: `+${whatsappNumber}`,
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: `+${whatsappNumber}`,
+        contactType: "reservations",
+        availableLanguage: ["English", "Dhivehi"],
+      },
+      {
+        "@type": "ContactPoint",
+        email: "hello@efoil.rent",
+        contactType: "customer service",
+      },
+    ],
+  },
+  serviceType: "eFoil rental",
+  areaServed: {
+    "@type": "Country",
+    name: "Maldives",
+  },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "eFoil Rental Packages",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        name: "Hourly Session (2hr minimum)",
+        price: "500.00",
+        priceCurrency: "USD",
+        description:
+          "2-hour minimum eFoil rental with professional instruction and all safety gear.",
+        url: `${baseURL}/work`,
+      },
+      {
+        "@type": "Offer",
+        name: "Half-Day Adventure",
+        price: "800.00",
+        priceCurrency: "USD",
+        description:
+          "4 hours of eFoil riding with extended instruction, multiple sessions, and photo opportunities.",
+        url: `${baseURL}/work`,
+      },
+      {
+        "@type": "Offer",
+        name: "Full-Day Experience",
+        price: "1400.00",
+        priceCurrency: "USD",
+        description:
+          "8 hours with the eFoil. Ideal for groups or exploring multiple spots around your location.",
+        url: `${baseURL}/work`,
+      },
+    ],
+  },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How does eFoil delivery to yachts and resorts work?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Our team brings the Audi e-tron eFoil directly to your yacht, liveaboard, or resort anywhere in the Maldives. We handle all transport, setup, and equipment. Just tell us your location and preferred time when you book.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is eFoiling suitable for beginners?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Every rental includes a professional instruction session and safety briefing tailored to your experience level. Most beginners are up and riding within 15–20 minutes. The Audi e-tron eFoil has intuitive speed control via a wireless handheld remote, making it accessible for first-timers.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is the minimum rental duration?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The minimum booking is a 2-hour session at $250 per hour ($500 total). We also offer half-day (4 hours, $800) and full-day (8 hours, $1,400) packages for a more immersive experience.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What happens if the weather is bad on my booking day?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Safety is our priority. If conditions are unsuitable for riding, we will work with you to reschedule at no extra cost. Our team monitors weather and sea conditions and will contact you in advance if adjustments are needed.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is a safety briefing included?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Every session begins with a safety briefing covering board handling, speed control, water safety, and riding technique. All necessary safety gear—including a life vest and helmet—is provided at no additional charge.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How do I book an eFoil rental?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "You can book directly on our website using secure Stripe checkout, or contact us via WhatsApp or email. Choose your preferred package, select a date, and we handle the rest—from delivery to instruction.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What eFoil equipment do you use?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We use the Audi e-tron eFoil, a premium electric hydrofoil board engineered for performance and safety. It features a carbon fiber construction, silent electric motor, and a wireless hand controller for precise speed management. All equipment is professionally maintained between sessions.",
+      },
+    },
+  ],
+};
+
 export default function Home() {
   return (
     <Column maxWidth="l" gap="xl" paddingY="12" paddingX="16" horizontal="center" s={{ paddingY: "8", paddingX: "12", gap: "l" }}>
@@ -44,6 +176,14 @@ export default function Home() {
           url: `${baseURL}${about.path}`,
           image: `${baseURL}${person.avatar}`,
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       
       {/* Hero Section */}
