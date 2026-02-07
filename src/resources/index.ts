@@ -8,6 +8,8 @@ export {
   blog,
   work,
   gallery,
+  events,
+  crew,
 } from "./content";
 
 export {

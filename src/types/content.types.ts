@@ -224,6 +224,18 @@ export interface Blog extends BasePageConfig {}
 export interface Work extends BasePageConfig {}
 
 /**
+ * Events page configuration.
+ * @description Configuration for the Watersports Events page.
+ */
+export interface Events extends BasePageConfig {}
+
+/**
+ * Crew page configuration.
+ * @description Configuration for the Airline Crew Day Trips page.
+ */
+export interface Crew extends BasePageConfig {}
+
+/**
  * Gallery page configuration.
  * @description Configuration for the Gallery page, including metadata, navigation label, and image list.
  */

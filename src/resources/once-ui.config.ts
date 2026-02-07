@@ -20,8 +20,10 @@ const routes: RoutesConfig = {
   "/": true,
   "/about": true,
   "/work": true,
-  "/blog": false, // Enable when blog content is ready
+  "/blog": true,
   "/gallery": true,
+  "/events": true,
+  "/crew": true,
   "/yachts": true,
   "/resorts": true,
   "/partners": true,

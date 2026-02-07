@@ -11,7 +11,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/work": 0.9,
     "/yachts": 0.85,
     "/resorts": 0.85,
+    "/events": 0.8,
+    "/crew": 0.8,
     "/partners": 0.8,
+    "/blog": 0.75,
     "/about": 0.7,
     "/gallery": 0.6,
   };

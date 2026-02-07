@@ -456,6 +456,26 @@ export default function Home() {
         </Column>
       </RevealFx>
 
+      {/* Airline Crew Banner */}
+      <RevealFx translateY="16" delay={0.2} fillWidth>
+        <Column
+          fillWidth
+          padding="32"
+          gap="12"
+          horizontal="center"
+          background="neutral-alpha-weak"
+          radius="xl"
+          s={{ padding: "24", gap: "8", radius: "l" }}
+        >
+          <Text variant="heading-default-l" align="center" onBackground="neutral-strong">
+            Are you airline crew?
+          </Text>
+          <Button href="/crew" variant="tertiary" size="m" arrowIcon>
+            Tap here
+          </Button>
+        </Column>
+      </RevealFx>
+
       {/* Newsletter */}
       <Mailchimp />
     </Column>

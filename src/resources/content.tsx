@@ -1,4 +1,4 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import { About, Blog, Crew, Events, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
@@ -171,8 +171,8 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "eFoil Tips & Maldives Adventures",
-  description: `Discover eFoil riding tips, best locations in the Maldives, and stories from our adventures on the water.`,
+  title: "eFoil Tips & Maldives Watersports Adventures",
+  description: `Discover eFoil riding tips, wingfoil and kitesurf stories, watersports events, and adventures across the Maldives.`,
 };
 
 const work: Work = {
@@ -180,6 +180,20 @@ const work: Work = {
   label: "Experience",
   title: `eFoil Packages & Experiences | eFoil Maldives`,
   description: `Explore our eFoil rental packages, from hourly sessions to multi-day adventures in the Maldives.`,
+};
+
+const events: Events = {
+  path: "/events",
+  label: "Events",
+  title: "Maldives Watersports Events | Wingfoil, Kitesurf & Surf Competitions",
+  description: `Explore the growing watersports scene in the Maldives. Upcoming wingfoil competitions, kitesurf events, surf contests, and why the Maldives is the next world-class watersports destination.`,
+};
+
+const crew: Crew = {
+  path: "/crew",
+  label: "Crew Trips",
+  title: "Airline Crew Day Trip Maldives | Dolphins, Snorkeling, Sandbank & Sunset",
+  description: `The ultimate Maldives layover experience for airline crew. Swim with dolphins, snorkel pristine reefs, visit a private sandbank, and cruise into the sunset. From $80/person, groups up to 6.`,
 };
 
 const gallery: Gallery = {
@@ -231,4 +245,4 @@ const gallery: Gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, social, newsletter, home, about, blog, work, gallery, events, crew };
