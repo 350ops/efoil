@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button, Column, Heading, Input, Row, Select, Text, Textarea } from "@once-ui-system/core";
+import { trackLeadSubmit } from "@/lib/analytics";
 
 const operationOptions = [
   { value: "water-sport-operator", label: "Water Sport Operator" },
@@ -49,6 +50,7 @@ export function PartnerApplicationForm() {
         setStatus("error");
         return;
       }
+      trackLeadSubmit("partner");
       setStatus("success");
     } catch {
       setErrorMsg("Network error. Please try again.");

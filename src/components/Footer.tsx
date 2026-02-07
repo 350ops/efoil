@@ -1,5 +1,6 @@
-import { Row, IconButton, SmartLink, Text } from "@once-ui-system/core";
+import { Row, SmartLink, Text } from "@once-ui-system/core";
 import { person, social } from "@/resources";
+import { TrackedSocialIcon } from "./TrackedSocialIcon";
 import styles from "./Footer.module.scss";
 
 export const Footer = () => {
@@ -34,13 +35,11 @@ export const Footer = () => {
           {social.map(
             (item) =>
               item.link && (
-                <IconButton
+                <TrackedSocialIcon
                   key={item.name}
-                  href={item.link}
+                  name={item.name}
+                  link={item.link}
                   icon={item.icon}
-                  tooltip={item.name}
-                  size="s"
-                  variant="ghost"
                 />
               ),
           )}

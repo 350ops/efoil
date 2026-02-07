@@ -2,13 +2,13 @@
 
 import { IconButton, Row } from "@once-ui-system/core";
 import { usePathname } from "next/navigation";
+import { trackWhatsApp } from "@/lib/analytics";
 
 const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
 
 export function MobileWhatsAppButton() {
   const pathname = usePathname();
   
-  // Don't show on success page or if already on WhatsApp
   if (pathname === "/booking/success") {
     return null;
   }
@@ -32,6 +32,7 @@ export function MobileWhatsAppButton() {
         variant="primary"
         size="l"
         tooltip="Book via WhatsApp"
+        onClick={() => trackWhatsApp("mobile_fab")}
         style={{
           boxShadow: "0 8px 24px rgba(0, 0, 0, 0.3)",
         }}

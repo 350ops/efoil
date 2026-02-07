@@ -2,6 +2,7 @@
 
 import { Button } from "@once-ui-system/core";
 import { useState } from "react";
+import { trackCheckout } from "@/lib/analytics";
 
 interface CheckoutButtonProps {
   packageId: string;
@@ -14,6 +15,7 @@ export function CheckoutButton({ packageId, packageName, popular }: CheckoutButt
 
   const handleCheckout = async () => {
     setLoading(true);
+    trackCheckout(packageId);
     try {
       const response = await fetch("/api/checkout", {
         method: "POST",

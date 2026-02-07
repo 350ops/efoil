@@ -15,6 +15,7 @@ import {
 } from "@once-ui-system/core";
 import { home, about, person, baseURL, routes, gallery } from "@/resources";
 import { Mailchimp } from "@/components";
+import { HeroCTA, BottomCTA } from "@/components/HeroCTA";
 
 export async function generateMetadata() {
   return {
@@ -221,30 +222,7 @@ export default function Home() {
             </Text>
           </RevealFx>
           <RevealFx paddingTop="12" delay={0.4} horizontal="center" fillWidth s={{ paddingTop: "8" }}>
-            <Column gap="16" horizontal="center" fillWidth s={{ gap: "12" }}>
-              <Button
-                id="book-now"
-                data-border="rounded"
-                href="/work"
-                variant="primary"
-                size="l"
-                weight="strong"
-                arrowIcon
-                fillWidth
-              >
-                Book Your eFoil
-              </Button>
-              <Button
-                id="learn-more"
-                data-border="rounded"
-                href="/about"
-                variant="secondary"
-                size="l"
-                fillWidth
-              >
-                Learn More
-              </Button>
-            </Column>
+            <HeroCTA />
           </RevealFx>
         </Column>
       </Column>
@@ -474,16 +452,7 @@ export default function Home() {
           <Text variant="body-default-l" onBackground="neutral-weak" align="center">
             Book your eFoil experience today and create unforgettable memories in the Maldives
           </Text>
-          <Button
-            href="/work"
-            variant="primary"
-            size="l"
-            weight="strong"
-            arrowIcon
-           
-          >
-            View Packages & Book Now
-          </Button>
+          <BottomCTA />
         </Column>
       </RevealFx>
 

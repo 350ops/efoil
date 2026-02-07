@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button, Column, Heading, Input, Row, Text, Textarea } from "@once-ui-system/core";
+import { trackLeadSubmit } from "@/lib/analytics";
 
 export function RequestAvailabilityForm() {
   const [form, setForm] = useState({
@@ -38,6 +39,7 @@ export function RequestAvailabilityForm() {
         setStatus("error");
         return;
       }
+      trackLeadSubmit("availability");
       setStatus("success");
     } catch {
       setErrorMsg("Network error. Please try again.");
