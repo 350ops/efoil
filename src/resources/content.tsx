@@ -171,8 +171,8 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "eFoil Tips & Maldives Adventures",
-  description: `Discover eFoil riding tips, best locations in the Maldives, and stories from our adventures on the water.`,
+  title: "eFoil Blog | Tips, Guides & Maldives Water Sport Adventures",
+  description: `Expert eFoil guides, safety tips, rental advice, and the best water sport experiences in the Maldives. Everything you need to know about electric hydrofoil riding.`,
 };
 
 const work: Work = {

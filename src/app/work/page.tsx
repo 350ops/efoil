@@ -14,6 +14,7 @@ import { baseURL, about, person, work } from "@/resources";
 import { Projects } from "@/components/work/Projects";
 import { CheckoutButton } from "@/components/CheckoutButton";
 import { RequestAvailabilityForm } from "@/components/RequestAvailabilityForm";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
 
@@ -76,6 +77,8 @@ export default function Work() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
+
+      <Breadcrumbs items={[{ name: "eFoil Packages", href: "/work" }]} />
 
       {/* Hero Section */}
       <Column horizontal="center" gap="m" s={{ gap: "12" }}>

@@ -13,6 +13,7 @@ import {
 } from "@once-ui-system/core";
 import { baseURL, person, about } from "@/resources";
 import { RequestAvailabilityForm } from "@/components/RequestAvailabilityForm";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
 
@@ -105,6 +106,7 @@ export default function ResortsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <Breadcrumbs items={[{ name: "Resort eFoil Partnership", href: "/resorts" }]} />
 
       {/* Hero */}
       <Column fillWidth horizontal="center" gap="l" s={{ gap: "m" }}>
@@ -317,6 +319,40 @@ export default function ResortsPage() {
       {/* Availability Form */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
         <RequestAvailabilityForm />
+      </RevealFx>
+
+      {/* Cross-linking */}
+      <RevealFx translateY="16" delay={0.2} fillWidth>
+        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
+          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+            <Heading as="h2" variant="display-strong-m" align="center">
+              Explore More
+            </Heading>
+          </Column>
+          <Grid columns="3" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
+            <Column padding="24" gap="12" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "20", radius: "m" }}>
+              <Heading as="h3" variant="heading-strong-s" align="center">Yacht Delivery</Heading>
+              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+                We also deliver eFoils to yachts and superyachts at anchor across the Maldives.
+              </Text>
+              <Button href="/yachts" variant="tertiary" size="s" arrowIcon>Yacht Service</Button>
+            </Column>
+            <Column padding="24" gap="12" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "20", radius: "m" }}>
+              <Heading as="h3" variant="heading-strong-s" align="center">Become a Partner</Heading>
+              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+                Join our operator network with equipment, training, and booking infrastructure.
+              </Text>
+              <Button href="/partners" variant="tertiary" size="s" arrowIcon>Partner Programme</Button>
+            </Column>
+            <Column padding="24" gap="12" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "20", radius: "m" }}>
+              <Heading as="h3" variant="heading-strong-s" align="center">eFoil Safety</Heading>
+              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+                Read our comprehensive safety guide covering equipment, procedures, and best practices.
+              </Text>
+              <Button href="/blog/efoil-safety-guide" variant="tertiary" size="s" arrowIcon>Safety Guide</Button>
+            </Column>
+          </Grid>
+        </Column>
       </RevealFx>
     </Column>
   );
