@@ -17,13 +17,16 @@ import { home, about, person, baseURL, routes, gallery } from "@/resources";
 import { Mailchimp } from "@/components";
 
 export async function generateMetadata() {
-  return Meta.generate({
-    title: home.title,
-    description: home.description,
-    baseURL: baseURL,
-    path: home.path,
-    image: home.image,
-  });
+  return {
+    ...Meta.generate({
+      title: home.title,
+      description: home.description,
+      baseURL: baseURL,
+      path: home.path,
+      image: home.image,
+    }),
+    alternates: { canonical: "/" },
+  };
 }
 
 export default function Home() {
@@ -87,7 +90,6 @@ export default function Home() {
                 size="l"
                 weight="strong"
                 arrowIcon
-               
               >
                 Book Your eFoil
               </Button>
@@ -97,7 +99,6 @@ export default function Home() {
                 href="/about"
                 variant="secondary"
                 size="l"
-               
               >
                 Learn More
               </Button>

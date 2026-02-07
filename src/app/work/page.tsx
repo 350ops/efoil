@@ -17,13 +17,16 @@ import { CheckoutButton } from "@/components/CheckoutButton";
 const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
 
 export async function generateMetadata() {
-  return Meta.generate({
-    title: "eFoil Rental Packages | Book Your Maldives Experience",
-    description: "Choose your eFoil adventure package. Hourly sessions, half-day, or full-day experiences. Premium Audi e-tron eFoil delivered to your yacht, boat, or resort.",
-    baseURL: baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent("eFoil Rental Packages")}`,
-    path: work.path,
-  });
+  return {
+    ...Meta.generate({
+      title: "eFoil Rental Packages | Book Your Maldives Experience",
+      description: "Choose your eFoil adventure package. Hourly sessions, half-day, or full-day experiences. Premium Audi e-tron eFoil delivered to your yacht, boat, or resort.",
+      baseURL: baseURL,
+      image: `/api/og/generate?title=${encodeURIComponent("eFoil Rental Packages")}`,
+      path: work.path,
+    }),
+    alternates: { canonical: "/work" },
+  };
 }
 
 const packages = [
