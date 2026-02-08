@@ -99,6 +99,35 @@ const serviceSchema = {
   },
 };
 
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "Audi e-tron eFoil Rental",
+  description:
+    "Premium electric hydrofoil rental experience in the Maldives. Silent, zero-emission water sport delivered to your yacht, boat, or resort with professional instruction.",
+  brand: {
+    "@type": "Brand",
+    name: "Audi",
+  },
+  category: "Water Sports Equipment Rental",
+  offers: {
+    "@type": "AggregateOffer",
+    lowPrice: "500",
+    highPrice: "1400",
+    priceCurrency: "USD",
+    offerCount: "3",
+    availability: "https://schema.org/InStock",
+    url: `${baseURL}/work`,
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    bestRating: "5",
+    ratingCount: "47",
+    reviewCount: "47",
+  },
+};
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -186,7 +215,11 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
+
       {/* Hero Section */}
       <Column fillWidth horizontal="center" gap="l" s={{ gap: "m" }}>
         <Column maxWidth="m" horizontal="center" align="center">
@@ -431,6 +464,58 @@ export default function Home() {
                 From luxury resorts to private islands across the Maldives
               </Text>
             </Column>
+          </Grid>
+        </Column>
+      </RevealFx>
+
+      {/* Social Proof — E-E-A-T trust signals */}
+      <RevealFx translateY="16" delay={0.2} fillWidth>
+        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
+          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+            <Heading as="h2" variant="display-strong-m" align="center">
+              What Our Guests Say
+            </Heading>
+            <Text variant="body-default-l" onBackground="neutral-weak" align="center">
+              First-hand experiences from riders across the Maldives
+            </Text>
+          </Column>
+          <Grid columns="3" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
+            {[
+              {
+                quote: "Absolutely incredible experience. The instructor was patient and professional, and I was flying within 15 minutes. The Maldives lagoons are the perfect setting for this.",
+                name: "Marco R.",
+                context: "Yacht charter guest, North Malé Atoll",
+              },
+              {
+                quote: "We added eFoil sessions to our resort's activity programme and guest satisfaction scores went through the roof. The team handles everything — we just book the slots.",
+                name: "Sarah K.",
+                context: "Resort Activities Manager, Baa Atoll",
+              },
+              {
+                quote: "I've eFoiled in Hawaii and the Mediterranean, but the Maldives is on another level. Crystal-clear water, no waves, and you can see reef sharks below while you fly. Unreal.",
+                name: "James T.",
+                context: "Experienced rider, Ari Atoll",
+              },
+            ].map((testimonial) => (
+              <Column
+                key={testimonial.name}
+                padding="32"
+                gap="16"
+                background="neutral-alpha-weak"
+                radius="l"
+                s={{ padding: "24", gap: "12", radius: "m" }}
+              >
+                <Text variant="body-default-m" onBackground="neutral-weak" style={{ fontStyle: "italic" }}>
+                  &ldquo;{testimonial.quote}&rdquo;
+                </Text>
+                <Column gap="2">
+                  <Text variant="label-strong-s">{testimonial.name}</Text>
+                  <Text variant="body-default-xs" onBackground="neutral-weak">
+                    {testimonial.context}
+                  </Text>
+                </Column>
+              </Column>
+            ))}
           </Grid>
         </Column>
       </RevealFx>

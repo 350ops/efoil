@@ -27,6 +27,7 @@ const footerLinks = [
     links: [
       { label: "About", href: "/about" },
       { label: "Gallery", href: "/gallery" },
+      { label: "Maldives Locations", href: "/maldives-atolls" },
     ],
   },
 ];

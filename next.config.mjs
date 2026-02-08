@@ -62,6 +62,10 @@ const nextConfig = {
       { source: "/what-is-efoil", destination: "/what-is-efoiling", permanent: true },
       { source: "/hydrofoil", destination: "/what-is-efoiling", permanent: true },
 
+      // Location page aliases
+      { source: "/locations", destination: "/maldives-atolls", permanent: true },
+      { source: "/atolls", destination: "/maldives-atolls", permanent: true },
+
       // Blog aliases
       { source: "/articles", destination: "/blog", permanent: true },
       { source: "/guides", destination: "/blog", permanent: true },

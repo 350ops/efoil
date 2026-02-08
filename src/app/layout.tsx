@@ -103,6 +103,10 @@ export default async function RootLayout({
       )}
     >
       <head>
+        {/* Preconnect hints for faster resource loading (Core Web Vitals) */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://va.vercel-scripts.com" />
         <script
           id="organization-schema"
           type="application/ld+json"

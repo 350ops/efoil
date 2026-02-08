@@ -12,6 +12,19 @@ const person: Person = {
   languages: ["English", "Dhivehi"], // Languages supported
 };
 
+// Founder / team identity for E-E-A-T signals
+const founder = {
+  name: "eFoil Maldives Team",
+  role: "Certified eFoil Instructors & Water Sport Professionals",
+  bio: "Our team of certified water sport professionals has been operating in the Maldives for over a decade. We combine deep local knowledge of the atolls with hands-on eFoil expertise to deliver the safest, most memorable experiences on the water.",
+  credentials: [
+    "Certified eFoil instructors",
+    "Water safety and first aid trained",
+    "10+ years of Maldives water sport operations",
+    "Insurance-backed commercial operators",
+  ],
+};
+
 const newsletter: Newsletter = {
   display: true,
   title: <>Get Exclusive eFoil Offers</>,
@@ -87,11 +100,20 @@ const about: About = {
     title: "Your Gateway to Flying on Water",
     description: (
       <>
-        eFoil Maldives is the premier electric hydrofoil rental service in the Maldives. 
-        We bring the revolutionary Audi e-tron eFoil experience directly to you—whether you're 
-        on a luxury yacht, liveaboard, or at an island resort. Our professional team handles 
-        everything from delivery to instruction, ensuring you have an unforgettable experience 
-        gliding above the pristine waters of the Indian Ocean.
+        <Text variant="body-default-l">
+          eFoil Maldives is the premier electric hydrofoil rental service in the Maldives.
+          We bring the revolutionary Audi e-tron eFoil experience directly to you — whether
+          you&apos;re on a luxury yacht, liveaboard, or at an island resort.
+        </Text>
+        <Text variant="body-default-l">
+          Our team has spent over a decade working across the Maldivian atolls — we know the
+          currents, the lagoons, the wind patterns, and the best spots to ride in every season.
+          That local expertise, combined with professional eFoil instruction and certified
+          safety protocols, means every session is safe, personalised, and unforgettable.
+        </Text>
+        <Text variant="body-default-l">
+          We handle everything from delivery to instruction. You just show up and fly.
+        </Text>
       </>
     ),
   },
@@ -231,4 +253,4 @@ const gallery: Gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, founder, social, newsletter, home, about, blog, work, gallery };

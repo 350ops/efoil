@@ -1,21 +1,23 @@
 import { notFound } from "next/navigation";
 import { CustomMDX, ScrollToHash } from "@/components";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import {
   Meta,
   Schema,
   Column,
   Heading,
   HeadingNav,
-  Icon,
   Row,
   Text,
   SmartLink,
   Avatar,
   Media,
   Line,
+  Tag,
 } from "@once-ui-system/core";
-import { baseURL, about, blog, person } from "@/resources";
+import { baseURL, about, blog, person, founder } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
+import { getReadingTime } from "@/utils/readingTime";
 import { getPosts } from "@/utils/utils";
 import { Metadata } from "next";
 import React from "react";
@@ -44,13 +46,16 @@ export async function generateMetadata({
 
   if (!post) return {};
 
-  return Meta.generate({
-    title: post.metadata.title,
-    description: post.metadata.summary,
-    baseURL: baseURL,
-    image: post.metadata.image || `/api/og/generate?title=${post.metadata.title}`,
-    path: `${blog.path}/${post.slug}`,
-  });
+  return {
+    ...Meta.generate({
+      title: post.metadata.title,
+      description: post.metadata.summary,
+      baseURL: baseURL,
+      image: post.metadata.image || `/api/og/generate?title=${post.metadata.title}`,
+      path: `${blog.path}/${post.slug}`,
+    }),
+    alternates: { canonical: `/blog/${post.slug}` },
+  };
 }
 
 export default async function Blog({ params }: { params: Promise<{ slug: string | string[] }> }) {
@@ -65,10 +70,8 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
     notFound();
   }
 
-  const avatars =
-    post.metadata.team?.map((person) => ({
-      src: person.avatar,
-    })) || [];
+  const readingTime = getReadingTime(post.content);
+  const dateModified = post.metadata.updatedAt || post.metadata.publishedAt;
 
   return (
     <Row fillWidth>
@@ -82,43 +85,75 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
             title={post.metadata.title}
             description={post.metadata.summary}
             datePublished={post.metadata.publishedAt}
-            dateModified={post.metadata.publishedAt}
+            dateModified={dateModified}
             image={
               post.metadata.image ||
               `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`
             }
             author={{
-              name: person.name,
+              name: founder.name,
               url: `${baseURL}${about.path}`,
               image: `${baseURL}${person.avatar}`,
             }}
+          />
+          <Breadcrumbs
+            items={[
+              { name: "Blog", href: "/blog" },
+              { name: post.metadata.title, href: `/blog/${post.slug}` },
+            ]}
           />
           <Column maxWidth="s" gap="16" horizontal="center" align="center">
             <SmartLink href="/blog">
               <Text variant="label-strong-m">Blog</Text>
             </SmartLink>
-            <Text variant="body-default-xs" onBackground="neutral-weak" marginBottom="12">
-              {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
-            </Text>
+            {/* Date + reading time + tag — engagement & freshness signals */}
+            <Row gap="12" vertical="center" wrap horizontal="center">
+              <Text variant="body-default-xs" onBackground="neutral-weak">
+                {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
+              </Text>
+              <Text variant="body-default-xs" onBackground="neutral-weak">·</Text>
+              <Text variant="body-default-xs" onBackground="neutral-weak">
+                {readingTime}
+              </Text>
+              {post.metadata.tag && (
+                <>
+                  <Text variant="body-default-xs" onBackground="neutral-weak">·</Text>
+                  <Tag size="s">{post.metadata.tag}</Tag>
+                </>
+              )}
+            </Row>
+            {post.metadata.updatedAt && (
+              <Text variant="body-default-xs" onBackground="brand-weak">
+                Updated {formatDate(post.metadata.updatedAt)}
+              </Text>
+            )}
             <Heading variant="display-strong-m">{post.metadata.title}</Heading>
             {post.metadata.subtitle && (
-              <Text 
-                variant="body-default-l" 
-                onBackground="neutral-weak" 
+              <Text
+                variant="body-default-l"
+                onBackground="neutral-weak"
                 align="center"
-                style={{ fontStyle: 'italic' }}
+                style={{ fontStyle: "italic" }}
               >
                 {post.metadata.subtitle}
               </Text>
             )}
           </Column>
+          {/* Author section — E-E-A-T signal */}
           <Row marginBottom="32" horizontal="center">
-            <Row gap="16" vertical="center">
-              <Avatar size="s" src={person.avatar} />
-              <Text variant="label-default-m" onBackground="brand-weak">
-                {person.name}
-              </Text>
-            </Row>
+            <Column gap="8" horizontal="center" align="center">
+              <Row gap="12" vertical="center">
+                <Avatar size="s" src={person.avatar} />
+                <Column gap="2">
+                  <Text variant="label-default-m" onBackground="brand-weak">
+                    {founder.name}
+                  </Text>
+                  <Text variant="body-default-xs" onBackground="neutral-weak">
+                    {founder.role}
+                  </Text>
+                </Column>
+              </Row>
+            </Column>
           </Row>
           {post.metadata.image && (
             <Media
@@ -136,10 +171,10 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
           <Column as="article" maxWidth="s">
             <CustomMDX source={post.content} />
           </Column>
-          
-          <ShareSection 
-            title={post.metadata.title} 
-            url={`${baseURL}${blog.path}/${post.slug}`} 
+
+          <ShareSection
+            title={post.metadata.title}
+            url={`${baseURL}${blog.path}/${post.slug}`}
           />
 
           <Column fillWidth gap="40" horizontal="center" marginTop="40">
