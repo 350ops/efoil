@@ -5,23 +5,23 @@ const person: Person = {
   firstName: "eFoil",
   lastName: "Maldives",
   name: `eFoil Maldives`,
-  role: "Premium eFoil Rental Service",
+  role: "eFoil Experiences — Arranged by Certified Local Partners",
   avatar: "/images/logofoil.png",
   email: "hello@efoil.rent",
   location: "Indian/Maldives", // IANA time zone identifier
   languages: ["English", "Dhivehi"], // Languages supported
 };
 
-// Founder / team identity for E-E-A-T signals
+// Team identity for E-E-A-T signals
 const founder = {
-  name: "eFoil Maldives Team",
-  role: "Certified eFoil Instructors & Water Sport Professionals",
-  bio: "Our team of certified water sport professionals has been operating in the Maldives for over a decade. We combine deep local knowledge of the atolls with hands-on eFoil expertise to deliver the safest, most memorable experiences on the water.",
+  name: "eFoil Maldives",
+  role: "Water Sport Marketing & Operations — International Agency",
+  bio: "We are an international agency specialising in water sport experiences. Our certified local partners in the Maldives operate a fleet of premium eFoils and handle all on-water logistics, instruction, and safety. We take care of the rest — from marketing and booking coordination to ensuring every session exceeds expectations.",
   credentials: [
-    "Certified eFoil instructors",
-    "Water safety and first aid trained",
-    "10+ years of Maldives water sport operations",
-    "Insurance-backed commercial operators",
+    "International water sport marketing agency",
+    "Certified local partners with licensed operations",
+    "Fleet includes Audi e-tron, Fliteboard & Lift eFoils",
+    "Insurance-backed commercial operations",
   ],
 };
 
@@ -56,25 +56,25 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: `eFoil Rental Maldives | Audi e-tron eFoil Delivery to Yachts & Resorts`,
-  description: `Experience the thrill of flying above the crystal-clear waters of the Maldives. Premium Audi e-tron eFoil rentals delivered directly to your yacht, boat, or resort. Book your unforgettable eFoil adventure today.`,
+  title: `eFoil Rental Maldives | Premium eFoil Experiences Delivered to Yachts & Resorts`,
+  description: `Experience the thrill of flying above the crystal-clear waters of the Maldives. Premium eFoil experiences — Audi e-tron, Fliteboard & Lift — arranged through certified local partners and delivered to your yacht, boat, or resort.`,
   headline: <>Fly Above the Maldives</>,
   featured: {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Audi e-tron</strong>{" "}
+        <strong className="ml-4">Audi · Flite · Lift</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          Premium eFoil Experience
+          Premium eFoil Fleet
         </Text>
       </Row>
     ),
-    href: "/work/audi-etron-efoil-experience",
+    href: "/work",
   },
   subline: (
     <>
-      Premium <Text as="span" size="xl" weight="strong">Audi e-tron eFoil</Text> rentals delivered directly to your yacht, boat, or resort. <br />Experience the ultimate water adventure in paradise.
+      Premium <Text as="span" size="xl" weight="strong">eFoil experiences</Text> — Audi e-tron, Fliteboard & Lift — delivered to your yacht, boat, or resort by our certified local partners. <br />Enquire for availability and personalised rates.
     </>
   ),
 };
@@ -82,8 +82,8 @@ const home: Home = {
 const about: About = {
   path: "/about",
   label: "About",
-  title: `About eFoil Maldives | Premium Electric Hydrofoil Rentals`,
-  description: `Learn about the premier eFoil rental service in the Maldives. We deliver Audi e-tron eFoils to yachts, boats, and resorts across the atolls.`,
+  title: `About eFoil Maldives | Premium Electric Hydrofoil Experiences`,
+  description: `eFoil Maldives connects you with certified local operators for premium electric hydrofoil experiences across the atolls. Audi e-tron, Fliteboard, and Lift eFoils delivered to yachts, boats, and resorts.`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -101,18 +101,18 @@ const about: About = {
     description: (
       <>
         <Text variant="body-default-l">
-          eFoil Maldives is the premier electric hydrofoil rental service in the Maldives.
-          We bring the revolutionary Audi e-tron eFoil experience directly to you — whether
-          you&apos;re on a luxury yacht, liveaboard, or at an island resort.
+          eFoil Maldives is your gateway to premium electric hydrofoil experiences in the Maldives.
+          We work with certified local partners who operate a fleet of Audi e-tron, Fliteboard, and
+          Lift eFoils — delivered directly to your yacht, liveaboard, or island resort.
         </Text>
         <Text variant="body-default-l">
-          Our team has spent over a decade working across the Maldivian atolls — we know the
-          currents, the lagoons, the wind patterns, and the best spots to ride in every season.
-          That local expertise, combined with professional eFoil instruction and certified
-          safety protocols, means every session is safe, personalised, and unforgettable.
+          As an international water sport agency, we handle marketing, booking coordination, and
+          client communication. Our partners on the ground bring deep local knowledge of the atolls,
+          professional instruction, and all the on-water logistics. Together, we ensure every session
+          is safe, personalised, and unforgettable.
         </Text>
         <Text variant="body-default-l">
-          We handle everything from delivery to instruction. You just show up and fly.
+          You tell us what you need. We arrange everything. You just show up and fly.
         </Text>
       </>
     ),
@@ -122,32 +122,32 @@ const about: About = {
     title: "Why Choose Us",
     experiences: [
       {
-        company: "Direct Delivery",
-        timeframe: "To Your Location",
+        company: "Delivered to You",
+        timeframe: "Anywhere in the Maldives",
         role: "Yacht, Boat & Resort Service",
         achievements: [
-          <>We deliver premium Audi e-tron eFoils directly to your yacht, liveaboard, or resort anywhere in the Maldives.</>,
-          <>Professional setup and safety briefing included with every rental.</>,
+          <>Our certified local partners deliver premium eFoils directly to your yacht, liveaboard, or resort anywhere in the Maldives.</>,
+          <>Professional setup, safety briefing, and instruction included with every session.</>,
         ],
         images: [],
       },
       {
-        company: "Premium Equipment",
-        timeframe: "Audi e-tron eFoil",
-        role: "World-Class Technology",
+        company: "Premium Fleet",
+        timeframe: "Audi · Fliteboard · Lift",
+        role: "World-Class Equipment",
         achievements: [
-          <>Experience the cutting-edge Audi e-tron eFoil—engineered for performance, safety, and an unmatched riding experience.</>,
-          <>All equipment is meticulously maintained and sanitized between each use.</>,
+          <>Ride the Audi e-tron, Fliteboard, or Lift eFoil — three of the world's finest electric hydrofoils, each engineered for performance and safety.</>,
+          <>All equipment is professionally maintained and inspected between sessions.</>,
         ],
         images: [],
       },
       {
         company: "Expert Instruction",
         timeframe: "Beginners Welcome",
-        role: "Professional Guidance",
+        role: "Certified Local Instructors",
         achievements: [
-          <>Our certified instructors will have you flying in no time, regardless of your experience level.</>,
-          <>Personalized sessions tailored to your skill level and goals.</>,
+          <>Certified instructors will have you flying in no time, regardless of your experience level.</>,
+          <>Personalised sessions tailored to your skill level and goals.</>,
         ],
         images: [],
       },
@@ -163,17 +163,17 @@ const about: About = {
     title: "The Experience",
     skills: [
       {
-        title: "Choose Your Package",
+        title: "Tell Us What You Need",
         description: (
-          <>Select from hourly rentals, half-day adventures, or full-day experiences. Group packages available.</>
+          <>Share your location, dates, group size, and any preferences. We will recommend the best option for you.</>
         ),
         tags: [],
         images: [],
       },
       {
-        title: "We Come to You",
+        title: "We Arrange Everything",
         description: (
-          <>Our team delivers the eFoil to your location—yacht, boat, or resort—anywhere in the Maldives.</>
+          <>Our local partners handle delivery, equipment, and instruction — arriving at your yacht, boat, or resort on schedule.</>
         ),
         tags: [],
         images: [],
@@ -200,15 +200,15 @@ const blog: Blog = {
 const work: Work = {
   path: "/work",
   label: "Experience",
-  title: `eFoil Packages & Experiences | eFoil Maldives`,
-  description: `Explore our eFoil rental packages, from hourly sessions to multi-day adventures in the Maldives.`,
+  title: `eFoil Experiences & Packages | eFoil Maldives`,
+  description: `Explore eFoil experience options in the Maldives. Audi e-tron, Fliteboard, and Lift eFoils delivered to your yacht, boat, or resort. Enquire for personalised rates.`,
 };
 
 const gallery: Gallery = {
   path: "/gallery",
   label: "Gallery",
   title: `eFoil Gallery | Flying Above the Maldives`,
-  description: `See the Audi e-tron eFoil in action across the stunning waters of the Maldives. Premium electric hydrofoil experiences.`,
+  description: `See premium eFoils in action across the stunning waters of the Maldives. Audi e-tron, Fliteboard & Lift electric hydrofoil experiences.`,
   images: [
     {
       src: "/images/gallery/sailboat.jpg",
@@ -217,7 +217,7 @@ const gallery: Gallery = {
     },
     {
       src: "/images/gallery/Performance_midnightblue_01 Background Removed.png",
-      alt: "Audi e-tron eFoil board top view - Premium electric hydrofoil rental Maldives",
+      alt: "Audi e-tron eFoil board top view - Premium electric hydrofoil Maldives",
       orientation: "horizontal",
     },
     {

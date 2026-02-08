@@ -22,7 +22,7 @@ export async function generateMetadata() {
     ...Meta.generate({
       title: "Resort eFoil Experience Maldives | Guest Activity Partner",
       description:
-        "Add a premium eFoil experience to your Maldives resort's activity menu. We supply the Audi e-tron eFoil, certified instructor, and all equipment—delivered to your beach or jetty.",
+        "Add a premium eFoil experience to your Maldives resort's activity menu. Premium eFoil experiences including Audi e-tron, Fliteboard & Lift — delivered to your beach or jetty through certified local partners.",
       baseURL: baseURL,
       image: `/api/og/generate?title=${encodeURIComponent("Resort eFoil Partner")}`,
       path: "/resorts",
@@ -40,7 +40,7 @@ const faqSchema = {
       name: "How does the resort partnership work?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We provide the eFoil equipment, a certified instructor, and all safety gear on a scheduled or on-demand basis. Your resort promotes the experience to guests, and we handle everything from delivery to the session itself. Revenue-share and fixed-rate models are available.",
+        text: "Our certified local partners provide the eFoil equipment, a certified instructor, and all safety gear on a scheduled or on-demand basis. Your resort promotes the experience to guests, and they handle everything from delivery to the session itself. Revenue-share and fixed-rate models are available.",
       },
     },
     {
@@ -48,7 +48,7 @@ const faqSchema = {
       name: "Does the resort need to store any equipment?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No. We deliver the eFoil before each session and collect it afterwards. If your resort prefers to keep equipment on-site for recurring sessions, we can arrange that with a dedicated storage solution and regular maintenance visits.",
+        text: "No. The eFoil is delivered before each session and collected afterwards. If your resort prefers to keep equipment on-site for recurring sessions, this can be arranged with a dedicated storage solution and regular maintenance visits.",
       },
     },
     {
@@ -56,7 +56,7 @@ const faqSchema = {
       name: "Is this suitable for guests with no water sport experience?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. The Audi e-tron eFoil is designed for progressive learning. Our instructor provides a personalized briefing and stays in the water throughout. Most first-time riders are standing and flying within 15–20 minutes.",
+        text: "Yes. Premium eFoils from Audi, Fliteboard, and Lift are designed for progressive learning. A certified instructor provides a personalized briefing and stays in the water throughout. Most first-time riders are standing and flying within 15–20 minutes.",
       },
     },
     {
@@ -64,7 +64,7 @@ const faqSchema = {
       name: "Can we schedule regular weekly sessions?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Absolutely. Many of our resort partners operate on a fixed weekly schedule—for example, three mornings per week. We coordinate with your water sports or recreation team to set a recurring calendar that fits your guest programming.",
+        text: "Absolutely. Many resort partners operate on a fixed weekly schedule—for example, three mornings per week. Sessions are coordinated with your water sports or recreation team to set a recurring calendar that fits your guest programming.",
       },
     },
     {
@@ -72,7 +72,7 @@ const faqSchema = {
       name: "How do you handle guest safety and liability?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We carry full insurance for all eFoil sessions. Every guest completes a waiver before riding. Our instructor conducts a mandatory safety briefing, provides life vests and helmets, and supervises all activity on the water.",
+        text: "Comprehensive insurance covers all eFoil sessions. Every guest completes a waiver before riding. The certified instructor conducts a mandatory safety briefing, provides life vests and helmets, and supervises all activity on the water.",
       },
     },
     {
@@ -80,7 +80,7 @@ const faqSchema = {
       name: "What is the guest pricing and how is revenue shared?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We offer two models: a fixed daily rate that the resort marks up at its own discretion, or a revenue-share arrangement on per-session guest charges. We will work with your management to find the structure that fits your operations.",
+        text: "Two models are available: a fixed daily rate that the resort marks up at its own discretion, or a revenue-share arrangement on per-session guest charges. Our team will work with your management to find the structure that fits your operations.",
       },
     },
   ],
@@ -118,7 +118,7 @@ export default function ResortsPage() {
           </RevealFx>
           <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32" s={{ paddingBottom: "20" }}>
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l" align="center">
-              Add a premium water sport to your activity menu. We supply the equipment, the instructor, and the unforgettable experience—your resort gets the guest delight.
+              Add a premium water sport to your activity menu. Our certified local partners supply premium eFoils, professional instruction, and an unforgettable experience — your resort gets the guest delight.
             </Text>
           </RevealFx>
           <RevealFx paddingTop="12" delay={0.4} horizontal="center" fillWidth s={{ paddingTop: "8" }}>
@@ -179,7 +179,7 @@ export default function ResortsPage() {
                 We Deliver
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak" align="center">
-                Our instructor arrives at your beach or jetty with the eFoil and all safety equipment, ready to run sessions on schedule.
+                A certified instructor arrives at your beach or jetty with the eFoil and all safety equipment, ready to run sessions on schedule.
               </Text>
             </Column>
 
@@ -191,7 +191,7 @@ export default function ResortsPage() {
                 Guests Fly
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak" align="center">
-                Your guests enjoy a world-class eFoil experience. We handle all instruction, safety, and equipment management.
+                Your guests enjoy a world-class eFoil experience. All instruction, safety, and equipment management is handled professionally.
               </Text>
             </Column>
           </Grid>
@@ -216,7 +216,7 @@ export default function ResortsPage() {
                 No Capital Outlay
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak">
-                We own and maintain the equipment. Your resort adds a premium activity to its menu without purchasing, storing, or servicing water sport gear.
+                Equipment is owned and maintained by our partners. Your resort adds a premium activity to its menu without purchasing, storing, or servicing water sport gear.
               </Text>
             </Column>
             <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
@@ -224,7 +224,7 @@ export default function ResortsPage() {
                 Trained Staff On-Site
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak">
-                Every session is led by our certified instructor. No need to train your water sports team on a new discipline—we bring the expertise.
+                Every session is led by a certified instructor. No need to train your water sports team on a new discipline — expert instruction is included.
               </Text>
             </Column>
             <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
@@ -333,7 +333,7 @@ export default function ResortsPage() {
             <Column padding="24" gap="12" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "20", radius: "m" }}>
               <Heading as="h3" variant="heading-strong-s" align="center">Yacht Delivery</Heading>
               <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-                We also deliver eFoils to yachts and superyachts at anchor across the Maldives.
+                eFoils are also delivered to yachts and superyachts at anchor across the Maldives.
               </Text>
               <Button href="/yachts" variant="tertiary" size="s" arrowIcon>Yacht Service</Button>
             </Column>

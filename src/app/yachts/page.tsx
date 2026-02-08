@@ -20,9 +20,9 @@ const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
 export async function generateMetadata() {
   return {
     ...Meta.generate({
-      title: "Yacht eFoil Rental Maldives | Delivered to Your Vessel",
+      title: "Yacht eFoil Experience Maldives | Delivered to Your Vessel",
       description:
-        "Premium Audi e-tron eFoil rentals delivered directly to superyachts, charter yachts, and liveaboards across the Maldives. Professional setup, instruction, and all safety gear included.",
+        "Premium eFoil experiences delivered to superyachts, charter yachts, and liveaboards across the Maldives. Audi e-tron, Fliteboard & Lift — professional instruction and all safety gear included.",
       baseURL: baseURL,
       image: `/api/og/generate?title=${encodeURIComponent("Yacht eFoil Rental")}`,
       path: "/yachts",
@@ -40,7 +40,7 @@ const faqSchema = {
       name: "How do you deliver an eFoil to my yacht?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Our team arrives by tender or support vessel with the fully charged eFoil, safety gear, and all accessories. We coordinate GPS location and arrival time in advance so there is zero disruption to your itinerary.",
+        text: "Our certified local partners arrive by tender or support vessel with the fully charged eFoil, safety gear, and all accessories. They coordinate GPS location and arrival time in advance so there is zero disruption to your itinerary.",
       },
     },
     {
@@ -64,7 +64,7 @@ const faqSchema = {
       name: "What if my guests have never tried eFoiling?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No experience is needed. The Audi e-tron eFoil has a wireless speed controller that allows gradual progression. Our instructor adapts to each rider's comfort level, and most guests are riding confidently within 15–20 minutes.",
+        text: "No experience is needed. The Audi e-tron, Fliteboard, and Lift eFoils all feature wireless speed controllers that allow gradual progression. The certified instructor adapts to each rider's comfort level, and most guests are riding confidently within 15–20 minutes.",
       },
     },
     {
@@ -80,7 +80,7 @@ const faqSchema = {
       name: "Is the eFoil safe to use near a yacht?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. The eFoil is electrically powered with no exposed propeller—the motor is enclosed within the hydrofoil mast. Our instructor establishes a safe operating area away from the hull, tenders, and swim platform before each session.",
+        text: "Yes. The eFoil is electrically powered with no exposed propeller—the motor is enclosed within the hydrofoil mast. The instructor establishes a safe operating area away from the hull, tenders, and swim platform before each session.",
       },
     },
   ],
@@ -93,8 +93,8 @@ export default function YachtsPage() {
         as="webPage"
         baseURL={baseURL}
         path="/yachts"
-        title="Yacht eFoil Rental Maldives | Delivered to Your Vessel"
-        description="Premium Audi e-tron eFoil rentals delivered directly to superyachts, charter yachts, and liveaboards across the Maldives."
+        title="Yacht eFoil Experience Maldives | Delivered to Your Vessel"
+        description="Premium eFoil experiences delivered to superyachts, charter yachts, and liveaboards across the Maldives."
         image={`/api/og/generate?title=${encodeURIComponent("Yacht eFoil Rental")}`}
         author={{
           name: person.name,
@@ -118,7 +118,7 @@ export default function YachtsPage() {
           </RevealFx>
           <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32" s={{ paddingBottom: "20" }}>
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l" align="center">
-              We bring the Audi e-tron eFoil directly to your vessel—anywhere in the Maldives. Professional instructor, safety gear, and seamless logistics included.
+              Premium eFoils delivered directly to your vessel — anywhere in the Maldives. Audi e-tron, Fliteboard & Lift, with professional instructor, safety gear, and seamless logistics arranged through our certified local partners.
             </Text>
           </RevealFx>
           <RevealFx paddingTop="12" delay={0.4} horizontal="center" fillWidth s={{ paddingTop: "8" }}>
@@ -139,7 +139,7 @@ export default function YachtsPage() {
                 variant="secondary"
                 size="l"
               >
-                View Packages
+                View Experiences
               </Button>
             </Row>
           </RevealFx>
@@ -179,7 +179,7 @@ export default function YachtsPage() {
                 Board & Brief
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak" align="center">
-                Our instructor arrives by tender, sets up the eFoil, and runs a tailored safety briefing for your guests.
+                A certified instructor arrives by tender, sets up the eFoil, and runs a tailored safety briefing for your guests.
               </Text>
             </Column>
 
@@ -191,7 +191,7 @@ export default function YachtsPage() {
                 Ride & Enjoy
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak" align="center">
-                Guests take turns flying above the water with one-on-one coaching. We handle everything and leave no trace.
+                Guests take turns flying above the water with one-on-one coaching. Everything is handled professionally — no trace left behind.
               </Text>
             </Column>
           </Grid>
@@ -219,7 +219,7 @@ export default function YachtsPage() {
                 Zero Storage Required
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak">
-                We bring the eFoil and take it when we leave. No need to allocate tender garage space or worry about onboard charging.
+                The eFoil is delivered and collected after the session. No need to allocate tender garage space or worry about onboard charging.
               </Text>
             </Column>
             <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
@@ -227,7 +227,7 @@ export default function YachtsPage() {
                 Crew-Friendly
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak">
-                Our instructor manages the entire session. Your crew can focus on hospitality while we handle the water sport activity.
+                The certified instructor manages the entire session. Your crew can focus on hospitality while the water sport activity is handled professionally.
               </Text>
             </Column>
             <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
@@ -235,7 +235,7 @@ export default function YachtsPage() {
                 Multi-Day Charters
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak">
-                Booking a longer charter? We offer multi-day packages where the eFoil stays aboard with flexible session scheduling throughout the trip.
+                Booking a longer charter? Multi-day packages are available where the eFoil stays aboard with flexible session scheduling throughout the trip.
               </Text>
             </Column>
             <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
@@ -243,7 +243,7 @@ export default function YachtsPage() {
                 Insurance & Liability
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak">
-                All sessions are covered by our insurance. We provide waivers and handle safety protocols so your charter operation stays protected.
+                All sessions are covered by comprehensive insurance. Waivers and safety protocols are managed so your charter operation stays protected.
               </Text>
             </Column>
           </Grid>
@@ -322,7 +322,7 @@ export default function YachtsPage() {
             <Column padding="24" gap="12" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "20", radius: "m" }}>
               <Heading as="h3" variant="heading-strong-s" align="center">View Packages</Heading>
               <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-                Browse hourly, half-day, and full-day eFoil rental packages with transparent pricing.
+                Explore hourly, half-day, and full-day eFoil experience options. Enquire for personalised rates.
               </Text>
               <Button href="/work" variant="tertiary" size="s" arrowIcon>Packages</Button>
             </Column>

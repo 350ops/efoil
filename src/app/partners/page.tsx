@@ -22,7 +22,7 @@ export async function generateMetadata() {
     ...Meta.generate({
       title: "Become an eFoil Partner Operator | eFoil Maldives Network",
       description:
-        "Join our operator network in the Maldives. We provide Audi e-tron eFoil equipment, training, and booking infrastructure to qualified water sport operators, dive centres, and excursion providers.",
+        "Join our operator network in the Maldives. We provide premium eFoil equipment (Audi e-tron, Fliteboard & Lift), training, and booking infrastructure to qualified water sport operators, dive centres, and excursion providers.",
       baseURL: baseURL,
       image: `/api/og/generate?title=${encodeURIComponent("Partner Operator Network")}`,
       path: "/partners",
@@ -48,7 +48,7 @@ const faqSchema = {
       name: "Do I need to purchase the eFoil equipment?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Not necessarily. We offer both lease-to-operate and revenue-share models where we supply the Audi e-tron eFoil. Operators who prefer to own equipment outright can also discuss purchase arrangements.",
+        text: "Not necessarily. We offer both lease-to-operate and revenue-share models where we supply premium eFoils (Audi e-tron, Fliteboard, and Lift). Operators who prefer to own equipment outright can also discuss purchase arrangements.",
       },
     },
     {
@@ -64,7 +64,7 @@ const faqSchema = {
       name: "How does the booking system work?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Partners receive bookings through our website (efoil.rent) and are dispatched based on location and availability. Partners can also generate their own bookings and use our system for payment processing, or operate independently with their own client base.",
+        text: "Partners receive enquiries through our website (efoil.rent) and are matched based on location and availability. Partners can also generate their own bookings through our system, or operate independently with their own client base.",
       },
     },
     {
@@ -80,7 +80,7 @@ const faqSchema = {
       name: "What are the revenue expectations?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Earnings depend on session volume and location. Our current pricing starts at $250 per hour with a 2-hour minimum. Partners operating in high-traffic atolls during peak season typically run multiple sessions per day.",
+        text: "Earnings depend on session volume and location. Our partners operate premium eFoil experiences with competitive rates. Partners operating in high-traffic atolls during peak season typically run multiple sessions per day. Contact us for detailed revenue projections.",
       },
     },
   ],
@@ -94,7 +94,7 @@ export default function PartnersPage() {
         baseURL={baseURL}
         path="/partners"
         title="Become an eFoil Partner Operator | eFoil Maldives Network"
-        description="Join our operator network in the Maldives. We provide Audi e-tron eFoil equipment, training, and booking infrastructure."
+        description="Join our operator network in the Maldives. We provide premium eFoil equipment (Audi e-tron, Fliteboard & Lift), training, and booking infrastructure."
         image={`/api/og/generate?title=${encodeURIComponent("Partner Operator Network")}`}
         author={{
           name: person.name,
@@ -219,7 +219,7 @@ export default function PartnersPage() {
                 Premium Equipment
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak">
-                Audi e-tron eFoil boards, spare batteries, chargers, safety gear, and maintenance tools. Lease or revenue-share models available—no large upfront purchase required.
+                Premium eFoil boards (Audi e-tron, Fliteboard & Lift), spare batteries, chargers, safety gear, and maintenance tools. Lease or revenue-share models available—no large upfront purchase required.
               </Text>
             </Column>
             <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
@@ -235,7 +235,7 @@ export default function PartnersPage() {
                 Booking Infrastructure
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak">
-                Access to our online booking and Stripe payment system. Guests book on efoil.rent and are routed to the nearest available operator.
+                Access to our online booking and enquiry system. Guests enquire on efoil.rent and are connected with the nearest available operator.
               </Text>
             </Column>
             <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>

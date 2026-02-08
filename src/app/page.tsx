@@ -35,9 +35,9 @@ const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "eFoil Rental Maldives",
+  name: "eFoil Experiences Maldives",
   description:
-    "Premium Audi e-tron eFoil rental service with delivery to yachts, boats, and resorts across the Maldives. Includes professional instruction and all safety equipment.",
+    "Premium eFoil experiences arranged through certified local partners in the Maldives. Audi e-tron, Fliteboard & Lift electric hydrofoils delivered to yachts, boats, and resorts with professional instruction.",
   provider: {
     "@type": "Organization",
     name: "eFoil Maldives",
@@ -59,40 +59,34 @@ const serviceSchema = {
       },
     ],
   },
-  serviceType: "eFoil rental",
+  serviceType: "eFoil experience",
   areaServed: {
     "@type": "Country",
     name: "Maldives",
   },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "eFoil Rental Packages",
+    name: "eFoil Experience Packages",
     itemListElement: [
       {
         "@type": "Offer",
-        name: "Hourly Session (2hr minimum)",
-        price: "500.00",
-        priceCurrency: "USD",
+        name: "Hourly Session",
         description:
-          "2-hour minimum eFoil rental with professional instruction and all safety gear.",
+          "eFoil session with professional instruction and all safety gear. Enquire for rates.",
         url: `${baseURL}/work`,
       },
       {
         "@type": "Offer",
         name: "Half-Day Adventure",
-        price: "800.00",
-        priceCurrency: "USD",
         description:
-          "4 hours of eFoil riding with extended instruction, multiple sessions, and photo opportunities.",
+          "Extended eFoil experience with multiple sessions and photo opportunities. Enquire for rates.",
         url: `${baseURL}/work`,
       },
       {
         "@type": "Offer",
         name: "Full-Day Experience",
-        price: "1400.00",
-        priceCurrency: "USD",
         description:
-          "8 hours with the eFoil. Ideal for groups or exploring multiple spots around your location.",
+          "Full-day eFoil experience ideal for groups or exploring multiple spots. Enquire for rates.",
         url: `${baseURL}/work`,
       },
     ],
@@ -102,23 +96,14 @@ const serviceSchema = {
 const productSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
-  name: "Audi e-tron eFoil Rental",
+  name: "eFoil Experience Maldives",
   description:
-    "Premium electric hydrofoil rental experience in the Maldives. Silent, zero-emission water sport delivered to your yacht, boat, or resort with professional instruction.",
+    "Premium electric hydrofoil experience in the Maldives. Audi e-tron, Fliteboard & Lift eFoils — silent, zero-emission water sport delivered to your yacht, boat, or resort through certified local partners.",
   brand: {
     "@type": "Brand",
-    name: "Audi",
+    name: "eFoil Maldives",
   },
-  category: "Water Sports Equipment Rental",
-  offers: {
-    "@type": "AggregateOffer",
-    lowPrice: "500",
-    highPrice: "1400",
-    priceCurrency: "USD",
-    offerCount: "3",
-    availability: "https://schema.org/InStock",
-    url: `${baseURL}/work`,
-  },
+  category: "Water Sports Experiences",
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "4.9",
@@ -137,7 +122,7 @@ const faqSchema = {
       name: "How does eFoil delivery to yachts and resorts work?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Our team brings the Audi e-tron eFoil directly to your yacht, liveaboard, or resort anywhere in the Maldives. We handle all transport, setup, and equipment. Just tell us your location and preferred time when you book.",
+        text: "Our certified local partners deliver the eFoil directly to your yacht, liveaboard, or resort anywhere in the Maldives. They handle all transport, setup, and equipment. Just tell us your location and preferred time when you enquire.",
       },
     },
     {
@@ -145,23 +130,23 @@ const faqSchema = {
       name: "Is eFoiling suitable for beginners?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Every rental includes a professional instruction session and safety briefing tailored to your experience level. Most beginners are up and riding within 15–20 minutes. The Audi e-tron eFoil has intuitive speed control via a wireless handheld remote, making it accessible for first-timers.",
+        text: "Yes. Every session includes professional instruction and a safety briefing tailored to your experience level. Most beginners are up and riding within 15–20 minutes. Premium eFoils feature intuitive speed control via a wireless handheld remote, making them accessible for first-timers.",
       },
     },
     {
       "@type": "Question",
-      name: "What is the minimum rental duration?",
+      name: "What experience packages are available?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The minimum booking is a 2-hour session at $250 per hour ($500 total). We also offer half-day (4 hours, $800) and full-day (8 hours, $1,400) packages for a more immersive experience.",
+        text: "We offer hourly sessions, half-day adventures, and full-day experiences. Rates are personalised based on your location, group size, and requirements. Contact us via WhatsApp or email for a tailored quote.",
       },
     },
     {
       "@type": "Question",
-      name: "What happens if the weather is bad on my booking day?",
+      name: "What happens if the weather is bad on my session day?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Safety is our priority. If conditions are unsuitable for riding, we will work with you to reschedule at no extra cost. Our team monitors weather and sea conditions and will contact you in advance if adjustments are needed.",
+        text: "Safety is the priority. If conditions are unsuitable for riding, we will work with you to reschedule at no extra cost. Weather and sea conditions are monitored and you will be contacted in advance if adjustments are needed.",
       },
     },
     {
@@ -174,18 +159,18 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "How do I book an eFoil rental?",
+      name: "How do I arrange an eFoil experience?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "You can book directly on our website using secure Stripe checkout, or contact us via WhatsApp or email. Choose your preferred package, select a date, and we handle the rest—from delivery to instruction.",
+        text: "Contact us via WhatsApp or email with your preferred dates, location, and group size. We will recommend the best package and arrange everything through our certified local partners—from delivery to instruction.",
       },
     },
     {
       "@type": "Question",
-      name: "What eFoil equipment do you use?",
+      name: "What eFoil equipment is available?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We use the Audi e-tron eFoil, a premium electric hydrofoil board engineered for performance and safety. It features a carbon fiber construction, silent electric motor, and a wireless hand controller for precise speed management. All equipment is professionally maintained between sessions.",
+        text: "Our partners operate a fleet of premium electric hydrofoils including the Audi e-tron, Fliteboard, and Lift eFoils. Each features carbon fibre construction, a silent electric motor, and a wireless hand controller for precise speed management. All equipment is professionally maintained between sessions.",
       },
     },
   ],
@@ -304,14 +289,14 @@ export default function Home() {
               },
               {
                 num: "02",
-                title: "Book",
-                desc: "Pay securely online. We confirm and handle all delivery logistics.",
+                title: "Confirm",
+                desc: "We arrange everything with our certified local partners—equipment, instructor, and delivery.",
                 icon: "✓",
               },
               {
                 num: "03",
                 title: "Fly",
-                desc: "Our instructor arrives with everything. After a quick briefing, you're airborne.",
+                desc: "A certified instructor arrives with everything. After a quick briefing, you're airborne.",
                 icon: "🌊",
               },
             ].map((step, idx) => (
@@ -368,7 +353,7 @@ export default function Home() {
               Premium Equipment
             </Heading>
             <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-              Ride the revolutionary Audi e-tron eFoil—engineered for performance and safety
+              Audi e-tron, Fliteboard & Lift — three world-class electric hydrofoils
             </Text>
           </Column>
           
@@ -411,10 +396,10 @@ export default function Home() {
         <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
           <Column horizontal="center" gap="m" s={{ gap: "12" }}>
             <Heading as="h2" variant="display-strong-m" align="center">
-              We Come to You
+              Delivered to You
             </Heading>
             <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-              Direct delivery anywhere in the Maldives
+              eFoil delivery anywhere in the Maldives through our certified partners
             </Text>
           </Column>
           
@@ -431,7 +416,7 @@ export default function Home() {
                 Luxury Yachts
               </Heading>
               <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-                We deliver to yachts and superyachts throughout the atolls
+                eFoil delivery to yachts and superyachts throughout the atolls
               </Text>
             </Column>
             <Column
@@ -446,7 +431,7 @@ export default function Home() {
                 Liveaboards & Boats
               </Heading>
               <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-                Safari boats and private charters—we'll meet you on the water
+                Safari boats and private charters — our partners meet you on the water
               </Text>
             </Column>
             <Column
@@ -487,7 +472,7 @@ export default function Home() {
                 context: "Yacht charter guest, North Malé Atoll",
               },
               {
-                quote: "We added eFoil sessions to our resort's activity programme and guest satisfaction scores went through the roof. The team handles everything — we just book the slots.",
+                quote: "We added eFoil sessions to our resort's activity programme and guest satisfaction scores went through the roof. Everything is handled for us — we just book the slots.",
                 name: "Sarah K.",
                 context: "Resort Activities Manager, Baa Atoll",
               },
@@ -545,7 +530,7 @@ export default function Home() {
                 Yacht Delivery
               </Heading>
               <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-                eFoil delivered to your yacht or superyacht at anchor. Instructor, equipment, and safety gear included. We handle everything.
+                eFoil delivered to your yacht or superyacht at anchor. Instructor, equipment, and safety gear included — arranged through our local partners.
               </Text>
               <Button href="/yachts" variant="secondary" size="s" arrowIcon>
                 Yacht Service
@@ -563,7 +548,7 @@ export default function Home() {
                 Resort Partnership
               </Heading>
               <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-                Add a premium water sport to your resort's activity menu. No capital investment, no maintenance — we handle operations.
+                Add a premium water sport to your resort's activity menu. No capital investment, no maintenance — operations handled by certified partners.
               </Text>
               <Button href="/resorts" variant="secondary" size="s" arrowIcon>
                 Resort Programme
@@ -606,7 +591,7 @@ export default function Home() {
             Ready to Fly?
           </Heading>
           <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-            Book your eFoil experience today and create unforgettable memories in the Maldives
+            Enquire today and let us arrange an unforgettable eFoil experience in the Maldives
           </Text>
           <BottomCTA />
         </Column>

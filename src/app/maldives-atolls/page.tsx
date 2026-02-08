@@ -17,7 +17,7 @@ export async function generateMetadata() {
     ...Meta.generate({
       title: "eFoil Locations in the Maldives | Atoll-by-Atoll Guide",
       description:
-        "Discover the best eFoil riding locations across the Maldives atolls. From North Malé to Ari Atoll — we deliver eFoil experiences to yachts and resorts everywhere.",
+        "Discover the best eFoil riding locations across the Maldives atolls. From North Malé to Ari Atoll — eFoil experiences delivered to yachts and resorts through certified local partners.",
       baseURL: baseURL,
       image: `/api/og/generate?title=${encodeURIComponent("eFoil Locations — Maldives Atolls")}`,
       path: "/maldives-atolls",
@@ -91,7 +91,7 @@ const atolls = [
     name: "Other Atolls",
     also: "Lhaviyani, Noonu, Dhaalu, Meemu & beyond",
     description:
-      "We deliver eFoil experiences across the Maldives, including remote atolls not yet on the typical tourist circuit. If you're anchored or staying somewhere off the beaten path, contact us to arrange delivery.",
+      "eFoil experiences are available across the Maldives, including remote atolls not yet on the typical tourist circuit. If you're anchored or staying somewhere off the beaten path, contact us to arrange delivery through our local partners.",
     highlights: [
       "Delivery to any atoll with advance booking",
       "Remote and pristine riding locations",
@@ -129,7 +129,7 @@ export default function MaldivesAtollsPage() {
           </RevealFx>
           <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32" s={{ paddingBottom: "20" }}>
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l" align="center">
-              We deliver eFoil experiences to yachts, liveaboards, and resorts across every major atoll. Here is where you can ride.
+              eFoil experiences delivered to yachts, liveaboards, and resorts across every major atoll through our certified local partners. Here is where you can ride.
             </Text>
           </RevealFx>
         </Column>
@@ -187,7 +187,7 @@ export default function MaldivesAtollsPage() {
             Book Your Atoll Experience
           </Heading>
           <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-            Tell us where you are and we handle the rest — delivery, instruction, and equipment.
+            Tell us where you are and our certified local partners handle the rest — delivery, instruction, and equipment.
           </Text>
           <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column", gap: "12" }}>
             <Button

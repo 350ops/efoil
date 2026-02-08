@@ -51,7 +51,7 @@ const organizationSchema = {
   email: "hello@efoil.rent",
   telephone: `+${whatsappNumber}`,
   description:
-    "Premium eFoil rental service in the Maldives. Electric hydrofoil delivery to yachts, boats, and resorts across all atolls.",
+    "International water sport agency arranging premium eFoil experiences in the Maldives. Audi e-tron, Fliteboard & Lift electric hydrofoils delivered to yachts, boats, and resorts through certified local partners.",
   areaServed: {
     "@type": "Country",
     name: "Maldives",

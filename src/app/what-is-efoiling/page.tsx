@@ -316,7 +316,7 @@ export default function WhatIsEfoilingPage() {
             Try eFoiling in the Maldives
           </Heading>
           <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-            We deliver premium eFoils directly to your yacht, boat, or resort — with professional instruction and all safety gear included.
+            Premium eFoils delivered to your yacht, boat, or resort through our certified local partners — with professional instruction and all safety gear included.
           </Text>
           <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column", gap: "12" }}>
             <Button
@@ -327,7 +327,7 @@ export default function WhatIsEfoilingPage() {
               weight="strong"
               arrowIcon
             >
-              View Packages
+              View Experiences
             </Button>
             <Button
               data-border="rounded"
