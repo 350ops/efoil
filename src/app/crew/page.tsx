@@ -10,6 +10,7 @@ import {
   Grid,
   Flex,
   Line,
+  Media,
 } from "@once-ui-system/core";
 import { baseURL, person, about, crew } from "@/resources";
 
@@ -158,6 +159,33 @@ export default function CrewPage() {
         </Column>
       </Column>
 
+      {/* Hero Images */}
+      <RevealFx translateY="16" delay={0.6} fillWidth>
+        <Grid columns="3" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
+          <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
+            <Media
+              src="/images/gallery/dolphins-maldives.png"
+              alt="Wild spinner dolphins in the Maldives — swim with dolphins on the crew day trip"
+              aspectRatio="4 / 3"
+            />
+          </Column>
+          <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
+            <Media
+              src="/images/gallery/maldives-sandbank.png"
+              alt="Private white sandbank in the Indian Ocean — crew day trip picnic destination"
+              aspectRatio="4 / 3"
+            />
+          </Column>
+          <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
+            <Media
+              src="/images/gallery/maldives-sunset-ocean.png"
+              alt="Golden sunset over the Indian Ocean — sunset cruise on the Maldives crew day trip"
+              aspectRatio="4 / 3"
+            />
+          </Column>
+        </Grid>
+      </RevealFx>
+
       {/* The Experience */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
         <Column id="experience" fillWidth gap="xl" paddingY="xl" s={{ gap: "l", paddingY: "l" }}>
@@ -235,6 +263,31 @@ export default function CrewPage() {
           <Text variant="body-default-m" onBackground="neutral-weak" align="center">
             Resorts charge $145–195 for just 30 minutes. With this trip, you get an eFoil session alongside dolphins, snorkeling, a sandbank, lunch, and a sunset cruise — starting at $80 + $150 for the eFoil.
           </Text>
+          <Row fillWidth horizontal="center" paddingTop="8">
+            <Column overflow="hidden" radius="l" style={{ maxWidth: 480 }}>
+              <Media
+                src="/images/gallery/girlefoil.jpg"
+                alt="Woman flying on an eFoil at sunset in the Maldives — the ultimate layover experience"
+                aspectRatio="4 / 5"
+              />
+            </Column>
+          </Row>
+          <Grid columns="2" gap="24" fillWidth paddingTop="8" s={{ columns: 1, gap: "16" }}>
+            <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
+              <Media
+                src="/images/gallery/girlefoil.jpg"
+                alt="Woman riding eFoil at sunset in the Maldives — crew day trip eFoil add-on"
+                aspectRatio="16 / 10"
+              />
+            </Column>
+            <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
+              <Media
+                src="/images/gallery/efoil-drone.png"
+                alt="Aerial drone shot of two eFoil riders above turquoise Maldives lagoon"
+                aspectRatio="16 / 10"
+              />
+            </Column>
+          </Grid>
           <Button href="/work" variant="secondary" size="m" arrowIcon>
             Learn More About eFoiling
           </Button>
@@ -308,6 +361,26 @@ export default function CrewPage() {
             ))}
           </Column>
         </Column>
+      </RevealFx>
+
+      {/* Marine Life Strip */}
+      <RevealFx translateY="16" delay={0.2} fillWidth>
+        <Grid columns="2" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
+          <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
+            <Media
+              src="/images/gallery/turtle-maldives.png"
+              alt="Sea turtle swimming over coral reef in the Maldives — snorkeling on the crew day trip"
+              aspectRatio="16 / 10"
+            />
+          </Column>
+          <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
+            <Media
+              src="/images/gallery/sealion-maldives.png"
+              alt="Marine wildlife in the Maldives — reef encounters on the crew day trip"
+              aspectRatio="16 / 10"
+            />
+          </Column>
+        </Grid>
       </RevealFx>
 
       {/* Group Pricing */}

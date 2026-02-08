@@ -342,16 +342,40 @@ export default function Home() {
           <Grid columns="2" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
             <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
               <Media
-                src="/images/gallery/performance_3 Background Removed.png"
-                alt="Audi e-tron eFoil complete setup"
+                src="/images/gallery/aeroloop.jpg"
+                alt="Audi e-tron Aeroloop eFoil — brand new premium electric hydrofoil board"
                 aspectRatio="16 / 10"
               />
             </Column>
             <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
               <Media
-                src="/images/gallery/Performance_midnightblue_01 Background Removed.png"
-                alt="Audi e-tron eFoil board top view"
+                src="/images/gallery/efoiling.jpeg"
+                alt="Rider flying above the water on Audi e-tron eFoil in the Maldives"
                 aspectRatio="16 / 10"
+              />
+            </Column>
+          </Grid>
+          
+          <Grid columns="3" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
+            <Column overflow="hidden" radius="l" style={{ background: "#fff" }} s={{ radius: "m" }}>
+              <Media
+                src="/images/gallery/efoil-white-background.jpeg"
+                alt="Audi e-tron eFoil hydrofoil wing and motor detail"
+                aspectRatio="4 / 3"
+              />
+            </Column>
+            <Column overflow="hidden" radius="l" style={{ background: "#fff" }} s={{ radius: "m" }}>
+              <Media
+                src="/images/gallery/engine-white-background.jpg"
+                alt="Audi e-tron eFoil integrated propulsion unit — fully enclosed propeller"
+                aspectRatio="4 / 3"
+              />
+            </Column>
+            <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
+              <Media
+                src="/images/gallery/remote.jpg"
+                alt="Audi e-tron eFoil smart wireless controller with speed and battery display"
+                aspectRatio="4 / 3"
               />
             </Column>
           </Grid>

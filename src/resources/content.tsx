@@ -203,9 +203,74 @@ const gallery: Gallery = {
   description: `See the Audi e-tron eFoil in action across the stunning waters of the Maldives. Premium electric hydrofoil experiences.`,
   images: [
     {
+      src: "/images/gallery/girlefoil.jpg",
+      alt: "Woman flying on an eFoil at sunset over the Indian Ocean - Maldives eFoil experience",
+      orientation: "vertical",
+    },
+    {
+      src: "/images/gallery/aeroloop.jpg",
+      alt: "Audi e-tron Aeroloop eFoil board and hydrofoil - Brand new premium electric surfboard",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/efoil-action-turquoise.png",
+      alt: "Rider flying on Audi e-tron eFoil above crystal clear turquoise Maldives water - Action shot",
+      orientation: "vertical",
+    },
+    {
+      src: "/images/gallery/efoil-drone.png",
+      alt: "Two riders eFoiling over turquoise Maldives lagoon - Aerial drone shot",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/efoilbeach.jpeg",
+      alt: "eFoil board with hydrofoil on the beach at golden hour - Maldives sunset session",
+      orientation: "vertical",
+    },
+    {
+      src: "/images/gallery/aeroloop2.jpeg",
+      alt: "Audi e-tron Aeroloop eFoil board top view - Premium inflatable electric hydrofoil",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/efoiling.jpeg",
+      alt: "Man riding Audi e-tron eFoil above the water holding wireless remote controller",
+      orientation: "vertical",
+    },
+    {
+      src: "/images/gallery/maldives-turquoise-lagoon.png",
+      alt: "Crystal clear turquoise lagoon in the Maldives - Perfect watersports and eFoil conditions",
+      orientation: "horizontal",
+    },
+    {
       src: "/images/gallery/sailboat.jpg",
       alt: "Luxury yacht in the crystal-clear waters of the Maldives - eFoil delivery destination",
       orientation: "vertical",
+    },
+    {
+      src: "/images/gallery/remote.jpg",
+      alt: "Audi e-tron eFoil wireless smart controller with speed display and battery indicator",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/dolphins-maldives.png",
+      alt: "Wild spinner dolphins in the Maldives - Marine life encounters during watersports sessions",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/efoil-turquoise-water.png",
+      alt: "eFoil rider gliding above turquoise Maldives water - Electric hydrofoil adventure",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/maldives-aerial-island.png",
+      alt: "Aerial view of a Maldivian island surrounded by turquoise lagoon - Watersports paradise",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/turtle-maldives.png",
+      alt: "Sea turtle swimming over coral reef in the Maldives - Snorkeling encounters",
+      orientation: "horizontal",
     },
     {
       src: "/images/gallery/Performance_midnightblue_01 Background Removed.png",
@@ -213,13 +278,28 @@ const gallery: Gallery = {
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/performance_3 Background Removed.png",
-      alt: "Audi e-tron eFoil complete setup with hydrofoil - Flying above water Maldives",
+      src: "/images/gallery/engine-white-background.jpg",
+      alt: "Audi e-tron eFoil hydrofoil propulsion unit with integrated motor - Side view",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/performance_2 Background Removed.png",
-      alt: "Audi e-tron eFoil side view showing hydrofoil wings - Electric surfboard Maldives",
+      src: "/images/gallery/efoil-white-background.jpeg",
+      alt: "Audi e-tron eFoil hydrofoil wing and motor unit - Close-up detail shot",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/maldives-sunset-ocean.png",
+      alt: "Golden sunset over the Indian Ocean in the Maldives - Perfect ending to a watersports day",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/maldives-sandbank.png",
+      alt: "Private white sandbank in the middle of the Indian Ocean - Maldives day trip destination",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/performance_3 Background Removed.png",
+      alt: "Audi e-tron eFoil complete setup with hydrofoil - Flying above water Maldives",
       orientation: "horizontal",
     },
     {

@@ -1,4 +1,4 @@
-import { Row, SmartLink, Text } from "@once-ui-system/core";
+import { Column, Row, SmartLink, Text } from "@once-ui-system/core";
 import { person, social } from "@/resources";
 import { TrackedSocialIcon } from "./TrackedSocialIcon";
 import styles from "./Footer.module.scss";
@@ -7,7 +7,7 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <Row as="footer" fillWidth padding="8" horizontal="center" s={{ direction: "column" }}>
+    <Column as="footer" fillWidth padding="8" horizontal="center">
       <Row
         className={styles.mobile}
         maxWidth="m"
@@ -20,18 +20,31 @@ export const Footer = () => {
           direction: "column",
           horizontal: "center",
           align: "center",
+          gap: "12",
         }}
       >
-        <Text variant="body-default-s" onBackground="neutral-strong">
-          <Text onBackground="neutral-weak">© {currentYear} /</Text>
-          <Text paddingX="4">{person.name}</Text>
-          <Text onBackground="neutral-weak">
-            {/* Usage of this template requires attribution. Please don't remove the link to Once UI unless you have a Pro license. */}
-            / Build your portfolio with{" "}
-            <SmartLink href="https://once-ui.com/products/magic-portfolio">Once UI</SmartLink>
+        <Row gap="8" vertical="center" wrap s={{ horizontal: "center" }}>
+          <Text variant="body-default-s" onBackground="neutral-weak">
+            © {currentYear} {person.name}
           </Text>
-        </Text>
-        <Row gap="16">
+          <Text variant="body-default-s" onBackground="neutral-weak">·</Text>
+          <SmartLink href="/about">
+            <Text variant="body-default-s" onBackground="neutral-weak">About</Text>
+          </SmartLink>
+          <Text variant="body-default-s" onBackground="neutral-weak">·</Text>
+          <SmartLink href="/events">
+            <Text variant="body-default-s" onBackground="neutral-weak">Events</Text>
+          </SmartLink>
+          <Text variant="body-default-s" onBackground="neutral-weak">·</Text>
+          <SmartLink href="/crew">
+            <Text variant="body-default-s" onBackground="neutral-weak">Crew Trips</Text>
+          </SmartLink>
+          <Text variant="body-default-s" onBackground="neutral-weak">·</Text>
+          <SmartLink href="/partners">
+            <Text variant="body-default-s" onBackground="neutral-weak">Partners</Text>
+          </SmartLink>
+        </Row>
+        <Row gap="16" vertical="center">
           {social.map(
             (item) =>
               item.link && (
@@ -46,6 +59,6 @@ export const Footer = () => {
         </Row>
       </Row>
       <Row height="80" hide s={{ hide: false }} />
-    </Row>
+    </Column>
   );
 };

@@ -10,6 +10,7 @@ import {
   Grid,
   Flex,
   Line,
+  Media,
 } from "@once-ui-system/core";
 import { baseURL, person, about, events } from "@/resources";
 
@@ -140,6 +141,44 @@ export default function EventsPage() {
         </Column>
       </Column>
 
+      {/* Hero Image */}
+      <RevealFx translateY="16" delay={0.6} fillWidth>
+        <Column fillWidth radius="l" overflow="hidden" border="neutral-alpha-weak" s={{ radius: "m" }}>
+          <Media
+            src="/images/gallery/efoil-drone.png"
+            alt="Two riders eFoiling over a turquoise Maldives lagoon — aerial drone shot"
+            aspectRatio="16 / 7"
+          />
+        </Column>
+      </RevealFx>
+
+      {/* Hero Images */}
+      <RevealFx translateY="16" delay={0.6} fillWidth>
+        <Grid columns="3" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
+          <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
+            <Media
+              src="/images/gallery/efoil-action-turquoise.png"
+              alt="Rider flying on eFoil above crystal clear turquoise Maldives water — action shot"
+              aspectRatio="3 / 4"
+            />
+          </Column>
+          <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
+            <Media
+              src="/images/gallery/efoil-turquoise-water.png"
+              alt="eFoil rider gliding above turquoise Maldives water — electric hydrofoil watersports"
+              aspectRatio="3 / 4"
+            />
+          </Column>
+          <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
+            <Media
+              src="/images/gallery/maldives-turquoise-lagoon.png"
+              alt="Crystal clear turquoise lagoon in the Maldives — perfect watersports conditions"
+              aspectRatio="3 / 4"
+            />
+          </Column>
+        </Grid>
+      </RevealFx>
+
       {/* Choose Your Ride — Discipline Cards */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
         <Column fillWidth gap="xl" paddingY="xl" s={{ gap: "l", paddingY: "l" }}>
@@ -264,6 +303,17 @@ export default function EventsPage() {
           <Row fillWidth paddingLeft="64" horizontal="end" s={{ hide: true }}>
             <Line maxWidth={48} />
           </Row>
+        </Column>
+      </RevealFx>
+
+      {/* Aerial Shot Divider */}
+      <RevealFx translateY="16" delay={0.2} fillWidth>
+        <Column fillWidth radius="l" overflow="hidden" border="neutral-alpha-weak" s={{ radius: "m" }}>
+          <Media
+            src="/images/gallery/maldives-aerial-island.png"
+            alt="Aerial view of a Maldivian island surrounded by turquoise lagoon — watersports paradise"
+            aspectRatio="21 / 9"
+          />
         </Column>
       </RevealFx>
 
