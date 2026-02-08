@@ -21,7 +21,7 @@ export async function generateMetadata() {
     ...Meta.generate({
       title: "Become an eFoil Partner Operator | eFoil Maldives Network",
       description:
-        "Join our operator network in the Maldives. We provide Audi e-tron eFoil equipment, training, and booking infrastructure to qualified water sport operators, dive centres, and excursion providers.",
+        "Join our operator network in Maldives. We provide Audi e-tron eFoil equipment, training, and booking infrastructure to qualified water sport operators, dive centres, and excursion providers.",
       baseURL: baseURL,
       image: `/api/og/generate?title=${encodeURIComponent("Partner Operator Network")}`,
       path: "/partners",
@@ -39,7 +39,7 @@ const faqSchema = {
       name: "Who can become an eFoil partner operator?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We work with licensed water sport operators, dive centres, excursion companies, and yacht charter agencies operating in the Maldives. Applicants should have marine safety experience and the ability to serve clients on the water.",
+        text: "We work with licensed water sport operators, dive centres, excursion companies, and yacht charter agencies operating in Maldives. Applicants should have marine safety experience and the ability to serve clients on the water.",
       },
     },
     {
@@ -55,7 +55,7 @@ const faqSchema = {
       name: "What training is provided?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "All partner operators complete our certification programme covering eFoil operation, guest instruction techniques, safety protocols, equipment maintenance, and emergency procedures. Training is conducted in-person in the Maldives.",
+        text: "All partner operators complete our certification programme covering eFoil operation, guest instruction techniques, safety protocols, equipment maintenance, and emergency procedures. Training is conducted in-person in Maldives.",
       },
     },
     {
@@ -93,7 +93,7 @@ export default function PartnersPage() {
         baseURL={baseURL}
         path="/partners"
         title="Become an eFoil Partner Operator | eFoil Maldives Network"
-        description="Join our operator network in the Maldives. We provide Audi e-tron eFoil equipment, training, and booking infrastructure."
+        description="Join our operator network in Maldives. We provide Audi e-tron eFoil equipment, training, and booking infrastructure."
         image={`/api/og/generate?title=${encodeURIComponent("Partner Operator Network")}`}
         author={{
           name: person.name,
@@ -116,14 +116,14 @@ export default function PartnersPage() {
           </RevealFx>
           <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32" s={{ paddingBottom: "20" }}>
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l" align="center">
-              Join our network of certified operators across the Maldives. We provide the equipment, training, and bookings—you deliver the experience.
+              Join our network of certified operators across Maldives. We provide the equipment, training, and bookings—you deliver the experience.
             </Text>
           </RevealFx>
           <RevealFx paddingTop="12" delay={0.4} horizontal="center" fillWidth s={{ paddingTop: "8" }}>
             <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column", gap: "12" }}>
               <Button
                 data-border="rounded"
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi, I'm interested in becoming an eFoil partner operator in the Maldives.")}`}
+                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi, I'm interested in becoming an eFoil partner operator in Maldives.")}`}
                 variant="primary"
                 size="l"
                 weight="strong"
@@ -225,7 +225,7 @@ export default function PartnersPage() {
                 Certification Training
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak">
-                Hands-on programme covering riding technique, teaching methodology, water safety, and equipment maintenance. Delivered in-person in the Maldives.
+                Hands-on programme covering riding technique, teaching methodology, water safety, and equipment maintenance. Delivered in-person in Maldives.
               </Text>
             </Column>
             <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>

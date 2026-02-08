@@ -16,6 +16,7 @@ import {
 import { home, about, person, baseURL, routes, gallery } from "@/resources";
 import { Mailchimp } from "@/components";
 import { HeroCTA, BottomCTA } from "@/components/HeroCTA";
+import { Posts } from "@/components/blog/Posts";
 
 export async function generateMetadata() {
   return {
@@ -37,7 +38,7 @@ const serviceSchema = {
   "@type": "Service",
   name: "eFoil Rental Maldives",
   description:
-    "Premium Audi e-tron eFoil rental service with delivery to yachts, boats, and resorts across the Maldives. Includes professional instruction and all safety equipment.",
+    "Premium Audi e-tron eFoil rental service with delivery to yachts, boats, and resorts across Maldives. Includes professional instruction and all safety equipment.",
   provider: {
     "@type": "Organization",
     name: "eFoil Maldives",
@@ -105,10 +106,18 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
+      name: "What is an eFoil?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "An eFoil — short for electric hydrofoil surfboard — is a cutting-edge watersport device. It merges traditional hydrofoil surfing with advanced electric propulsion, allowing riders to glide silently above the water. An eFoil consists of a board with a rechargeable battery, an electric motor, and a hydrofoil (mast with underwater wing). Speed is controlled via a wireless handheld remote, while altitude is managed by shifting body weight.",
+      },
+    },
+    {
+      "@type": "Question",
       name: "How does eFoil delivery to yachts and resorts work?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Our team brings the Audi e-tron eFoil directly to your yacht, liveaboard, or resort anywhere in the Maldives. We handle all transport, setup, and equipment. Just tell us your location and preferred time when you book.",
+        text: "Our team brings the Audi e-tron eFoil directly to your yacht, liveaboard, or resort anywhere in Maldives. We handle all transport, setup, and equipment. Just tell us your location and preferred time when you book.",
       },
     },
     {
@@ -248,6 +257,34 @@ export default function Home() {
         </Column>
       </RevealFx>
 
+      {/* What is an eFoil? */}
+      <RevealFx translateY="16" delay={0.2} fillWidth>
+        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
+          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+            <Heading as="h2" variant="display-strong-m" align="center">
+              What is an eFoil?
+            </Heading>
+            <Text variant="body-default-l" onBackground="neutral-weak" align="center" style={{ maxWidth: 720 }}>
+              An eFoil — short for electric hydrofoil surfboard — is a cutting-edge watersport device that's rapidly gaining popularity worldwide.
+            </Text>
+          </Column>
+          <Column gap="m" style={{ maxWidth: 720, margin: "0 auto" }} s={{ gap: "12" }}>
+            <Text variant="body-default-m" onBackground="neutral-weak">
+              It merges the principles of traditional hydrofoil surfing, where a board is fitted with a submerged hydrodynamic wing (foil), with advanced electric propulsion. The result: a completely unique sensation of gliding silently above the water's surface.
+            </Text>
+            <Heading as="h3" variant="heading-strong-m">
+              How an eFoil Works
+            </Heading>
+            <Text variant="body-default-m" onBackground="neutral-weak">
+              An eFoil consists of three main components: the board, an electric motor, and the hydrofoil (a mast with an underwater wing and propulsion unit). The board is built slightly larger and more stable than a standard surfboard to house the rechargeable battery and electronics. The battery is swappable, allowing for extended sessions on the water. The motor drives either a propeller or a modern jet unit mounted on the foil beneath the board.
+            </Text>
+            <Text variant="body-default-m" onBackground="neutral-weak">
+              Speed is controlled through a wireless handheld remote. Altitude — how high you fly above the water — is managed by shifting your body weight forward or back.
+            </Text>
+          </Column>
+        </Column>
+      </RevealFx>
+
       {/* How It Works Section */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
         <Column fillWidth gap="xl" paddingY="xl" s={{ gap: "l", paddingY: "l" }}>
@@ -256,7 +293,7 @@ export default function Home() {
               How It Works
             </Heading>
             <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-              Three steps to flying above the Maldives
+              Three steps to flying above Maldives waters
             </Text>
           </Column>
           
@@ -350,7 +387,7 @@ export default function Home() {
             <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
               <Media
                 src="/images/gallery/efoiling.jpeg"
-                alt="Rider flying above the water on Audi e-tron eFoil in the Maldives"
+                alt="Rider flying above the water on Audi e-tron eFoil in Maldives"
                 aspectRatio="16 / 10"
               />
             </Column>
@@ -405,7 +442,7 @@ export default function Home() {
               We Come to You
             </Heading>
             <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-              Direct delivery anywhere in the Maldives
+              Direct delivery anywhere in Maldives
             </Text>
           </Column>
           
@@ -452,10 +489,30 @@ export default function Home() {
                 Island Resorts
               </Heading>
               <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-                From luxury resorts to private islands across the Maldives
+                From luxury resorts to private islands across Maldives
               </Text>
             </Column>
           </Grid>
+        </Column>
+      </RevealFx>
+
+      {/* From Our Blog */}
+      <RevealFx translateY="16" delay={0.2} fillWidth>
+        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
+          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+            <Heading as="h2" variant="display-strong-m" align="center">
+              From Our Blog
+            </Heading>
+            <Text variant="body-default-l" onBackground="neutral-weak" align="center">
+              Stories, tips, and adventures from Maldives waters
+            </Text>
+          </Column>
+          <Posts range={[1, 3]} columns="3" thumbnail direction="column" />
+          <Row fillWidth horizontal="center" paddingTop="m" s={{ paddingTop: "12" }}>
+            <Button href="/blog" variant="secondary" size="m" arrowIcon>
+              Read All Posts
+            </Button>
+          </Row>
         </Column>
       </RevealFx>
 
@@ -474,7 +531,7 @@ export default function Home() {
             Ready to Fly?
           </Heading>
           <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-            Book your eFoil experience today and create unforgettable memories in the Maldives
+            Book your eFoil experience today and create unforgettable memories in Maldives
           </Text>
           <BottomCTA />
         </Column>

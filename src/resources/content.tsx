@@ -15,7 +15,7 @@ const person: Person = {
 const newsletter: Newsletter = {
   display: true,
   title: <>Get Exclusive eFoil Offers</>,
-  description: <>Subscribe for special rates, new destinations, and eFoil tips for the Maldives</>,
+  description: <>Subscribe for special rates, new destinations, and eFoil tips for Maldives</>,
 };
 
 const social: Social = [
@@ -44,8 +44,8 @@ const home: Home = {
   image: "/images/og/home.jpg",
   label: "Home",
   title: `eFoil Rental Maldives | Audi e-tron eFoil Delivery to Yachts & Resorts`,
-  description: `Experience the thrill of flying above the crystal-clear waters of the Maldives. Premium Audi e-tron eFoil rentals delivered directly to your yacht, boat, or resort. Book your unforgettable eFoil adventure today.`,
-  headline: <>Fly Above the Maldives</>,
+  description: `Experience the thrill of flying above crystal-clear Maldives waters. Premium Audi e-tron eFoil rentals delivered directly to your yacht, boat, or resort. Book your unforgettable eFoil adventure today.`,
+  headline: <>Maldives | eFoil Paradise</>,
   featured: {
     display: true,
     title: (
@@ -70,7 +70,7 @@ const about: About = {
   path: "/about",
   label: "About",
   title: `About eFoil Maldives | Premium Electric Hydrofoil Rentals`,
-  description: `Learn about the premier eFoil rental service in the Maldives. We deliver Audi e-tron eFoils to yachts, boats, and resorts across the atolls.`,
+  description: `Learn about the premier eFoil rental service in Maldives. We deliver Audi e-tron eFoils to yachts, boats, and resorts across the atolls.`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -87,10 +87,10 @@ const about: About = {
     title: "Your Gateway to Flying on Water",
     description: (
       <>
-        eFoil Maldives is the premier electric hydrofoil rental service in the Maldives. 
-        We bring the revolutionary Audi e-tron eFoil experience directly to you—whether you're 
-        on a luxury yacht, liveaboard, or at an island resort. Our professional team handles 
-        everything from delivery to instruction, ensuring you have an unforgettable experience 
+        eFoil Maldives is the premier electric hydrofoil rental service in Maldives.
+        We bring the revolutionary Audi e-tron eFoil experience directly to you—whether you're
+        on a luxury yacht, liveaboard, or at an island resort. Our professional team handles
+        everything from delivery to instruction, ensuring you have an unforgettable experience
         gliding above the pristine waters of the Indian Ocean.
       </>
     ),
@@ -104,7 +104,7 @@ const about: About = {
         timeframe: "To Your Location",
         role: "Yacht, Boat & Resort Service",
         achievements: [
-          <>We deliver premium Audi e-tron eFoils directly to your yacht, liveaboard, or resort anywhere in the Maldives.</>,
+          <>We deliver premium Audi e-tron eFoils directly to your yacht, liveaboard, or resort anywhere in Maldives.</>,
           <>Professional setup and safety briefing included with every rental.</>,
         ],
         images: [],
@@ -151,7 +151,7 @@ const about: About = {
       {
         title: "We Come to You",
         description: (
-          <>Our team delivers the eFoil to your location—yacht, boat, or resort—anywhere in the Maldives.</>
+          <>Our team delivers the eFoil to your location—yacht, boat, or resort—anywhere in Maldives.</>
         ),
         tags: [],
         images: [],
@@ -172,21 +172,21 @@ const blog: Blog = {
   path: "/blog",
   label: "Blog",
   title: "eFoil Tips & Maldives Watersports Adventures",
-  description: `Discover eFoil riding tips, wingfoil and kitesurf stories, watersports events, and adventures across the Maldives.`,
+  description: `Discover eFoil riding tips, wingfoil and kitesurf stories, watersports events, and adventures across Maldives.`,
 };
 
 const work: Work = {
   path: "/work",
   label: "Experience",
   title: `eFoil Packages & Experiences | eFoil Maldives`,
-  description: `Explore our eFoil rental packages, from hourly sessions to multi-day adventures in the Maldives.`,
+  description: `Explore our eFoil rental packages, from hourly sessions to multi-day adventures in Maldives.`,
 };
 
 const events: Events = {
   path: "/events",
   label: "Events",
   title: "Maldives Watersports Events | Wingfoil, Kitesurf & Surf Competitions",
-  description: `Explore the growing watersports scene in the Maldives. Upcoming wingfoil competitions, kitesurf events, surf contests, and why the Maldives is the next world-class watersports destination.`,
+  description: `Explore the growing watersports scene in Maldives. Upcoming wingfoil competitions, kitesurf events, surf contests, and why Maldives is the next world-class watersports destination.`,
 };
 
 const crew: Crew = {
@@ -199,8 +199,8 @@ const crew: Crew = {
 const gallery: Gallery = {
   path: "/gallery",
   label: "Gallery",
-  title: `eFoil Gallery | Flying Above the Maldives`,
-  description: `See the Audi e-tron eFoil in action across the stunning waters of the Maldives. Premium electric hydrofoil experiences.`,
+  title: `eFoil Gallery | Flying Above Maldives`,
+  description: `See the Audi e-tron eFoil in action across stunning Maldives waters. Premium electric hydrofoil experiences.`,
   images: [
     {
       src: "/images/gallery/girlefoil.jpg",
@@ -239,12 +239,12 @@ const gallery: Gallery = {
     },
     {
       src: "/images/gallery/maldives-turquoise-lagoon.png",
-      alt: "Crystal clear turquoise lagoon in the Maldives - Perfect watersports and eFoil conditions",
+      alt: "Crystal clear turquoise lagoon in Maldives - Perfect watersports and eFoil conditions",
       orientation: "horizontal",
     },
     {
       src: "/images/gallery/sailboat.jpg",
-      alt: "Luxury yacht in the crystal-clear waters of the Maldives - eFoil delivery destination",
+      alt: "Luxury yacht in crystal-clear Maldives waters - eFoil delivery destination",
       orientation: "vertical",
     },
     {
@@ -254,7 +254,7 @@ const gallery: Gallery = {
     },
     {
       src: "/images/gallery/dolphins-maldives.png",
-      alt: "Wild spinner dolphins in the Maldives - Marine life encounters during watersports sessions",
+      alt: "Wild spinner dolphins in Maldives - Marine life encounters during watersports sessions",
       orientation: "horizontal",
     },
     {
@@ -269,7 +269,7 @@ const gallery: Gallery = {
     },
     {
       src: "/images/gallery/turtle-maldives.png",
-      alt: "Sea turtle swimming over coral reef in the Maldives - Snorkeling encounters",
+      alt: "Sea turtle swimming over coral reef in Maldives - Snorkeling encounters",
       orientation: "horizontal",
     },
     {
@@ -289,7 +289,7 @@ const gallery: Gallery = {
     },
     {
       src: "/images/gallery/maldives-sunset-ocean.png",
-      alt: "Golden sunset over the Indian Ocean in the Maldives - Perfect ending to a watersports day",
+      alt: "Golden sunset over the Indian Ocean in Maldives - Perfect ending to a watersports day",
       orientation: "horizontal",
     },
     {

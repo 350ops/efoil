@@ -17,6 +17,45 @@ import { baseURL, effects, fonts, style, dataStyle, home } from "@/resources";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${baseURL}/#organization`,
+  name: "eFoil Maldives",
+  url: baseURL,
+  logo: {
+    "@type": "ImageObject",
+    url: `${baseURL}/images/logofoil.png`,
+    width: 512,
+    height: 512,
+  },
+  email: "hello@efoil.rent",
+  description:
+    "Premium eFoil rental service in Maldives. Audi e-tron electric hydrofoil surfboard delivery to yachts, boats, and resorts.",
+  sameAs: ["https://www.instagram.com/efoil.rent/"],
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "reservations",
+    availableLanguage: ["English", "Dhivehi"],
+    email: "hello@efoil.rent",
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "Maldives",
+  },
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${baseURL}/#website`,
+  name: "eFoil Maldives",
+  url: baseURL,
+  publisher: { "@id": `${baseURL}/#organization` },
+  description:
+    "Premium Audi e-tron eFoil rentals delivered to yachts, boats, and resorts across Maldives.",
+};
+
 export async function generateMetadata() {
   return {
     metadataBase: new URL(baseURL),
@@ -30,6 +69,13 @@ export async function generateMetadata() {
       path: home.path,
       image: home.image,
     }),
+    applicationName: "eFoil Maldives",
+    other: {
+      "google-site-verification": "",
+    },
+    openGraph: {
+      siteName: "eFoil Maldives",
+    },
   };
 }
 
@@ -52,6 +98,18 @@ export default async function RootLayout({
       )}
     >
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
+          }}
+        />
         <script
           id="theme-init"
           dangerouslySetInnerHTML={{
