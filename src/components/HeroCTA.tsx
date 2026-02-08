@@ -17,7 +17,7 @@ export function HeroCTA() {
         fillWidth
         onClick={() => trackBookNow("hero")}
       >
-        Book Your eFoil
+        What we Offer
       </Button>
       <Button
         id="learn-more"

@@ -62,7 +62,7 @@ const faqSchema = {
       name: "What is the eFoil add-on?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "For $150 per person, you can add an Audi e-tron eFoil session to your trip. This is an electric hydrofoil surfboard that lets you fly above the water — no experience needed. The session includes professional instruction, drone footage, and 360-camera content. It's offered by foiltribe, the first eFoil operators in the Maldives.",
+        text: "For $150 per person, you can add an Audi e-tron eFoil session to your trip. This is an electric hydrofoil surfboard that lets you fly above the water — no experience needed. The session includes professional instruction, drone footage, and 360-camera content. It's offered by foiltribe, the first eFoil operators in Maldives.",
       },
     },
     {
@@ -138,7 +138,7 @@ export default function CrewPage() {
             <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column", gap: "12" }}>
               <Button
                 data-border="rounded"
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi! I'm airline crew and interested in the Maldives day trip.")}`}
+                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi! I'm airline crew and interested in Maldives day trip.")}`}
                 variant="primary"
                 size="l"
                 weight="strong"
@@ -165,7 +165,7 @@ export default function CrewPage() {
           <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
             <Media
               src="/images/gallery/dolphins-maldives.png"
-              alt="Wild spinner dolphins in the Maldives — swim with dolphins on the crew day trip"
+              alt="Wild spinner dolphins in Maldives — swim with dolphins on the crew day trip"
               aspectRatio="4 / 3"
             />
           </Column>
@@ -179,7 +179,7 @@ export default function CrewPage() {
           <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
             <Media
               src="/images/gallery/maldives-sunset-ocean.png"
-              alt="Golden sunset over the Indian Ocean — sunset cruise on the Maldives crew day trip"
+              alt="Golden sunset over the Indian Ocean — sunset cruise on Maldives crew day trip"
               aspectRatio="4 / 3"
             />
           </Column>
@@ -194,7 +194,7 @@ export default function CrewPage() {
               The Experience
             </Heading>
             <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-              Five hours of the best the Maldives has to offer — all in one trip
+              Five hours of the best Maldives has to offer — all in one trip
             </Text>
           </Column>
 
@@ -258,7 +258,7 @@ export default function CrewPage() {
             Add an Audi e-tron eFoil Session — $150/person
           </Heading>
           <Text variant="body-default-l" onBackground="neutral-weak" align="center" style={{ maxWidth: 640 }}>
-            Fly above the turquoise Maldives water on an electric hydrofoil surfboard. No experience needed — professional instruction, drone footage, and 360-camera content are all included. Offered by foiltribe, the first eFoil pioneers in the Maldives.
+            Fly above the turquoise Maldives water on an electric hydrofoil surfboard. No experience needed — professional instruction, drone footage, and 360-camera content are all included. Offered by foiltribe, the first eFoil pioneers in Maldives.
           </Text>
           <Text variant="body-default-m" onBackground="neutral-weak" align="center">
             Resorts charge $145–195 for just 30 minutes. With this trip, you get an eFoil session alongside dolphins, snorkeling, a sandbank, lunch, and a sunset cruise — starting at $80 + $150 for the eFoil.
@@ -267,7 +267,7 @@ export default function CrewPage() {
             <Column overflow="hidden" radius="l" style={{ maxWidth: 480 }}>
               <Media
                 src="/images/gallery/girlefoil.jpg"
-                alt="Woman flying on an eFoil at sunset in the Maldives — the ultimate layover experience"
+                alt="Woman flying on an eFoil at sunset in Maldives — the ultimate layover experience"
                 aspectRatio="4 / 5"
               />
             </Column>
@@ -276,7 +276,7 @@ export default function CrewPage() {
             <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
               <Media
                 src="/images/gallery/girlefoil.jpg"
-                alt="Woman riding eFoil at sunset in the Maldives — crew day trip eFoil add-on"
+                alt="Woman riding eFoil at sunset in Maldives — crew day trip eFoil add-on"
                 aspectRatio="16 / 10"
               />
             </Column>
@@ -369,14 +369,14 @@ export default function CrewPage() {
           <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
             <Media
               src="/images/gallery/turtle-maldives.png"
-              alt="Sea turtle swimming over coral reef in the Maldives — snorkeling on the crew day trip"
+              alt="Sea turtle swimming over coral reef in Maldives — snorkeling on the crew day trip"
               aspectRatio="16 / 10"
             />
           </Column>
           <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
             <Media
               src="/images/gallery/sealion-maldives.png"
-              alt="Marine wildlife in the Maldives — reef encounters on the crew day trip"
+              alt="Marine wildlife in Maldives — reef encounters on the crew day trip"
               aspectRatio="16 / 10"
             />
           </Column>
@@ -553,7 +553,7 @@ export default function CrewPage() {
           <Row gap="16" wrap horizontal="center" s={{ direction: "column", gap: "12" }}>
             <Button
               data-border="rounded"
-              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi! I'm airline crew and want to book the Maldives day trip.")}`}
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi! I'm airline crew and want to book Maldives day trip.")}`}
               variant="primary"
               size="l"
               weight="strong"

@@ -33,7 +33,7 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "When is the best wind season for wingfoiling and kitesurfing in the Maldives?",
+      name: "When is the best wind season for wingfoiling and kitesurfing in Maldives?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "The southwest monsoon (Hulhangu), from May to October, brings consistent 15–20+ knot winds ideal for kitesurfing and wingfoiling. June is the most reliable wind month. The northeast monsoon (Iruvai), December to March, offers lighter 8–13 knot winds with calmer conditions better suited to eFoiling and beginners. Year-round water temperatures are 28–30°C.",
@@ -41,7 +41,7 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "What major surf competitions are held in the Maldives?",
+      name: "What major surf competitions are held in Maldives?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "Key events include the Four Seasons Surfing Champions Trophy at Kuda Huraa (August) — an invitation-only contest for legends of the sport with single-fin, twin-fin, and thruster divisions. The Asian Surfing Championships are held at Thulusdhoo's famous Cokes break (July). The Soneva Surf Pro at Baa Atoll (October) is an exclusive eco-conscious invitational. The Visit Maldives Pro brings IBC World Tour bodyboarding to Malé City in July–August.",
@@ -49,23 +49,23 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Are there kitesurf and wingfoil events in the Maldives?",
+      name: "Are there kitesurf and wingfoil events in Maldives?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. The Kuredu Kite Week in Lhaviyani Atoll (June) features workshops and races at one of the best wind locations in the Maldives. The Raalhu Edhuru Kite Fest in Maafushi/Guraidhoo (September) is a community-driven celebration of wind sports and local talent. The wingfoil scene is growing rapidly, with emerging competitive events during the May–September wind season.",
+        text: "Yes. The Kuredu Kite Week in Lhaviyani Atoll (June) features workshops and races at one of the best wind locations in Maldives. The Raalhu Edhuru Kite Fest in Maafushi/Guraidhoo (September) is a community-driven celebration of wind sports and local talent. The wingfoil scene is growing rapidly, with emerging competitive events during the May–September wind season.",
       },
     },
     {
       "@type": "Question",
-      name: "Can beginners try wingfoiling or kitesurfing in the Maldives?",
+      name: "Can beginners try wingfoiling or kitesurfing in Maldives?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Absolutely. The Maldives offers some of the most beginner-friendly conditions in the world — shallow lagoons with flat water, warm 28–30°C temperatures, and sandy bottoms. Lhaviyani Atoll and Raa Atoll have consistent cross-shore winds and large lagoons ideal for learning. Several resorts and operators offer introductory lessons and gear rental.",
+        text: "Absolutely. Maldives offers some of the most beginner-friendly conditions in the world — shallow lagoons with flat water, warm 28–30°C temperatures, and sandy bottoms. Lhaviyani Atoll and Raa Atoll have consistent cross-shore winds and large lagoons ideal for learning. Several resorts and operators offer introductory lessons and gear rental.",
       },
     },
     {
       "@type": "Question",
-      name: "Where are the best spots for kitesurfing in the Maldives?",
+      name: "Where are the best spots for kitesurfing in Maldives?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "Lhaviyani Atoll is legendary for consistent cross-shore winds and vast shallow lagoons — Kuredu and Cocoon are key spots. North and South Malé Atoll offer easy access from the capital. Raa Atoll is an emerging destination with pristine lagoons and new luxury resorts. Uninhabited sandbanks across the atolls provide flat-water riding with no obstacles.",
@@ -73,7 +73,7 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "What is the best month to visit the Maldives for watersports?",
+      name: "What is the best month to visit Maldives for watersports?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "It depends on the sport. August is the peak for surfing (biggest swells, competition season) but also the rainiest month. For wind sports with sunnier skies, aim for June or late September. January to March is ideal for eFoiling and calm-water activities. For the best all-round conditions combining wind, swell, and weather, June and September are the sweet spots.",
@@ -113,7 +113,7 @@ export default function EventsPage() {
           </RevealFx>
           <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32" s={{ paddingBottom: "20" }}>
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l" align="center">
-              Wingfoiling, kitesurfing, surfing, and eFoiling — the Maldives is fast becoming one of the world's most exciting watersports destinations. Discover real events, find the best season, and locate the top spots.
+              Wingfoiling, kitesurfing, surfing, and eFoiling — Maldives is fast becoming one of the world's most exciting watersports destinations. Discover real events, find the best season, and locate the top spots.
             </Text>
           </RevealFx>
           <RevealFx paddingTop="12" delay={0.4} horizontal="center" fillWidth s={{ paddingTop: "8" }}>
@@ -172,7 +172,7 @@ export default function EventsPage() {
           <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
             <Media
               src="/images/gallery/maldives-turquoise-lagoon.png"
-              alt="Crystal clear turquoise lagoon in the Maldives — perfect watersports conditions"
+              alt="Crystal clear turquoise lagoon in Maldives — perfect watersports conditions"
               aspectRatio="3 / 4"
             />
           </Column>
@@ -187,7 +187,7 @@ export default function EventsPage() {
               Choose Your Ride
             </Heading>
             <Text variant="body-default-l" onBackground="neutral-weak" align="center" style={{ maxWidth: 720 }}>
-              The Maldives supports almost every water discipline — from open ocean swells to glassy lagoons. Here's what's riding strong across the atolls.
+              Maldives supports almost every water discipline — from open ocean swells to glassy lagoons. Here's what's riding strong across the atolls.
             </Text>
           </Column>
 
@@ -200,7 +200,7 @@ export default function EventsPage() {
                 Wing Foil
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak" align="center">
-                The fastest-growing sport in the Maldives. Flat lagoons and consistent trade winds make it ideal for cruising, freestyle, and downwind runs between islands. Requires less wind than kitesurfing. Local riders are competing internationally.
+                The fastest-growing sport in Maldives. Flat lagoons and consistent trade winds make it ideal for cruising, freestyle, and downwind runs between islands. Requires less wind than kitesurfing. Local riders are competing internationally.
               </Text>
               <Column gap="4" paddingTop="8">
                 <Text variant="label-default-s" onBackground="neutral-weak">Best season: May – October</Text>
@@ -234,7 +234,7 @@ export default function EventsPage() {
                 eFoiling
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak" align="center">
-                No wind? No problem. Electric hydrofoil surfing is perfect for the calm, glassy mornings of the dry season. Accessible to beginners, addictive for everyone. foiltribe pioneered eFoil rentals in the Maldives from Hulhumalé.
+                No wind? No problem. Electric hydrofoil surfing is perfect for the calm, glassy mornings of the dry season. Accessible to beginners, addictive for everyone. foiltribe pioneered eFoil rentals in Maldives from Hulhumalé.
               </Text>
               <Column gap="4" paddingTop="8">
                 <Text variant="label-default-s" onBackground="neutral-weak">Best season: January – April (calm days)</Text>
@@ -257,7 +257,7 @@ export default function EventsPage() {
               Seasonal Guide
             </Heading>
             <Text variant="body-default-l" onBackground="neutral-weak" align="center" style={{ maxWidth: 720 }}>
-              The Maldives has two distinct monsoon seasons. The <strong>Dry Season (Iruvai)</strong> from January to March brings calm waters and sunshine. The <strong>Wet Season (Hulhangu)</strong> from May to October delivers the winds and swells that power kite, wing, and surf seasons.
+              Maldives has two distinct monsoon seasons. The <strong>Dry Season (Iruvai)</strong> from January to March brings calm waters and sunshine. The <strong>Wet Season (Hulhangu)</strong> from May to October delivers the winds and swells that power kite, wing, and surf seasons.
             </Text>
           </Column>
 
@@ -358,7 +358,7 @@ export default function EventsPage() {
                 Thulusdhoo, Cokes Break
               </Text>
               <Text variant="body-default-m" onBackground="neutral-weak">
-                Major regional qualifier for global events. High-performance surfing on one of the Maldives' fastest hollow waves. Thulusdhoo is the capital of Maldivian surf culture.
+                Major regional qualifier for global events. High-performance surfing on one of Maldives' fastest hollow waves. Thulusdhoo is the capital of Maldivian surf culture.
               </Text>
             </Column>
 
@@ -406,7 +406,7 @@ export default function EventsPage() {
                 Lhaviyani Atoll
               </Text>
               <Text variant="body-default-m" onBackground="neutral-weak">
-                Workshops and fun races organized by the resort's watersports centre. Ideal for improving skills in one of the Maldives' best wind locations — vast shallow lagoons with consistent cross-shore conditions.
+                Workshops and fun races organized by the resort's watersports centre. Ideal for improving skills in one of Maldives' best wind locations — vast shallow lagoons with consistent cross-shore conditions.
               </Text>
             </Column>
 

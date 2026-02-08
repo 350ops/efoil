@@ -21,7 +21,7 @@ export async function generateMetadata() {
     ...Meta.generate({
       title: "Yacht eFoil Rental Maldives | Delivered to Your Vessel",
       description:
-        "Premium Audi e-tron eFoil rentals delivered directly to superyachts, charter yachts, and liveaboards across the Maldives. Professional setup, instruction, and all safety gear included.",
+        "Premium Audi e-tron eFoil rentals delivered directly to superyachts, charter yachts, and liveaboards across Maldives. Professional setup, instruction, and all safety gear included.",
       baseURL: baseURL,
       image: `/api/og/generate?title=${encodeURIComponent("Yacht eFoil Rental")}`,
       path: "/yachts",
@@ -44,10 +44,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Can you deliver to a yacht at anchor anywhere in the Maldives?",
+      name: "Can you deliver to a yacht at anchor anywhere in Maldives?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. We operate across all major atolls in the Maldives. Whether you are anchored in North Malé, Baa, Raa, or further south, we can arrange delivery. Logistics depend on location and are confirmed when you book.",
+        text: "Yes. We operate across all major atolls in Maldives. Whether you are anchored in North Malé, Baa, Raa, or further south, we can arrange delivery. Logistics depend on location and are confirmed when you book.",
       },
     },
     {
@@ -93,7 +93,7 @@ export default function YachtsPage() {
         baseURL={baseURL}
         path="/yachts"
         title="Yacht eFoil Rental Maldives | Delivered to Your Vessel"
-        description="Premium Audi e-tron eFoil rentals delivered directly to superyachts, charter yachts, and liveaboards across the Maldives."
+        description="Premium Audi e-tron eFoil rentals delivered directly to superyachts, charter yachts, and liveaboards across Maldives."
         image={`/api/og/generate?title=${encodeURIComponent("Yacht eFoil Rental")}`}
         author={{
           name: person.name,
@@ -116,14 +116,14 @@ export default function YachtsPage() {
           </RevealFx>
           <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32" s={{ paddingBottom: "20" }}>
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l" align="center">
-              We bring the Audi e-tron eFoil directly to your vessel—anywhere in the Maldives. Professional instructor, safety gear, and seamless logistics included.
+              We bring the Audi e-tron eFoil directly to your vessel—anywhere in Maldives. Professional instructor, safety gear, and seamless logistics included.
             </Text>
           </RevealFx>
           <RevealFx paddingTop="12" delay={0.4} horizontal="center" fillWidth s={{ paddingTop: "8" }}>
             <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column", gap: "12" }}>
               <Button
                 data-border="rounded"
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi, I'd like to arrange eFoil delivery to our yacht in the Maldives.")}`}
+                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi, I'd like to arrange eFoil delivery to our yacht in Maldives.")}`}
                 variant="primary"
                 size="l"
                 weight="strong"
@@ -260,7 +260,7 @@ export default function YachtsPage() {
               Delivery Coverage
             </Heading>
             <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-              Operating across the Maldives atolls
+              Operating across Maldives atolls
             </Text>
           </Column>
 

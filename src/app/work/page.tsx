@@ -68,7 +68,7 @@ export default function Work() {
         baseURL={baseURL}
         path={work.path}
         title="eFoil Rental Packages | Book Your Maldives Experience"
-        description="Choose your eFoil adventure package. Premium Audi e-tron eFoil delivered to your yacht, boat, or resort in the Maldives."
+        description="Choose your eFoil adventure package. Premium Audi e-tron eFoil delivered to your yacht, boat, or resort in Maldives."
         image={`/api/og/generate?title=${encodeURIComponent("eFoil Rental Packages")}`}
         author={{
           name: person.name,
@@ -83,7 +83,7 @@ export default function Work() {
           Choose Your eFoil Experience
         </Heading>
         <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-          Premium Audi e-tron eFoil delivered to your yacht, boat, or resort anywhere in the Maldives
+          Premium Audi e-tron eFoil delivered to your yacht, boat, or resort anywhere in Maldives
         </Text>
       </Column>
 
