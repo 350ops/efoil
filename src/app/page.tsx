@@ -28,6 +28,22 @@ export async function generateMetadata() {
       image: home.image,
     }),
     alternates: { canonical: "/" },
+    openGraph: {
+      type: "website",
+      title: "eFoil Rentals Maldives",
+      description:
+        "Premium Audi e-tron eFoil rentals in Maldives. Delivered to yachts, boats, and resorts.",
+      url: baseURL,
+      siteName: "eFoil Maldives",
+      images: [
+        {
+          url: `${baseURL}/images/audi-efoil-maldives.jpg`,
+          width: 2188,
+          height: 1722,
+          alt: "Audi e-tron eFoil rental in Maldives lagoon",
+        },
+      ],
+    },
   };
 }
 
@@ -60,6 +76,7 @@ const serviceSchema = {
       },
     ],
   },
+  image: `${baseURL}/images/audi-efoil-maldives.jpg`,
   serviceType: "eFoil rental",
   areaServed: {
     "@type": "Country",
@@ -180,7 +197,7 @@ export default function Home() {
         path={home.path}
         title={home.title}
         description={home.description}
-        image={`/api/og/generate?title=${encodeURIComponent(home.title)}`}
+        image="/images/audi-efoil-maldives.jpg"
         author={{
           name: person.name,
           url: `${baseURL}${about.path}`,
@@ -235,6 +252,29 @@ export default function Home() {
           </RevealFx>
         </Column>
       </Column>
+
+      {/* Featured Hero Image — optimised for Google image search */}
+      <RevealFx translateY="12" delay={0.5} fillWidth>
+        <Column as="figure" fillWidth gap="8" horizontal="center" style={{ margin: 0 }}>
+          <Column fillWidth radius="l" overflow="hidden" border="neutral-alpha-weak" s={{ radius: "m" }}>
+            <Media
+              priority
+              sizes="(max-width: 768px) 100vw, 1200px"
+              src="/images/audi-efoil-maldives.jpg"
+              alt="Audi e-tron eFoil rental in Maldives lagoon"
+              aspectRatio="16 / 9"
+            />
+          </Column>
+          <Text
+            as="figcaption"
+            variant="body-default-xs"
+            onBackground="neutral-weak"
+            align="center"
+          >
+            Riding the Audi e-tron eFoil above crystal-clear Maldives waters
+          </Text>
+        </Column>
+      </RevealFx>
 
       {/* Video Section */}
       <RevealFx translateY="16" delay={0.6} fillWidth>

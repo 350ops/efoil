@@ -41,7 +41,7 @@ const social: Social = [
 
 const home: Home = {
   path: "/",
-  image: "/images/og/home.jpg",
+  image: "/images/audi-efoil-maldives.jpg",
   label: "Home",
   title: `eFoil Rental Maldives | Audi e-tron eFoil Delivery to Yachts & Resorts`,
   description: `Experience the thrill of flying above crystal-clear Maldives waters. Premium Audi e-tron eFoil rentals delivered directly to your yacht, boat, or resort. Book your unforgettable eFoil adventure today.`,
