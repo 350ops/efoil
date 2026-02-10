@@ -29,6 +29,13 @@ const organizationSchema = {
     width: 512,
     height: 512,
   },
+  image: {
+    "@type": "ImageObject",
+    url: `${baseURL}/images/audi-efoil-maldives.jpg`,
+    width: 2188,
+    height: 1722,
+    caption: "Audi e-tron eFoil rental in Maldives lagoon",
+  },
   email: "hello@efoil.rent",
   description:
     "Premium eFoil rental service in Maldives. Audi e-tron electric hydrofoil surfboard delivery to yachts, boats, and resorts.",
@@ -70,11 +77,36 @@ export async function generateMetadata() {
       image: home.image,
     }),
     applicationName: "eFoil Maldives",
-    other: {
-      "google-site-verification": "",
+    robots: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large" as const,
+      "max-snippet": -1,
+      "max-video-preview": -1,
     },
     openGraph: {
       siteName: "eFoil Maldives",
+      type: "website",
+      title: "eFoil Rentals Maldives",
+      description:
+        "Premium Audi e-tron eFoil rentals in Maldives. Delivered to yachts, boats, and resorts.",
+      url: baseURL,
+      images: [
+        {
+          url: `${baseURL}/images/audi-efoil-maldives.jpg`,
+          width: 2188,
+          height: 1722,
+          alt: "Audi e-tron eFoil rental in Maldives lagoon",
+          type: "image/jpeg",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "eFoil Rentals Maldives",
+      description:
+        "Premium Audi e-tron eFoil rentals in Maldives. Delivered to yachts, boats, and resorts.",
+      images: [`${baseURL}/images/audi-efoil-maldives.jpg`],
     },
   };
 }
