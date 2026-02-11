@@ -54,7 +54,7 @@ const serviceSchema = {
   "@type": "Service",
   name: "eFoil Rental Maldives",
   description:
-    "Premium Audi e-tron eFoil rental service with delivery to yachts, boats, and resorts across Maldives. Includes professional instruction and all safety equipment.",
+    " Connecting you with the official Audi e-tron eFoil distributor in the Maldives. Delivery to yachts, boats, and resorts with or without professional instruction.",
   provider: {
     "@type": "Organization",
     name: "eFoil Maldives",
@@ -66,7 +66,7 @@ const serviceSchema = {
       {
         "@type": "ContactPoint",
         telephone: `+${whatsappNumber}`,
-        contactType: "reservations",
+        contactType: "concierge",
         availableLanguage: ["English", "Dhivehi"],
       },
       {
@@ -88,29 +88,11 @@ const serviceSchema = {
     itemListElement: [
       {
         "@type": "Offer",
-        name: "Hourly Session (2hr minimum)",
-        price: "500.00",
+        name: "Daily Rental",
+        price: "700.00",
         priceCurrency: "USD",
         description:
-          "2-hour minimum eFoil rental with professional instruction and all safety gear.",
-        url: `${baseURL}/work`,
-      },
-      {
-        "@type": "Offer",
-        name: "Half-Day Adventure",
-        price: "800.00",
-        priceCurrency: "USD",
-        description:
-          "4 hours of eFoil riding with extended instruction, multiple sessions, and photo opportunities.",
-        url: `${baseURL}/work`,
-      },
-      {
-        "@type": "Offer",
-        name: "Full-Day Experience",
-        price: "1400.00",
-        priceCurrency: "USD",
-        description:
-          "8 hours with the eFoil. Ideal for groups or exploring multiple spots around your location.",
+          "24-hour eFoil rental with delivery, instruction, and safety gear included.",
         url: `${baseURL}/work`,
       },
     ],
@@ -134,7 +116,7 @@ const faqSchema = {
       name: "How does eFoil delivery to yachts and resorts work?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Our team brings the Audi e-tron eFoil directly to your yacht, liveaboard, or resort anywhere in Maldives. We handle all transport, setup, and equipment. Just tell us your location and preferred time when you book.",
+        text: "We connect you with trusted partners who bring the Audi e-tron eFoil directly to your yacht, liveaboard, or resort. They handle all transport, setup, and equipment handover.",
       },
     },
     {
@@ -142,7 +124,7 @@ const faqSchema = {
       name: "Is eFoiling suitable for beginners?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Every rental includes a professional instruction session and safety briefing tailored to your experience level. Most beginners are up and riding within 15–20 minutes. The Audi e-tron eFoil has intuitive speed control via a wireless handheld remote, making it accessible for first-timers.",
+        text: "Yes. All our partners provide professional instruction and safety briefings. The Audi e-tron eFoil is beginner-friendly, and most riders are up and flying within a short session.",
       },
     },
     {
@@ -150,7 +132,7 @@ const faqSchema = {
       name: "What is the minimum rental duration?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The minimum booking is a 2-hour session at $250 per hour ($500 total). We also offer half-day (4 hours, $800) and full-day (8 hours, $1,400) packages for a more immersive experience.",
+        text: "Our partners offer flexible packages starting from 2-hour sessions. You can also arrange to keep the eFoil for the duration of your stay (multiple days) for maximum freedom.",
       },
     },
     {
@@ -158,7 +140,7 @@ const faqSchema = {
       name: "What happens if the weather is bad on my booking day?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Safety is our priority. If conditions are unsuitable for riding, we will work with you to reschedule at no extra cost. Our team monitors weather and sea conditions and will contact you in advance if adjustments are needed.",
+        text: "Safety is paramount. Our partners monitor weather conditions and will work with you to reschedule if conditions are unsafe for riding.",
       },
     },
     {
@@ -166,7 +148,7 @@ const faqSchema = {
       name: "Is a safety briefing included?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Every session begins with a safety briefing covering board handling, speed control, water safety, and riding technique. All necessary safety gear—including a life vest and helmet—is provided at no additional charge.",
+        text: "Yes. Every rental includes a safety briefing and equipment overview from the provider. Life vests and helmets are standard safety gear provided.",
       },
     },
     {
@@ -174,15 +156,15 @@ const faqSchema = {
       name: "How do I book an eFoil rental?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "You can book directly on our website using secure Stripe checkout, or contact us via WhatsApp or email. Choose your preferred package, select a date, and we handle the rest—from delivery to instruction.",
+        text: "Simply contact us via WhatsApp or email with your dates and location. We will coordinate with our partners to find the best package for you and handle the booking arrangements.",
       },
     },
     {
       "@type": "Question",
-      name: "What eFoil equipment do you use?",
+      name: "What eFoil equipment is used?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We use the Audi e-tron eFoil, a premium electric hydrofoil board engineered for performance and safety. It features a carbon fiber construction, silent electric motor, and a wireless hand controller for precise speed management. All equipment is professionally maintained between sessions.",
+        text: "Our partners exclusively use the Audi e-tron eFoil, known for its safety features, performance, and silence. We ensure you ride the best equipment available in the Maldives.",
       },
     },
   ],
@@ -206,10 +188,12 @@ export default function Home() {
       />
       <script
         type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <script
         type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       
@@ -253,47 +237,14 @@ export default function Home() {
         </Column>
       </Column>
 
-      {/* Featured Hero Image — optimised for Google image search */}
-      <RevealFx translateY="12" delay={0.5} fillWidth>
-        <Column as="figure" fillWidth gap="8" horizontal="center" style={{ margin: 0 }}>
-          <Column fillWidth radius="l" overflow="hidden" border="neutral-alpha-weak" s={{ radius: "m" }}>
-            <Media
-              priority
-              sizes="(max-width: 768px) 100vw, 1200px"
-              src="/images/audi-efoil-maldives.jpg"
-              alt="Audi e-tron eFoil rental in Maldives lagoon"
-              aspectRatio="16 / 9"
-            />
-          </Column>
-          <Text
-            as="figcaption"
-            variant="body-default-xs"
-            onBackground="neutral-weak"
-            align="center"
-          >
-            Riding the Audi e-tron eFoil above crystal-clear Maldives waters
-          </Text>
-        </Column>
-      </RevealFx>
-
-      {/* Video Section */}
+      {/* SEO-Optimized Image Section */}
       <RevealFx translateY="16" delay={0.6} fillWidth>
         <Column fillWidth radius="l" overflow="hidden" border="neutral-alpha-weak" s={{ radius: "m" }}>
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            style={{
-              width: "100%",
-              height: "auto",
-              display: "block",
-              objectFit: "cover",
-            }}
-          >
-            <source src="/images/gallery/gliding.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          <Media
+            src="/images/gallery/resort_efoil_rental_maldives.jpeg"
+            alt="Person riding an Audi e-tron eFoil above the turquoise waters of the Maldives"
+            aspectRatio="16 / 9"
+          />
         </Column>
       </RevealFx>
 
@@ -342,20 +293,20 @@ export default function Home() {
             {[
               {
                 num: "01",
-                title: "Choose",
-                desc: "Pick your package and tell us your location—yacht, resort, or island.",
+                title: "Request",
+                desc: "Tell us your dates and location. We check availability with our partner network.",
                 icon: "📍",
               },
               {
                 num: "02",
-                title: "Book",
-                desc: "Pay securely online. We confirm and handle all delivery logistics.",
+                title: "Connect",
+                desc: "We match you with the best provider for your needs and handle the booking.",
                 icon: "✓",
               },
               {
                 num: "03",
-                title: "Fly",
-                desc: "Our instructor arrives with everything. After a quick briefing, you're airborne.",
+                title: "Ride",
+                desc: "Your eFoil is delivered. Enjoy a seamless experience for your entire stay.",
                 icon: "🌊",
               },
             ].map((step, idx) => (
@@ -479,10 +430,10 @@ export default function Home() {
         <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
           <Column horizontal="center" gap="m" s={{ gap: "12" }}>
             <Heading as="h2" variant="display-strong-m" align="center">
-              We Come to You
+              Our Partners Come to You
             </Heading>
             <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-              Direct delivery anywhere in Maldives
+              Network of providers delivering anywhere in the Maldives
             </Text>
           </Column>
           
@@ -499,7 +450,7 @@ export default function Home() {
                 Luxury Yachts
               </Heading>
               <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-                We deliver to yachts and superyachts throughout the atolls
+                Our partners deliver to yachts and superyachts throughout the atolls
               </Text>
             </Column>
             <Column
@@ -514,7 +465,7 @@ export default function Home() {
                 Liveaboards & Boats
               </Heading>
               <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-                Safari boats and private charters—we'll meet you on the water
+                Safari boats and private charters—delivered to your vessel
               </Text>
             </Column>
             <Column
@@ -529,7 +480,7 @@ export default function Home() {
                 Island Resorts
               </Heading>
               <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-                From luxury resorts to private islands across Maldives
+                Service available at luxury resorts and private islands
               </Text>
             </Column>
           </Grid>
@@ -593,6 +544,29 @@ export default function Home() {
           </Text>
           <Button href="/crew" variant="tertiary" size="m" arrowIcon>
             Tap here
+          </Button>
+        </Column>
+      </RevealFx>
+
+      {/* Partner Promo */}
+      <RevealFx translateY="16" delay={0.2} fillWidth>
+        <Column
+          fillWidth
+          padding="32"
+          gap="12"
+          horizontal="center"
+          background="brand-alpha-weak"
+          radius="xl"
+          s={{ padding: "24", gap: "8", radius: "l" }}
+        >
+          <Heading as="h2" variant="heading-strong-xl" align="center">
+            Explore More of the Maldives
+          </Heading>
+          <Text variant="body-default-l" onBackground="neutral-weak" align="center">
+            Looking for full-day excursions, snorkeling trips, and private charters?
+          </Text>
+          <Button href="https://maldivesdaytrips.com" variant="secondary" size="m" arrowIcon>
+            Visit Maldives Day Trips
           </Button>
         </Column>
       </RevealFx>

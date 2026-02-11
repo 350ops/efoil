@@ -61,10 +61,10 @@ export default function BookingSuccess() {
               1. You'll receive a confirmation email within minutes
             </Text>
             <Text variant="body-default-m" onBackground="neutral-weak" align="center">
-              2. Our team will contact you to confirm delivery details
+              2. We will contact you to confirm delivery details
             </Text>
             <Text variant="body-default-m" onBackground="neutral-weak" align="center">
-              3. We'll arrive at your location with everything you need
+              3. Our partners will arrive at your location with everything you need
             </Text>
           </Column>
         </Column>

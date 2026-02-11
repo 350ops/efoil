@@ -39,7 +39,7 @@ const faqSchema = {
       name: "How do you deliver an eFoil to my yacht?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Our team arrives by tender or support vessel with the fully charged eFoil, safety gear, and all accessories. We coordinate GPS location and arrival time in advance so there is zero disruption to your itinerary.",
+        text: "Our partner team arrives by tender or support vessel with the fully charged eFoil, safety gear, and all accessories. We coordinate GPS location and arrival time in advance.",
       },
     },
     {
@@ -116,7 +116,7 @@ export default function YachtsPage() {
           </RevealFx>
           <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32" s={{ paddingBottom: "20" }}>
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l" align="center">
-              We bring the Audi e-tron eFoil directly to your vessel—anywhere in Maldives. Professional instructor, safety gear, and seamless logistics included.
+              We arrange delivery of the Audi e-tron eFoil directly to your vessel—anywhere in the Maldives. Professional instructor, safety gear, and seamless logistics included.
             </Text>
           </RevealFx>
           <RevealFx paddingTop="12" delay={0.4} horizontal="center" fillWidth s={{ paddingTop: "8" }}>
@@ -165,7 +165,7 @@ export default function YachtsPage() {
                 Coordinate
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak" align="center">
-                Share your yacht's location, preferred date and time. We confirm logistics and travel to your anchorage.
+                Share your yacht's location, preferred date and time. We coordinate logistics with our partners to meet you at your anchorage.
               </Text>
             </Column>
 
@@ -177,7 +177,7 @@ export default function YachtsPage() {
                 Board & Brief
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak" align="center">
-                Our instructor arrives by tender, sets up the eFoil, and runs a tailored safety briefing for your guests.
+                Use the tender to meet the partner instructor, who sets up the eFoil and runs a tailored safety briefing for your guests.
               </Text>
             </Column>
 
@@ -217,7 +217,7 @@ export default function YachtsPage() {
                 Zero Storage Required
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak">
-                We bring the eFoil and take it when we leave. No need to allocate tender garage space or worry about onboard charging.
+                Partners bring the eFoil and take it when they leave. No need to allocate tender garage space or worry about onboard charging.
               </Text>
             </Column>
             <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
@@ -225,7 +225,7 @@ export default function YachtsPage() {
                 Crew-Friendly
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak">
-                Our instructor manages the entire session. Your crew can focus on hospitality while we handle the water sport activity.
+                The instructor manages the entire session. Your crew can focus on hospitality while our partners handle the water sport activity.
               </Text>
             </Column>
             <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>

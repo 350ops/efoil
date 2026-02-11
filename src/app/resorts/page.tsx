@@ -47,7 +47,7 @@ const faqSchema = {
       name: "Does the resort need to store any equipment?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No. We deliver the eFoil before each session and collect it afterwards. If your resort prefers to keep equipment on-site for recurring sessions, we can arrange that with a dedicated storage solution and regular maintenance visits.",
+        text: "No. Partners deliver the eFoil before each session and collect it afterwards. Long-term on-site storage arrangements can be discussed if preferred.",
       },
     },
     {
@@ -116,7 +116,7 @@ export default function ResortsPage() {
           </RevealFx>
           <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32" s={{ paddingBottom: "20" }}>
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l" align="center">
-              Add a premium water sport to your activity menu. We supply the equipment, the instructor, and the unforgettable experience—your resort gets the guest delight.
+              Add a premium water sport to your activity menu. We arrange the equipment, the instructor, and the unforgettable experience—your resort gets the guest delight.
             </Text>
           </RevealFx>
           <RevealFx paddingTop="12" delay={0.4} horizontal="center" fillWidth s={{ paddingTop: "8" }}>
@@ -133,7 +133,7 @@ export default function ResortsPage() {
               </Button>
               <Button
                 data-border="rounded"
-                href="mailto:hello@efoil.rent?subject=Resort Partnership Inquiry"
+                href="mailto:hello@efoil.rent?subject=Resort Partner Network Inquiry"
                 variant="secondary"
                 size="l"
               >
@@ -177,7 +177,7 @@ export default function ResortsPage() {
                 We Deliver
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak" align="center">
-                Our instructor arrives at your beach or jetty with the eFoil and all safety equipment, ready to run sessions on schedule.
+                A certified partner instructor arrives at your beach or jetty with the eFoil and all safety equipment, ready to run sessions on schedule.
               </Text>
             </Column>
 
@@ -189,7 +189,7 @@ export default function ResortsPage() {
                 Guests Fly
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak" align="center">
-                Your guests enjoy a world-class eFoil experience. We handle all instruction, safety, and equipment management.
+                Your guests enjoy a world-class eFoil experience. Our partners handle all instruction, safety, and equipment management.
               </Text>
             </Column>
           </Grid>
@@ -214,7 +214,7 @@ export default function ResortsPage() {
                 No Capital Outlay
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak">
-                We own and maintain the equipment. Your resort adds a premium activity to its menu without purchasing, storing, or servicing water sport gear.
+                Our partners own and maintain the equipment. Your resort adds a premium activity to its menu without purchasing, storing, or servicing water sport gear.
               </Text>
             </Column>
             <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
@@ -222,7 +222,7 @@ export default function ResortsPage() {
                 Trained Staff On-Site
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak">
-                Every session is led by our certified instructor. No need to train your water sports team on a new discipline—we bring the expertise.
+                Every session is led by a certified instructor. No need to train your water sports team on a new discipline—partners bring the expertise.
               </Text>
             </Column>
             <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
@@ -275,7 +275,7 @@ export default function ResortsPage() {
                 Guest Waivers
               </Heading>
               <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-                Digital waiver system handled by our team before every session
+                Digital waiver system handled by the provider before every session
               </Text>
             </Column>
             <Column padding="24" gap="8" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "20", radius: "m" }}>

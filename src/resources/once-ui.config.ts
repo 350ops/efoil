@@ -27,6 +27,9 @@ const routes: RoutesConfig = {
   "/yachts": true,
   "/resorts": true,
   "/partners": true,
+  "/book/location": true,
+  "/privacy": true,
+  "/terms": true,
 };
 
 const display: DisplayConfig = {

@@ -32,31 +32,13 @@ export async function generateMetadata() {
 
 const packages = [
   {
-    id: "hourly",
-    name: "Hourly Session",
-    price: "$250",
-    unit: "per hour",
-    description: "Perfect for trying eFoiling. Minimum 2 hours. Includes instruction and safety briefing.",
-    features: ["2 hour minimum", "Professional instruction", "All safety gear", "Delivery included"],
-    popular: false,
-  },
-  {
-    id: "halfday",
-    name: "Half-Day Adventure",
-    price: "$800",
-    unit: "4 hours",
-    description: "Ideal for learning and enjoying the experience. Plenty of time to master flying.",
-    features: ["4 hours of riding", "Extended instruction", "Multiple sessions", "Photo opportunities"],
+    id: "daily",
+    name: "Daily Rental",
+    price: "$700",
+    unit: "per 24 hours",
+    description: "Full day eFoil experience. Delivery to your location included.",
+    features: ["24-hour rental", "Delivery included", "Full instruction", "Safety gear"],
     popular: true,
-  },
-  {
-    id: "fullday",
-    name: "Full-Day Experience",
-    price: "$1,400",
-    unit: "8 hours",
-    description: "Perfect for groups or extended exploration. Make the most of your day on the water.",
-    features: ["8 hours of riding", "Group sessions available", "Explore multiple spots", "Best value"],
-    popular: false,
   },
 ];
 
