@@ -43,6 +43,14 @@ export const Footer = () => {
           <SmartLink href="/partners">
             <Text variant="body-default-s" onBackground="neutral-weak">Partners</Text>
           </SmartLink>
+          <Text variant="body-default-s" onBackground="neutral-weak">·</Text>
+          <SmartLink href="/privacy">
+            <Text variant="body-default-s" onBackground="neutral-weak">Privacy</Text>
+          </SmartLink>
+          <Text variant="body-default-s" onBackground="neutral-weak">·</Text>
+          <SmartLink href="/terms">
+            <Text variant="body-default-s" onBackground="neutral-weak">Terms</Text>
+          </SmartLink>
         </Row>
         <Row gap="16" vertical="center">
           {social.map(
