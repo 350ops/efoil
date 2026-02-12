@@ -36,6 +36,10 @@ export const Footer = () => {
             <Text variant="body-default-s" onBackground="neutral-weak">Events</Text>
           </SmartLink>
           <Text variant="body-default-s" onBackground="neutral-weak">·</Text>
+          <SmartLink href="/audi-foil-board">
+            <Text variant="body-default-s" onBackground="neutral-weak">Audi Board</Text>
+          </SmartLink>
+          <Text variant="body-default-s" onBackground="neutral-weak">·</Text>
           <SmartLink href="/crew">
             <Text variant="body-default-s" onBackground="neutral-weak">Crew Trips</Text>
           </SmartLink>

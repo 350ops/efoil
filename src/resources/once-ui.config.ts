@@ -28,8 +28,11 @@ const routes: RoutesConfig = {
   "/resorts": true,
   "/partners": true,
   "/book/location": true,
+  "/audi-foil-board": true,
   "/privacy": true,
   "/terms": true,
+  "/login": true,
+  "/booking/success": true,
 };
 
 const display: DisplayConfig = {

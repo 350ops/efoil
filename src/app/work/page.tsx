@@ -4,18 +4,12 @@ import {
   Text,
   Meta,
   Schema,
-  Button,
-  Row,
-  Grid,
   RevealFx,
-  Flex,
 } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
 import { Projects } from "@/components/work/Projects";
-import { CheckoutButton } from "@/components/CheckoutButton";
+import { PricingGrid } from "@/components/work/PricingGrid";
 import { RequestAvailabilityForm } from "@/components/RequestAvailabilityForm";
-
-const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
 
 export async function generateMetadata() {
   return {
@@ -29,18 +23,6 @@ export async function generateMetadata() {
     alternates: { canonical: "/work" },
   };
 }
-
-const packages = [
-  {
-    id: "daily",
-    name: "Daily Rental",
-    price: "$700",
-    unit: "per 24 hours",
-    description: "Full day eFoil experience. Delivery to your location included.",
-    features: ["24-hour rental", "Delivery included", "Full instruction", "Safety gear"],
-    popular: true,
-  },
-];
 
 export default function Work() {
   return (
@@ -70,78 +52,7 @@ export default function Work() {
       </Column>
 
       {/* Pricing Cards */}
-      <RevealFx translateY="16">
-        <Grid columns="3" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
-          {packages.map((pkg) => (
-            <Column
-              key={pkg.id}
-              padding="32"
-              gap="20"
-              background={pkg.popular ? "brand-alpha-weak" : "neutral-alpha-weak"}
-              border={pkg.popular ? "brand-alpha-medium" : "neutral-alpha-weak"}
-              radius="l"
-              s={{ padding: "24", gap: "16", radius: "m" }}
-            >
-              {pkg.popular && (
-                <Row horizontal="center">
-                  <Text
-                    variant="label-default-s"
-                    onBackground="brand-strong"
-                    style={{
-                      background: "var(--brand-alpha-medium)",
-                      padding: "4px 12px",
-                      borderRadius: "100px",
-                    }}
-                  >
-                    Most Popular
-                  </Text>
-                </Row>
-              )}
-              
-              <Column gap="4" horizontal="center">
-                <Heading as="h3" variant="heading-strong-l" align="center">
-                  {pkg.name}
-                </Heading>
-                <Row gap="4" vertical="end" horizontal="center" s={{ direction: "column", gap: "0", vertical: "center" }}>
-                  <Text variant="display-strong-l">{pkg.price}</Text>
-                  <Text variant="body-default-m" onBackground="neutral-weak">
-                    {pkg.unit}
-                  </Text>
-                </Row>
-              </Column>
-
-              <Text variant="body-default-m" onBackground="neutral-weak" align="center">
-                {pkg.description}
-              </Text>
-
-              <Column gap="8" paddingY="m" s={{ paddingY: "12", gap: "6" }}>
-                {pkg.features.map((feature) => (
-                  <Row key={feature} gap="8" vertical="center">
-                    <Text onBackground="brand-strong">✓</Text>
-                    <Text variant="body-default-s">{feature}</Text>
-                  </Row>
-                ))}
-              </Column>
-
-              <Column gap="12" fillWidth>
-                <CheckoutButton
-                  packageId={pkg.id}
-                  packageName={pkg.name}
-                  popular={pkg.popular}
-                />
-                <Button
-                  href={`https://wa.me/${whatsappNumber}?text=Hi! I have questions about the ${pkg.name} eFoil package.`}
-                  variant="tertiary"
-                  size="s"
-                  fillWidth
-                >
-                  Questions? WhatsApp Us
-                </Button>
-              </Column>
-            </Column>
-          ))}
-        </Grid>
-      </RevealFx>
+      <PricingGrid />
 
       {/* Equipment Section */}
       <RevealFx translateY="16">
