@@ -84,15 +84,29 @@ const serviceSchema = {
   },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "eFoil Rental Packages",
+    name: "eFoil Experience Packages",
     itemListElement: [
       {
         "@type": "Offer",
-        name: "Daily Rental",
-        price: "700.00",
+        name: "Point to Point Delivery",
+        description:
+          "24-hour eFoil rental with delivery to your yacht, resort, or any location in the Maldives. Includes initial instruction and safety gear.",
+        url: `${baseURL}/work`,
+      },
+      {
+        "@type": "Offer",
+        name: "Test Drive",
+        description:
+          "eFoil rentals and lessons available through our partner Foiltribe in Hulhumalé. Open to all ages.",
+        url: `${baseURL}/work`,
+      },
+      {
+        "@type": "Offer",
+        name: "Determination Program",
+        price: "0.00",
         priceCurrency: "USD",
         description:
-          "24-hour eFoil rental with delivery, instruction, and safety gear included.",
+          "First 3 eFoil experiences fully covered for people with any disability. Located in Hulhumalé.",
         url: `${baseURL}/work`,
       },
     ],

@@ -1,165 +1,167 @@
 "use client";
 
-import { useState } from "react";
 import {
   Column,
   Heading,
   Text,
   Button,
-  Row,
   Grid,
   RevealFx,
-  SegmentedControl,
+  Flex,
 } from "@once-ui-system/core";
-import { CheckoutButton } from "@/components/CheckoutButton";
+import { useRouter } from "next/navigation";
 
 const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
 
-const packages = [
-  {
-    id: "short-session",
-    name: {
-      base: "1 Hour Session",
-      delivery: "Half Day Rental",
-    },
-    price: {
-      base: "$100",
-      delivery: "$600",
-    },
-    unit: {
-      base: "1 hour",
-      delivery: "8 hours",
-    },
-    description: {
-      base: "Quick session or discovery lesson at our location.",
-      delivery: "Perfect for a morning or afternoon session.",
-    },
-    features: {
-      base: ["1-hour session", "Professional instruction", "Safety gear included"],
-      delivery: ["8-hour rental", "Delivery included", "Full instruction", "Safety gear"],
-    },
-    popular: false,
-  },
-  {
-    id: "long-session",
-    name: {
-      base: "2 Hour Session",
-      delivery: "Daily Rental",
-    },
-    price: {
-      base: "$180",
-      delivery: "$999",
-    },
-    unit: {
-      base: "2 hours",
-      delivery: "Full 24 hours",
-    },
-    description: {
-      base: "Double the flight time. Great for mastering the eFoil.",
-      delivery: "Maximize your flight time with a full day rental.",
-    },
-    features: {
-      base: ["2-hour session", "Extended flight time", "Safety gear included"],
-      delivery: ["Full 24-hour rental", "Delivery and pickup included", "Full instruction", "Safety gear"],
-    },
-    popular: true,
-  },
-];
+interface ServiceCardProps {
+  title: string;
+  subtitle?: string;
+  description: string;
+  features: string[];
+  ctaLabel: string;
+  ctaAction: () => void;
+}
+
+function ServiceCard({
+  title,
+  subtitle,
+  description,
+  features,
+  ctaLabel,
+  ctaAction,
+}: ServiceCardProps) {
+  return (
+    <Flex
+      fillWidth
+      direction="column"
+      padding="32"
+      gap="24"
+      background="neutral-alpha-weak"
+      border="neutral-alpha-weak"
+      radius="l"
+      s={{ padding: "24", gap: "20", radius: "m" }}
+    >
+      {/* Title & Subtitle Group - Fixed height for alignment if needed, but flex-grow spacer handles bottom alignment */}
+      <Column gap="8" horizontal="start">
+        <Heading as="h3" variant="heading-strong-l">
+          {title}
+        </Heading>
+        {subtitle && (
+          <Text variant="label-default-s" onBackground="neutral-weak">
+            {subtitle}
+          </Text>
+        )}
+      </Column>
+
+      {/* Description */}
+      <Text
+        variant="body-default-m"
+        onBackground="neutral-weak"
+        style={{ minHeight: '4.5em' }} // Min-height for roughly 3 lines of text alignment
+      >
+        {description}
+      </Text>
+
+      {/* Feature List */}
+      <Column gap="12" paddingY="8" s={{ paddingY: "4", gap: "8" }}>
+        {features.map((feature) => (
+          <Flex key={feature} gap="12" vertical="center">
+            <div
+              style={{
+                width: 6,
+                height: 6,
+                borderRadius: "50%",
+                backgroundColor: "var(--brand-solid-strong)",
+                flexShrink: 0,
+              }}
+            />
+            <Text variant="body-default-s" onBackground="neutral-medium">
+              {feature}
+            </Text>
+          </Flex>
+        ))}
+      </Column>
+
+      {/* Spacer to push button to bottom */}
+      <div style={{ flexGrow: 1 }} />
+
+      {/* CTA Button */}
+      <Button
+        variant="secondary"
+        size="l"
+        fillWidth
+        onClick={ctaAction}
+      >
+        {ctaLabel}
+      </Button>
+    </Flex>
+  );
+}
 
 export function PricingGrid() {
-  const [deliveryOption, setDeliveryOption] = useState("with");
+  const router = useRouter();
 
   return (
     <Column horizontal="center" gap="32" fillWidth>
-      <SegmentedControl
-        buttons={[
-          { value: "without", label: "Male/Hulhumale Pick Up or Lesson" },
-          { value: "with", label: "Resorts and Yachts Service" },
-        ]}
-        selected={deliveryOption}
-        onToggle={(value) => setDeliveryOption(value)}
-      />
       <RevealFx translateY="16" fillWidth>
-        <Grid columns="2" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
-          {packages.map((pkg) => {
-            const isDelivery = deliveryOption === "with";
-            const currentName = isDelivery ? pkg.name.delivery : pkg.name.base;
-            const currentPrice = isDelivery ? pkg.price.delivery : pkg.price.base;
-            const currentUnit = isDelivery ? pkg.unit.delivery : pkg.unit.base;
-            const currentDesc = isDelivery ? pkg.description.delivery : pkg.description.base;
-            const currentFeatures = isDelivery ? pkg.features.delivery : pkg.features.base;
+        <Grid columns="3" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
+          {/* 1. Point to Point Delivery */}
+          <ServiceCard
+            title="Point to Point Delivery"
+            subtitle="Price calculated at checkout"
+            description="We bring the full Audi e-tron eFoil experience directly to your yacht, resort, or private villa location."
+            features={[
+              "24-hour rental period",
+              "Delivery & pickup included",
+              "Initial instruction session",
+              "Full safety equipment suite",
+              "Additional gear available",
+            ]}
+            ctaLabel="Book Delivery"
+            ctaAction={() => router.push("/book/location")}
+          />
 
-            return (
-              <Column
-                key={pkg.id}
-                padding="32"
-                gap="20"
-                background={pkg.popular ? "brand-alpha-weak" : "neutral-alpha-weak"}
-                border={pkg.popular ? "brand-alpha-medium" : "neutral-alpha-weak"}
-                radius="l"
-                s={{ padding: "24", gap: "16", radius: "m" }}
-              >
-                {pkg.popular && (
-                  <Row horizontal="center">
-                    <Text
-                      variant="label-default-s"
-                      onBackground="brand-strong"
-                      style={{
-                        background: "var(--brand-alpha-medium)",
-                        padding: "4px 12px",
-                        borderRadius: "100px",
-                      }}
-                    >
-                      Most Popular
-                    </Text>
-                  </Row>
-                )}
-                
-                <Column gap="4" horizontal="center">
-                  <Heading as="h3" variant="heading-strong-l" align="center">
-                    {currentName}
-                  </Heading>
-                  <Row gap="4" vertical="end" horizontal="center" s={{ direction: "column", gap: "0", vertical: "center" }}>
-                    <Text variant="display-strong-l">
-                      {currentPrice}
-                    </Text>
-                    <Text variant="body-default-m" onBackground="neutral-weak">
-                      {currentUnit}
-                    </Text>
-                  </Row>
-                </Column>
+          {/* 2. Test Drive */}
+          <ServiceCard
+            title="Test Drive"
+            subtitle="Partner: Foiltribe"
+            description="Collaborating with Foiltribe in Hulhumalé to provide accessible rentals and lessons for all ages."
+            features={[
+              "Single session rentals",
+              "Professional lessons",
+              "Open to all skill levels",
+              "Located in Hulhumalé",
+              "Certified instructors",
+            ]}
+            ctaLabel="Contact on Instagram"
+            ctaAction={() =>
+              window.open(
+                `https://ig.me/m/efoil.rent`,
+                "_blank"
+              )
+            }
+          />
 
-                <Text variant="body-default-m" onBackground="neutral-weak" align="center">
-                  {currentDesc}
-                </Text>
-
-                <Column gap="8" paddingY="m" s={{ paddingY: "12", gap: "6" }}>
-                  {currentFeatures.map((feature) => (
-                    <Row key={feature} gap="8" vertical="center">
-                      <Text onBackground="brand-strong">✓</Text>
-                      <Text variant="body-default-s">{feature}</Text>
-                    </Row>
-                  ))}
-                </Column>
-
-                <Column gap="12" fillWidth>
-                  <CheckoutButton
-                    packageId={pkg.id}
-                    packageName={currentName}
-                    popular={pkg.popular}
-                  />
-                  <Button
-                    href={`https://wa.me/${whatsappNumber}?text=Hi! I have questions about the ${currentName} eFoil package.`}
-                    variant="tertiary"
-                    size="s"
-                    fillWidth
-                  >
-                    Questions? WhatsApp Us
-                  </Button>
-                </Column>
-              </Column>
-            );
-          })}
+          {/* 3. Determination */}
+          <ServiceCard
+            title="Determination Program"
+            subtitle="Accessibility Initiative"
+            description="Adaptive eFoil experiences. We cover the cost of the first 3 sessions for people with disabilities."
+            features={[
+              "First 3 sessions complimentary",
+              "Personalized instruction",
+              "Priority scheduling",
+              "Specialized safety protocols",
+              "Located in Hulhumalé",
+            ]}
+            ctaLabel="Inquire on Instagram"
+            ctaAction={() =>
+              window.open(
+                `https://ig.me/m/efoil.rent`,
+                "_blank"
+              )
+            }
+          />
         </Grid>
       </RevealFx>
     </Column>

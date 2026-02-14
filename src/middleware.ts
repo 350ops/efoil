@@ -34,5 +34,5 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   // Run on all paths except static assets
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|icon.png|apple-icon.png).*)"],
+  matcher: ["/((?!_next/static|_next/image|favicon.ico|favicon.*\\.png|icon.png|apple-icon.png|apple-touch-icon.png|android-chrome.*\\.png|mstile.*\\.png|browserconfig.xml|site.webmanifest).*)"],
 };

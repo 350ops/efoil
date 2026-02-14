@@ -47,7 +47,7 @@ export default function Work() {
           Choose Your eFoil Experience
         </Heading>
         <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-          Premium Audi e-tron eFoil delivered to your yacht, boat, or resort anywhere in Maldives
+          Whether you need delivery to your yacht, a local test drive, or an adaptive experience — we have you covered
         </Text>
       </Column>
 

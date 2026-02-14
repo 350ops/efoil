@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Column, Heading, Text, Button, Row, Flex, Icon } from "@once-ui-system/core";
+import { Column, Heading, Text, Button, Row } from "@once-ui-system/core";
 import { useRouter } from "next/navigation";
+import { FaInstagram } from "react-icons/fa6"; 
 
 export default function LoginPage() {
   const router = useRouter();
@@ -15,15 +16,10 @@ export default function LoginPage() {
     }
   }, []);
 
-  const handleGoogleLogin = () => {
-    // This is where the OAuth flow is triggered.
-    // For now, we redirect to a placeholder that reflects the next step.
-    console.log("Triggering Google OAuth Flow...");
-    
-    // Instructions for User:
-    // Once you have your Client ID, you can use a library like Supabase or Auth.js here.
-    // Example with Supabase:
-    // supabase.auth.signInWithOAuth({ provider: 'google' })
+  const handleInstagramBooking = () => {
+    // Open Instagram DM
+    const url = "https://ig.me/m/efoil.rent";
+    window.open(url, "_blank");
   };
 
   return (
@@ -34,7 +30,7 @@ export default function LoginPage() {
             Finalize your booking
           </Heading>
           <Text variant="body-default-m" onBackground="neutral-weak" align="center">
-            Sign up or log in to complete your eFoil reservation.
+            Contact us on Instagram to confirm availability and complete your reservation.
           </Text>
         </Column>
 
@@ -48,7 +44,7 @@ export default function LoginPage() {
                 {pendingBooking.place}
               </Text>
               <Text variant="body-default-s" onBackground="neutral-weak">
-                {pendingBooking.date} at {pendingBooking.time}
+                {pendingBooking.date || "Date not selected"} at {pendingBooking.time || "Time not selected"}
               </Text>
             </Column>
           </Column>
@@ -57,14 +53,14 @@ export default function LoginPage() {
         <Column fillWidth gap="12">
           <Button
             fillWidth
-            variant="secondary"
+            variant="primary"
             size="l"
-            onClick={handleGoogleLogin}
-            style={{ fontWeight: 600 }}
+            onClick={handleInstagramBooking}
+            style={{ fontWeight: 600, background: "linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)", border: "none" }}
           >
             <Row gap="12" vertical="center">
-              <Icon name="google" size="s" />
-              Continue with Google
+              <FaInstagram size={20} />
+              Message on Instagram
             </Row>
           </Button>
           

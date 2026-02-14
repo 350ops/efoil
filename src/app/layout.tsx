@@ -25,7 +25,7 @@ const organizationSchema = {
   url: baseURL,
   logo: {
     "@type": "ImageObject",
-    url: `${baseURL}/images/logofoil.png`,
+    url: `${baseURL}/favicon-512x512.png`,
     width: 512,
     height: 512,
   },
@@ -77,6 +77,28 @@ export async function generateMetadata() {
       image: home.image,
     }),
     applicationName: "eFoil Maldives",
+    icons: {
+      icon: [
+        { url: "/favicon.ico", sizes: "48x48" },
+        { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+        { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+        { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+        { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+        { url: "/favicon-128x128.png", sizes: "128x128", type: "image/png" },
+        { url: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
+        { url: "/favicon-256x256.png", sizes: "256x256", type: "image/png" },
+        { url: "/favicon-512x512.png", sizes: "512x512", type: "image/png" },
+      ],
+      apple: [
+        { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      ],
+      other: [
+        {
+          rel: "mask-icon",
+          url: "/favicon.png",
+        },
+      ],
+    },
     robots: {
       index: true,
       follow: true,
@@ -107,6 +129,11 @@ export async function generateMetadata() {
       description:
         "Premium Audi e-tron eFoil rentals in Maldives. Delivered to yachts, boats, and resorts.",
       images: [`${baseURL}/images/audi-efoil-maldives.jpg`],
+    },
+    other: {
+      "msapplication-TileColor": "#151515",
+      "msapplication-TileImage": "/mstile-150x150.png",
+      "msapplication-config": "/browserconfig.xml",
     },
   };
 }

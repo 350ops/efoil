@@ -161,30 +161,54 @@ const MapboxLocation = () => {
 
       // Handle map click (only for yacht mode)
       map.current.on("click", (e) => {
-        if (deliveryMode === "yacht") {
-          placeMarker(e.lngLat.lng, e.lngLat.lat);
-          setSelectedResort(null);
-          setSearchQuery("");
-          // Cinematic 3D flyTo for yacht pin
-          map.current?.flyTo({
-            center: [e.lngLat.lng, e.lngLat.lat],
-            zoom: 17,
-            pitch: 72,
-            bearing: -30,
-            duration: 2500,
-            essential: true,
-          });
-        }
+        // We use a mutable ref or state check inside the event listener?
+        // Actually, state is captured in closure.
+        // We need to use the ref for the changing mode if we want to be safe, but here 
+        // we might run into stale closure if useEffect doesn't update.
+        // The useEffect below handles cursor update, but listener is added only once.
+        // Let's rely on the listener being removed/added or a ref for mode.
       });
+      
+      // We will handle click logic in a separate effect or use a ref for current mode
+    }
+  }, []);
+
+  // Use a ref to track current mode for the map click handler which is bound once
+  const modeRef = useRef(deliveryMode);
+  useEffect(() => {
+    modeRef.current = deliveryMode;
+    if (map.current) {
+      map.current.getCanvas().style.cursor = deliveryMode === "yacht" ? "crosshair" : "";
     }
   }, [deliveryMode]);
 
-  // Update click handler when delivery mode changes
+  // Add click listener that checks the ref
   useEffect(() => {
     if (!map.current) return;
-    const canvas = map.current.getCanvas();
-    canvas.style.cursor = deliveryMode === "yacht" ? "crosshair" : "";
-  }, [deliveryMode]);
+    
+    const clickHandler = (e: mapboxgl.MapMouseEvent) => {
+      if (modeRef.current === "yacht") {
+        placeMarker(e.lngLat.lng, e.lngLat.lat);
+        setSelectedResort(null);
+        setSearchQuery("");
+        // Cinematic 3D flyTo for yacht pin
+        map.current?.flyTo({
+          center: [e.lngLat.lng, e.lngLat.lat],
+          zoom: 17,
+          pitch: 72,
+          bearing: -30,
+          duration: 2500,
+          essential: true,
+        });
+      }
+    };
+
+    map.current.on("click", clickHandler);
+
+    return () => {
+      map.current?.off("click", clickHandler);
+    };
+  }, []);
 
   // Reset selection when switching modes
   const handleModeSwitch = (mode: DeliveryMode) => {
@@ -264,229 +288,207 @@ const MapboxLocation = () => {
 
   return (
     <Column fillWidth style={{ height: "100vh", position: "relative" }}>
+      <style jsx global>{`
+        ::placeholder {
+          color: var(--neutral-on-background-weak);
+          opacity: 0.7;
+        }
+      `}</style>
       <div ref={mapContainer} style={{ width: "100%", height: "100%" }} />
 
-      {/* Mode toggle */}
-      <div
+      {/* Mode toggle & Search */}
+      <Column
+        position="absolute"
+        zIndex={10}
+        fillWidth
+        horizontal="center"
+        padding="m"
+        gap="m"
         style={{
-          position: "absolute",
           top: "1rem",
           left: "50%",
           transform: "translateX(-50%)",
-          zIndex: 10,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "8px",
-          width: "90%",
           maxWidth: "440px",
         }}
+        s={{
+          width: "95%",
+          top: "0.5rem",
+          padding: "s",
+        }}
       >
-        <div
+        <Column
+          background="surface"
+          radius="l"
+          padding="4"
+          border="neutral-alpha-medium"
           style={{
-            display: "flex",
-            backgroundColor: "white",
-            borderRadius: "12px",
-            padding: "4px",
-            boxShadow: "0 4px 24px rgba(0,0,0,0.12)",
-            width: "100%",
+            backgroundColor: "var(--neutral-background-strong)",
+            boxShadow: "0 4px 24px rgba(0,0,0,0.24)",
+            backdropFilter: "blur(12px)",
           }}
         >
-          <button
-            type="button"
-            onClick={() => handleModeSwitch("resort")}
-            style={{
-              flex: 1,
-              padding: "10px 16px",
-              border: "none",
-              borderRadius: "8px",
-              fontSize: "14px",
-              fontWeight: 600,
-              cursor: "pointer",
-              fontFamily: "inherit",
-              transition: "all 0.2s",
-              backgroundColor: deliveryMode === "resort" ? "#0c4a6e" : "transparent",
-              color: deliveryMode === "resort" ? "white" : "#666",
-            }}
-          >
-            🏨 Resort Delivery
-          </button>
-          <button
-            type="button"
-            onClick={() => handleModeSwitch("yacht")}
-            style={{
-              flex: 1,
-              padding: "10px 16px",
-              border: "none",
-              borderRadius: "8px",
-              fontSize: "14px",
-              fontWeight: 600,
-              cursor: "pointer",
-              fontFamily: "inherit",
-              transition: "all 0.2s",
-              backgroundColor: deliveryMode === "yacht" ? "#0c4a6e" : "transparent",
-              color: deliveryMode === "yacht" ? "white" : "#666",
-            }}
-          >
-            🛥️ Yacht Delivery
-          </button>
-        </div>
+          <Row>
+            <Button
+              onClick={() => handleModeSwitch("resort")}
+              variant={deliveryMode === "resort" ? "primary" : "tertiary"}
+              size="m"
+              style={{ flex: 1 }}
+            >
+              Resort Delivery
+            </Button>
+            <Button
+              onClick={() => handleModeSwitch("yacht")}
+              variant={deliveryMode === "yacht" ? "primary" : "tertiary"}
+              size="m"
+              style={{ flex: 1 }}
+            >
+              Yacht Delivery
+            </Button>
+          </Row>
+        </Column>
 
         {/* Resort search (only in resort mode) */}
         {deliveryMode === "resort" && (
           <div ref={searchRef} style={{ width: "100%", position: "relative" }}>
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => {
-                setSearchQuery(e.target.value);
-                setShowDropdown(true);
-                if (!e.target.value.trim()) {
-                  setSelectedResort(null);
-                  setSelectedLocation(null);
-                }
-              }}
-              onFocus={() => searchQuery.trim() && setShowDropdown(true)}
-              placeholder="Search for your resort..."
+            <Column
+              fillWidth
+              radius="l"
+              border="neutral-alpha-medium"
+              paddingX="m"
+              paddingY="12"
               style={{
-                width: "100%",
-                padding: "14px 16px 14px 44px",
-                fontSize: "15px",
-                border: "none",
-                borderRadius: "12px",
-                backgroundColor: "white",
-                boxShadow: "0 4px 24px rgba(0,0,0,0.12)",
-                outline: "none",
-                color: "#1a1a1a",
-                fontFamily: "inherit",
-                boxSizing: "border-box",
+                backgroundColor: "var(--neutral-background-strong)",
+                boxShadow: "0 4px 24px rgba(0,0,0,0.24)",
+                backdropFilter: "blur(12px)",
               }}
-            />
-            {/* Search icon */}
-            <svg
-              style={{
-                position: "absolute",
-                left: "14px",
-                top: "14px",
-                pointerEvents: "none",
-                opacity: 0.4,
-              }}
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#1a1a1a"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-label="Search icon"
-              role="img"
             >
-              <circle cx="11" cy="11" r="8" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  setShowDropdown(true);
+                  if (!e.target.value.trim()) {
+                    setSelectedResort(null);
+                    setSelectedLocation(null);
+                  }
+                }}
+                onFocus={() => searchQuery.trim() && setShowDropdown(true)}
+                placeholder="Search for your resort..."
+                style={{
+                  width: "100%",
+                  fontSize: "16px",
+                  border: "none",
+                  backgroundColor: "transparent",
+                  outline: "none",
+                  color: "var(--neutral-on-background-strong)",
+                  fontFamily: "inherit",
+                  fontWeight: 500,
+                }}
+              />
+            </Column>
 
             {/* Dropdown results */}
             {showDropdown && filteredResorts.length > 0 && (
-              <div
+              <Column
+                fillWidth
                 style={{
-                  position: "absolute",
                   top: "100%",
-                  left: 0,
-                  right: 0,
-                  marginTop: "4px",
-                  backgroundColor: "white",
-                  borderRadius: "12px",
-                  boxShadow: "0 4px 24px rgba(0,0,0,0.12)",
-                  overflow: "hidden",
+                  marginTop: "8px",
                   maxHeight: "320px",
                   overflowY: "auto",
                   zIndex: 20,
+                  boxShadow: "0 4px 24px rgba(0,0,0,0.24)",
+                  backgroundColor: "var(--neutral-background-strong)",
+                  backdropFilter: "blur(12px)",
                 }}
               >
-                {filteredResorts.map((resort) => (
-                  <button
-                    key={`${resort.name}-${resort.atoll}`}
-                    type="button"
-                    onClick={() => handleSelectResort(resort)}
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      width: "100%",
-                      padding: "12px 16px",
-                      border: "none",
-                      borderBottom: "1px solid #f0f0f0",
-                      backgroundColor: "transparent",
-                      cursor: "pointer",
-                      textAlign: "left",
-                      transition: "background-color 0.15s",
-                      fontFamily: "inherit",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "#f0f9ff";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = "transparent";
-                    }}
-                  >
-                    <span
-                      style={{ fontSize: "14px", fontWeight: 500, color: "#1a1a1a" }}
+                <Column>
+                  {filteredResorts.map((resort) => (
+                    <Button
+                      key={`${resort.name}-${resort.atoll}`}
+                      onClick={() => handleSelectResort(resort)}
+                      variant="tertiary"
+                      size="l"
+                      fillWidth
+                      style={{ justifyContent: "flex-start", height: "auto", padding: "12px 16px" }}
                     >
-                      {resort.name}
-                    </span>
-                    {resort.atoll && (
-                      <span
-                        style={{ fontSize: "12px", color: "#888", marginTop: "2px" }}
-                      >
-                        {resort.atoll}
-                      </span>
-                    )}
-                  </button>
-                ))}
-              </div>
+                      <Column gap="2" horizontal="start">
+                        <Text variant="body-strong-m">{resort.name}</Text>
+                        {resort.atoll && (
+                          <Text variant="body-default-s" onBackground="neutral-weak">
+                            {resort.atoll}
+                          </Text>
+                        )}
+                      </Column>
+                    </Button>
+                  ))}
+                </Column>
+              </Column>
             )}
           </div>
         )}
-      </div>
+      </Column>
 
       {/* Bottom card */}
       <Column
         position="absolute"
         background="surface"
-        padding="m"
         radius="l"
-        gap="m"
+        padding="l"
+        gap="l"
+        border="neutral-alpha-medium"
         style={{
-          bottom: "6rem",
+          bottom: "4rem",
           left: "50%",
           transform: "translateX(-50%)",
           width: "90%",
           maxWidth: "400px",
           zIndex: 1,
-          backgroundColor: "white",
+          boxShadow: "0 4px 24px rgba(0,0,0,0.24)",
+          backgroundColor: "var(--neutral-background-strong)",
+          backdropFilter: "blur(12px)",
+        }}
+        s={{
+          bottom: "2rem",
+          padding: "m",
+          gap: "m",
+          width: "95%",
         }}
       >
-        <Heading as="h2" variant="heading-strong-m">
-          {deliveryMode === "resort" ? "Resort Delivery" : "Yacht Delivery"}
-        </Heading>
+        <Column gap="4">
+          <Heading as="h2" variant="heading-strong-m">
+            {deliveryMode === "resort" ? "Resort Delivery" : "Yacht Delivery"}
+          </Heading>
+          <Text variant="body-default-s" onBackground="neutral-weak">
+            {deliveryMode === "resort"
+              ? "Select your resort from the list above."
+              : "Tap anywhere on the map to set your yacht location."}
+          </Text>
+        </Column>
+
         {/* Selection + Schedule confirmation */}
         {(selectedResort || selectedLocation) && (
-          <Column gap="l" paddingY="m" style={{ borderTop: "1px solid var(--neutral-alpha-medium)" }}>
+          <Column gap="l" paddingY="m" borderTop="neutral-alpha-weak">
             <Column gap="4">
               <Text
                 variant="label-default-s"
                 onBackground="neutral-medium"
-                style={{ letterSpacing: "1px", fontWeight: 600, fontSize: "10px" }}
               >
                 DELIVERY DESTINATION
               </Text>
               <Column gap="2">
-                <Text variant="heading-default-xs" onBackground="neutral-strong" style={{ fontWeight: 600 }}>
+                <Text variant="heading-strong-s">
                   {selectedResort?.name || "GPS Coordinates Pin"}
                 </Text>
                 {selectedResort?.atoll && (
                   <Text variant="body-default-s" onBackground="neutral-weak">
                     {selectedResort.atoll}
+                  </Text>
+                )}
+                {!selectedResort && selectedLocation && (
+                   <Text variant="body-default-s" onBackground="neutral-weak">
+                    {selectedLocation.lat.toFixed(4)}, {selectedLocation.lng.toFixed(4)}
                   </Text>
                 )}
               </Column>
@@ -497,9 +499,8 @@ const MapboxLocation = () => {
                 <Text
                   variant="label-default-s"
                   onBackground="neutral-medium"
-                  style={{ letterSpacing: "1px", fontWeight: 600, fontSize: "10px" }}
                 >
-                  PREFERED DATE
+                  PREFERRED DATE
                 </Text>
                 <input
                   type="date"
@@ -507,12 +508,12 @@ const MapboxLocation = () => {
                   onChange={(e) => setDeliveryDate(e.target.value)}
                   style={{
                     width: "100%",
-                    padding: "10px 0",
+                    padding: "8px 0",
                     border: "none",
                     borderBottom: "1px solid var(--neutral-alpha-strong)",
                     backgroundColor: "transparent",
                     color: "var(--neutral-on-background-strong)",
-                    fontSize: "15px",
+                    fontSize: "14px",
                     fontFamily: "inherit",
                     outline: "none",
                     borderRadius: 0,
@@ -523,9 +524,8 @@ const MapboxLocation = () => {
                 <Text
                   variant="label-default-s"
                   onBackground="neutral-medium"
-                  style={{ letterSpacing: "1px", fontWeight: 600, fontSize: "10px" }}
                 >
-                  DELIVERY TIME
+                  TIME
                 </Text>
                 <input
                   type="time"
@@ -533,12 +533,12 @@ const MapboxLocation = () => {
                   onChange={(e) => setDeliveryTime(e.target.value)}
                   style={{
                     width: "100%",
-                    padding: "10px 0",
+                    padding: "8px 0",
                     border: "none",
                     borderBottom: "1px solid var(--neutral-alpha-strong)",
                     backgroundColor: "transparent",
                     color: "var(--neutral-on-background-strong)",
-                    fontSize: "15px",
+                    fontSize: "14px",
                     fontFamily: "inherit",
                     outline: "none",
                     borderRadius: 0,
@@ -556,9 +556,7 @@ const MapboxLocation = () => {
           disabled={!selectedResort && !selectedLocation}
           onClick={handleNext}
         >
-          {selectedResort || selectedLocation
-            ? "Confirm Booking"
-            : "Select a location"}
+          Select
         </Button>
       </Column>
     </Column>
