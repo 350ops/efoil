@@ -11,7 +11,6 @@ import {
   Line,
   Media,
   Grid,
-  Flex,
 } from "@once-ui-system/core";
 import { home, about, person, baseURL, routes, gallery } from "@/resources";
 import { Mailchimp } from "@/components";
@@ -236,7 +235,7 @@ export default function Home() {
             </RevealFx>
           )}
           <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16" s={{ paddingBottom: "12" }}>
-            <Heading wrap="balance" variant="display-strong-xl" align="center">
+            <Heading as="h1" wrap="balance" variant="display-strong-xl" align="center">
               {home.headline}
             </Heading>
           </RevealFx>
@@ -248,6 +247,19 @@ export default function Home() {
           <RevealFx paddingTop="12" delay={0.4} horizontal="center" fillWidth s={{ paddingTop: "8" }}>
             <HeroCTA />
           </RevealFx>
+        </Column>
+
+      </Column>
+
+      {/* SEO Content Section */}
+      <Column fillWidth horizontal="center" gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
+        <Column maxWidth="m" gap="m">
+            <Text variant="body-default-l" onBackground="neutral-weak">
+              Welcome to the premier eFoil rental service in the Maldives. We specialize in delivering the world's most advanced electric hydrofoil surfboards directly to your location — whether you're staying at a luxury resort, cruising on a liveaboard, or anchored in a private yacht.
+            </Text>
+            <Text variant="body-default-l" onBackground="neutral-weak">
+              Our partner network spans the entire archipelago, ensuring that you can experience the thrill of flying over the Indian Ocean's crystal-clear waters no matter where you are. With professional instruction included in every session, you'll be gliding silently above the waves in no time.
+            </Text>
         </Column>
       </Column>
 
@@ -277,9 +289,28 @@ export default function Home() {
             <Text variant="body-default-m" onBackground="neutral-weak">
               It merges the principles of traditional hydrofoil surfing, where a board is fitted with a submerged hydrodynamic wing (foil), with advanced electric propulsion. The result: a completely unique sensation of gliding silently above the water's surface.
             </Text>
-            <Heading as="h3" variant="heading-strong-m">
+            {/* Image Above Title */}
+            <Column fillWidth radius="l" overflow="hidden" border="neutral-alpha-weak" s={{ radius: "m" }}>
+              <Media
+                src="/images/gallery/efoil-turquoise-water.png"
+                alt="Person eFoiling above turquoise water"
+                aspectRatio="16 / 9"
+              />
+            </Column>
+            
+            <Heading as="h3" variant="heading-strong-m" paddingTop="24" s={{ paddingTop: "16" }}>
               How an eFoil Works
             </Heading>
+            
+            {/* Image Below Title */}
+             <Column fillWidth radius="l" overflow="hidden" s={{ radius: "m" }} paddingBottom="16" s={{ paddingBottom: "12" }}>
+              <Media
+                src="/images/gallery/performance_3 Background Removed.png"
+                alt="Audi e-tron eFoil board breakdown"
+                aspectRatio="16 / 9"
+                style={{ objectFit: 'contain' }}
+              />
+            </Column>
             <Text variant="body-default-m" onBackground="neutral-weak">
               An eFoil consists of three main components: the board, an electric motor, and the hydrofoil (a mast with an underwater wing and propulsion unit). The board is built slightly larger and more stable than a standard surfboard to house the rechargeable battery and electronics. The battery is swappable, allowing for extended sessions on the water. The motor drives either a propeller or a modern jet unit mounted on the foil beneath the board.
             </Text>
@@ -290,81 +321,7 @@ export default function Home() {
         </Column>
       </RevealFx>
 
-      {/* How It Works Section */}
-      <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="xl" paddingY="xl" s={{ gap: "l", paddingY: "l" }}>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
-            <Heading as="h2" variant="display-strong-m" align="center">
-              How It Works
-            </Heading>
-            <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-              Three steps to flying above Maldives waters
-            </Text>
-          </Column>
-          
-          {/* Steps — connected vertical layout */}
-          <Column fillWidth gap="0" horizontal="center">
-            {[
-              {
-                num: "01",
-                title: "Request",
-                desc: "Tell us your dates and location. We check availability with our partner network.",
-                icon: "📍",
-              },
-              {
-                num: "02",
-                title: "Connect",
-                desc: "We match you with the best provider for your needs and handle the booking.",
-                icon: "✓",
-              },
-              {
-                num: "03",
-                title: "Ride",
-                desc: "Your eFoil is delivered. Enjoy a seamless experience for your entire stay.",
-                icon: "🌊",
-              },
-            ].map((step, idx) => (
-              <Row key={step.num} fillWidth gap="24" s={{ gap: "16" }}>
-                {/* Left: number + connector line */}
-                <Column horizontal="center" vertical="center" gap="0" style={{ minWidth: 48 }}>
-                  <Flex
-                    horizontal="center"
-                    vertical="center"
-                    style={{
-                      width: 48,
-                      height: 48,
-                      borderRadius: "50%",
-                      border: "2px solid var(--brand-solid-strong)",
-                      flexShrink: 0,
-                    }}
-                  >
-                    <Text variant="label-strong-m" onBackground="brand-strong">{step.num}</Text>
-                  </Flex>
-                  {idx < 2 && (
-                    <Column
-                      style={{
-                        width: 2,
-                        height: 48,
-                        background: "var(--neutral-alpha-medium)",
-                      }}
-                    />
-                  )}
-                </Column>
 
-                {/* Right: content */}
-                <Column gap="4" paddingBottom="24" style={{ paddingTop: 8 }} s={{ paddingBottom: "20" }}>
-                  <Heading as="h3" variant="heading-strong-l">
-                    {step.title}
-                  </Heading>
-                  <Text variant="body-default-m" onBackground="neutral-weak">
-                    {step.desc}
-                  </Text>
-                </Column>
-              </Row>
-            ))}
-          </Column>
-        </Column>
-      </RevealFx>
 
       {/* Equipment Showcase */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
@@ -582,6 +539,40 @@ export default function Home() {
           <Button href="https://maldivesdaytrips.com" variant="secondary" size="m" arrowIcon>
             Visit Maldives Day Trips
           </Button>
+        </Column>
+      </RevealFx>
+
+      {/* Visible FAQ Section */}
+      <RevealFx translateY="16" delay={0.2} fillWidth>
+        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
+          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+            <Heading as="h2" variant="display-strong-m" align="center">
+              Frequently Asked Questions
+            </Heading>
+            <Text variant="body-default-l" onBackground="neutral-weak" align="center">
+              Common questions about eFoil rentals in Maldives
+            </Text>
+          </Column>
+          
+          <Grid columns="2" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
+            {faqSchema.mainEntity.map((faq, index) => (
+              <Column 
+                key={index} 
+                padding="24" 
+                gap="12" 
+                background="neutral-alpha-weak" 
+                radius="l" 
+                s={{ padding: "20", gap: "8", radius: "m" }}
+              >
+                <Heading as="h3" variant="heading-strong-s">
+                  {faq.name}
+                </Heading>
+                <Text variant="body-default-m" onBackground="neutral-weak">
+                  {faq.acceptedAnswer.text}
+                </Text>
+              </Column>
+            ))}
+          </Grid>
         </Column>
       </RevealFx>
 

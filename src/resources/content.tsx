@@ -63,8 +63,8 @@ const home: Home = {
   },
   subline: (
     <>
-      We connect you with top-rated <Text as="span" size="xl" weight="strong">Audi e-tron eFoil</Text> providers in the Maldives. <br />Seamless delivery to your yacht, boat, or resort for the duration of your stay.
-    </>
+    Top-rated <Text as="span" size="xl" weight="strong">Audi e-tron eFoil</Text> providers in the Maldives. <br />Seamless delivery to your yacht, boat, or resort for the duration of your stay.
+    </> 
   ),
 };
 

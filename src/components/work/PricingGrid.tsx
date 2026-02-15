@@ -111,13 +111,13 @@ export function PricingGrid() {
             subtitle="Price calculated at checkout"
             description="We bring the full Audi e-tron eFoil experience directly to your yacht, resort, or private villa location."
             features={[
-              "24-hour rental period",
-              "Delivery & pickup included",
-              "Initial instruction session",
-              "Full safety equipment suite",
-              "Additional gear available",
-            ]}
-            ctaLabel="Book Delivery"
+              "Extend to multi-day stays for resorts, villas, and yachts",
+              "Resort / marina delivery & pickup included (Maldives)",
+              "Beginner instruction & on-water setup session included",
+              "Full safety kit included (impact vest + helmet + essential protective gear)",
+              "Optional add-ons available (extra battery, GoPro, premium accessories)"
+]}
+            ctaLabel="Delivery"
             ctaAction={() => router.push("/book/location")}
           />
 
@@ -127,7 +127,7 @@ export function PricingGrid() {
             subtitle="Partner: Foiltribe"
             description="Collaborating with Foiltribe in Hulhumalé to provide accessible rentals and lessons for all ages."
             features={[
-              "Single session rentals",
+                "Single session rentals",
               "Professional lessons",
               "Open to all skill levels",
               "Located in Hulhumalé",
@@ -136,7 +136,7 @@ export function PricingGrid() {
             ctaLabel="Contact on Instagram"
             ctaAction={() =>
               window.open(
-                `https://ig.me/m/efoil.rent`,
+                "https://ig.me/m/efoil.rent",
                 "_blank"
               )
             }
@@ -157,7 +157,7 @@ export function PricingGrid() {
             ctaLabel="Inquire on Instagram"
             ctaAction={() =>
               window.open(
-                `https://ig.me/m/efoil.rent`,
+                "https://ig.me/m/efoil.rent",
                 "_blank"
               )
             }

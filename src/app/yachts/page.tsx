@@ -111,7 +111,7 @@ export default function YachtsPage() {
       <Column fillWidth horizontal="center" gap="l" s={{ gap: "m" }}>
         <Column maxWidth="m" horizontal="center" align="center">
           <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16" s={{ paddingBottom: "12" }}>
-            <Heading wrap="balance" variant="display-strong-xl" align="center">
+            <Heading as="h1" wrap="balance" variant="display-strong-xl" align="center">
               eFoil Delivery to Your Yacht
             </Heading>
           </RevealFx>

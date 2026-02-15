@@ -23,10 +23,32 @@ export async function generateMetadata() {
       title: about.title,
       description: about.description,
       baseURL: baseURL,
-      image: `/api/og/generate?title=${encodeURIComponent(about.title)}`,
+      image: "/images/gallery/resort_efoil_rental_maldives.jpeg",
       path: about.path,
     }),
     alternates: { canonical: "/about" },
+    openGraph: {
+      type: "website",
+      title: about.title,
+      description: about.description,
+      url: `${baseURL}${about.path}`,
+      siteName: "eFoil Maldives",
+      images: [
+        {
+          url: `${baseURL}/images/gallery/resort_efoil_rental_maldives.jpeg`,
+          width: 1200,
+          height: 675,
+          alt: "Premium eFoil rental experience in the Maldives — electric hydrofoil at a resort",
+          type: "image/jpeg",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: about.title,
+      description: about.description,
+      images: [`${baseURL}/images/gallery/resort_efoil_rental_maldives.jpeg`],
+    },
   };
 }
 
@@ -61,7 +83,7 @@ export default function About() {
         title={about.title}
         description={about.description}
         path={about.path}
-        image={`/api/og/generate?title=${encodeURIComponent(about.title)}`}
+        image="/images/gallery/resort_efoil_rental_maldives.jpeg"
         author={{
           name: person.name,
           url: `${baseURL}${about.path}`,
