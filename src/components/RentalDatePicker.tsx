@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useCallback } from "react";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -304,23 +304,18 @@ function TriggerBar({ pickupDate, pickupTime, returnDate, returnTime, open, onCl
         display: "flex",
         alignItems: "center",
         gap: "0",
-        background: "var(--neutral-background-medium)",
-        border: open
-          ? "1px solid var(--neutral-alpha-strong)"
-          : "1px solid var(--neutral-alpha-medium)",
-        borderRadius: open ? "14px 14px 0 0" : "14px",
+        background: "transparent",
+        border: "none",
+        borderRadius: "0",
         padding: "0",
         cursor: "pointer",
-        transition: "all 0.2s ease",
-        overflow: "hidden",
-        backdropFilter: "blur(12px)",
-        WebkitBackdropFilter: "blur(12px)",
+        transition: "background 0.15s ease",
       }}
       onMouseEnter={e => {
-        (e.currentTarget as HTMLElement).style.borderColor = "var(--neutral-alpha-strong)";
+        (e.currentTarget as HTMLElement).style.background = "var(--neutral-alpha-weak)";
       }}
       onMouseLeave={e => {
-        if (!open) (e.currentTarget as HTMLElement).style.borderColor = "var(--neutral-alpha-medium)";
+        (e.currentTarget as HTMLElement).style.background = "transparent";
       }}
     >
       {/* Pickup segment */}
@@ -435,19 +430,6 @@ export default function RentalDatePicker() {
   const [viewYear, setViewYear] = useState(today.getFullYear());
   const [viewMonth, setViewMonth] = useState(today.getMonth());
 
-  const wrapperRef = useRef<HTMLDivElement>(null);
-
-  // Close on outside click
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
-        setOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
-
   const handleDayClick = useCallback((day: Date) => {
     if (mode === "pickup") {
       setSelection(prev => ({
@@ -502,12 +484,12 @@ export default function RentalDatePicker() {
   return (
     <>
       <style>{`
-        @keyframes rdp-drop {
-          from { opacity: 0; transform: translateY(-6px); }
-          to   { opacity: 1; transform: translateY(0); }
+        @keyframes rdp-expand {
+          from { opacity: 0; transform: scaleY(0.96); transform-origin: top; }
+          to   { opacity: 1; transform: scaleY(1);    transform-origin: top; }
         }
-        .rdp-panel {
-          animation: rdp-drop 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+        .rdp-body {
+          animation: rdp-expand 0.2s cubic-bezier(0.22, 1, 0.36, 1);
         }
         .rdp-time-scroll::-webkit-scrollbar { width: 3px; }
         .rdp-time-scroll::-webkit-scrollbar-track { background: transparent; }
@@ -575,7 +557,16 @@ export default function RentalDatePicker() {
         }
       `}</style>
 
-      <div ref={wrapperRef} style={{ width: "100%", position: "relative" }}>
+      {/* Single in-flow container — trigger + panel share the same border box */}
+      <div style={{
+        width: "100%",
+        background: "var(--neutral-background-medium)",
+        border: "1px solid var(--neutral-alpha-medium)",
+        borderRadius: open ? "14px 14px 14px 14px" : "14px",
+        overflow: "hidden",
+        transition: "border-color 0.2s ease",
+      }}>
+
         {/* ── Trigger ── */}
         <TriggerBar
           pickupDate={selection.pickupDate}
@@ -586,22 +577,13 @@ export default function RentalDatePicker() {
           onClick={() => setOpen(o => !o)}
         />
 
-        {/* ── Dropdown panel ── */}
+        {/* ── Inline expanded body ── */}
         {open && (
           <div
-            className="rdp-panel"
+            className="rdp-body"
             style={{
-              position: "absolute",
-              top: "100%",
-              left: 0,
-              right: 0,
-              zIndex: 50,
+              borderTop: "1px solid var(--neutral-alpha-medium)",
               background: "var(--neutral-background-strong)",
-              border: "1px solid var(--neutral-alpha-medium)",
-              borderTop: "none",
-              borderRadius: "0 0 14px 14px",
-              boxShadow: "0 20px 60px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.05) inset",
-              overflow: "hidden",
             }}
           >
             {/* Mode switcher */}
@@ -660,11 +642,7 @@ export default function RentalDatePicker() {
               {/* Time columns */}
               <div
                 className="rdp-time-cols"
-                style={{
-                  display: "flex",
-                  gap: "12px",
-                  flex: "0 0 auto",
-                }}
+                style={{ display: "flex", gap: "12px", flex: "0 0 auto" }}
               >
                 <TimeColumn
                   label="Pickup time"
