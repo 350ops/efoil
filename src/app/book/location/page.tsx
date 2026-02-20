@@ -98,9 +98,12 @@ const MapboxLocation = () => {
     mapboxgl.accessToken = accessToken;
 
     if (mapContainer.current) {
+      const CUSTOM_STYLE = "mapbox://styles/miguelantonmasero/cmloh66fo004701r2difshea4";
+      const FALLBACK_STYLE = "mapbox://styles/mapbox/navigation-night-v1";
+
       map.current = new mapboxgl.Map({
         container: mapContainer.current,
-        style: "mapbox://styles/miguelantonmasero/cmloh66fo004701r2difshea4",
+        style: CUSTOM_STYLE,
         center: [MALE_LNG - 0.0045, MALE_LAT],
         zoom: 13,
         pitch: 0,
@@ -108,11 +111,22 @@ const MapboxLocation = () => {
         antialias: true,
       });
 
+      // If the custom style fails to load (e.g. not public), fall back to dark navigation style
+      map.current.on("error", (e) => {
+        const msg = e?.error?.message ?? "";
+        if (msg.includes("style") || msg.includes("403") || msg.includes("404") || msg.includes("Unauthorized")) {
+          console.warn("Custom Mapbox style failed, falling back to navigation-night-v1:", msg);
+          map.current?.setStyle(FALLBACK_STYLE);
+        }
+      });
+
       // Brand-cyan marker for Malé base
-      new mapboxgl.Marker({ color: "#06b6d4" })
-        .setLngLat([MALE_LNG, MALE_LAT])
-        .setPopup(new mapboxgl.Popup({ className: "rdp-popup" }).setText("Malé — Base"))
-        .addTo(map.current);
+      map.current.on("load", () => {
+        new mapboxgl.Marker({ color: "#06b6d4" })
+          .setLngLat([MALE_LNG, MALE_LAT])
+          .setPopup(new mapboxgl.Popup({ className: "rdp-popup" }).setText("Malé — Base"))
+          .addTo(map.current!);
+      });
     }
   }, []);
 
