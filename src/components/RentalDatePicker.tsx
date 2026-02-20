@@ -304,9 +304,7 @@ function TriggerBar({ pickupDate, pickupTime, returnDate, returnTime, open, onCl
         display: "flex",
         alignItems: "center",
         gap: "0",
-        background: open
-          ? "var(--neutral-alpha-medium)"
-          : "var(--neutral-alpha-weak)",
+        background: "var(--neutral-background-medium)",
         border: open
           ? "1px solid var(--neutral-alpha-strong)"
           : "1px solid var(--neutral-alpha-medium)",
@@ -319,7 +317,7 @@ function TriggerBar({ pickupDate, pickupTime, returnDate, returnTime, open, onCl
         WebkitBackdropFilter: "blur(12px)",
       }}
       onMouseEnter={e => {
-        if (!open) (e.currentTarget as HTMLElement).style.borderColor = "var(--neutral-alpha-strong)";
+        (e.currentTarget as HTMLElement).style.borderColor = "var(--neutral-alpha-strong)";
       }}
       onMouseLeave={e => {
         if (!open) (e.currentTarget as HTMLElement).style.borderColor = "var(--neutral-alpha-medium)";
@@ -598,13 +596,11 @@ export default function RentalDatePicker() {
               left: 0,
               right: 0,
               zIndex: 50,
-              background: "rgba(11, 24, 29, 0.82)",
-              backdropFilter: "blur(24px)",
-              WebkitBackdropFilter: "blur(24px)",
+              background: "var(--neutral-background-strong)",
               border: "1px solid var(--neutral-alpha-medium)",
               borderTop: "none",
               borderRadius: "0 0 14px 14px",
-              boxShadow: "0 16px 48px rgba(0,0,0,0.45), 0 1px 0 rgba(255,255,255,0.04) inset",
+              boxShadow: "0 20px 60px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.05) inset",
               overflow: "hidden",
             }}
           >
