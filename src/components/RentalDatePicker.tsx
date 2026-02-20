@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 
-// ─── Types ──────────────────────────────────────────────────────────────────
+// ─── Types ────────────────────────────────────────────────────────────────────
 
 type SelectionMode = "pickup" | "return" | null;
 
@@ -13,32 +13,37 @@ interface RentalSelection {
   returnTime: string;
 }
 
-// ─── Constants ───────────────────────────────────────────────────────────────
+// ─── Constants ────────────────────────────────────────────────────────────────
 
 const MONTHS = [
-  "January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December",
+  "January","February","March","April","May","June",
+  "July","August","September","October","November","December",
 ];
-
-const DAYS = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
+const DAYS_SHORT = ["Su","Mo","Tu","We","Th","Fr","Sa"];
 
 const TIME_SLOTS = [
-  "06:00", "07:00", "08:00", "09:00", "10:00", "11:00",
-  "12:00", "13:00", "14:00", "15:00", "16:00", "17:00",
-  "18:00", "19:00",
+  "06:00","07:00","08:00","09:00","10:00","11:00",
+  "12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00",
 ];
+
+// ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function formatTime(t: string) {
   if (!t) return "";
   const [h, m] = t.split(":").map(Number);
   const ampm = h >= 12 ? "PM" : "AM";
-  const display = h % 12 === 0 ? 12 : h % 12;
-  return `${display}:${m.toString().padStart(2, "0")} ${ampm}`;
+  const hr = h % 12 === 0 ? 12 : h % 12;
+  return `${hr}:${m.toString().padStart(2, "0")} ${ampm}`;
 }
 
-function formatDate(d: Date | null) {
+function formatDateShort(d: Date | null) {
   if (!d) return null;
-  return `${MONTHS[d.getMonth()].slice(0, 3)} ${d.getDate()}, ${d.getFullYear()}`;
+  return `${MONTHS[d.getMonth()].slice(0, 3)} ${d.getDate()}`;
+}
+
+function formatDateFull(d: Date | null) {
+  if (!d) return null;
+  return `${MONTHS[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
 }
 
 function isSameDay(a: Date, b: Date) {
@@ -60,7 +65,7 @@ function getFirstDayOfMonth(year: number, month: number) {
   return new Date(year, month, 1).getDay();
 }
 
-// ─── Sub-components ──────────────────────────────────────────────────────────
+// ─── Calendar ─────────────────────────────────────────────────────────────────
 
 interface CalendarProps {
   viewYear: number;
@@ -73,16 +78,7 @@ interface CalendarProps {
   onNextMonth: () => void;
 }
 
-function Calendar({
-  viewYear,
-  viewMonth,
-  pickupDate,
-  returnDate,
-  mode,
-  onDayClick,
-  onPrevMonth,
-  onNextMonth,
-}: CalendarProps) {
+function Calendar({ viewYear, viewMonth, pickupDate, returnDate, mode, onDayClick, onPrevMonth, onNextMonth }: CalendarProps) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
@@ -91,113 +87,79 @@ function Calendar({
 
   const cells: Array<Date | null> = [];
   for (let i = 0; i < firstDay; i++) cells.push(null);
-  for (let d = 1; d <= daysInMonth; d++) {
-    cells.push(new Date(viewYear, viewMonth, d));
-  }
+  for (let d = 1; d <= daysInMonth; d++) cells.push(new Date(viewYear, viewMonth, d));
 
   return (
-    <div style={{ width: "100%" }}>
-      {/* Month nav */}
-      <div style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        marginBottom: "20px",
-      }}>
+    <div style={{ width: "100%", minWidth: 0 }}>
+      {/* Month navigation */}
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "16px" }}>
         <button
           type="button"
           onClick={onPrevMonth}
           style={{
-            background: "none",
-            border: "none",
-            cursor: "pointer",
+            background: "none", border: "none", cursor: "pointer",
             color: "var(--neutral-on-background-weak)",
-            padding: "6px 10px",
-            borderRadius: "8px",
-            fontSize: "18px",
-            lineHeight: 1,
-            transition: "color 0.2s, background 0.2s",
+            width: "28px", height: "28px", borderRadius: "8px",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            fontSize: "16px", transition: "all 0.15s ease", flexShrink: 0,
           }}
           onMouseEnter={e => {
-            (e.currentTarget as HTMLElement).style.color = "var(--brand-on-background-strong)";
-            (e.currentTarget as HTMLElement).style.background = "var(--brand-alpha-weak)";
+            (e.currentTarget as HTMLElement).style.background = "var(--neutral-alpha-weak)";
+            (e.currentTarget as HTMLElement).style.color = "var(--neutral-on-background-strong)";
           }}
           onMouseLeave={e => {
-            (e.currentTarget as HTMLElement).style.color = "var(--neutral-on-background-weak)";
             (e.currentTarget as HTMLElement).style.background = "none";
+            (e.currentTarget as HTMLElement).style.color = "var(--neutral-on-background-weak)";
           }}
-        >
-          ‹
-        </button>
+        >‹</button>
+
         <span style={{
           fontFamily: "var(--font-heading)",
           fontWeight: 600,
-          fontSize: "15px",
-          color: "var(--neutral-on-background-strong)",
-          letterSpacing: "0.04em",
+          fontSize: "13px",
+          letterSpacing: "0.06em",
           textTransform: "uppercase",
+          color: "var(--neutral-on-background-strong)",
         }}>
           {MONTHS[viewMonth]} {viewYear}
         </span>
+
         <button
           type="button"
           onClick={onNextMonth}
           style={{
-            background: "none",
-            border: "none",
-            cursor: "pointer",
+            background: "none", border: "none", cursor: "pointer",
             color: "var(--neutral-on-background-weak)",
-            padding: "6px 10px",
-            borderRadius: "8px",
-            fontSize: "18px",
-            lineHeight: 1,
-            transition: "color 0.2s, background 0.2s",
+            width: "28px", height: "28px", borderRadius: "8px",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            fontSize: "16px", transition: "all 0.15s ease", flexShrink: 0,
           }}
           onMouseEnter={e => {
-            (e.currentTarget as HTMLElement).style.color = "var(--brand-on-background-strong)";
-            (e.currentTarget as HTMLElement).style.background = "var(--brand-alpha-weak)";
+            (e.currentTarget as HTMLElement).style.background = "var(--neutral-alpha-weak)";
+            (e.currentTarget as HTMLElement).style.color = "var(--neutral-on-background-strong)";
           }}
           onMouseLeave={e => {
-            (e.currentTarget as HTMLElement).style.color = "var(--neutral-on-background-weak)";
             (e.currentTarget as HTMLElement).style.background = "none";
+            (e.currentTarget as HTMLElement).style.color = "var(--neutral-on-background-weak)";
           }}
-        >
-          ›
-        </button>
+        >›</button>
       </div>
 
       {/* Day headers */}
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(7, 1fr)",
-        marginBottom: "8px",
-        gap: "2px",
-      }}>
-        {DAYS.map(d => (
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", marginBottom: "6px" }}>
+        {DAYS_SHORT.map(d => (
           <div key={d} style={{
-            textAlign: "center",
-            fontSize: "11px",
-            fontWeight: 600,
-            letterSpacing: "0.08em",
-            color: "var(--neutral-on-background-weak)",
-            padding: "4px 0",
-            textTransform: "uppercase",
-          }}>
-            {d}
-          </div>
+            textAlign: "center", fontSize: "10px", fontWeight: 600,
+            letterSpacing: "0.06em", textTransform: "uppercase",
+            color: "var(--neutral-on-background-weak)", padding: "3px 0",
+          }}>{d}</div>
         ))}
       </div>
 
       {/* Day cells */}
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(7, 1fr)",
-        gap: "2px",
-      }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: "2px" }}>
         {cells.map((day, idx) => {
-          if (!day) {
-            return <div key={`empty-${idx}`} />;
-          }
+          if (!day) return <div key={`e-${idx}`} />;
 
           const isPast = day < today;
           const isPickup = pickupDate && isSameDay(day, pickupDate);
@@ -215,58 +177,42 @@ function Calendar({
               style={{
                 position: "relative",
                 border: "none",
-                borderRadius: isSelected ? "50%" : "6px",
-                width: "100%",
-                aspectRatio: "1",
+                borderRadius: isSelected ? "50%" : inRange ? "0" : "6px",
+                width: "100%", aspectRatio: "1",
                 cursor: isPast ? "not-allowed" : "pointer",
-                fontSize: "13px",
-                fontWeight: isSelected ? 700 : isToday ? 600 : 400,
+                fontSize: "12px",
+                fontWeight: isSelected ? 700 : 400,
                 fontFamily: "var(--font-body)",
-                transition: "all 0.15s ease",
+                transition: "all 0.12s ease",
                 color: isSelected
                   ? "var(--brand-on-solid-strong)"
-                  : isPast
-                  ? "var(--neutral-on-background-weak)"
-                  : inRange
-                  ? "var(--brand-on-background-strong)"
-                  : isToday
-                  ? "var(--brand-on-background-strong)"
-                  : "var(--neutral-on-background-strong)",
+                  : isPast ? "var(--neutral-on-background-weak)"
+                  : inRange ? "var(--brand-on-background-strong)"
+                  : isToday ? "var(--brand-on-background-strong)"
+                  : "var(--neutral-on-background-medium)",
                 background: isSelected
                   ? "var(--brand-solid-strong)"
-                  : inRange
-                  ? "var(--brand-alpha-weak)"
+                  : inRange ? "var(--brand-alpha-weak)"
                   : "transparent",
-                outline: isToday && !isSelected ? "1px solid var(--brand-alpha-medium)" : "none",
-                opacity: isPast ? 0.3 : 1,
+                outline: isToday && !isSelected ? "1px solid var(--neutral-alpha-medium)" : "none",
+                opacity: isPast ? 0.25 : 1,
               }}
               onMouseEnter={e => {
                 if (!isPast && !isSelected) {
-                  (e.currentTarget as HTMLElement).style.background = "var(--brand-alpha-weak)";
-                  (e.currentTarget as HTMLElement).style.color = "var(--brand-on-background-strong)";
+                  (e.currentTarget as HTMLElement).style.background = "var(--neutral-alpha-weak)";
+                  (e.currentTarget as HTMLElement).style.color = "var(--neutral-on-background-strong)";
+                  (e.currentTarget as HTMLElement).style.borderRadius = "6px";
                 }
               }}
               onMouseLeave={e => {
                 if (!isPast && !isSelected) {
                   (e.currentTarget as HTMLElement).style.background = inRange ? "var(--brand-alpha-weak)" : "transparent";
-                  (e.currentTarget as HTMLElement).style.color = inRange ? "var(--brand-on-background-strong)" : "var(--neutral-on-background-strong)";
+                  (e.currentTarget as HTMLElement).style.color = inRange ? "var(--brand-on-background-strong)" : "var(--neutral-on-background-medium)";
+                  (e.currentTarget as HTMLElement).style.borderRadius = inRange ? "0" : "6px";
                 }
               }}
             >
               {day.getDate()}
-              {isPickup && (
-                <span style={{
-                  position: "absolute",
-                  bottom: "2px",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  width: "4px",
-                  height: "4px",
-                  borderRadius: "50%",
-                  background: "var(--brand-on-solid-strong)",
-                  opacity: 0.7,
-                }} />
-              )}
             </button>
           );
         })}
@@ -275,74 +221,53 @@ function Calendar({
   );
 }
 
-// ─── Time Picker ─────────────────────────────────────────────────────────────
+// ─── Time Column ──────────────────────────────────────────────────────────────
 
-interface TimePickerProps {
-  label: string;
-  value: string;
-  onChange: (t: string) => void;
-}
-
-function TimePicker({ label, value, onChange }: TimePickerProps) {
+function TimeColumn({ label, value, onChange }: { label: string; value: string; onChange: (t: string) => void }) {
   return (
-    <div style={{ flex: 1 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "8px", minWidth: 0 }}>
       <div style={{
-        fontSize: "10px",
-        fontWeight: 700,
-        letterSpacing: "0.12em",
-        textTransform: "uppercase",
-        color: "var(--neutral-on-background-weak)",
-        marginBottom: "10px",
-      }}>
-        {label}
-      </div>
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(2, 1fr)",
-        gap: "4px",
-        maxHeight: "200px",
-        overflowY: "auto",
-        paddingRight: "4px",
-      }}
-        className="time-scroll"
+        fontSize: "10px", fontWeight: 600, letterSpacing: "0.1em",
+        textTransform: "uppercase", color: "var(--neutral-on-background-weak)",
+      }}>{label}</div>
+      <div
+        className="rdp-time-scroll"
+        style={{
+          display: "flex", flexDirection: "column", gap: "3px",
+          maxHeight: "220px", overflowY: "auto", paddingRight: "2px",
+        }}
       >
         {TIME_SLOTS.map(slot => {
-          const isSelected = value === slot;
+          const sel = value === slot;
           return (
             <button
               key={slot}
               type="button"
               onClick={() => onChange(slot)}
               style={{
-                border: isSelected
-                  ? "1px solid var(--brand-solid-strong)"
-                  : "1px solid var(--neutral-alpha-weak)",
-                borderRadius: "8px",
-                padding: "6px 4px",
+                border: sel ? "1px solid var(--brand-alpha-medium)" : "1px solid transparent",
+                borderRadius: "6px",
+                padding: "5px 8px",
                 cursor: "pointer",
-                fontSize: "12px",
+                fontSize: "11px",
                 fontFamily: "var(--font-code)",
-                fontWeight: isSelected ? 700 : 400,
-                color: isSelected
-                  ? "var(--brand-on-solid-strong)"
-                  : "var(--neutral-on-background-medium)",
-                background: isSelected
-                  ? "var(--brand-solid-strong)"
-                  : "var(--neutral-alpha-weak)",
-                transition: "all 0.15s ease",
-                textAlign: "center",
+                fontWeight: sel ? 600 : 400,
+                color: sel ? "var(--brand-on-background-strong)" : "var(--neutral-on-background-weak)",
+                background: sel ? "var(--brand-alpha-weak)" : "transparent",
+                transition: "all 0.1s ease",
+                textAlign: "left",
                 whiteSpace: "nowrap",
               }}
               onMouseEnter={e => {
-                if (!isSelected) {
-                  (e.currentTarget as HTMLElement).style.borderColor = "var(--brand-alpha-medium)";
-                  (e.currentTarget as HTMLElement).style.color = "var(--brand-on-background-strong)";
+                if (!sel) {
+                  (e.currentTarget as HTMLElement).style.background = "var(--neutral-alpha-weak)";
+                  (e.currentTarget as HTMLElement).style.color = "var(--neutral-on-background-strong)";
                 }
               }}
               onMouseLeave={e => {
-                if (!isSelected) {
-                  (e.currentTarget as HTMLElement).style.borderColor = "var(--neutral-alpha-weak)";
-                  (e.currentTarget as HTMLElement).style.color = "var(--neutral-on-background-medium)";
+                if (!sel) {
+                  (e.currentTarget as HTMLElement).style.background = "transparent";
+                  (e.currentTarget as HTMLElement).style.color = "var(--neutral-on-background-weak)";
                 }
               }}
             >
@@ -355,98 +280,142 @@ function TimePicker({ label, value, onChange }: TimePickerProps) {
   );
 }
 
-// ─── Pill / Summary card ──────────────────────────────────────────────────────
+// ─── Trigger bar ──────────────────────────────────────────────────────────────
 
-interface LegPillProps {
-  label: string;
-  icon: string;
-  date: Date | null;
-  time: string;
-  active: boolean;
+interface TriggerProps {
+  pickupDate: Date | null;
+  pickupTime: string;
+  returnDate: Date | null;
+  returnTime: string;
+  open: boolean;
   onClick: () => void;
 }
 
-function LegPill({ label, icon, date, time, active, onClick }: LegPillProps) {
-  const filled = !!date;
+function TriggerBar({ pickupDate, pickupTime, returnDate, returnTime, open, onClick }: TriggerProps) {
+  const hasPickup = !!pickupDate;
+  const hasReturn = !!returnDate;
+
   return (
     <button
       type="button"
       onClick={onClick}
       style={{
-        flex: 1,
-        background: active
-          ? "var(--brand-alpha-weak)"
-          : filled
-          ? "var(--neutral-alpha-weak)"
-          : "transparent",
-        border: active
-          ? "1.5px solid var(--brand-solid-strong)"
-          : "1.5px solid var(--neutral-alpha-medium)",
-        borderRadius: "14px",
-        padding: "14px 18px",
-        cursor: "pointer",
-        textAlign: "left",
-        transition: "all 0.2s ease",
-        minWidth: 0,
-      }}
-      onMouseEnter={e => {
-        if (!active) {
-          (e.currentTarget as HTMLElement).style.borderColor = "var(--brand-alpha-medium)";
-          (e.currentTarget as HTMLElement).style.background = "var(--brand-alpha-weak)";
-        }
-      }}
-      onMouseLeave={e => {
-        if (!active) {
-          (e.currentTarget as HTMLElement).style.borderColor = "var(--neutral-alpha-medium)";
-          (e.currentTarget as HTMLElement).style.background = filled ? "var(--neutral-alpha-weak)" : "transparent";
-        }
-      }}
-    >
-      <div style={{
-        fontSize: "10px",
-        fontWeight: 700,
-        letterSpacing: "0.12em",
-        textTransform: "uppercase",
-        color: active ? "var(--brand-on-background-strong)" : "var(--neutral-on-background-weak)",
-        marginBottom: "6px",
+        width: "100%",
         display: "flex",
         alignItems: "center",
-        gap: "6px",
+        gap: "0",
+        background: open
+          ? "var(--neutral-alpha-medium)"
+          : "var(--neutral-alpha-weak)",
+        border: open
+          ? "1px solid var(--neutral-alpha-strong)"
+          : "1px solid var(--neutral-alpha-medium)",
+        borderRadius: open ? "14px 14px 0 0" : "14px",
+        padding: "0",
+        cursor: "pointer",
+        transition: "all 0.2s ease",
+        overflow: "hidden",
+        backdropFilter: "blur(12px)",
+        WebkitBackdropFilter: "blur(12px)",
+      }}
+      onMouseEnter={e => {
+        if (!open) (e.currentTarget as HTMLElement).style.borderColor = "var(--neutral-alpha-strong)";
+      }}
+      onMouseLeave={e => {
+        if (!open) (e.currentTarget as HTMLElement).style.borderColor = "var(--neutral-alpha-medium)";
+      }}
+    >
+      {/* Pickup segment */}
+      <div style={{
+        flex: 1,
+        padding: "14px 20px",
+        textAlign: "left",
+        borderRight: "1px solid var(--neutral-alpha-medium)",
+        minWidth: 0,
       }}>
-        <span style={{ fontSize: "14px" }}>{icon}</span>
-        {label}
-      </div>
-      {filled ? (
-        <>
-          <div style={{
-            fontSize: "15px",
-            fontWeight: 700,
-            color: "var(--neutral-on-background-strong)",
-            fontFamily: "var(--font-heading)",
-            marginBottom: "2px",
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            whiteSpace: "nowrap",
-          }}>
-            {formatDate(date)}
-          </div>
-          <div style={{
-            fontSize: "12px",
-            color: time ? "var(--brand-on-background-strong)" : "var(--neutral-on-background-weak)",
-            fontFamily: "var(--font-code)",
-          }}>
-            {time ? formatTime(time) : "No time set"}
-          </div>
-        </>
-      ) : (
         <div style={{
-          fontSize: "14px",
+          fontSize: "10px", fontWeight: 600, letterSpacing: "0.1em",
+          textTransform: "uppercase",
           color: "var(--neutral-on-background-weak)",
-          fontStyle: "italic",
-        }}>
-          Select date
-        </div>
-      )}
+          marginBottom: "3px",
+        }}>Pickup</div>
+        {hasPickup ? (
+          <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
+            <span style={{
+              fontSize: "13px", fontWeight: 600,
+              color: "var(--neutral-on-background-strong)",
+              fontFamily: "var(--font-heading)",
+            }}>
+              {formatDateShort(pickupDate)}
+            </span>
+            <span style={{
+              fontSize: "11px", fontFamily: "var(--font-code)",
+              color: "var(--brand-on-background-medium)",
+            }}>
+              {formatTime(pickupTime)}
+            </span>
+          </div>
+        ) : (
+          <span style={{ fontSize: "13px", color: "var(--neutral-on-background-weak)" }}>
+            Add date
+          </span>
+        )}
+      </div>
+
+      {/* Arrow */}
+      <div style={{
+        padding: "0 12px",
+        color: "var(--neutral-on-background-weak)",
+        fontSize: "12px",
+        flexShrink: 0,
+      }}>→</div>
+
+      {/* Return segment */}
+      <div style={{
+        flex: 1,
+        padding: "14px 20px",
+        textAlign: "left",
+        borderLeft: "1px solid var(--neutral-alpha-medium)",
+        minWidth: 0,
+      }}>
+        <div style={{
+          fontSize: "10px", fontWeight: 600, letterSpacing: "0.1em",
+          textTransform: "uppercase",
+          color: "var(--neutral-on-background-weak)",
+          marginBottom: "3px",
+        }}>Return</div>
+        {hasReturn ? (
+          <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
+            <span style={{
+              fontSize: "13px", fontWeight: 600,
+              color: "var(--neutral-on-background-strong)",
+              fontFamily: "var(--font-heading)",
+            }}>
+              {formatDateShort(returnDate)}
+            </span>
+            <span style={{
+              fontSize: "11px", fontFamily: "var(--font-code)",
+              color: "var(--brand-on-background-medium)",
+            }}>
+              {formatTime(returnTime)}
+            </span>
+          </div>
+        ) : (
+          <span style={{ fontSize: "13px", color: "var(--neutral-on-background-weak)" }}>
+            Add date
+          </span>
+        )}
+      </div>
+
+      {/* Chevron */}
+      <div style={{
+        padding: "0 16px",
+        color: "var(--neutral-on-background-weak)",
+        fontSize: "11px",
+        flexShrink: 0,
+        transform: open ? "rotate(180deg)" : "rotate(0deg)",
+        transition: "transform 0.25s cubic-bezier(0.4,0,0.2,1)",
+      }}>▼</div>
     </button>
   );
 }
@@ -457,30 +426,40 @@ export default function RentalDatePicker() {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
+  const [open, setOpen] = useState(false);
   const [selection, setSelection] = useState<RentalSelection>({
     pickupDate: null,
     pickupTime: "09:00",
     returnDate: null,
     returnTime: "17:00",
   });
-
   const [mode, setMode] = useState<SelectionMode>("pickup");
   const [viewYear, setViewYear] = useState(today.getFullYear());
   const [viewMonth, setViewMonth] = useState(today.getMonth());
-  const panelRef = useRef<HTMLDivElement>(null);
+
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  // Close on outside click
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
 
   const handleDayClick = useCallback((day: Date) => {
     if (mode === "pickup") {
       setSelection(prev => ({
         ...prev,
         pickupDate: day,
-        // Reset return if it's before pickup
         returnDate: prev.returnDate && prev.returnDate <= day ? null : prev.returnDate,
       }));
       setMode("return");
     } else if (mode === "return") {
       if (selection.pickupDate && day <= selection.pickupDate) {
-        // If clicked before pickup, swap to set as new pickup
         setSelection(prev => ({ ...prev, pickupDate: day, returnDate: null }));
         setMode("return");
       } else {
@@ -491,25 +470,15 @@ export default function RentalDatePicker() {
   }, [mode, selection.pickupDate]);
 
   const handlePrevMonth = () => {
-    if (viewMonth === 0) {
-      setViewMonth(11);
-      setViewYear(y => y - 1);
-    } else {
-      setViewMonth(m => m - 1);
-    }
+    if (viewMonth === 0) { setViewMonth(11); setViewYear(y => y - 1); }
+    else setViewMonth(m => m - 1);
   };
-
   const handleNextMonth = () => {
-    if (viewMonth === 11) {
-      setViewMonth(0);
-      setViewYear(y => y + 1);
-    } else {
-      setViewMonth(m => m + 1);
-    }
+    if (viewMonth === 11) { setViewMonth(0); setViewYear(y => y + 1); }
+    else setViewMonth(m => m + 1);
   };
 
-  const isComplete = selection.pickupDate && selection.returnDate &&
-    selection.pickupTime && selection.returnTime;
+  const isComplete = !!(selection.pickupDate && selection.returnDate && selection.pickupTime && selection.returnTime);
 
   const rentalDays = selection.pickupDate && selection.returnDate
     ? Math.ceil((selection.returnDate.getTime() - selection.pickupDate.getTime()) / (1000 * 60 * 60 * 24))
@@ -526,273 +495,245 @@ export default function RentalDatePicker() {
     window.location.href = `/book/location?${params.toString()}`;
   };
 
+  const hint = !selection.pickupDate
+    ? "Select a pickup date"
+    : !selection.returnDate
+    ? "Now pick a return date"
+    : `${rentalDays} day${rentalDays === 1 ? "" : "s"} · ${formatDateFull(selection.pickupDate)} → ${formatDateFull(selection.returnDate)}`;
+
   return (
-    <div style={{ width: "100%" }}>
+    <>
       <style>{`
-        .time-scroll::-webkit-scrollbar {
-          width: 4px;
+        @keyframes rdp-drop {
+          from { opacity: 0; transform: translateY(-6px); }
+          to   { opacity: 1; transform: translateY(0); }
         }
-        .time-scroll::-webkit-scrollbar-track {
-          background: transparent;
+        .rdp-panel {
+          animation: rdp-drop 0.22s cubic-bezier(0.22, 1, 0.36, 1);
         }
-        .time-scroll::-webkit-scrollbar-thumb {
+        .rdp-time-scroll::-webkit-scrollbar { width: 3px; }
+        .rdp-time-scroll::-webkit-scrollbar-track { background: transparent; }
+        .rdp-time-scroll::-webkit-scrollbar-thumb {
           background: var(--neutral-alpha-medium);
           border-radius: 4px;
         }
-        .time-scroll::-webkit-scrollbar-thumb:hover {
-          background: var(--brand-alpha-medium);
+        .rdp-mode-btn {
+          flex: 1;
+          padding: 7px 12px;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          transition: all 0.15s ease;
+          font-family: var(--font-label);
         }
-        @keyframes rdp-fade-in {
-          from { opacity: 0; transform: translateY(8px); }
-          to   { opacity: 1; transform: translateY(0); }
+        .rdp-mode-btn-active {
+          background: var(--neutral-alpha-medium);
+          color: var(--neutral-on-background-strong);
         }
-        .rdp-widget {
-          animation: rdp-fade-in 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        .rdp-mode-btn-inactive {
+          background: transparent;
+          color: var(--neutral-on-background-weak);
+        }
+        .rdp-mode-btn-inactive:hover {
+          background: var(--neutral-alpha-weak);
+          color: var(--neutral-on-background-medium);
+        }
+        .rdp-book-btn {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 10px 22px;
+          border: none;
+          border-radius: 10px;
+          font-size: 13px;
+          font-weight: 600;
+          font-family: var(--font-label);
+          letter-spacing: 0.02em;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          white-space: nowrap;
+          flex-shrink: 0;
+        }
+        .rdp-book-btn:disabled {
+          opacity: 0.4;
+          cursor: not-allowed;
+        }
+        @media (max-width: 640px) {
+          .rdp-inner-grid {
+            flex-direction: column !important;
+          }
+          .rdp-vdivider {
+            width: 100% !important;
+            height: 1px !important;
+            margin: 12px 0 !important;
+          }
+          .rdp-time-cols {
+            flex-direction: row !important;
+          }
         }
       `}</style>
 
-      {/* Widget container */}
-      <div
-        ref={panelRef}
-        className="rdp-widget"
-        style={{
-          background: "var(--neutral-background-strong)",
-          border: "1px solid var(--neutral-alpha-medium)",
-          borderRadius: "20px",
-          overflow: "hidden",
-          boxShadow: "0 8px 40px rgba(0,0,0,0.32), 0 1px 0 rgba(255,255,255,0.05) inset",
-          backdropFilter: "blur(20px)",
-          width: "100%",
-          maxWidth: "720px",
-          margin: "0 auto",
-        }}
-      >
-        {/* Header strip */}
-        <div style={{
-          padding: "20px 24px 16px",
-          borderBottom: "1px solid var(--neutral-alpha-weak)",
-          background: "linear-gradient(135deg, var(--brand-alpha-weak) 0%, transparent 60%)",
-        }}>
-          <div style={{
-            fontSize: "11px",
-            fontWeight: 700,
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-            color: "var(--brand-on-background-medium)",
-            marginBottom: "4px",
-          }}>
-            eFoil Rental
-          </div>
-          <div style={{
-            fontSize: "20px",
-            fontWeight: 700,
-            fontFamily: "var(--font-heading)",
-            color: "var(--neutral-on-background-strong)",
-            lineHeight: 1.2,
-          }}>
-            When do you want to fly?
-          </div>
-        </div>
+      <div ref={wrapperRef} style={{ width: "100%", position: "relative" }}>
+        {/* ── Trigger ── */}
+        <TriggerBar
+          pickupDate={selection.pickupDate}
+          pickupTime={selection.pickupTime}
+          returnDate={selection.returnDate}
+          returnTime={selection.returnTime}
+          open={open}
+          onClick={() => setOpen(o => !o)}
+        />
 
-        <div style={{ padding: "20px 24px" }}>
-          {/* Pickup / Return pills */}
-          <div style={{
-            display: "flex",
-            gap: "10px",
-            marginBottom: "20px",
-          }}>
-            <LegPill
-              label="Pickup"
-              icon="↑"
-              date={selection.pickupDate}
-              time={selection.pickupTime}
-              active={mode === "pickup"}
-              onClick={() => setMode("pickup")}
-            />
-
+        {/* ── Dropdown panel ── */}
+        {open && (
+          <div
+            className="rdp-panel"
+            style={{
+              position: "absolute",
+              top: "100%",
+              left: 0,
+              right: 0,
+              zIndex: 50,
+              background: "rgba(11, 24, 29, 0.82)",
+              backdropFilter: "blur(24px)",
+              WebkitBackdropFilter: "blur(24px)",
+              border: "1px solid var(--neutral-alpha-medium)",
+              borderTop: "none",
+              borderRadius: "0 0 14px 14px",
+              boxShadow: "0 16px 48px rgba(0,0,0,0.45), 0 1px 0 rgba(255,255,255,0.04) inset",
+              overflow: "hidden",
+            }}
+          >
+            {/* Mode switcher */}
             <div style={{
               display: "flex",
               alignItems: "center",
-              color: "var(--neutral-on-background-weak)",
-              fontSize: "18px",
-              flexShrink: 0,
+              gap: "4px",
+              padding: "12px 16px 0",
             }}>
-              →
+              <button
+                type="button"
+                className={`rdp-mode-btn ${mode === "pickup" ? "rdp-mode-btn-active" : "rdp-mode-btn-inactive"}`}
+                onClick={() => setMode("pickup")}
+              >
+                ↑ Pickup
+              </button>
+              <button
+                type="button"
+                className={`rdp-mode-btn ${mode === "return" || mode === null ? "rdp-mode-btn-active" : "rdp-mode-btn-inactive"}`}
+                onClick={() => setMode(selection.pickupDate ? "return" : "pickup")}
+              >
+                ↓ Return
+              </button>
             </div>
 
-            <LegPill
-              label="Return"
-              icon="↓"
-              date={selection.returnDate}
-              time={selection.returnTime}
-              active={mode === "return"}
-              onClick={() => setMode(selection.pickupDate ? "return" : "pickup")}
-            />
-          </div>
+            {/* Calendar + Time columns */}
+            <div
+              className="rdp-inner-grid"
+              style={{ display: "flex", gap: "0", padding: "16px 16px 0" }}
+            >
+              {/* Calendar */}
+              <div style={{ flex: "1 1 0", minWidth: 0 }}>
+                <Calendar
+                  viewYear={viewYear}
+                  viewMonth={viewMonth}
+                  pickupDate={selection.pickupDate}
+                  returnDate={selection.returnDate}
+                  mode={mode}
+                  onDayClick={handleDayClick}
+                  onPrevMonth={handlePrevMonth}
+                  onNextMonth={handleNextMonth}
+                />
+              </div>
 
-          {/* Rental duration badge */}
-          {rentalDays !== null && (
+              {/* Vertical divider */}
+              <div
+                className="rdp-vdivider"
+                style={{
+                  width: "1px",
+                  background: "var(--neutral-alpha-weak)",
+                  margin: "0 16px",
+                  alignSelf: "stretch",
+                }}
+              />
+
+              {/* Time columns */}
+              <div
+                className="rdp-time-cols"
+                style={{
+                  display: "flex",
+                  gap: "12px",
+                  flex: "0 0 auto",
+                }}
+              >
+                <TimeColumn
+                  label="Pickup time"
+                  value={selection.pickupTime}
+                  onChange={t => setSelection(prev => ({ ...prev, pickupTime: t }))}
+                />
+                <div style={{ width: "1px", background: "var(--neutral-alpha-weak)", alignSelf: "stretch" }} />
+                <TimeColumn
+                  label="Return time"
+                  value={selection.returnTime}
+                  onChange={t => setSelection(prev => ({ ...prev, returnTime: t }))}
+                />
+              </div>
+            </div>
+
+            {/* Footer: hint + CTA */}
             <div style={{
-              textAlign: "center",
-              marginBottom: "16px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: "12px",
+              padding: "14px 16px",
+              marginTop: "12px",
+              borderTop: "1px solid var(--neutral-alpha-weak)",
+              flexWrap: "wrap",
             }}>
               <span style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "6px",
-                background: "var(--brand-alpha-weak)",
-                border: "1px solid var(--brand-alpha-medium)",
-                borderRadius: "100px",
-                padding: "4px 14px",
                 fontSize: "12px",
-                fontWeight: 600,
-                color: "var(--brand-on-background-strong)",
-                fontFamily: "var(--font-label)",
-              }}>
-                <span style={{ fontSize: "14px" }}>~</span>
-                {rentalDays} {rentalDays === 1 ? "day" : "days"} rental
-              </span>
-            </div>
-          )}
-
-          {/* Main panel: Calendar + Time pickers */}
-          <div className="rdp-split-grid" style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1px 1fr",
-            gap: "0",
-            alignItems: "start",
-          }}>
-            {/* Calendar */}
-            <div style={{ paddingRight: "20px" }}>
-              <div style={{
-                fontSize: "10px",
-                fontWeight: 700,
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-                color: mode === "pickup"
-                  ? "var(--brand-on-background-strong)"
-                  : "var(--neutral-on-background-weak)",
-                marginBottom: "12px",
-                transition: "color 0.2s",
-              }}>
-                {mode === "return" ? "Select return date" : "Select pickup date"}
-              </div>
-              <Calendar
-                viewYear={viewYear}
-                viewMonth={viewMonth}
-                pickupDate={selection.pickupDate}
-                returnDate={selection.returnDate}
-                mode={mode}
-                onDayClick={handleDayClick}
-                onPrevMonth={handlePrevMonth}
-                onNextMonth={handleNextMonth}
-              />
-            </div>
-
-            {/* Divider */}
-            <div className="rdp-split-divider" style={{
-              background: "var(--neutral-alpha-weak)",
-              alignSelf: "stretch",
-            }} />
-
-            {/* Time pickers */}
-            <div className="rdp-time-panel" style={{
-              paddingLeft: "20px",
-              display: "flex",
-              gap: "12px",
-            }}>
-              <TimePicker
-                label="Pickup time"
-                value={selection.pickupTime}
-                onChange={t => setSelection(prev => ({ ...prev, pickupTime: t }))}
-              />
-              <div style={{ width: "1px", background: "var(--neutral-alpha-weak)", alignSelf: "stretch" }} />
-              <TimePicker
-                label="Return time"
-                value={selection.returnTime}
-                onChange={t => setSelection(prev => ({ ...prev, returnTime: t }))}
-              />
-            </div>
-          </div>
-
-          {/* CTA */}
-          <div style={{
-            marginTop: "20px",
-            paddingTop: "20px",
-            borderTop: "1px solid var(--neutral-alpha-weak)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: "16px",
-            flexWrap: "wrap",
-          }}>
-            <div style={{ fontSize: "13px", color: "var(--neutral-on-background-weak)" }}>
-              {!selection.pickupDate
-                ? "Click a date to set your pickup day"
-                : !selection.returnDate
-                ? "Now select your return date"
-                : "Looks great! Ready to book?"}
-            </div>
-
-            <button
-              type="button"
-              onClick={handleBook}
-              disabled={!isComplete}
-              style={{
-                background: isComplete
-                  ? "var(--brand-solid-strong)"
-                  : "var(--neutral-alpha-weak)",
-                border: "none",
-                borderRadius: "12px",
-                padding: "12px 28px",
-                fontSize: "14px",
-                fontWeight: 700,
-                fontFamily: "var(--font-label)",
-                letterSpacing: "0.02em",
-                cursor: isComplete ? "pointer" : "not-allowed",
-                color: isComplete
-                  ? "var(--brand-on-solid-strong)"
-                  : "var(--neutral-on-background-weak)",
-                transition: "all 0.2s ease",
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
+                color: isComplete ? "var(--neutral-on-background-medium)" : "var(--neutral-on-background-weak)",
+                fontFamily: "var(--font-body)",
+                minWidth: 0,
+                overflow: "hidden",
+                textOverflow: "ellipsis",
                 whiteSpace: "nowrap",
-              }}
-              onMouseEnter={e => {
-                if (isComplete) {
-                  (e.currentTarget as HTMLElement).style.opacity = "0.85";
-                  (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)";
-                }
-              }}
-              onMouseLeave={e => {
-                (e.currentTarget as HTMLElement).style.opacity = "1";
-                (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-              }}
-            >
-              Check Availability
-              <span style={{ fontSize: "16px" }}>→</span>
-            </button>
-          </div>
-        </div>
-      </div>
+                flex: 1,
+              }}>
+                {hint}
+              </span>
 
-      {/* Mobile layout: shown below a certain width via JS class swap */}
-      <style>{`
-        @media (max-width: 600px) {
-          .rdp-split-grid {
-            grid-template-columns: 1fr !important;
-          }
-          .rdp-split-divider {
-            display: none !important;
-          }
-          .rdp-time-panel {
-            padding-left: 0 !important;
-            padding-top: 20px !important;
-            border-top: 1px solid var(--neutral-alpha-weak);
-          }
-        }
-      `}</style>
-    </div>
+              <button
+                type="button"
+                className="rdp-book-btn"
+                disabled={!isComplete}
+                onClick={handleBook}
+                style={{
+                  background: isComplete ? "var(--brand-solid-strong)" : "var(--neutral-alpha-weak)",
+                  color: isComplete ? "var(--brand-on-solid-strong)" : "var(--neutral-on-background-weak)",
+                }}
+                onMouseEnter={e => {
+                  if (isComplete) {
+                    (e.currentTarget as HTMLElement).style.opacity = "0.82";
+                    (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)";
+                  }
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLElement).style.opacity = "1";
+                  (e.currentTarget as HTMLElement).style.transform = "none";
+                }}
+              >
+                Check Availability →
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    </>
   );
 }
