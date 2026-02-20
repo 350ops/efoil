@@ -100,7 +100,7 @@ const MapboxLocation = () => {
     if (mapContainer.current) {
       map.current = new mapboxgl.Map({
         container: mapContainer.current,
-        style: "mapbox://styles/mapbox/navigation-night-v1",
+        style: "mapbox://styles/miguelantonmasero/cmloh66fo004701r2difshea4",
         center: [MALE_LNG - 0.0045, MALE_LAT],
         zoom: 13,
         pitch: 0,
