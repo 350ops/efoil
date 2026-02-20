@@ -15,6 +15,7 @@ import {
 import { home, about, person, baseURL, routes, gallery } from "@/resources";
 import { Mailchimp } from "@/components";
 import { HeroCTA, BottomCTA } from "@/components/HeroCTA";
+import RentalDatePicker from "@/components/RentalDatePicker";
 import { Posts } from "@/components/blog/Posts";
 
 export async function generateMetadata() {
@@ -251,6 +252,11 @@ export default function Home() {
 
       </Column>
 
+      {/* Rental Date Picker */}
+      <RevealFx translateY="12" delay={0.5} fillWidth horizontal="center">
+        <RentalDatePicker />
+      </RevealFx>
+
       {/* SEO Content Section */}
       <Column fillWidth horizontal="center" gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
         <Column maxWidth="m" gap="m">
@@ -298,12 +304,12 @@ export default function Home() {
               />
             </Column>
             
-            <Heading as="h3" variant="heading-strong-m" paddingTop="24" s={{ paddingTop: "16" }}>
+            <Heading as="h3" variant="heading-strong-m" style={{ paddingTop: "24px" }}>
               How an eFoil Works
             </Heading>
-            
+
             {/* Image Below Title */}
-             <Column fillWidth radius="l" overflow="hidden" s={{ radius: "m" }} paddingBottom="16" s={{ paddingBottom: "12" }}>
+             <Column fillWidth radius="l" overflow="hidden" s={{ radius: "m" }} paddingBottom="16">
               <Media
                 src="/images/gallery/performance_3 Background Removed.png"
                 alt="Audi e-tron eFoil board breakdown"
