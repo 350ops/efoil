@@ -304,12 +304,12 @@ export default function Home() {
               />
             </Column>
             
-            <Heading as="h3" variant="heading-strong-m" paddingTop="24" s={{ paddingTop: "16" }}>
+            <Heading as="h3" variant="heading-strong-m" style={{ paddingTop: "24px" }}>
               How an eFoil Works
             </Heading>
-            
+
             {/* Image Below Title */}
-             <Column fillWidth radius="l" overflow="hidden" s={{ radius: "m" }} paddingBottom="16" s={{ paddingBottom: "12" }}>
+             <Column fillWidth radius="l" overflow="hidden" s={{ radius: "m" }} paddingBottom="16">
               <Media
                 src="/images/gallery/performance_3 Background Removed.png"
                 alt="Audi e-tron eFoil board breakdown"
