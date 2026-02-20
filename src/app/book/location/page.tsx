@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-import { Button, Column, Heading, Text, Row } from "@once-ui-system/core";
+import { Column, Heading, Text, Row } from "@once-ui-system/core";
 import resorts from "@/lib/resorts.json";
 
 interface Resort {
@@ -14,11 +14,9 @@ interface Resort {
   longitude: number;
 }
 
-// Malé coordinates
 const MALE_LAT = 4.1755;
 const MALE_LNG = 73.5093;
 
-// Haversine formula to calculate distance in km between two coordinates
 function getDistanceKm(lat1: number, lng1: number, lat2: number, lng2: number): number {
   const R = 6371;
   const dLat = ((lat2 - lat1) * Math.PI) / 180;
@@ -33,20 +31,29 @@ function getDistanceKm(lat1: number, lng1: number, lat2: number, lng2: number): 
   return R * c;
 }
 
-// Calculate delivery price: $500 per 100km, minimum $100
 function getDeliveryPrice(distanceKm: number): number {
-  const price = Math.ceil((distanceKm / 100) * 500);
-  return Math.max(price, 100);
+  return Math.max(Math.ceil((distanceKm / 100) * 500), 100);
 }
 
-type DeliveryMode = "resort" | "yacht";
+// "yacht" is the primary / default mode. "island" is the secondary.
+type DeliveryMode = "yacht" | "island";
+
+// ─── Shared overlay surface style ─────────────────────────────────────────────
+const surface: React.CSSProperties = {
+  backgroundColor: "var(--neutral-background-strong)",
+  border: "1px solid var(--neutral-alpha-medium)",
+  borderRadius: "14px",
+  boxShadow: "0 8px 32px rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.04) inset",
+};
 
 const MapboxLocation = () => {
   const router = useRouter();
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const marker = useRef<mapboxgl.Marker | null>(null);
-  const [deliveryMode, setDeliveryMode] = useState<DeliveryMode>("resort");
+
+  // yacht is default
+  const [deliveryMode, setDeliveryMode] = useState<DeliveryMode>("yacht");
   const [selectedResort, setSelectedResort] = useState<Resort | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
@@ -55,59 +62,45 @@ const MapboxLocation = () => {
   const [deliveryTime, setDeliveryTime] = useState("");
   const searchRef = useRef<HTMLDivElement>(null);
 
-  // Filter resorts based on search query
   const filteredResorts = useMemo(() => {
     if (!searchQuery.trim()) return [];
     const q = searchQuery.toLowerCase();
     return (resorts as Resort[])
-      .filter(
-        (r) =>
-          r.name.toLowerCase().includes(q) ||
-          r.atoll.toLowerCase().includes(q)
-      )
+      .filter((r) => r.name.toLowerCase().includes(q) || r.atoll.toLowerCase().includes(q))
       .slice(0, 8);
   }, [searchQuery]);
 
-  // Calculate distance and price
   const distanceKm = useMemo(() => {
-    if (selectedResort) {
-      return getDistanceKm(MALE_LAT, MALE_LNG, selectedResort.latitude, selectedResort.longitude);
-    }
-    if (selectedLocation) {
-      return getDistanceKm(MALE_LAT, MALE_LNG, selectedLocation.lat, selectedLocation.lng);
-    }
+    if (selectedResort) return getDistanceKm(MALE_LAT, MALE_LNG, selectedResort.latitude, selectedResort.longitude);
+    if (selectedLocation) return getDistanceKm(MALE_LAT, MALE_LNG, selectedLocation.lat, selectedLocation.lng);
     return null;
   }, [selectedResort, selectedLocation]);
 
   const deliveryPrice = distanceKm !== null ? getDeliveryPrice(distanceKm) : null;
 
-  // Close dropdown when clicking outside
+  // Close island search dropdown on outside click
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
+    const handler = (e: MouseEvent) => {
       if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
         setShowDropdown(false);
       }
     };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  // Initialize map
+  // Initialize dark map
   useEffect(() => {
     if (map.current) return;
-
     const accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
-    if (!accessToken) {
-      console.error("Mapbox access token required");
-      return;
-    }
+    if (!accessToken) return;
 
     mapboxgl.accessToken = accessToken;
 
     if (mapContainer.current) {
       map.current = new mapboxgl.Map({
         container: mapContainer.current,
-        style: "mapbox://styles/mapbox/streets-v12",
+        style: "mapbox://styles/mapbox/navigation-night-v1",
         center: [MALE_LNG - 0.0045, MALE_LAT],
         zoom: 13,
         pitch: 0,
@@ -115,65 +108,15 @@ const MapboxLocation = () => {
         antialias: true,
       });
 
-      map.current.on("style.load", () => {
-        // Add 3D buildings layer
-        const layers = map.current?.getStyle().layers;
-        const labelLayerId = layers?.find(
-          (layer) => layer.type === "symbol" && (layer.layout as Record<string, unknown>)?.["text-field"]
-        )?.id;
-
-        map.current?.addLayer(
-          {
-            id: "3d-buildings",
-            source: "composite",
-            "source-layer": "building",
-            filter: ["==", "extrude", "true"],
-            type: "fill-extrusion",
-            minzoom: 14,
-            paint: {
-              "fill-extrusion-color": "#aaa",
-              "fill-extrusion-height": [
-                "interpolate",
-                ["linear"],
-                ["zoom"],
-                14, 0,
-                14.5, ["get", "height"],
-              ],
-              "fill-extrusion-base": [
-                "interpolate",
-                ["linear"],
-                ["zoom"],
-                14, 0,
-                14.5, ["get", "min_height"],
-              ],
-              "fill-extrusion-opacity": 0.7,
-            },
-          },
-          labelLayerId
-        );
-      });
-
-      // Add Malé marker
-      new mapboxgl.Marker({ color: "#ef4444" })
+      // Brand-cyan marker for Malé base
+      new mapboxgl.Marker({ color: "#06b6d4" })
         .setLngLat([MALE_LNG, MALE_LAT])
-        .setPopup(new mapboxgl.Popup().setText("Malé — Base"))
+        .setPopup(new mapboxgl.Popup({ className: "rdp-popup" }).setText("Malé — Base"))
         .addTo(map.current);
-
-      // Handle map click (only for yacht mode)
-      map.current.on("click", (e) => {
-        // We use a mutable ref or state check inside the event listener?
-        // Actually, state is captured in closure.
-        // We need to use the ref for the changing mode if we want to be safe, but here 
-        // we might run into stale closure if useEffect doesn't update.
-        // The useEffect below handles cursor update, but listener is added only once.
-        // Let's rely on the listener being removed/added or a ref for mode.
-      });
-      
-      // We will handle click logic in a separate effect or use a ref for current mode
     }
   }, []);
 
-  // Use a ref to track current mode for the map click handler which is bound once
+  // Track mode in ref so the map click handler (bound once) can read it
   const modeRef = useRef(deliveryMode);
   useEffect(() => {
     modeRef.current = deliveryMode;
@@ -182,54 +125,43 @@ const MapboxLocation = () => {
     }
   }, [deliveryMode]);
 
-  // Add click listener that checks the ref
+  // Map click handler — only active in yacht mode
   useEffect(() => {
     if (!map.current) return;
-    
     const clickHandler = (e: mapboxgl.MapMouseEvent) => {
       if (modeRef.current === "yacht") {
         placeMarker(e.lngLat.lng, e.lngLat.lat);
         setSelectedResort(null);
         setSearchQuery("");
-        // Cinematic 3D flyTo for yacht pin
         map.current?.flyTo({
           center: [e.lngLat.lng, e.lngLat.lat],
-          zoom: 17,
-          pitch: 72,
-          bearing: -30,
-          duration: 2500,
+          zoom: 14,
+          pitch: 55,
+          bearing: -20,
+          duration: 2000,
           essential: true,
         });
       }
     };
-
     map.current.on("click", clickHandler);
-
-    return () => {
-      map.current?.off("click", clickHandler);
-    };
+    return () => { map.current?.off("click", clickHandler); };
   }, []);
 
-  // Reset selection when switching modes
   const handleModeSwitch = (mode: DeliveryMode) => {
     setDeliveryMode(mode);
     setSelectedResort(null);
     setSelectedLocation(null);
     setSearchQuery("");
     setShowDropdown(false);
-    if (marker.current) {
-      marker.current.remove();
-      marker.current = null;
-    }
-    // Reset map view
-    map.current?.flyTo({ center: [MALE_LNG - 0.0045, MALE_LAT], zoom: 13, duration: 1000 });
+    if (marker.current) { marker.current.remove(); marker.current = null; }
+    map.current?.flyTo({ center: [MALE_LNG - 0.0045, MALE_LAT], zoom: 13, pitch: 0, duration: 1000 });
   };
 
   const placeMarker = (lng: number, lat: number) => {
     setSelectedLocation({ lng, lat });
     if (map.current) {
       if (!marker.current) {
-        marker.current = new mapboxgl.Marker({ color: "#0ea5e9" })
+        marker.current = new mapboxgl.Marker({ color: "#06b6d4" })
           .setLngLat([lng, lat])
           .addTo(map.current);
       } else {
@@ -243,15 +175,13 @@ const MapboxLocation = () => {
     setSelectedLocation({ lng: resort.longitude, lat: resort.latitude });
     setSearchQuery(resort.name);
     setShowDropdown(false);
-
-    // Fly to resort with cinematic 3D view
     placeMarker(resort.longitude, resort.latitude);
     map.current?.flyTo({
       center: [resort.longitude, resort.latitude],
-      zoom: 17,
-      pitch: 72,
-      bearing: -30,
-      duration: 2500,
+      zoom: 14,
+      pitch: 55,
+      bearing: -20,
+      duration: 2000,
       essential: true,
     });
   };
@@ -260,24 +190,17 @@ const MapboxLocation = () => {
     const locationName =
       selectedResort?.name ||
       `Yacht at ${selectedLocation?.lat.toFixed(4)}, ${selectedLocation?.lng.toFixed(4)}`;
-    const bookingData = {
+    sessionStorage.setItem("pendingBooking", JSON.stringify({
       place: locationName,
       date: deliveryDate,
       time: deliveryTime,
       coords: selectedLocation,
       mode: deliveryMode,
-    };
-
-    // Store in session to persist across login redirect
-    sessionStorage.setItem("pendingBooking", JSON.stringify(bookingData));
-
-    // Proceed to login/signup step
+    }));
     router.push("/login");
   };
 
-  const hasToken = !!process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
-
-  if (!hasToken) {
+  if (!process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN) {
     return (
       <Column fillWidth padding="xl" horizontal="center" vertical="center" style={{ height: "100vh" }}>
         <Heading>Mapbox Token Missing</Heading>
@@ -286,84 +209,135 @@ const MapboxLocation = () => {
     );
   }
 
+  const hasSelection = !!(selectedResort || selectedLocation);
+  const canProceed = hasSelection;
+
   return (
     <Column fillWidth style={{ height: "100vh", position: "relative" }}>
-      <style jsx global>{`
-        ::placeholder {
+      <style>{`
+        /* Mapbox popup dark style */
+        .rdp-popup .mapboxgl-popup-content {
+          background: var(--neutral-background-strong);
+          color: var(--neutral-on-background-strong);
+          font-family: var(--font-body);
+          font-size: 12px;
+          border-radius: 8px;
+          padding: 8px 12px;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+          border: 1px solid var(--neutral-alpha-medium);
+        }
+        .rdp-popup .mapboxgl-popup-tip {
+          border-top-color: var(--neutral-background-strong);
+        }
+        /* Remove default mapbox controls default styling interference */
+        .mapboxgl-ctrl-group {
+          background: var(--neutral-background-strong) !important;
+          border: 1px solid var(--neutral-alpha-medium) !important;
+          border-radius: 10px !important;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.4) !important;
+        }
+        .mapboxgl-ctrl-group button {
+          color: var(--neutral-on-background-medium) !important;
+        }
+        .map-placeholder-input::placeholder {
           color: var(--neutral-on-background-weak);
-          opacity: 0.7;
+          opacity: 0.8;
+        }
+        /* Mode pill button */
+        .rdp-pill {
+          flex: 1;
+          padding: 9px 14px;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          transition: all 0.18s ease;
+          font-family: var(--font-label);
+          white-space: nowrap;
+        }
+        .rdp-pill-active {
+          background: var(--brand-solid-strong);
+          color: var(--brand-on-solid-strong);
+          box-shadow: 0 2px 12px rgba(6,182,212,0.3);
+        }
+        .rdp-pill-inactive {
+          background: transparent;
+          color: var(--neutral-on-background-weak);
+        }
+        .rdp-pill-inactive:hover {
+          background: var(--neutral-alpha-weak);
+          color: var(--neutral-on-background-medium);
+        }
+        /* Date/time input overrides */
+        input[type="date"]::-webkit-calendar-picker-indicator,
+        input[type="time"]::-webkit-calendar-picker-indicator {
+          filter: invert(0.7);
+          cursor: pointer;
+          opacity: 0.6;
+        }
+        input[type="date"]::-webkit-calendar-picker-indicator:hover,
+        input[type="time"]::-webkit-calendar-picker-indicator:hover {
+          opacity: 1;
         }
       `}</style>
+
+      {/* Map canvas */}
       <div ref={mapContainer} style={{ width: "100%", height: "100%" }} />
 
-      {/* Mode toggle & Search */}
-      <Column
-        position="absolute"
-        zIndex={10}
-        fillWidth
-        horizontal="center"
-        padding="m"
-        gap="m"
-        style={{
-          top: "1rem",
-          left: "50%",
-          transform: "translateX(-50%)",
-          maxWidth: "440px",
-        }}
-        s={{
-          width: "95%",
-          top: "0.5rem",
-          padding: "s",
-        }}
-      >
-        <Column
-          background="surface"
-          radius="l"
-          padding="4"
-          border="neutral-alpha-medium"
-          style={{
-            backgroundColor: "var(--neutral-background-strong)",
-            boxShadow: "0 4px 24px rgba(0,0,0,0.24)",
-            backdropFilter: "blur(12px)",
-          }}
-        >
-          <Row>
-            <Button
-              onClick={() => handleModeSwitch("resort")}
-              variant={deliveryMode === "resort" ? "primary" : "tertiary"}
-              size="m"
-              style={{ flex: 1 }}
-            >
-              Resort Delivery
-            </Button>
-            <Button
-              onClick={() => handleModeSwitch("yacht")}
-              variant={deliveryMode === "yacht" ? "primary" : "tertiary"}
-              size="m"
-              style={{ flex: 1 }}
-            >
-              Yacht Delivery
-            </Button>
-          </Row>
-        </Column>
+      {/* ── Top overlay: mode toggle + island search ── */}
+      <div style={{
+        position: "absolute",
+        top: "1rem",
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: "min(440px, calc(100vw - 2rem))",
+        zIndex: 10,
+        display: "flex",
+        flexDirection: "column",
+        gap: "8px",
+      }}>
+        {/* Mode toggle pill row */}
+        <div style={{
+          ...surface,
+          padding: "5px",
+          display: "flex",
+          gap: "4px",
+        }}>
+          {/* Yacht — primary / default */}
+          <button
+            type="button"
+            className={`rdp-pill ${deliveryMode === "yacht" ? "rdp-pill-active" : "rdp-pill-inactive"}`}
+            onClick={() => handleModeSwitch("yacht")}
+          >
+            ⚓ Yacht
+          </button>
+          {/* Island — secondary */}
+          <button
+            type="button"
+            className={`rdp-pill ${deliveryMode === "island" ? "rdp-pill-active" : "rdp-pill-inactive"}`}
+            onClick={() => handleModeSwitch("island")}
+          >
+            🏝 Island
+          </button>
+        </div>
 
-        {/* Resort search (only in resort mode) */}
-        {deliveryMode === "resort" && (
-          <div ref={searchRef} style={{ width: "100%", position: "relative" }}>
-            <Column
-              fillWidth
-              radius="l"
-              border="neutral-alpha-medium"
-              paddingX="m"
-              paddingY="12"
-              style={{
-                backgroundColor: "var(--neutral-background-strong)",
-                boxShadow: "0 4px 24px rgba(0,0,0,0.24)",
-                backdropFilter: "blur(12px)",
-              }}
-            >
+        {/* Island search — only visible in island mode */}
+        {deliveryMode === "island" && (
+          <div ref={searchRef} style={{ position: "relative", width: "100%" }}>
+            <div style={{
+              ...surface,
+              padding: "12px 16px",
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+            }}>
+              <span style={{ color: "var(--neutral-on-background-weak)", fontSize: "14px", flexShrink: 0 }}>🔍</span>
               <input
                 type="text"
+                className="map-placeholder-input"
                 value={searchQuery}
                 onChange={(e) => {
                   setSearchQuery(e.target.value);
@@ -374,191 +348,256 @@ const MapboxLocation = () => {
                   }
                 }}
                 onFocus={() => searchQuery.trim() && setShowDropdown(true)}
-                placeholder="Search for your resort..."
+                placeholder="Search for your island or resort..."
                 style={{
-                  width: "100%",
-                  fontSize: "16px",
+                  flex: 1,
+                  fontSize: "14px",
                   border: "none",
                   backgroundColor: "transparent",
                   outline: "none",
                   color: "var(--neutral-on-background-strong)",
-                  fontFamily: "inherit",
+                  fontFamily: "var(--font-body)",
                   fontWeight: 500,
+                  minWidth: 0,
                 }}
               />
-            </Column>
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => { setSearchQuery(""); setSelectedResort(null); setSelectedLocation(null); setShowDropdown(false); }}
+                  style={{
+                    background: "none", border: "none", cursor: "pointer", padding: "2px",
+                    color: "var(--neutral-on-background-weak)", fontSize: "16px", lineHeight: 1, flexShrink: 0,
+                  }}
+                >×</button>
+              )}
+            </div>
 
-            {/* Dropdown results */}
+            {/* Search results dropdown */}
             {showDropdown && filteredResorts.length > 0 && (
-              <Column
-                fillWidth
-                style={{
-                  top: "100%",
-                  marginTop: "8px",
-                  maxHeight: "320px",
-                  overflowY: "auto",
-                  zIndex: 20,
-                  boxShadow: "0 4px 24px rgba(0,0,0,0.24)",
-                  backgroundColor: "var(--neutral-background-strong)",
-                  backdropFilter: "blur(12px)",
-                }}
-              >
-                <Column>
-                  {filteredResorts.map((resort) => (
-                    <Button
-                      key={`${resort.name}-${resort.atoll}`}
-                      onClick={() => handleSelectResort(resort)}
-                      variant="tertiary"
-                      size="l"
-                      fillWidth
-                      style={{ justifyContent: "flex-start", height: "auto", padding: "12px 16px" }}
-                    >
-                      <Column gap="2" horizontal="start">
-                        <Text variant="body-strong-m">{resort.name}</Text>
-                        {resort.atoll && (
-                          <Text variant="body-default-s" onBackground="neutral-weak">
-                            {resort.atoll}
-                          </Text>
-                        )}
-                      </Column>
-                    </Button>
-                  ))}
-                </Column>
-              </Column>
+              <div style={{
+                position: "absolute",
+                top: "calc(100% + 6px)",
+                left: 0,
+                right: 0,
+                ...surface,
+                borderRadius: "12px",
+                overflow: "hidden",
+                maxHeight: "300px",
+                overflowY: "auto",
+                zIndex: 20,
+              }}>
+                {filteredResorts.map((resort) => (
+                  <button
+                    key={`${resort.name}-${resort.atoll}`}
+                    type="button"
+                    onClick={() => handleSelectResort(resort)}
+                    style={{
+                      width: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "2px",
+                      padding: "11px 16px",
+                      background: "transparent",
+                      border: "none",
+                      borderBottom: "1px solid var(--neutral-alpha-weak)",
+                      cursor: "pointer",
+                      textAlign: "left",
+                      transition: "background 0.12s ease",
+                    }}
+                    onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "var(--neutral-alpha-weak)"}
+                    onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "transparent"}
+                  >
+                    <span style={{
+                      fontSize: "13px", fontWeight: 600,
+                      color: "var(--neutral-on-background-strong)",
+                      fontFamily: "var(--font-body)",
+                    }}>{resort.name}</span>
+                    {resort.atoll && (
+                      <span style={{
+                        fontSize: "11px",
+                        color: "var(--neutral-on-background-weak)",
+                        fontFamily: "var(--font-body)",
+                      }}>{resort.atoll}</span>
+                    )}
+                  </button>
+                ))}
+              </div>
             )}
           </div>
         )}
-      </Column>
+      </div>
 
-      {/* Bottom card */}
-      <Column
-        position="absolute"
-        background="surface"
-        radius="l"
-        padding="l"
-        gap="l"
-        border="neutral-alpha-medium"
-        style={{
-          bottom: "4rem",
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "90%",
-          maxWidth: "400px",
-          zIndex: 1,
-          boxShadow: "0 4px 24px rgba(0,0,0,0.24)",
-          backgroundColor: "var(--neutral-background-strong)",
-          backdropFilter: "blur(12px)",
-        }}
-        s={{
-          bottom: "2rem",
-          padding: "m",
-          gap: "m",
-          width: "95%",
-        }}
-      >
-        <Column gap="4">
-          <Heading as="h2" variant="heading-strong-m">
-            {deliveryMode === "resort" ? "Resort Delivery" : "Yacht Delivery"}
-          </Heading>
-          <Text variant="body-default-s" onBackground="neutral-weak">
-            {deliveryMode === "resort"
-              ? "Select your resort from the list above."
-              : "Tap anywhere on the map to set your yacht location."}
-          </Text>
-        </Column>
+      {/* ── Bottom card ── */}
+      <div style={{
+        position: "absolute",
+        bottom: "3rem",
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: "min(400px, calc(100vw - 2rem))",
+        zIndex: 10,
+        ...surface,
+        padding: "20px",
+        display: "flex",
+        flexDirection: "column",
+        gap: "16px",
+      }}>
+        {/* Header */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+          <div style={{
+            fontSize: "10px", fontWeight: 700, letterSpacing: "0.12em",
+            textTransform: "uppercase", color: "var(--neutral-on-background-weak)",
+            fontFamily: "var(--font-label)",
+          }}>
+            {deliveryMode === "yacht" ? "⚓ Yacht Delivery" : "🏝 Island Delivery"}
+          </div>
+          <div style={{
+            fontSize: "15px", fontWeight: 600,
+            color: "var(--neutral-on-background-strong)",
+            fontFamily: "var(--font-heading)",
+            lineHeight: 1.3,
+          }}>
+            {deliveryMode === "yacht"
+              ? "Tap the map to drop your pin"
+              : "Search for your island above"}
+          </div>
+        </div>
 
-        {/* Selection + Schedule confirmation */}
-        {(selectedResort || selectedLocation) && (
-          <Column gap="l" paddingY="m" borderTop="neutral-alpha-weak">
-            <Column gap="4">
-              <Text
-                variant="label-default-s"
-                onBackground="neutral-medium"
-              >
-                DELIVERY DESTINATION
-              </Text>
-              <Column gap="2">
-                <Text variant="heading-strong-s">
-                  {selectedResort?.name || "GPS Coordinates Pin"}
-                </Text>
-                {selectedResort?.atoll && (
-                  <Text variant="body-default-s" onBackground="neutral-weak">
-                    {selectedResort.atoll}
-                  </Text>
-                )}
-                {!selectedResort && selectedLocation && (
-                   <Text variant="body-default-s" onBackground="neutral-weak">
-                    {selectedLocation.lat.toFixed(4)}, {selectedLocation.lng.toFixed(4)}
-                  </Text>
-                )}
-              </Column>
-            </Column>
+        {/* Selection details — shown once a location is chosen */}
+        {hasSelection && (
+          <div style={{
+            paddingTop: "16px",
+            borderTop: "1px solid var(--neutral-alpha-weak)",
+            display: "flex",
+            flexDirection: "column",
+            gap: "16px",
+          }}>
+            {/* Destination */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
+              <div style={{
+                fontSize: "10px", fontWeight: 700, letterSpacing: "0.1em",
+                textTransform: "uppercase", color: "var(--neutral-on-background-weak)",
+                fontFamily: "var(--font-label)",
+              }}>Delivery destination</div>
+              <div style={{
+                fontSize: "14px", fontWeight: 600,
+                color: "var(--neutral-on-background-strong)",
+                fontFamily: "var(--font-heading)",
+              }}>
+                {selectedResort?.name || "GPS Pin"}
+              </div>
+              {selectedResort?.atoll && (
+                <div style={{ fontSize: "12px", color: "var(--neutral-on-background-weak)", fontFamily: "var(--font-body)" }}>
+                  {selectedResort.atoll}
+                </div>
+              )}
+              {!selectedResort && selectedLocation && (
+                <div style={{ fontSize: "12px", color: "var(--neutral-on-background-weak)", fontFamily: "var(--font-code)" }}>
+                  {selectedLocation.lat.toFixed(4)}, {selectedLocation.lng.toFixed(4)}
+                </div>
+              )}
+              {deliveryPrice !== null && (
+                <div style={{
+                  display: "inline-flex", alignItems: "center", gap: "6px", marginTop: "4px",
+                  background: "var(--brand-alpha-weak)",
+                  border: "1px solid var(--brand-alpha-medium)",
+                  borderRadius: "100px",
+                  padding: "3px 10px",
+                  fontSize: "11px", fontWeight: 600,
+                  color: "var(--brand-on-background-strong)",
+                  fontFamily: "var(--font-label)",
+                  alignSelf: "flex-start",
+                }}>
+                  ~${deliveryPrice} delivery
+                </div>
+              )}
+            </div>
 
-            <Row gap="l">
-              <Column fillWidth gap="4">
-                <Text
-                  variant="label-default-s"
-                  onBackground="neutral-medium"
-                >
-                  PREFERRED DATE
-                </Text>
+            {/* Date + Time */}
+            <div style={{ display: "flex", gap: "12px" }}>
+              <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "5px" }}>
+                <div style={{
+                  fontSize: "10px", fontWeight: 700, letterSpacing: "0.1em",
+                  textTransform: "uppercase", color: "var(--neutral-on-background-weak)",
+                  fontFamily: "var(--font-label)",
+                }}>Date</div>
                 <input
                   type="date"
                   value={deliveryDate}
                   onChange={(e) => setDeliveryDate(e.target.value)}
                   style={{
                     width: "100%",
-                    padding: "8px 0",
-                    border: "none",
-                    borderBottom: "1px solid var(--neutral-alpha-strong)",
-                    backgroundColor: "transparent",
+                    padding: "7px 10px",
+                    border: "1px solid var(--neutral-alpha-medium)",
+                    borderRadius: "8px",
+                    backgroundColor: "var(--neutral-alpha-weak)",
                     color: "var(--neutral-on-background-strong)",
-                    fontSize: "14px",
-                    fontFamily: "inherit",
+                    fontSize: "12px",
+                    fontFamily: "var(--font-code)",
                     outline: "none",
-                    borderRadius: 0,
+                    transition: "border-color 0.15s ease",
                   }}
+                  onFocus={e => (e.target as HTMLInputElement).style.borderColor = "var(--brand-alpha-medium)"}
+                  onBlur={e => (e.target as HTMLInputElement).style.borderColor = "var(--neutral-alpha-medium)"}
                 />
-              </Column>
-              <Column fillWidth gap="4">
-                <Text
-                  variant="label-default-s"
-                  onBackground="neutral-medium"
-                >
-                  TIME
-                </Text>
+              </div>
+              <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "5px" }}>
+                <div style={{
+                  fontSize: "10px", fontWeight: 700, letterSpacing: "0.1em",
+                  textTransform: "uppercase", color: "var(--neutral-on-background-weak)",
+                  fontFamily: "var(--font-label)",
+                }}>Time</div>
                 <input
                   type="time"
                   value={deliveryTime}
                   onChange={(e) => setDeliveryTime(e.target.value)}
                   style={{
                     width: "100%",
-                    padding: "8px 0",
-                    border: "none",
-                    borderBottom: "1px solid var(--neutral-alpha-strong)",
-                    backgroundColor: "transparent",
+                    padding: "7px 10px",
+                    border: "1px solid var(--neutral-alpha-medium)",
+                    borderRadius: "8px",
+                    backgroundColor: "var(--neutral-alpha-weak)",
                     color: "var(--neutral-on-background-strong)",
-                    fontSize: "14px",
-                    fontFamily: "inherit",
+                    fontSize: "12px",
+                    fontFamily: "var(--font-code)",
                     outline: "none",
-                    borderRadius: 0,
+                    transition: "border-color 0.15s ease",
                   }}
+                  onFocus={e => (e.target as HTMLInputElement).style.borderColor = "var(--brand-alpha-medium)"}
+                  onBlur={e => (e.target as HTMLInputElement).style.borderColor = "var(--neutral-alpha-medium)"}
                 />
-              </Column>
-            </Row>
-          </Column>
+              </div>
+            </div>
+          </div>
         )}
 
-        <Button
-          variant="primary"
-          size="l"
-          fillWidth
-          disabled={!selectedResort && !selectedLocation}
+        {/* CTA */}
+        <button
+          type="button"
+          disabled={!canProceed}
           onClick={handleNext}
+          style={{
+            width: "100%",
+            padding: "12px",
+            border: "none",
+            borderRadius: "10px",
+            fontSize: "14px",
+            fontWeight: 700,
+            fontFamily: "var(--font-label)",
+            letterSpacing: "0.02em",
+            cursor: canProceed ? "pointer" : "not-allowed",
+            transition: "all 0.18s ease",
+            background: canProceed ? "var(--brand-solid-strong)" : "var(--neutral-alpha-weak)",
+            color: canProceed ? "var(--brand-on-solid-strong)" : "var(--neutral-on-background-weak)",
+            opacity: canProceed ? 1 : 0.5,
+          }}
+          onMouseEnter={e => { if (canProceed) (e.currentTarget as HTMLElement).style.opacity = "0.85"; }}
+          onMouseLeave={e => { if (canProceed) (e.currentTarget as HTMLElement).style.opacity = "1"; }}
         >
-          Select
-        </Button>
-      </Column>
+          Continue →
+        </button>
+      </div>
     </Column>
   );
 };
