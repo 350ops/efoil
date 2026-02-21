@@ -54,7 +54,7 @@ export default function AudiFoilBoard() {
 
       {/* The Board: Aeroloop Technology */}
       <Column fillWidth maxWidth="l" paddingX="16" paddingY="l" gap="l">
-        <Grid columns="2" gap="48" style={{ alignItems: 'center' }} s={{ columns: 1 }}>
+        <Grid columns="2" gap="48" style={{ alignItems: 'center' }} >
           <Column gap="24">
             <Heading as="h2" variant="display-strong-m">
               Aeroloop Technology
@@ -80,7 +80,7 @@ export default function AudiFoilBoard() {
       {/* The Propulsion: Silent Power */}
       <Column fillWidth background="neutral-alpha-weak" paddingY="xl">
         <Column fillWidth maxWidth="l" paddingX="16" gap="l">
-          <Grid columns="2" gap="48" style={{ alignItems: 'center' }} s={{ columns: 1 }}>
+          <Grid columns="2" gap="48" style={{ alignItems: 'center' }} >
              <Media
               src="/images/gallery/engine-white-background.jpg"
               alt="Audi e-tron eFoil Motor"
@@ -107,7 +107,7 @@ export default function AudiFoilBoard() {
 
       {/* The Control: Intuitive Interface */}
       <Column fillWidth maxWidth="l" paddingX="16" paddingY="l" gap="l">
-        <Grid columns="2" gap="48" style={{ alignItems: 'center' }} s={{ columns: 1 }}>
+        <Grid columns="2" gap="48" style={{ alignItems: 'center' }} >
           <Column gap="24">
             <Heading as="h2" variant="display-strong-m">
               Total Control
@@ -136,7 +136,7 @@ export default function AudiFoilBoard() {
           <Heading as="h2" variant="display-strong-m">Technical Specifications</Heading>
           <Line maxWidth={40} background="brand-alpha-strong" />
         </Column>
-        <Grid columns="4" gap="24" s={{ columns: 2 }} xs={{ columns: 1 }}>
+        <Grid columns="4" gap="24"  >
           <Spec title="Top Speed" value="50 km/h" icon="bolt" />
           <Spec title="Ride Time" value="Up to 120 min" icon="timer" />
           <Spec title="Weight" value="32 kg" icon="scale" />
@@ -148,7 +148,7 @@ export default function AudiFoilBoard() {
       <Column fillWidth background="neutral-alpha-weak" paddingY="xl">
         <Column fillWidth maxWidth="l" paddingX="16" gap="l">
           <Heading as="h2" variant="display-strong-m" align="center">Pure Emotion</Heading>
-          <Grid columns="3" gap="16" s={{ columns: 1 }}>
+          <Grid columns="3" gap="16" >
             <Media src="/images/gallery/efoiling.jpeg" alt="eFoiling action" radius="m" aspectRatio="4 / 5" />
             <Media src="/images/gallery/girlefoil.jpg" alt="Woman efoiling" radius="m" aspectRatio="4 / 5" />
             <Media src="/images/gallery/efoilbeach.jpeg" alt="eFoil on beach" radius="m" aspectRatio="4 / 5" />

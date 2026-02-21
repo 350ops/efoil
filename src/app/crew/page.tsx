@@ -102,7 +102,7 @@ const faqSchema = {
 
 export default function CrewPage() {
   return (
-    <Column maxWidth="l" gap="xl" paddingY="12" paddingX="16" horizontal="center" s={{ paddingY: "8", paddingX: "12", gap: "l" }}>
+    <Column maxWidth="l" gap="xl" paddingY="12" paddingX="16" horizontal="center">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -122,20 +122,20 @@ export default function CrewPage() {
       />
 
       {/* Hero */}
-      <Column fillWidth horizontal="center" gap="l" s={{ gap: "m" }}>
+      <Column fillWidth horizontal="center" gap="l">
         <Column maxWidth="m" horizontal="center" align="center">
-          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16" s={{ paddingBottom: "12" }}>
+          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16">
             <Heading wrap="balance" variant="display-strong-xl" align="center">
               Your Maldives Adventure Starts Here
             </Heading>
           </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32" s={{ paddingBottom: "20" }}>
+          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l" align="center">
               One trip. Five hours. Dolphins, reef snorkeling, a private sandbank, and a sunset cruise across the Indian Ocean. Designed for airline crew on layover in Malé — from $80/person.
             </Text>
           </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="center" fillWidth s={{ paddingTop: "8" }}>
-            <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column", gap: "12" }}>
+          <RevealFx paddingTop="12" delay={0.4} horizontal="center" fillWidth>
+            <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column" }}>
               <Button
                 data-border="rounded"
                 href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi! I'm airline crew and interested in Maldives day trip.")}`}
@@ -161,22 +161,22 @@ export default function CrewPage() {
 
       {/* Hero Images */}
       <RevealFx translateY="16" delay={0.6} fillWidth>
-        <Grid columns="3" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
-          <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
+        <Grid columns="3" gap="24" fillWidth>
+          <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
               src="/images/gallery/dolphins-maldives.png"
               alt="Wild spinner dolphins in Maldives — swim with dolphins on the crew day trip"
               aspectRatio="4 / 3"
             />
           </Column>
-          <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
+          <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
               src="/images/gallery/maldives-sandbank.png"
               alt="Private white sandbank in the Indian Ocean — crew day trip picnic destination"
               aspectRatio="4 / 3"
             />
           </Column>
-          <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
+          <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
               src="/images/gallery/maldives-sunset-ocean.png"
               alt="Golden sunset over the Indian Ocean — sunset cruise on Maldives crew day trip"
@@ -188,8 +188,8 @@ export default function CrewPage() {
 
       {/* The Experience */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column id="experience" fillWidth gap="xl" paddingY="xl" s={{ gap: "l", paddingY: "l" }}>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+        <Column id="experience" fillWidth gap="xl" paddingY="xl">
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               The Experience
             </Heading>
@@ -198,8 +198,8 @@ export default function CrewPage() {
             </Text>
           </Column>
 
-          <Grid columns="2" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
-            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l" s={{ padding: "24", gap: "12", radius: "m" }}>
+          <Grid columns="2" gap="24" fillWidth>
+            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l">
               <Text variant="display-strong-l" align="center">🐬</Text>
               <Heading as="h3" variant="heading-strong-l" align="center">
                 Dolphin Swimming
@@ -209,7 +209,7 @@ export default function CrewPage() {
               </Text>
             </Column>
 
-            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l" s={{ padding: "24", gap: "12", radius: "m" }}>
+            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l">
               <Text variant="display-strong-l" align="center">🐢</Text>
               <Heading as="h3" variant="heading-strong-l" align="center">
                 Reef Snorkeling
@@ -219,7 +219,7 @@ export default function CrewPage() {
               </Text>
             </Column>
 
-            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l" s={{ padding: "24", gap: "12", radius: "m" }}>
+            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l">
               <Text variant="display-strong-l" align="center">🏝️</Text>
               <Heading as="h3" variant="heading-strong-l" align="center">
                 Private Sandbank
@@ -229,7 +229,7 @@ export default function CrewPage() {
               </Text>
             </Column>
 
-            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l" s={{ padding: "24", gap: "12", radius: "m" }}>
+            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l">
               <Text variant="display-strong-l" align="center">🌅</Text>
               <Heading as="h3" variant="heading-strong-l" align="center">
                 Sunset Cruise
@@ -251,7 +251,6 @@ export default function CrewPage() {
           horizontal="center"
           background="brand-alpha-weak"
           radius="xl"
-          s={{ padding: "32", gap: "20", radius: "l" }}
         >
           <Text variant="label-strong-s" onBackground="brand-strong">OPTIONAL ADD-ON</Text>
           <Heading as="h2" variant="display-strong-m" align="center">
@@ -272,15 +271,15 @@ export default function CrewPage() {
               />
             </Column>
           </Row>
-          <Grid columns="2" gap="24" fillWidth paddingTop="8" s={{ columns: 1, gap: "16" }}>
-            <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
+          <Grid columns="2" gap="24" fillWidth paddingTop="8">
+            <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
               <Media
                 src="/images/gallery/girlefoil.jpg"
                 alt="Woman riding eFoil at sunset in Maldives — crew day trip eFoil add-on"
                 aspectRatio="16 / 10"
               />
             </Column>
-            <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
+            <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
               <Media
                 src="/images/gallery/efoil-drone.png"
                 alt="Aerial drone shot of two eFoil riders above turquoise Maldives lagoon"
@@ -296,8 +295,8 @@ export default function CrewPage() {
 
       {/* How It Works */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="xl" paddingY="xl" s={{ gap: "l", paddingY: "l" }}>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+        <Column fillWidth gap="xl" paddingY="xl">
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               How It Works
             </Heading>
@@ -324,7 +323,7 @@ export default function CrewPage() {
                 desc: "We pick you up near your hotel in Malé or Hulhumalé. Everything else — gear, food, drinks, guides — is taken care of.",
               },
             ].map((step, idx) => (
-              <Row key={step.num} fillWidth gap="24" s={{ gap: "16" }}>
+              <Row key={step.num} fillWidth gap="24">
                 <Column horizontal="center" vertical="center" gap="0" style={{ minWidth: 48 }}>
                   <Flex
                     horizontal="center"
@@ -349,7 +348,7 @@ export default function CrewPage() {
                     />
                   )}
                 </Column>
-                <Column gap="4" paddingBottom="24" style={{ paddingTop: 8 }} s={{ paddingBottom: "20" }}>
+                <Column gap="4" paddingBottom="24" style={{ paddingTop: 8 }}>
                   <Heading as="h3" variant="heading-strong-l">
                     {step.title}
                   </Heading>
@@ -365,15 +364,15 @@ export default function CrewPage() {
 
       {/* Marine Life Strip */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Grid columns="2" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
-          <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
+        <Grid columns="2" gap="24" fillWidth>
+          <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
               src="/images/gallery/turtle-maldives.png"
               alt="Sea turtle swimming over coral reef in Maldives — snorkeling on the crew day trip"
               aspectRatio="16 / 10"
             />
           </Column>
-          <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
+          <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
               src="/images/gallery/sealion-maldives.png"
               alt="Marine wildlife in Maldives — reef encounters on the crew day trip"
@@ -385,11 +384,11 @@ export default function CrewPage() {
 
       {/* Group Pricing */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
+        <Column fillWidth gap="l" paddingY="l">
           <Row fillWidth paddingRight="64" s={{ hide: true }}>
             <Line maxWidth={48} />
           </Row>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               Group Pricing
             </Heading>
@@ -398,22 +397,22 @@ export default function CrewPage() {
             </Text>
           </Column>
 
-          <Grid columns="3" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
-            <Column padding="32" gap="12" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
+          <Grid columns="3" gap="24" fillWidth>
+            <Column padding="32" gap="12" horizontal="center" background="neutral-alpha-weak" radius="l">
               <Text variant="display-strong-l" onBackground="brand-strong">$120</Text>
               <Text variant="label-strong-m">per person</Text>
               <Text variant="body-default-s" onBackground="neutral-weak" align="center">
                 2–3 guests
               </Text>
             </Column>
-            <Column padding="32" gap="12" horizontal="center" background="brand-alpha-weak" radius="l" border="brand-alpha-medium" s={{ padding: "24", radius: "m" }}>
+            <Column padding="32" gap="12" horizontal="center" background="brand-alpha-weak" radius="l" border="brand-alpha-medium">
               <Text variant="display-strong-l" onBackground="brand-strong">$100</Text>
               <Text variant="label-strong-m">per person</Text>
               <Text variant="body-default-s" onBackground="neutral-weak" align="center">
                 4–5 guests
               </Text>
             </Column>
-            <Column padding="32" gap="12" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
+            <Column padding="32" gap="12" horizontal="center" background="neutral-alpha-weak" radius="l">
               <Text variant="display-strong-l" onBackground="brand-strong">$80</Text>
               <Text variant="label-strong-m">per person</Text>
               <Text variant="body-default-s" onBackground="neutral-weak" align="center">
@@ -434,8 +433,8 @@ export default function CrewPage() {
 
       {/* Airlines */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+        <Column fillWidth gap="l" paddingY="l">
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               Airlines Operating into Malé
             </Heading>
@@ -444,7 +443,7 @@ export default function CrewPage() {
             </Text>
           </Column>
 
-          <Grid columns="4" gap="16" fillWidth s={{ columns: 2, gap: "12" }}>
+          <Grid columns="4" gap="16" fillWidth>
             {[
               "Qatar Airways",
               "Emirates",
@@ -466,7 +465,6 @@ export default function CrewPage() {
                 vertical="center"
                 background="neutral-alpha-weak"
                 radius="m"
-                s={{ padding: "12" }}
               >
                 <Text variant="label-strong-s" align="center" onBackground="neutral-strong">
                   {airline}
@@ -479,8 +477,8 @@ export default function CrewPage() {
 
       {/* Professional Content */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+        <Column fillWidth gap="l" paddingY="l">
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               Professional Content Included
             </Heading>
@@ -489,14 +487,14 @@ export default function CrewPage() {
             </Text>
           </Column>
 
-          <Grid columns="4" gap="24" fillWidth s={{ columns: 2, gap: "16" }}>
+          <Grid columns="4" gap="24" fillWidth>
             {[
               { icon: "📷", title: "GoPro" },
               { icon: "🛸", title: "Drone" },
               { icon: "🤿", title: "Underwater" },
               { icon: "🌐", title: "360 Camera" },
             ].map((item) => (
-              <Column key={item.title} padding="24" gap="8" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "20", radius: "m" }}>
+              <Column key={item.title} padding="24" gap="8" horizontal="center" background="neutral-alpha-weak" radius="l">
                 <Text variant="display-strong-l">{item.icon}</Text>
                 <Text variant="label-strong-s" align="center">{item.title}</Text>
               </Column>
@@ -511,16 +509,16 @@ export default function CrewPage() {
 
       {/* FAQ */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+        <Column fillWidth gap="l" paddingY="l">
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               Frequently Asked Questions
             </Heading>
           </Column>
 
-          <Column fillWidth gap="20" s={{ gap: "16" }}>
+          <Column fillWidth gap="20">
             {faqSchema.mainEntity.map((faq) => (
-              <Column key={faq.name} padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
+              <Column key={faq.name} padding="32" gap="12" background="neutral-alpha-weak" radius="l">
                 <Heading as="h3" variant="heading-strong-m">
                   {faq.name}
                 </Heading>
@@ -542,7 +540,6 @@ export default function CrewPage() {
           horizontal="center"
           background="brand-alpha-weak"
           radius="xl"
-          s={{ padding: "32", gap: "20", radius: "l" }}
         >
           <Heading as="h2" variant="display-strong-m" align="center">
             Ready for the Best Day of Your Layover?
@@ -550,7 +547,7 @@ export default function CrewPage() {
           <Text variant="body-default-l" onBackground="neutral-weak" align="center">
             Book now and share with your crew — the more who join, the less everyone pays
           </Text>
-          <Row gap="16" wrap horizontal="center" s={{ direction: "column", gap: "12" }}>
+          <Row gap="16" wrap horizontal="center" s={{ direction: "column" }}>
             <Button
               data-border="rounded"
               href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi! I'm airline crew and want to book Maldives day trip.")}`}

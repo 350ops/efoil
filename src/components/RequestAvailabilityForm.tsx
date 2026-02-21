@@ -52,7 +52,7 @@ export function RequestAvailabilityForm() {
       <Column
         fillWidth padding="48" gap="20" horizontal="center"
         background="brand-alpha-weak" radius="xl"
-        s={{ padding: "32", radius: "l" }}
+        
       >
         <Text variant="display-strong-m" align="center">✓</Text>
         <Heading as="h3" variant="heading-strong-l" align="center">
@@ -70,7 +70,7 @@ export function RequestAvailabilityForm() {
       as="form"
       fillWidth padding="48" gap="24"
       background="neutral-alpha-weak" radius="xl"
-      s={{ padding: "32", gap: "20", radius: "l" }}
+      
       onSubmit={handleSubmit}
     >
       <Column horizontal="center" gap="8">
@@ -94,7 +94,7 @@ export function RequestAvailabilityForm() {
         aria-hidden="true"
       />
 
-      <Row gap="16" fillWidth s={{ direction: "column", gap: "12" }}>
+      <Row gap="16" fillWidth s={{ direction: "column" }}>
         <Column fillWidth>
           <Input
             id="name"
@@ -118,7 +118,7 @@ export function RequestAvailabilityForm() {
         </Column>
       </Row>
 
-      <Row gap="16" fillWidth s={{ direction: "column", gap: "12" }}>
+      <Row gap="16" fillWidth s={{ direction: "column" }}>
         <Column fillWidth>
           <Input
             id="phone"
@@ -141,7 +141,7 @@ export function RequestAvailabilityForm() {
         </Column>
       </Row>
 
-      <Row gap="16" fillWidth s={{ direction: "column", gap: "12" }}>
+      <Row gap="16" fillWidth s={{ direction: "column" }}>
         <Column fillWidth>
           <Input
             id="dates"

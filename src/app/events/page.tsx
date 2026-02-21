@@ -84,7 +84,7 @@ const faqSchema = {
 
 export default function EventsPage() {
   return (
-    <Column maxWidth="l" gap="xl" paddingY="12" paddingX="16" horizontal="center" s={{ paddingY: "8", paddingX: "12", gap: "l" }}>
+    <Column maxWidth="l" gap="xl" paddingY="12" paddingX="16" horizontal="center">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -104,20 +104,20 @@ export default function EventsPage() {
       />
 
       {/* Hero */}
-      <Column fillWidth horizontal="center" gap="l" s={{ gap: "m" }}>
+      <Column fillWidth horizontal="center" gap="l">
         <Column maxWidth="m" horizontal="center" align="center">
-          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16" s={{ paddingBottom: "12" }}>
+          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16">
             <Heading wrap="balance" variant="display-strong-xl" align="center">
               Maldives Watersports Scene
             </Heading>
           </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32" s={{ paddingBottom: "20" }}>
+          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l" align="center">
               Wingfoiling, kitesurfing, surfing, and eFoiling — Maldives is fast becoming one of the world's most exciting watersports destinations. Discover real events, find the best season, and locate the top spots.
             </Text>
           </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="center" fillWidth s={{ paddingTop: "8" }}>
-            <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column", gap: "12" }}>
+          <RevealFx paddingTop="12" delay={0.4} horizontal="center" fillWidth>
+            <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column" }}>
               <Button
                 data-border="rounded"
                 href="/blog"
@@ -143,7 +143,7 @@ export default function EventsPage() {
 
       {/* Hero Image */}
       <RevealFx translateY="16" delay={0.6} fillWidth>
-        <Column fillWidth radius="l" overflow="hidden" border="neutral-alpha-weak" s={{ radius: "m" }}>
+        <Column fillWidth radius="l" overflow="hidden" border="neutral-alpha-weak">
           <Media
             src="/images/gallery/efoil-drone.png"
             alt="Two riders eFoiling over a turquoise Maldives lagoon — aerial drone shot"
@@ -154,22 +154,22 @@ export default function EventsPage() {
 
       {/* Hero Images */}
       <RevealFx translateY="16" delay={0.6} fillWidth>
-        <Grid columns="3" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
-          <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
+        <Grid columns="3" gap="24" fillWidth>
+          <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
               src="/images/gallery/efoil-action-turquoise.png"
               alt="Rider flying on eFoil above crystal clear turquoise Maldives water — action shot"
               aspectRatio="3 / 4"
             />
           </Column>
-          <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
+          <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
               src="/images/gallery/efoil-turquoise-water.png"
               alt="eFoil rider gliding above turquoise Maldives water — electric hydrofoil watersports"
               aspectRatio="3 / 4"
             />
           </Column>
-          <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
+          <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
               src="/images/gallery/maldives-turquoise-lagoon.png"
               alt="Crystal clear turquoise lagoon in Maldives — perfect watersports conditions"
@@ -181,8 +181,8 @@ export default function EventsPage() {
 
       {/* Choose Your Ride — Discipline Cards */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="xl" paddingY="xl" s={{ gap: "l", paddingY: "l" }}>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+        <Column fillWidth gap="xl" paddingY="xl">
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               Choose Your Ride
             </Heading>
@@ -191,8 +191,8 @@ export default function EventsPage() {
             </Text>
           </Column>
 
-          <Grid columns="3" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
-            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l" s={{ padding: "24", gap: "12", radius: "m" }}>
+          <Grid columns="3" gap="24" fillWidth>
+            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l">
               <Text variant="display-strong-l" onBackground="brand-strong" align="center">
                 🪁
               </Text>
@@ -209,7 +209,7 @@ export default function EventsPage() {
               </Column>
             </Column>
 
-            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l" s={{ padding: "24", gap: "12", radius: "m" }}>
+            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l">
               <Text variant="display-strong-l" onBackground="brand-strong" align="center">
                 🏄
               </Text>
@@ -226,7 +226,7 @@ export default function EventsPage() {
               </Column>
             </Column>
 
-            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l" s={{ padding: "24", gap: "12", radius: "m" }}>
+            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l">
               <Text variant="display-strong-l" onBackground="brand-strong" align="center">
                 ⚡
               </Text>
@@ -248,11 +248,11 @@ export default function EventsPage() {
 
       {/* Seasonal Guide */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
+        <Column fillWidth gap="l" paddingY="l">
           <Row fillWidth paddingRight="64" s={{ hide: true }}>
             <Line maxWidth={48} />
           </Row>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               Seasonal Guide
             </Heading>
@@ -261,8 +261,8 @@ export default function EventsPage() {
             </Text>
           </Column>
 
-          <Grid columns="2" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
-            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l" s={{ padding: "24", gap: "12", radius: "m" }}>
+          <Grid columns="2" gap="24" fillWidth>
+            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l">
               <Text variant="label-strong-s" onBackground="brand-strong">DRY SEASON — IRUVAI</Text>
               <Heading as="h3" variant="heading-strong-m">
                 January – March
@@ -277,7 +277,7 @@ export default function EventsPage() {
               </Row>
             </Column>
 
-            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l" s={{ padding: "24", gap: "12", radius: "m" }}>
+            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l">
               <Text variant="label-strong-s" onBackground="brand-strong">WET SEASON — HULHANGU</Text>
               <Heading as="h3" variant="heading-strong-m">
                 May – October
@@ -293,7 +293,7 @@ export default function EventsPage() {
             </Column>
           </Grid>
 
-          <Column padding="24" gap="8" background="brand-alpha-weak" radius="l" s={{ padding: "20", radius: "m" }}>
+          <Column padding="24" gap="8" background="brand-alpha-weak" radius="l">
             <Text variant="label-strong-s" onBackground="brand-strong">KEY INSIGHT</Text>
             <Text variant="body-default-m" onBackground="neutral-weak">
               August is the peak intersection of reliable swell (surfing) and consistent wind (kiting) — but it's also the rainiest month. For the best all-round conditions with sunnier skies, target <strong>June</strong> or <strong>late September</strong>.
@@ -308,7 +308,7 @@ export default function EventsPage() {
 
       {/* Aerial Shot Divider */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth radius="l" overflow="hidden" border="neutral-alpha-weak" s={{ radius: "m" }}>
+        <Column fillWidth radius="l" overflow="hidden" border="neutral-alpha-weak">
           <Media
             src="/images/gallery/maldives-aerial-island.png"
             alt="Aerial view of a Maldivian island surrounded by turquoise lagoon — watersports paradise"
@@ -319,8 +319,8 @@ export default function EventsPage() {
 
       {/* Competitions & Events */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+        <Column fillWidth gap="l" paddingY="l">
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               Competitions & Events
             </Heading>
@@ -329,8 +329,8 @@ export default function EventsPage() {
             </Text>
           </Column>
 
-          <Grid columns="2" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
-            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
+          <Grid columns="2" gap="24" fillWidth>
+            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l">
               <Row gap="8" vertical="center">
                 <Text variant="label-strong-s" onBackground="brand-strong">SURF</Text>
                 <Text variant="label-default-s" onBackground="neutral-weak">August</Text>
@@ -346,7 +346,7 @@ export default function EventsPage() {
               </Text>
             </Column>
 
-            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
+            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l">
               <Row gap="8" vertical="center">
                 <Text variant="label-strong-s" onBackground="brand-strong">SURF</Text>
                 <Text variant="label-default-s" onBackground="neutral-weak">July</Text>
@@ -362,7 +362,7 @@ export default function EventsPage() {
               </Text>
             </Column>
 
-            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
+            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l">
               <Row gap="8" vertical="center">
                 <Text variant="label-strong-s" onBackground="brand-strong">BODYBOARD</Text>
                 <Text variant="label-default-s" onBackground="neutral-weak">July – August</Text>
@@ -378,7 +378,7 @@ export default function EventsPage() {
               </Text>
             </Column>
 
-            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
+            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l">
               <Row gap="8" vertical="center">
                 <Text variant="label-strong-s" onBackground="brand-strong">SURF</Text>
                 <Text variant="label-default-s" onBackground="neutral-weak">October</Text>
@@ -394,7 +394,7 @@ export default function EventsPage() {
               </Text>
             </Column>
 
-            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
+            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l">
               <Row gap="8" vertical="center">
                 <Text variant="label-strong-s" onBackground="brand-strong">KITE / WING</Text>
                 <Text variant="label-default-s" onBackground="neutral-weak">June</Text>
@@ -410,7 +410,7 @@ export default function EventsPage() {
               </Text>
             </Column>
 
-            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
+            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l">
               <Row gap="8" vertical="center">
                 <Text variant="label-strong-s" onBackground="brand-strong">KITE / WING</Text>
                 <Text variant="label-default-s" onBackground="neutral-weak">September</Text>
@@ -431,8 +431,8 @@ export default function EventsPage() {
 
       {/* Top Spots & Hubs */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+        <Column fillWidth gap="l" paddingY="l">
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               Top Spots & Hubs
             </Heading>
@@ -441,7 +441,7 @@ export default function EventsPage() {
             </Text>
           </Column>
 
-          <Grid columns="3" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
+          <Grid columns="3" gap="24" fillWidth>
             {[
               {
                 name: "Thulusdhoo Island",
@@ -480,7 +480,7 @@ export default function EventsPage() {
                 desc: "Deep lagoons and calm waters in season. Better for eFoiling and diving (including whale shark encounters) than wind sports.",
               },
             ].map((spot) => (
-              <Column key={spot.name} padding="24" gap="8" background="neutral-alpha-weak" radius="l" s={{ padding: "20", radius: "m" }}>
+              <Column key={spot.name} padding="24" gap="8" background="neutral-alpha-weak" radius="l">
                 <Row horizontal="between" vertical="center" fillWidth>
                   <Heading as="h3" variant="heading-strong-s">
                     {spot.name}
@@ -505,16 +505,16 @@ export default function EventsPage() {
 
       {/* FAQ */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+        <Column fillWidth gap="l" paddingY="l">
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               Frequently Asked Questions
             </Heading>
           </Column>
 
-          <Column fillWidth gap="20" s={{ gap: "16" }}>
+          <Column fillWidth gap="20">
             {faqSchema.mainEntity.map((faq) => (
-              <Column key={faq.name} padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
+              <Column key={faq.name} padding="32" gap="12" background="neutral-alpha-weak" radius="l">
                 <Heading as="h3" variant="heading-strong-m">
                   {faq.name}
                 </Heading>
@@ -536,7 +536,6 @@ export default function EventsPage() {
           horizontal="center"
           background="brand-alpha-weak"
           radius="xl"
-          s={{ padding: "32", gap: "20", radius: "l" }}
         >
           <Heading as="h2" variant="display-strong-m" align="center">
             Want to Try eFoiling?
@@ -544,7 +543,7 @@ export default function EventsPage() {
           <Text variant="body-default-l" onBackground="neutral-weak" align="center">
             No wind. No waves. Just you, flying above the Indian Ocean on an electric hydrofoil. Book an Audi e-tron eFoil session today.
           </Text>
-          <Row gap="16" wrap horizontal="center" s={{ direction: "column", gap: "12" }}>
+          <Row gap="16" wrap horizontal="center" s={{ direction: "column" }}>
             <Button href="/work" variant="primary" size="l" weight="strong" arrowIcon>
               View eFoil Packages
             </Button>

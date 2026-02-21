@@ -185,7 +185,7 @@ const faqSchema = {
 
 export default function Home() {
   return (
-    <Column maxWidth="l" gap="xl" paddingY="12" paddingX="16" horizontal="center" s={{ paddingY: "8", paddingX: "12", gap: "l" }}>
+    <Column maxWidth="l" gap="xl" paddingY="12" paddingX="16" horizontal="center">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -211,7 +211,7 @@ export default function Home() {
       />
       
       {/* Hero Section */}
-      <Column fillWidth horizontal="center" gap="l" s={{ gap: "m" }}>
+      <Column fillWidth horizontal="center" gap="l">
         <Column maxWidth="m" horizontal="center" align="center">
           {home.featured.display && (
             <RevealFx
@@ -219,7 +219,6 @@ export default function Home() {
               horizontal="center"
               paddingTop="16"
               paddingBottom="24"
-              s={{ paddingTop: "8", paddingBottom: "16" }}
             >
               <Badge
                 background="brand-alpha-weak"
@@ -234,17 +233,17 @@ export default function Home() {
               </Badge>
             </RevealFx>
           )}
-          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16" s={{ paddingBottom: "12" }}>
+          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16">
             <Heading as="h1" wrap="balance" variant="display-strong-xl" align="center">
               {home.headline}
             </Heading>
           </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32" s={{ paddingBottom: "20" }}>
+          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l" align="center">
               {home.subline}
             </Text>
           </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="center" fillWidth s={{ paddingTop: "8" }}>
+          <RevealFx paddingTop="12" delay={0.4} horizontal="center" fillWidth>
             <HeroCTA />
           </RevealFx>
         </Column>
@@ -252,7 +251,7 @@ export default function Home() {
       </Column>
 
       {/* SEO Content Section */}
-      <Column fillWidth horizontal="center" gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
+      <Column fillWidth horizontal="center" gap="l" paddingY="l">
         <Column maxWidth="m" gap="m">
             <Text variant="body-default-m" onBackground="neutral-weak">
               Welcome to the premier eFoil rental service in the Maldives. We specialize in delivering the world's most advanced electric hydrofoil surfboards directly to your location — whether you're staying at a luxury resort, cruising on a liveaboard, or anchored in a private yacht.
@@ -265,7 +264,7 @@ export default function Home() {
 
       {/* SEO-Optimized Image Section */}
       <RevealFx translateY="16" delay={0.6} fillWidth>
-        <Column fillWidth radius="l" overflow="hidden" border="neutral-alpha-weak" s={{ radius: "m" }}>
+        <Column fillWidth radius="l" overflow="hidden" border="neutral-alpha-weak">
           <Media
             src="/images/gallery/resort_efoil_rental_maldives.jpeg"
             alt="Person riding an Audi e-tron eFoil above the turquoise waters of the Maldives"
@@ -276,8 +275,8 @@ export default function Home() {
 
       {/* What is an eFoil? */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+        <Column fillWidth gap="l" paddingY="l">
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               What is an eFoil?
             </Heading>
@@ -285,9 +284,9 @@ export default function Home() {
               An eFoil — short for electric hydrofoil surfboard — is a cutting-edge watersport device that's rapidly gaining popularity worldwide.
             </Text>
           </Column>
-          <Column gap="m" style={{ maxWidth: 720, margin: "0 auto" }} s={{ gap: "12" }}>
+          <Column gap="m" style={{ maxWidth: 720, margin: "0 auto" }}>
             {/* Image Above Title */}
-            <Column fillWidth radius="l" overflow="hidden" border="neutral-alpha-weak" s={{ radius: "m" }}>
+            <Column fillWidth radius="l" overflow="hidden" border="neutral-alpha-weak">
               <Media
                 src="/images/gallery/efoil-turquoise-water.png"
                 alt="Person eFoiling above turquoise water"
@@ -295,7 +294,7 @@ export default function Home() {
               />
             </Column>
             
-            <Heading as="h3" variant="heading-strong-m" paddingTop="24" s={{ paddingTop: "16" }}>
+            <Heading as="h3" variant="heading-strong-m" paddingTop="24">
               How an eFoil Works
             </Heading>
             
@@ -313,11 +312,11 @@ export default function Home() {
 
       {/* Equipment Showcase */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
+        <Column fillWidth gap="l" paddingY="l">
           <Row fillWidth paddingRight="64" s={{ hide: true }}>
             <Line maxWidth={48} />
           </Row>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               Premium Equipment
             </Heading>
@@ -326,15 +325,15 @@ export default function Home() {
             </Text>
           </Column>
           
-          <Grid columns="2" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
-            <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
+          <Grid columns="2" gap="24" fillWidth>
+            <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
               <Media
                 src="/images/gallery/aeroloop.jpg"
                 alt="Audi e-tron Aeroloop eFoil — brand new premium electric hydrofoil board"
                 aspectRatio="16 / 10"
               />
             </Column>
-            <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
+            <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
               <Media
                 src="/images/gallery/efoiling.jpeg"
                 alt="Rider flying above the water on Audi e-tron eFoil in Maldives"
@@ -343,22 +342,22 @@ export default function Home() {
             </Column>
           </Grid>
           
-          <Grid columns="3" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
-            <Column overflow="hidden" radius="l" style={{ background: "#fff" }} s={{ radius: "m" }}>
+          <Grid columns="3" gap="24" fillWidth>
+            <Column overflow="hidden" radius="l" style={{ background: "#fff" }}>
               <Media
                 src="/images/gallery/efoil-white-background.jpeg"
                 alt="Audi e-tron eFoil hydrofoil wing and motor detail"
                 aspectRatio="4 / 3"
               />
             </Column>
-            <Column overflow="hidden" radius="l" style={{ background: "#fff" }} s={{ radius: "m" }}>
+            <Column overflow="hidden" radius="l" style={{ background: "#fff" }}>
               <Media
                 src="/images/gallery/engine-white-background.jpg"
                 alt="Audi e-tron eFoil integrated propulsion unit — fully enclosed propeller"
                 aspectRatio="4 / 3"
               />
             </Column>
-            <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak" s={{ radius: "m" }}>
+            <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
               <Media
                 src="/images/gallery/remote.jpg"
                 alt="Audi e-tron eFoil smart wireless controller with speed and battery display"
@@ -367,7 +366,7 @@ export default function Home() {
             </Column>
           </Grid>
           
-          <Row fillWidth horizontal="center" paddingTop="l" s={{ paddingTop: "m" }}>
+          <Row fillWidth horizontal="center" paddingTop="l">
             <Button
               href="/gallery"
               variant="secondary"
@@ -386,8 +385,8 @@ export default function Home() {
 
       {/* Delivery Locations */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+        <Column fillWidth gap="l" paddingY="l">
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               Our Partners Come to You
             </Heading>
@@ -396,14 +395,13 @@ export default function Home() {
             </Text>
           </Column>
           
-          <Grid columns="3" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
+          <Grid columns="3" gap="24" fillWidth>
             <Column
               padding="24"
               gap="12"
               horizontal="center"
               background="neutral-alpha-weak"
               radius="l"
-              s={{ padding: "20", gap: "8", radius: "m" }}
             >
               <Heading as="h3" variant="heading-strong-m" align="center">
                 Superyachts
@@ -418,7 +416,6 @@ export default function Home() {
               horizontal="center"
               background="neutral-alpha-weak"
               radius="l"
-              s={{ padding: "20", gap: "8", radius: "m" }}
             >
               <Heading as="h3" variant="heading-strong-m" align="center">
                 Liveaboards & Boats
@@ -433,7 +430,6 @@ export default function Home() {
               horizontal="center"
               background="neutral-alpha-weak"
               radius="l"
-              s={{ padding: "20", gap: "8", radius: "m" }}
             >
               <Heading as="h3" variant="heading-strong-m" align="center">
                 Island Resorts
@@ -448,8 +444,8 @@ export default function Home() {
 
       {/* From Our Blog */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+        <Column fillWidth gap="l" paddingY="l">
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               From Our Blog
             </Heading>
@@ -458,7 +454,7 @@ export default function Home() {
             </Text>
           </Column>
           <Posts range={[1, 3]} columns="3" thumbnail direction="column" />
-          <Row fillWidth horizontal="center" paddingTop="m" s={{ paddingTop: "12" }}>
+          <Row fillWidth horizontal="center" paddingTop="m">
             <Button href="/blog" variant="secondary" size="m" arrowIcon>
               Read All Posts
             </Button>
@@ -475,7 +471,6 @@ export default function Home() {
           horizontal="center"
           background="brand-alpha-weak"
           radius="xl"
-          s={{ padding: "32", gap: "20", radius: "l" }}
         >
           <Heading as="h2" variant="display-strong-m" align="center">
             Ready to Fly?
@@ -496,7 +491,6 @@ export default function Home() {
           horizontal="center"
           background="neutral-alpha-weak"
           radius="xl"
-          s={{ padding: "24", gap: "8", radius: "l" }}
         >
           <Text variant="heading-default-l" align="center" onBackground="neutral-strong">
             Are you airline crew?
@@ -516,7 +510,6 @@ export default function Home() {
           horizontal="center"
           background="brand-alpha-weak"
           radius="xl"
-          s={{ padding: "24", gap: "8", radius: "l" }}
         >
           <Heading as="h2" variant="heading-strong-xl" align="center">
             Explore More of the Maldives
@@ -532,8 +525,8 @@ export default function Home() {
 
       {/* Visible FAQ Section */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+        <Column fillWidth gap="l" paddingY="l">
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               Frequently Asked Questions
             </Heading>
@@ -542,7 +535,7 @@ export default function Home() {
             </Text>
           </Column>
           
-          <Grid columns="2" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
+          <Grid columns="2" gap="24" fillWidth>
             {faqSchema.mainEntity.map((faq, index) => (
               <Column 
                 key={index} 
@@ -550,7 +543,6 @@ export default function Home() {
                 gap="12" 
                 background="neutral-alpha-weak" 
                 radius="l" 
-                s={{ padding: "20", gap: "8", radius: "m" }}
               >
                 <Heading as="h3" variant="heading-strong-s">
                   {faq.name}

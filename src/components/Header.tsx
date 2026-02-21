@@ -68,9 +68,7 @@ export const Header = () => {
         padding="8"
         horizontal="center"
         data-border="rounded"
-        s={{
-          position: "fixed",
-        }}
+        s={{ position: "fixed", }}
       >
         <Row paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
           {display.location && <Row s={{ hide: true }}>{person.location}</Row>}

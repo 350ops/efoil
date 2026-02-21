@@ -87,7 +87,7 @@ const faqSchema = {
 
 export default function YachtsPage() {
   return (
-    <Column maxWidth="l" gap="xl" paddingY="12" paddingX="16" horizontal="center" s={{ paddingY: "8", paddingX: "12", gap: "l" }}>
+    <Column maxWidth="l" gap="xl" paddingY="12" paddingX="16" horizontal="center">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -108,20 +108,20 @@ export default function YachtsPage() {
       />
 
       {/* Hero */}
-      <Column fillWidth horizontal="center" gap="l" s={{ gap: "m" }}>
+      <Column fillWidth horizontal="center" gap="l">
         <Column maxWidth="m" horizontal="center" align="center">
-          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16" s={{ paddingBottom: "12" }}>
+          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16">
             <Heading as="h1" wrap="balance" variant="display-strong-xl" align="center">
               eFoil Delivery to Your Yacht
             </Heading>
           </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32" s={{ paddingBottom: "20" }}>
+          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l" align="center">
               We arrange delivery of the Audi e-tron eFoil directly to your vessel—anywhere in the Maldives. Professional instructor, safety gear, and seamless logistics included.
             </Text>
           </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="center" fillWidth s={{ paddingTop: "8" }}>
-            <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column", gap: "12" }}>
+          <RevealFx paddingTop="12" delay={0.4} horizontal="center" fillWidth>
+            <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column" }}>
               <Button
                 data-border="rounded"
                 href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi, I'd like to arrange eFoil delivery to our yacht in Maldives.")}`}
@@ -147,8 +147,8 @@ export default function YachtsPage() {
 
       {/* How Yacht Delivery Works */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="xl" paddingY="xl" s={{ gap: "l", paddingY: "l" }}>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+        <Column fillWidth gap="xl" paddingY="xl">
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               How Yacht Delivery Works
             </Heading>
@@ -157,9 +157,9 @@ export default function YachtsPage() {
             </Text>
           </Column>
 
-          <Grid columns="3" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
-            <Column padding="32" gap="20" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "24", gap: "16", radius: "m" }}>
-              <Flex background="brand-alpha-medium" radius="full" padding="16" horizontal="center" vertical="center" s={{ padding: "12" }}>
+          <Grid columns="3" gap="24" fillWidth>
+            <Column padding="32" gap="20" horizontal="center" background="neutral-alpha-weak" radius="l">
+              <Flex background="brand-alpha-medium" radius="full" padding="16" horizontal="center" vertical="center">
                 <Text variant="display-strong-m" onBackground="brand-strong">1</Text>
               </Flex>
               <Heading as="h3" variant="heading-strong-l" align="center">
@@ -170,8 +170,8 @@ export default function YachtsPage() {
               </Text>
             </Column>
 
-            <Column padding="32" gap="20" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "24", gap: "16", radius: "m" }}>
-              <Flex background="brand-alpha-medium" radius="full" padding="16" horizontal="center" vertical="center" s={{ padding: "12" }}>
+            <Column padding="32" gap="20" horizontal="center" background="neutral-alpha-weak" radius="l">
+              <Flex background="brand-alpha-medium" radius="full" padding="16" horizontal="center" vertical="center">
                 <Text variant="display-strong-m" onBackground="brand-strong">2</Text>
               </Flex>
               <Heading as="h3" variant="heading-strong-l" align="center">
@@ -182,8 +182,8 @@ export default function YachtsPage() {
               </Text>
             </Column>
 
-            <Column padding="32" gap="20" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "24", gap: "16", radius: "m" }}>
-              <Flex background="brand-alpha-medium" radius="full" padding="16" horizontal="center" vertical="center" s={{ padding: "12" }}>
+            <Column padding="32" gap="20" horizontal="center" background="neutral-alpha-weak" radius="l">
+              <Flex background="brand-alpha-medium" radius="full" padding="16" horizontal="center" vertical="center">
                 <Text variant="display-strong-m" onBackground="brand-strong">3</Text>
               </Flex>
               <Heading as="h3" variant="heading-strong-l" align="center">
@@ -199,11 +199,11 @@ export default function YachtsPage() {
 
       {/* Why Yachts Choose Us */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
+        <Column fillWidth gap="l" paddingY="l">
           <Row fillWidth paddingRight="64" s={{ hide: true }}>
             <Line maxWidth={48} />
           </Row>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               Built for Yacht Operations
             </Heading>
@@ -212,8 +212,8 @@ export default function YachtsPage() {
             </Text>
           </Column>
 
-          <Grid columns="2" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
-            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
+          <Grid columns="2" gap="24" fillWidth>
+            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l">
               <Heading as="h3" variant="heading-strong-m">
                 Zero Storage Required
               </Heading>
@@ -221,7 +221,7 @@ export default function YachtsPage() {
                 Partners bring the eFoil and take it when they leave. No need to allocate tender garage space or worry about onboard charging.
               </Text>
             </Column>
-            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
+            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l">
               <Heading as="h3" variant="heading-strong-m">
                 Crew-Friendly
               </Heading>
@@ -229,7 +229,7 @@ export default function YachtsPage() {
                 The instructor manages the entire session. Your crew can focus on hospitality while our partners handle the water sport activity.
               </Text>
             </Column>
-            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
+            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l">
               <Heading as="h3" variant="heading-strong-m">
                 Multi-Day Charters
               </Heading>
@@ -237,7 +237,7 @@ export default function YachtsPage() {
                 Booking a longer charter? We offer multi-day packages where the eFoil stays aboard with flexible session scheduling throughout the trip.
               </Text>
             </Column>
-            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
+            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l">
               <Heading as="h3" variant="heading-strong-m">
                 Insurance & Liability
               </Heading>
@@ -255,8 +255,8 @@ export default function YachtsPage() {
 
       {/* Coverage */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+        <Column fillWidth gap="l" paddingY="l">
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               Delivery Coverage
             </Heading>
@@ -265,9 +265,9 @@ export default function YachtsPage() {
             </Text>
           </Column>
 
-          <Grid columns="3" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
+          <Grid columns="3" gap="24" fillWidth>
             {["North Malé Atoll", "South Malé Atoll", "Baa Atoll", "Raa Atoll", "Ari Atoll", "Other Atolls"].map((atoll) => (
-              <Column key={atoll} padding="24" gap="8" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "20", radius: "m" }}>
+              <Column key={atoll} padding="24" gap="8" horizontal="center" background="neutral-alpha-weak" radius="l">
                 <Heading as="h3" variant="heading-strong-s" align="center">
                   {atoll}
                 </Heading>
@@ -282,16 +282,16 @@ export default function YachtsPage() {
 
       {/* FAQ */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+        <Column fillWidth gap="l" paddingY="l">
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               Frequently Asked Questions
             </Heading>
           </Column>
 
-          <Column fillWidth gap="20" s={{ gap: "16" }}>
+          <Column fillWidth gap="20">
             {faqSchema.mainEntity.map((faq) => (
-              <Column key={faq.name} padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
+              <Column key={faq.name} padding="32" gap="12" background="neutral-alpha-weak" radius="l">
                 <Heading as="h3" variant="heading-strong-m">
                   {faq.name}
                 </Heading>

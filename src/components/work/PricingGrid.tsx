@@ -39,7 +39,7 @@ function ServiceCard({
       background="neutral-alpha-weak"
       border="neutral-alpha-weak"
       radius="l"
-      s={{ padding: "24", gap: "20", radius: "m" }}
+      
     >
       {/* Title & Subtitle Group - Fixed height for alignment if needed, but flex-grow spacer handles bottom alignment */}
       <Column gap="8" horizontal="start">
@@ -63,7 +63,7 @@ function ServiceCard({
       </Text>
 
       {/* Feature List */}
-      <Column gap="12" paddingY="8" s={{ paddingY: "4", gap: "8" }}>
+      <Column gap="12" paddingY="8" >
         {features.map((feature) => (
           <Flex key={feature} gap="12" vertical="center">
             <div
@@ -104,7 +104,7 @@ export function PricingGrid() {
   return (
     <Column horizontal="center" gap="32" fillWidth>
       <RevealFx translateY="16" fillWidth>
-        <Grid columns="3" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
+        <Grid columns="3" gap="24" fillWidth >
           {/* 1. Point to Point Delivery */}
           <ServiceCard
             title="Point to Point Delivery"

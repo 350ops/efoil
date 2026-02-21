@@ -87,7 +87,7 @@ const faqSchema = {
 
 export default function ResortsPage() {
   return (
-    <Column maxWidth="l" gap="xl" paddingY="12" paddingX="16" horizontal="center" s={{ paddingY: "8", paddingX: "12", gap: "l" }}>
+    <Column maxWidth="l" gap="xl" paddingY="12" paddingX="16" horizontal="center">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -107,20 +107,20 @@ export default function ResortsPage() {
       />
 
       {/* Hero */}
-      <Column fillWidth horizontal="center" gap="l" s={{ gap: "m" }}>
+      <Column fillWidth horizontal="center" gap="l">
         <Column maxWidth="m" horizontal="center" align="center">
-          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16" s={{ paddingBottom: "12" }}>
+          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16">
             <Heading as="h1" wrap="balance" variant="display-strong-xl" align="center">
               eFoil Experiences for Your Resort Guests
             </Heading>
           </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32" s={{ paddingBottom: "20" }}>
+          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l" align="center">
               Add a premium water sport to your activity menu. We arrange the equipment, the instructor, and the unforgettable experience—your resort gets the guest delight.
             </Text>
           </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="center" fillWidth s={{ paddingTop: "8" }}>
-            <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column", gap: "12" }}>
+          <RevealFx paddingTop="12" delay={0.4} horizontal="center" fillWidth>
+            <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column" }}>
               <Button
                 data-border="rounded"
                 href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi, I'm interested in offering eFoil experiences at our resort.")}`}
@@ -146,8 +146,8 @@ export default function ResortsPage() {
 
       {/* How It Works for Resorts */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="xl" paddingY="xl" s={{ gap: "l", paddingY: "l" }}>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+        <Column fillWidth gap="xl" paddingY="xl">
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               How the Partnership Works
             </Heading>
@@ -156,9 +156,9 @@ export default function ResortsPage() {
             </Text>
           </Column>
 
-          <Grid columns="3" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
-            <Column padding="32" gap="20" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "24", gap: "16", radius: "m" }}>
-              <Flex background="brand-alpha-medium" radius="full" padding="16" horizontal="center" vertical="center" s={{ padding: "12" }}>
+          <Grid columns="3" gap="24" fillWidth>
+            <Column padding="32" gap="20" horizontal="center" background="neutral-alpha-weak" radius="l">
+              <Flex background="brand-alpha-medium" radius="full" padding="16" horizontal="center" vertical="center">
                 <Text variant="display-strong-m" onBackground="brand-strong">1</Text>
               </Flex>
               <Heading as="h3" variant="heading-strong-l" align="center">
@@ -169,8 +169,8 @@ export default function ResortsPage() {
               </Text>
             </Column>
 
-            <Column padding="32" gap="20" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "24", gap: "16", radius: "m" }}>
-              <Flex background="brand-alpha-medium" radius="full" padding="16" horizontal="center" vertical="center" s={{ padding: "12" }}>
+            <Column padding="32" gap="20" horizontal="center" background="neutral-alpha-weak" radius="l">
+              <Flex background="brand-alpha-medium" radius="full" padding="16" horizontal="center" vertical="center">
                 <Text variant="display-strong-m" onBackground="brand-strong">2</Text>
               </Flex>
               <Heading as="h3" variant="heading-strong-l" align="center">
@@ -181,8 +181,8 @@ export default function ResortsPage() {
               </Text>
             </Column>
 
-            <Column padding="32" gap="20" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "24", gap: "16", radius: "m" }}>
-              <Flex background="brand-alpha-medium" radius="full" padding="16" horizontal="center" vertical="center" s={{ padding: "12" }}>
+            <Column padding="32" gap="20" horizontal="center" background="neutral-alpha-weak" radius="l">
+              <Flex background="brand-alpha-medium" radius="full" padding="16" horizontal="center" vertical="center">
                 <Text variant="display-strong-m" onBackground="brand-strong">3</Text>
               </Flex>
               <Heading as="h3" variant="heading-strong-l" align="center">
@@ -198,18 +198,18 @@ export default function ResortsPage() {
 
       {/* Benefits for Resorts */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
+        <Column fillWidth gap="l" paddingY="l">
           <Row fillWidth paddingRight="64" s={{ hide: true }}>
             <Line maxWidth={48} />
           </Row>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               Why Resorts Partner With Us
             </Heading>
           </Column>
 
-          <Grid columns="2" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
-            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
+          <Grid columns="2" gap="24" fillWidth>
+            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l">
               <Heading as="h3" variant="heading-strong-m">
                 No Capital Outlay
               </Heading>
@@ -217,7 +217,7 @@ export default function ResortsPage() {
                 Our partners own and maintain the equipment. Your resort adds a premium activity to its menu without purchasing, storing, or servicing water sport gear.
               </Text>
             </Column>
-            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
+            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l">
               <Heading as="h3" variant="heading-strong-m">
                 Trained Staff On-Site
               </Heading>
@@ -225,7 +225,7 @@ export default function ResortsPage() {
                 Every session is led by a certified instructor. No need to train your water sports team on a new discipline—partners bring the expertise.
               </Text>
             </Column>
-            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
+            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l">
               <Heading as="h3" variant="heading-strong-m">
                 Guest Satisfaction
               </Heading>
@@ -233,7 +233,7 @@ export default function ResortsPage() {
                 eFoiling is a memorable, shareable experience. Guests consistently rate it as a highlight of their stay, improving reviews and repeat bookings.
               </Text>
             </Column>
-            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
+            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l">
               <Heading as="h3" variant="heading-strong-m">
                 Flexible Scheduling
               </Heading>
@@ -251,8 +251,8 @@ export default function ResortsPage() {
 
       {/* Safety & Operations */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+        <Column fillWidth gap="l" paddingY="l">
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               Safety & Operations
             </Heading>
@@ -261,8 +261,8 @@ export default function ResortsPage() {
             </Text>
           </Column>
 
-          <Grid columns="3" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
-            <Column padding="24" gap="8" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "20", radius: "m" }}>
+          <Grid columns="3" gap="24" fillWidth>
+            <Column padding="24" gap="8" horizontal="center" background="neutral-alpha-weak" radius="l">
               <Heading as="h3" variant="heading-strong-s" align="center">
                 Full Insurance
               </Heading>
@@ -270,7 +270,7 @@ export default function ResortsPage() {
                 Comprehensive coverage for all eFoil sessions, protecting both guests and your resort
               </Text>
             </Column>
-            <Column padding="24" gap="8" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "20", radius: "m" }}>
+            <Column padding="24" gap="8" horizontal="center" background="neutral-alpha-weak" radius="l">
               <Heading as="h3" variant="heading-strong-s" align="center">
                 Guest Waivers
               </Heading>
@@ -278,7 +278,7 @@ export default function ResortsPage() {
                 Digital waiver system handled by the provider before every session
               </Text>
             </Column>
-            <Column padding="24" gap="8" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "20", radius: "m" }}>
+            <Column padding="24" gap="8" horizontal="center" background="neutral-alpha-weak" radius="l">
               <Heading as="h3" variant="heading-strong-s" align="center">
                 Equipment Maintenance
               </Heading>
@@ -292,16 +292,16 @@ export default function ResortsPage() {
 
       {/* FAQ */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+        <Column fillWidth gap="l" paddingY="l">
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               Frequently Asked Questions
             </Heading>
           </Column>
 
-          <Column fillWidth gap="20" s={{ gap: "16" }}>
+          <Column fillWidth gap="20">
             {faqSchema.mainEntity.map((faq) => (
-              <Column key={faq.name} padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
+              <Column key={faq.name} padding="32" gap="12" background="neutral-alpha-weak" radius="l">
                 <Heading as="h3" variant="heading-strong-m">
                   {faq.name}
                 </Heading>

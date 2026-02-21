@@ -84,7 +84,7 @@ export function HeroCTA() {
   const tomorrow = getTomorrow();
 
   return (
-    <Column gap="16" horizontal="center" fillWidth s={{ gap: "12" }}>
+    <Column gap="16" horizontal="center" fillWidth>
       <Button
         id="book-now"
         data-border="rounded"

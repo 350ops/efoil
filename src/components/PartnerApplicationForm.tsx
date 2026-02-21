@@ -63,7 +63,7 @@ export function PartnerApplicationForm() {
       <Column
         fillWidth padding="48" gap="20" horizontal="center"
         background="brand-alpha-weak" radius="xl"
-        s={{ padding: "32", radius: "l" }}
+        
       >
         <Text variant="display-strong-m" align="center">✓</Text>
         <Heading as="h3" variant="heading-strong-l" align="center">
@@ -81,7 +81,7 @@ export function PartnerApplicationForm() {
       as="form"
       fillWidth padding="48" gap="24"
       background="neutral-alpha-weak" radius="xl"
-      s={{ padding: "32", gap: "20", radius: "l" }}
+      
       onSubmit={handleSubmit}
     >
       <Column horizontal="center" gap="8">
@@ -105,7 +105,7 @@ export function PartnerApplicationForm() {
         aria-hidden="true"
       />
 
-      <Row gap="16" fillWidth s={{ direction: "column", gap: "12" }}>
+      <Row gap="16" fillWidth s={{ direction: "column" }}>
         <Column fillWidth>
           <Input
             id="partner-name"
@@ -129,7 +129,7 @@ export function PartnerApplicationForm() {
         </Column>
       </Row>
 
-      <Row gap="16" fillWidth s={{ direction: "column", gap: "12" }}>
+      <Row gap="16" fillWidth s={{ direction: "column" }}>
         <Column fillWidth>
           <Input
             id="partner-phone"
@@ -151,7 +151,7 @@ export function PartnerApplicationForm() {
         </Column>
       </Row>
 
-      <Row gap="16" fillWidth s={{ direction: "column", gap: "12" }}>
+      <Row gap="16" fillWidth s={{ direction: "column" }}>
         <Column fillWidth>
           <Select
             id="partner-operation-type"

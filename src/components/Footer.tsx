@@ -16,12 +16,7 @@ export const Footer = () => {
         gap="16"
         horizontal="between"
         vertical="center"
-        s={{
-          direction: "column",
-          horizontal: "center",
-          align: "center",
-          gap: "12",
-        }}
+        s={{ direction: "column", horizontal: "center", }}
       >
         <Row gap="8" vertical="center" wrap s={{ horizontal: "center" }}>
           <Text variant="body-default-s" onBackground="neutral-weak">

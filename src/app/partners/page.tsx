@@ -87,7 +87,7 @@ const faqSchema = {
 
 export default function PartnersPage() {
   return (
-    <Column maxWidth="l" gap="xl" paddingY="12" paddingX="16" horizontal="center" s={{ paddingY: "8", paddingX: "12", gap: "l" }}>
+    <Column maxWidth="l" gap="xl" paddingY="12" paddingX="16" horizontal="center">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -107,20 +107,20 @@ export default function PartnersPage() {
       />
 
       {/* Hero */}
-      <Column fillWidth horizontal="center" gap="l" s={{ gap: "m" }}>
+      <Column fillWidth horizontal="center" gap="l">
         <Column maxWidth="m" horizontal="center" align="center">
-          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16" s={{ paddingBottom: "12" }}>
+          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16">
             <Heading wrap="balance" variant="display-strong-xl" align="center">
               Become an eFoil Partner Operator
             </Heading>
           </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32" s={{ paddingBottom: "20" }}>
+          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l" align="center">
               Join our network of certified operators across Maldives. We provide the equipment, training, and bookings—you deliver the experience.
             </Text>
           </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="center" fillWidth s={{ paddingTop: "8" }}>
-            <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column", gap: "12" }}>
+          <RevealFx paddingTop="12" delay={0.4} horizontal="center" fillWidth>
+            <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column" }}>
               <Button
                 data-border="rounded"
                 href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi, I'm interested in becoming an eFoil partner operator in Maldives.")}`}
@@ -146,8 +146,8 @@ export default function PartnersPage() {
 
       {/* How It Works */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="xl" paddingY="xl" s={{ gap: "l", paddingY: "l" }}>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+        <Column fillWidth gap="xl" paddingY="xl">
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               How the Partner Programme Works
             </Heading>
@@ -156,9 +156,9 @@ export default function PartnersPage() {
             </Text>
           </Column>
 
-          <Grid columns="3" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
-            <Column padding="32" gap="20" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "24", gap: "16", radius: "m" }}>
-              <Flex background="brand-alpha-medium" radius="full" padding="16" horizontal="center" vertical="center" s={{ padding: "12" }}>
+          <Grid columns="3" gap="24" fillWidth>
+            <Column padding="32" gap="20" horizontal="center" background="neutral-alpha-weak" radius="l">
+              <Flex background="brand-alpha-medium" radius="full" padding="16" horizontal="center" vertical="center">
                 <Text variant="display-strong-m" onBackground="brand-strong">1</Text>
               </Flex>
               <Heading as="h3" variant="heading-strong-l" align="center">
@@ -169,8 +169,8 @@ export default function PartnersPage() {
               </Text>
             </Column>
 
-            <Column padding="32" gap="20" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "24", gap: "16", radius: "m" }}>
-              <Flex background="brand-alpha-medium" radius="full" padding="16" horizontal="center" vertical="center" s={{ padding: "12" }}>
+            <Column padding="32" gap="20" horizontal="center" background="neutral-alpha-weak" radius="l">
+              <Flex background="brand-alpha-medium" radius="full" padding="16" horizontal="center" vertical="center">
                 <Text variant="display-strong-m" onBackground="brand-strong">2</Text>
               </Flex>
               <Heading as="h3" variant="heading-strong-l" align="center">
@@ -181,8 +181,8 @@ export default function PartnersPage() {
               </Text>
             </Column>
 
-            <Column padding="32" gap="20" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "24", gap: "16", radius: "m" }}>
-              <Flex background="brand-alpha-medium" radius="full" padding="16" horizontal="center" vertical="center" s={{ padding: "12" }}>
+            <Column padding="32" gap="20" horizontal="center" background="neutral-alpha-weak" radius="l">
+              <Flex background="brand-alpha-medium" radius="full" padding="16" horizontal="center" vertical="center">
                 <Text variant="display-strong-m" onBackground="brand-strong">3</Text>
               </Flex>
               <Heading as="h3" variant="heading-strong-l" align="center">
@@ -198,11 +198,11 @@ export default function PartnersPage() {
 
       {/* What We Provide */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
+        <Column fillWidth gap="l" paddingY="l">
           <Row fillWidth paddingRight="64" s={{ hide: true }}>
             <Line maxWidth={48} />
           </Row>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               What We Provide
             </Heading>
@@ -211,8 +211,8 @@ export default function PartnersPage() {
             </Text>
           </Column>
 
-          <Grid columns="2" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
-            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
+          <Grid columns="2" gap="24" fillWidth>
+            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l">
               <Heading as="h3" variant="heading-strong-m">
                 Premium Equipment
               </Heading>
@@ -220,7 +220,7 @@ export default function PartnersPage() {
                 Audi e-tron eFoil boards, spare batteries, chargers, safety gear, and maintenance tools. Lease or revenue-share models available—no large upfront purchase required.
               </Text>
             </Column>
-            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
+            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l">
               <Heading as="h3" variant="heading-strong-m">
                 Certification Training
               </Heading>
@@ -228,7 +228,7 @@ export default function PartnersPage() {
                 Hands-on programme covering riding technique, teaching methodology, water safety, and equipment maintenance. Delivered in-person in Maldives.
               </Text>
             </Column>
-            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
+            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l">
               <Heading as="h3" variant="heading-strong-m">
                 Booking Infrastructure
               </Heading>
@@ -236,7 +236,7 @@ export default function PartnersPage() {
                 Access to our online booking and Stripe payment system. Guests book on efoil.rent and are routed to the nearest available operator.
               </Text>
             </Column>
-            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
+            <Column padding="32" gap="12" background="neutral-alpha-weak" radius="l">
               <Heading as="h3" variant="heading-strong-m">
                 Marketing Support
               </Heading>
@@ -254,14 +254,14 @@ export default function PartnersPage() {
 
       {/* Ideal Partners */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+        <Column fillWidth gap="l" paddingY="l">
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               Who We're Looking For
             </Heading>
           </Column>
 
-          <Grid columns="3" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
+          <Grid columns="3" gap="24" fillWidth>
             {[
               { title: "Water Sport Operators", desc: "Existing jet ski, parasailing, or diving operators looking to add a premium offering" },
               { title: "Dive Centres", desc: "Dive shops and water activity centres with existing client relationships and marine experience" },
@@ -270,7 +270,7 @@ export default function PartnersPage() {
               { title: "Hotel & Resort Staff", desc: "Water sports teams at resorts interested in operating eFoil sessions for their property" },
               { title: "Entrepreneurs", desc: "Driven individuals with marine safety experience who want to build a premium water sport business" },
             ].map((item) => (
-              <Column key={item.title} padding="24" gap="8" horizontal="center" background="neutral-alpha-weak" radius="l" s={{ padding: "20", radius: "m" }}>
+              <Column key={item.title} padding="24" gap="8" horizontal="center" background="neutral-alpha-weak" radius="l">
                 <Heading as="h3" variant="heading-strong-s" align="center">
                   {item.title}
                 </Heading>
@@ -285,16 +285,16 @@ export default function PartnersPage() {
 
       {/* FAQ */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+        <Column fillWidth gap="l" paddingY="l">
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               Frequently Asked Questions
             </Heading>
           </Column>
 
-          <Column fillWidth gap="20" s={{ gap: "16" }}>
+          <Column fillWidth gap="20">
             {faqSchema.mainEntity.map((faq) => (
-              <Column key={faq.name} padding="32" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "24", radius: "m" }}>
+              <Column key={faq.name} padding="32" gap="12" background="neutral-alpha-weak" radius="l">
                 <Heading as="h3" variant="heading-strong-m">
                   {faq.name}
                 </Heading>

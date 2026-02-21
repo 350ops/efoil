@@ -27,7 +27,7 @@ export async function generateMetadata() {
 
 export default function Work() {
   return (
-    <Column maxWidth="l" paddingY="xl" paddingX="16" gap="xl" s={{ paddingY: "l", paddingX: "12", gap: "l" }}>
+    <Column maxWidth="l" paddingY="xl" paddingX="16" gap="xl">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -43,7 +43,7 @@ export default function Work() {
       />
 
       {/* Hero Section */}
-      <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+      <Column horizontal="center" gap="m">
         <Heading as="h1" variant="display-strong-l" align="center">
           Choose Your eFoil Experience
         </Heading>
@@ -62,8 +62,8 @@ export default function Work() {
 
       {/* Equipment Section */}
       <RevealFx translateY="16">
-        <Column gap="l" paddingY="xl" s={{ gap: "m", paddingY: "l" }}>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+        <Column gap="l" paddingY="xl">
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               Premium Equipment Details
             </Heading>
@@ -82,32 +82,32 @@ export default function Work() {
 
       {/* Booking FAQ */}
       <RevealFx translateY="16">
-        <Column fillWidth gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
-          <Column horizontal="center" gap="m" s={{ gap: "12" }}>
+        <Column fillWidth gap="l" paddingY="l">
+          <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               Booking Questions
             </Heading>
           </Column>
-          <Grid columns="2" gap="24" fillWidth s={{ columns: 1, gap: "16" }}>
-             <Column padding="24" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "20", gap: "8", radius: "m" }}>
+          <Grid columns="2" gap="24" fillWidth>
+             <Column padding="24" gap="12" background="neutral-alpha-weak" radius="l">
                 <Heading as="h3" variant="heading-strong-s">Do I need to pay in advance?</Heading>
                 <Text variant="body-default-m" onBackground="neutral-weak">
                   For yacht and resort deliveries, we typically require a deposit to secure your booking slot and logistics. The balance can be settled upon delivery or as arranged with our partner.
                 </Text>
              </Column>
-             <Column padding="24" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "20", gap: "8", radius: "m" }}>
+             <Column padding="24" gap="12" background="neutral-alpha-weak" radius="l">
                 <Heading as="h3" variant="heading-strong-s">What is the cancellation policy?</Heading>
                 <Text variant="body-default-m" onBackground="neutral-weak">
                   We understand plans change. Cancellations made more than 24 hours in advance are generally fully refundable. Weather-related cancellations decided by the instructor are always fully refundable or rescheduled.
                 </Text>
              </Column>
-             <Column padding="24" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "20", gap: "8", radius: "m" }}>
+             <Column padding="24" gap="12" background="neutral-alpha-weak" radius="l">
                 <Heading as="h3" variant="heading-strong-s">Can I extend my session?</Heading>
                 <Text variant="body-default-m" onBackground="neutral-weak">
                   Yes, if the equipment is not booked for another client immediately after. You can arrange extensions directly with the instructor on-site.
                 </Text>
              </Column>
-             <Column padding="24" gap="12" background="neutral-alpha-weak" radius="l" s={{ padding: "20", gap: "8", radius: "m" }}>
+             <Column padding="24" gap="12" background="neutral-alpha-weak" radius="l">
                 <Heading as="h3" variant="heading-strong-s">Are life jackets provided?</Heading>
                 <Text variant="body-default-m" onBackground="neutral-weak">
                   Absolutely. All rentals include a high-quality impact vest and a helmet with communication gear so you can talk to your instructor while riding.
