@@ -1,0 +1,123 @@
+.rdp-calendar-wrapper {
+  --rdp-accent-color: var(--brand-on-background-strong, #22d3ee);
+  --rdp-accent-background-color: var(--brand-alpha-medium, rgba(34, 211, 238, 0.15));
+  --rdp-day-height: 36px;
+  --rdp-day-width: 36px;
+  --rdp-day_button-height: 34px;
+  --rdp-day_button-width: 34px;
+  --rdp-day_button-border-radius: 8px;
+  --rdp-selected-font: inherit;
+  --rdp-outside-opacity: 0.3;
+  --rdp-range_start-color: var(--rdp-accent-color);
+  --rdp-range_end-color: var(--rdp-accent-color);
+  --rdp-range_middle-color: var(--rdp-accent-background-color);
+  width: 100%;
+}
+
+.rdp-calendar-wrapper .rdp-root {
+  --rdp-font-family: inherit;
+  font-size: 13px;
+  width: 100%;
+}
+
+.rdp-calendar-wrapper .rdp-month {
+  width: 100%;
+}
+
+.rdp-calendar-wrapper .rdp-month_grid {
+  width: 100%;
+}
+
+.rdp-calendar-wrapper .rdp-weekdays,
+.rdp-calendar-wrapper .rdp-week {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rdp-calendar-wrapper .rdp-weekday {
+  flex: 1;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--neutral-on-background-weak, #94a3b8);
+  padding-bottom: 4px;
+}
+
+.rdp-calendar-wrapper .rdp-day {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rdp-calendar-wrapper .rdp-day_button {
+  color: var(--neutral-on-background-strong, #e2e8f0);
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.rdp-calendar-wrapper .rdp-day_button:hover {
+  background: var(--neutral-alpha-weak, rgba(255, 255, 255, 0.06));
+}
+
+.rdp-calendar-wrapper .rdp-today .rdp-day_button {
+  font-weight: 700;
+  color: var(--brand-on-background-strong, #22d3ee);
+}
+
+.rdp-calendar-wrapper .rdp-selected .rdp-day_button {
+  background: var(--rdp-accent-color);
+  color: #000;
+  font-weight: 700;
+}
+
+.rdp-calendar-wrapper .rdp-selected .rdp-day_button:hover {
+  background: var(--rdp-accent-color);
+  opacity: 0.9;
+}
+
+.rdp-calendar-wrapper .rdp-disabled .rdp-day_button {
+  color: var(--neutral-on-background-weak, #475569);
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.rdp-calendar-wrapper .rdp-nav {
+  display: flex;
+  gap: 4px;
+}
+
+.rdp-calendar-wrapper .rdp-button_previous,
+.rdp-calendar-wrapper .rdp-button_next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid var(--neutral-alpha-medium, rgba(255, 255, 255, 0.1));
+  background: transparent;
+  color: var(--neutral-on-background-strong, #e2e8f0);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.rdp-calendar-wrapper .rdp-button_previous:hover,
+.rdp-calendar-wrapper .rdp-button_next:hover {
+  background: var(--neutral-alpha-weak, rgba(255, 255, 255, 0.06));
+}
+
+.rdp-calendar-wrapper .rdp-month_caption {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--neutral-on-background-strong, #e2e8f0);
+  padding-bottom: 8px;
+}
+
+.rdp-calendar-wrapper .rdp-chevron {
+  fill: var(--neutral-on-background-strong, #e2e8f0);
+  width: 14px;
+  height: 14px;
+}

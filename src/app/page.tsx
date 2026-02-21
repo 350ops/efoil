@@ -58,7 +58,7 @@ const serviceSchema = {
     "@type": "Organization",
     name: "eFoil Maldives",
     url: baseURL,
-    logo: `${baseURL}/images/logofoil.png`,
+    logo: `${baseURL}/favicon.png`,
     email: "hello@efoil.rent",
     telephone: `+${whatsappNumber}`,
     contactPoint: [
@@ -254,11 +254,11 @@ export default function Home() {
       {/* SEO Content Section */}
       <Column fillWidth horizontal="center" gap="l" paddingY="l" s={{ gap: "m", paddingY: "m" }}>
         <Column maxWidth="m" gap="m">
-            <Text variant="body-default-l" onBackground="neutral-weak">
+            <Text variant="body-default-m" onBackground="neutral-weak">
               Welcome to the premier eFoil rental service in the Maldives. We specialize in delivering the world's most advanced electric hydrofoil surfboards directly to your location — whether you're staying at a luxury resort, cruising on a liveaboard, or anchored in a private yacht.
             </Text>
-            <Text variant="body-default-l" onBackground="neutral-weak">
-              Our partner network spans the entire archipelago, ensuring that you can experience the thrill of flying over the Indian Ocean's crystal-clear waters no matter where you are. With professional instruction included in every session, you'll be gliding silently above the waves in no time.
+            <Text variant="body-default-m" onBackground="neutral-weak">
+              Our partner network spans the entire country, ensuring that you can experience the thrill of flying over the Indian Ocean's crystal-clear waters no matter where you are. With professional instruction included in every session, you'll be gliding silently above the waves in no time.
             </Text>
         </Column>
       </Column>
@@ -286,9 +286,6 @@ export default function Home() {
             </Text>
           </Column>
           <Column gap="m" style={{ maxWidth: 720, margin: "0 auto" }} s={{ gap: "12" }}>
-            <Text variant="body-default-m" onBackground="neutral-weak">
-              It merges the principles of traditional hydrofoil surfing, where a board is fitted with a submerged hydrodynamic wing (foil), with advanced electric propulsion. The result: a completely unique sensation of gliding silently above the water's surface.
-            </Text>
             {/* Image Above Title */}
             <Column fillWidth radius="l" overflow="hidden" border="neutral-alpha-weak" s={{ radius: "m" }}>
               <Media
@@ -302,15 +299,6 @@ export default function Home() {
               How an eFoil Works
             </Heading>
             
-            {/* Image Below Title */}
-             <Column fillWidth radius="l" overflow="hidden" s={{ radius: "m" }} paddingBottom="16" s={{ paddingBottom: "12" }}>
-              <Media
-                src="/images/gallery/performance_3 Background Removed.png"
-                alt="Audi e-tron eFoil board breakdown"
-                aspectRatio="16 / 9"
-                style={{ objectFit: 'contain' }}
-              />
-            </Column>
             <Text variant="body-default-m" onBackground="neutral-weak">
               An eFoil consists of three main components: the board, an electric motor, and the hydrofoil (a mast with an underwater wing and propulsion unit). The board is built slightly larger and more stable than a standard surfboard to house the rechargeable battery and electronics. The battery is swappable, allowing for extended sessions on the water. The motor drives either a propeller or a modern jet unit mounted on the foil beneath the board.
             </Text>
@@ -418,7 +406,7 @@ export default function Home() {
               s={{ padding: "20", gap: "8", radius: "m" }}
             >
               <Heading as="h3" variant="heading-strong-m" align="center">
-                Luxury Yachts
+                Superyachts
               </Heading>
               <Text variant="body-default-s" onBackground="neutral-weak" align="center">
                 Our partners deliver to yachts and superyachts throughout the atolls

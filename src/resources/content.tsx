@@ -6,7 +6,7 @@ const person: Person = {
   lastName: "Maldives",
   name: "eFoil Maldives",
   role: "Premium eFoil Rental Service",
-  avatar: "/images/logofoil.png",
+  avatar: "/favicon.png",
   email: "hello@efoil.rent",
   location: "Indian/Maldives", // IANA time zone identifier
   languages: ["English", "Dhivehi"], // Languages supported
@@ -14,8 +14,8 @@ const person: Person = {
 
 const newsletter: Newsletter = {
   display: true,
-  title: <>Get Exclusive eFoil Offers</>,
-  description: <>Subscribe for special rates, new destinations, and eFoil tips for Maldives</>,
+  title: <>Get first in line</>,
+  description: <>Become part of the club, with exclusive tips and sneak peaks of our incoming products</>,
 };
 
 const social: Social = [
@@ -51,20 +51,18 @@ const home: Home = {
   featured: {
     display: true,
     title: (
-      <Row gap="12" vertical="center">
-        <strong className="ml-4">Audi e-tron</strong>{" "}
-        <Line background="brand-alpha-strong" vert height="20" />
-        <Text marginRight="4" onBackground="brand-medium">
-          Premium eFoil Experience
-        </Text>
-      </Row>
+      <>AWAKE RÄVIK - <span style={{ color: "#eb4b42" }}>AUDI e-TRON</span> - FLITEBOARD</>
     ),
     href: "/work/audi-etron-efoil-experience",
   },
   subline: (
     <>
-    Top-rated <Text as="span" size="xl" weight="strong">Audi e-tron eFoil</Text> providers in the Maldives. <br />Seamless delivery to your yacht, boat, or resort for the duration of your stay.
-    </> 
+      <Text as="span" onBackground="neutral-strong" weight="strong">The Pinnacle of Electric Hydrofoiling.</Text>
+      {" "}<Text as="span" onBackground="neutral-weak">A collaboration between Audi and Aerofoils.</Text>
+      <br />
+      <Text as="span" onBackground="neutral-medium">We pride in excellent service, delivering our products to every lagoon in every atoll.</Text>
+      {" "}<Text as="span" onBackground="brand-weak" weight="strong">And fast.</Text>
+    </>
   ),
 };
 
