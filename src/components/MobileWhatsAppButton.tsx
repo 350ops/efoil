@@ -2,9 +2,9 @@
 
 import { IconButton, Row } from "@once-ui-system/core";
 import { usePathname } from "next/navigation";
-import { trackWhatsApp } from "@/lib/analytics";
+import { trackInstagram } from "@/lib/analytics";
 
-const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
+const INSTAGRAM_HANDLE = "efoil.maldives";
 
 export function MobileWhatsAppButton() {
   const pathname = usePathname();
@@ -12,10 +12,6 @@ export function MobileWhatsAppButton() {
   if (pathname === "/booking/success") {
     return null;
   }
-
-  const whatsappMessage = pathname === "/work" 
-    ? "Hi! I'd like to book an eFoil experience."
-    : "Hi! I'm interested in the eFoil rentals.";
 
   return (
     <Row
@@ -27,12 +23,12 @@ export function MobileWhatsAppButton() {
       zIndex={10}
     >
       <IconButton
-        href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
-        icon="whatsapp"
+        href={`https://ig.me/m/${INSTAGRAM_HANDLE}`}
+        icon="instagram"
         variant="primary"
         size="l"
-        tooltip="Book via WhatsApp"
-        onClick={() => trackWhatsApp("mobile_fab")}
+        tooltip="Message us on Instagram"
+        onClick={() => trackInstagram("mobile_fab")}
         style={{
           boxShadow: "0 8px 24px rgba(0, 0, 0, 0.3)",
         }}

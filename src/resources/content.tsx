@@ -22,7 +22,7 @@ const social: Social = [
   {
     name: "Instagram",
     icon: "instagram",
-    link: "https://www.instagram.com/efoil.rent/",
+    link: "https://www.instagram.com/efoil.maldives/",
     essential: true,
   },
   {
@@ -51,17 +51,18 @@ const home: Home = {
   featured: {
     display: true,
     title: (
-      <>AWAKE RÄVIK - <span style={{ color: "#eb4b42" }}>AUDI e-TRON</span> - FLITEBOARD</>
+      <>AWAKE RÄVIK - <span style={{ color: "#eb4b42" }}>AUDI e-TRON</span> - <span style={{ color: "#38bdf8" }}>FLITEBOARD</span></>
     ),
     href: "/work/audi-etron-efoil-experience",
   },
   subline: (
     <>
       <Text as="span" onBackground="neutral-strong" weight="strong">The Pinnacle of Electric Hydrofoiling.</Text>
-      {" "}<Text as="span" onBackground="neutral-weak">A collaboration between Audi and Aerofoils.</Text>
       <br />
-      <Text as="span" onBackground="neutral-medium">We pride in excellent service, delivering our products to every lagoon in every atoll.</Text>
-      {" "}<Text as="span" onBackground="brand-weak" weight="strong">And fast.</Text>
+      <Text as="span" variant="body-default-m" onBackground="neutral-weak">A collaboration between Audi and Aerofoils.</Text>
+      <br />
+      <Text as="span" variant="body-default-m" onBackground="neutral-medium">We pride in excellent service, delivering our products to every lagoon in every atoll.{" "}</Text>
+      <Text as="span" weight="strong" style={{ color: "#eb4b42" }}>And fast.</Text>
     </>
   ),
 };

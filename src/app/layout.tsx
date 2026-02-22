@@ -39,7 +39,7 @@ const organizationSchema = {
   email: "hello@efoil.rent",
   description:
     "Premium eFoil rental service in Maldives. Audi e-tron electric hydrofoil surfboard delivery to yachts, boats, and resorts.",
-  sameAs: ["https://www.instagram.com/efoil.rent/"],
+  sameAs: ["https://www.instagram.com/efoil.maldives/"],
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "reservations",

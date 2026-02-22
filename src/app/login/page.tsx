@@ -18,7 +18,7 @@ export default function LoginPage() {
 
   const handleInstagramBooking = () => {
     // Open Instagram DM
-    const url = "https://ig.me/m/efoil.rent";
+    const url = "https://ig.me/m/efoil.maldives";
     window.open(url, "_blank");
   };
 

@@ -136,7 +136,7 @@ export function PricingGrid() {
             ctaLabel="Contact on Instagram"
             ctaAction={() =>
               window.open(
-                "https://ig.me/m/efoil.rent",
+                "https://ig.me/m/efoil.maldives",
                 "_blank"
               )
             }
@@ -157,7 +157,7 @@ export function PricingGrid() {
             ctaLabel="Inquire on Instagram"
             ctaAction={() =>
               window.open(
-                "https://ig.me/m/efoil.rent",
+                "https://ig.me/m/efoil.maldives",
                 "_blank"
               )
             }

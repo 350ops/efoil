@@ -126,10 +126,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "How does eFoil delivery to yachts and resorts work?",
+      name: "How does eFoil delivery to yachts and private islands work?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We connect you with trusted partners who bring the Audi e-tron eFoil directly to your yacht, liveaboard, or resort. They handle all transport, setup, and equipment handover.",
+        text: "We bring the eFoil directly to your yacht, liveaboard, or private island. We handle all transport, setup, and equipment handover.",
       },
     },
     {
@@ -238,12 +238,12 @@ export default function Home() {
               {home.headline}
             </Heading>
           </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
+          <RevealFx translateY="8" delay={0.1} fillWidth horizontal="center" paddingBottom="32">
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l" align="center">
               {home.subline}
             </Text>
           </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="center" fillWidth>
+          <RevealFx paddingTop="12" delay={0.2} horizontal="center" fillWidth>
             <HeroCTA />
           </RevealFx>
         </Column>
@@ -254,16 +254,16 @@ export default function Home() {
       <Column fillWidth horizontal="center" gap="l" paddingY="l">
         <Column maxWidth="m" gap="m">
             <Text variant="body-default-m" onBackground="neutral-weak">
-              Welcome to the premier eFoil rental service in the Maldives. We specialize in delivering the world's most advanced electric hydrofoil surfboards directly to your location — whether you're staying at a luxury resort, cruising on a liveaboard, or anchored in a private yacht.
+              Premium eFoil rental in Maldives. Ride the world&apos;s most advanced electric hydrofoil boards with delivery to private island resorts, yachts, and liveaboards nationwide. Includes professional instruction so you can glide effortlessly over crystal-clear waters.
             </Text>
             <Text variant="body-default-m" onBackground="neutral-weak">
-              Our partner network spans the entire country, ensuring that you can experience the thrill of flying over the Indian Ocean's crystal-clear waters no matter where you are. With professional instruction included in every session, you'll be gliding silently above the waves in no time.
+              Aiming to be Maldives finest eFoil tenders. Experience premium electric hydrofoil surfboards with experienced instructors available if requested. We cover all across Maldivian waters.
             </Text>
         </Column>
       </Column>
 
       {/* SEO-Optimized Image Section */}
-      <RevealFx translateY="16" delay={0.6} fillWidth>
+      <RevealFx translateY="16" delay={0.4} fillWidth>
         <Column fillWidth radius="l" overflow="hidden" border="neutral-alpha-weak">
           <Media
             src="/images/gallery/resort_efoil_rental_maldives.jpeg"
@@ -318,7 +318,7 @@ export default function Home() {
           </Row>
           <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
-              Premium Equipment
+              Top of the Line Equipment
             </Heading>
             <Text variant="body-default-l" onBackground="neutral-weak" align="center">
               Ride the revolutionary Audi e-tron eFoil—engineered for performance and safety
@@ -432,7 +432,7 @@ export default function Home() {
               radius="l"
             >
               <Heading as="h3" variant="heading-strong-m" align="center">
-                Island Resorts
+                Private Islands
               </Heading>
               <Text variant="body-default-s" onBackground="neutral-weak" align="center">
                 Service available at luxury resorts and private islands
@@ -482,23 +482,85 @@ export default function Home() {
         </Column>
       </RevealFx>
 
-      {/* Airline Crew Banner */}
+      {/* Product Specs */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column
-          fillWidth
-          padding="32"
-          gap="12"
-          horizontal="center"
-          background="neutral-alpha-weak"
-          radius="xl"
-        >
-          <Text variant="heading-default-l" align="center" onBackground="neutral-strong">
-            Are you airline crew?
-          </Text>
-          <Button href="/crew" variant="tertiary" size="m" arrowIcon>
-            Tap here
-          </Button>
-        </Column>
+        <Grid columns="4" gap="24" fillWidth>
+          {[
+            {
+              icon: (
+                <svg height="40" viewBox="0 0 64 64" width="40" xmlns="http://www.w3.org/2000/svg" style={{ stroke: "var(--brand-on-background-strong)", strokeWidth: 2 }}>
+                  <g style={{ fill: "none", strokeMiterlimit: 10, strokeLinejoin: "round", strokeLinecap: "round" }}>
+                    <path d="m17 15h26c2.3 0 2.1 1.6 1.7 3.1s-3.7 14.9-3.7 14.9h10.1l4-2 3.9 2v8c0 1.3-.5 2-2 2h-8m-40 0h6.6m9.4 0h14.6" />
+                    <path d="m43.6 23h5.4l6.1 8m-24.1-8h-22m18 8h-22" />
+                    <path d="m24.8 44a6.9 6.9 0 0 1 -6.2 5c-2.7 0-4.2-2.2-3.4-5a6.9 6.9 0 0 1 6.2-5c2.6 0 4.2 2.2 3.4 5zm24 0a6.9 6.9 0 0 1 -6.2 5c-2.7 0-4.2-2.2-3.4-5a6.9 6.9 0 0 1 6.2-5c2.6 0 4.2 2.2 3.4 5z" />
+                  </g>
+                </svg>
+              ),
+              stat: "Up to 55 km/h",
+              label: "Speed",
+            },
+            {
+              icon: (
+                <svg height="40" viewBox="0 0 64 64" width="40" xmlns="http://www.w3.org/2000/svg" style={{ stroke: "var(--brand-on-background-strong)", strokeWidth: 2 }}>
+                  <g style={{ fill: "none", strokeLinecap: "round", strokeMiterlimit: 10, strokeLinejoin: "round" }}>
+                    <path d="m54 6v10h-10m-12 43a27 27 0 1 1 21.751-43m-8.766 39.678a26.819 26.819 0 0 1 -6.985 2.653m15.751-10.331a27.159 27.159 0 0 1 -4.711 4.945m8.751-12.932a26.821 26.821 0 0 1 -1.58 3.952" />
+                    <circle cx="32" cy="32" r="3" />
+                    <path d="m33.961 34.261 10.039 7.739m-12-30v17" />
+                  </g>
+                </svg>
+              ),
+              stat: "Up to 2h Battery",
+              label: "Range",
+            },
+            {
+              icon: (
+                <svg height="40" viewBox="0 0 64 64" width="40" xmlns="http://www.w3.org/2000/svg" style={{ stroke: "var(--brand-on-background-strong)", strokeWidth: 2 }}>
+                  <g style={{ fill: "none", strokeMiterlimit: 10, strokeLinejoin: "round", strokeLinecap: "round" }}>
+                    <path d="m6 2h52v22.064a41.973 41.973 0 0 1 -26.006 37.936 41.97 41.97 0 0 1 -25.994-37.936z" />
+                    <path d="m22 27 9 9 15-16" />
+                  </g>
+                </svg>
+              ),
+              stat: "Smart Functions",
+              label: "foil app",
+            },
+            {
+              icon: (
+                <svg height="40" viewBox="0 0 64 64" width="40" xmlns="http://www.w3.org/2000/svg" style={{ stroke: "var(--brand-on-background-strong)", strokeWidth: 2 }}>
+                  <g style={{ strokeMiterlimit: 10, fill: "none", strokeLinejoin: "round", strokeLinecap: "round" }}>
+                    <path d="m10 36.125v14.037l22 11.58 22-11.58v-14.037" />
+                    <path d="m54 23.246 7-8.549-21.742-11.42-7.324 8.42z" />
+                    <path d="m32 61.742v-27" />
+                    <path d="m31.934 11.704-7.258-8.42-21.676 11.485 7 8.742z" />
+                    <path d="m32 34.742-8.584 8.929-20.449-11.676 7.033-8.484zm22-11.496 7 8.742-20.324 11.743-8.676-8.989z" />
+                  </g>
+                </svg>
+              ),
+              stat: "Lightweight 32 kg",
+              label: "Weight",
+            },
+          ].map((spec) => (
+            <Column
+              key={spec.label}
+              fillWidth
+              padding="24"
+              gap="16"
+              horizontal="center"
+              background="neutral-alpha-weak"
+              radius="l"
+            >
+              {spec.icon}
+              <Column gap="4" horizontal="center">
+                <Text variant="heading-strong-m" align="center" onBackground="neutral-strong">
+                  {spec.stat}
+                </Text>
+                <Text variant="label-default-s" align="center" onBackground="neutral-weak">
+                  {spec.label}
+                </Text>
+              </Column>
+            </Column>
+          ))}
+        </Grid>
       </RevealFx>
 
       {/* Partner Promo */}
@@ -512,10 +574,10 @@ export default function Home() {
           radius="xl"
         >
           <Heading as="h2" variant="heading-strong-xl" align="center">
-            Explore More of the Maldives
+            Explore Maldives
           </Heading>
           <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-            Looking for full-day excursions, snorkeling trips, and private charters?
+            Full-day excursions, dolphin cruises, snorkeling, sandbanks, and private charters across the atolls.
           </Text>
           <Button href="https://maldivesdaytrips.com" variant="secondary" size="m" arrowIcon>
             Visit Maldives Day Trips
