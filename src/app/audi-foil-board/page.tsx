@@ -86,7 +86,6 @@ export default function AudiFoilBoard() {
               alt="Audi e-tron eFoil Motor"
               radius="l"
               aspectRatio="4 / 3"
-              style={{ background: '#fff' }}
             />
             <Column gap="24">
               <Heading as="h2" variant="display-strong-m">

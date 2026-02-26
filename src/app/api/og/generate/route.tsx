@@ -29,7 +29,7 @@ export async function GET(request: Request) {
         width: "100%",
         height: "100%",
         padding: "6rem",
-        background: "#151515",
+        background: "#ffffff",
       }}
     >
       <div
@@ -39,7 +39,7 @@ export async function GET(request: Request) {
           justifyContent: "center",
           gap: "4rem",
           fontStyle: "normal",
-          color: "white",
+          color: "#1a1a1a",
         }}
       >
         <span

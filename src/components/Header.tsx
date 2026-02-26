@@ -68,17 +68,17 @@ function NavLink({
         letterSpacing: "0.01em",
         whiteSpace: "nowrap",
         color: selected
-          ? "rgba(255,255,255,0.95)"
+          ? "rgba(0,0,0,0.90)"
           : hovered
-          ? "rgba(255,255,255,0.8)"
-          : "rgba(255,255,255,0.5)",
+          ? "rgba(0,0,0,0.70)"
+          : "rgba(0,0,0,0.50)",
         background: selected
-          ? "rgba(255,255,255,0.14)"
+          ? "rgba(0,0,0,0.08)"
           : hovered
-          ? "rgba(255,255,255,0.07)"
+          ? "rgba(0,0,0,0.04)"
           : "transparent",
         boxShadow: selected
-          ? "inset 0 1px 0 rgba(255,255,255,0.18), inset 0 -1px 0 rgba(0,0,0,0.12)"
+          ? "inset 0 1px 0 rgba(0,0,0,0.08), inset 0 -1px 0 rgba(0,0,0,0.04)"
           : "none",
         transition: "color 0.18s ease, background 0.18s ease",
       }}
@@ -136,15 +136,15 @@ export const Header = () => {
               padding: "4px 6px",
               borderRadius: "999px",
               background: scrolled
-                ? "rgba(10, 12, 18, 0.60)"
-                : "rgba(10, 12, 18, 0.40)",
-              backdropFilter: "blur(32px) saturate(200%) brightness(1.08)",
-              WebkitBackdropFilter: "blur(32px) saturate(200%) brightness(1.08)",
-              border: "1px solid rgba(255,255,255,0.12)",
+                ? "rgba(255, 255, 255, 0.75)"
+                : "rgba(255, 255, 255, 0.55)",
+              backdropFilter: "blur(32px) saturate(180%)",
+              WebkitBackdropFilter: "blur(32px) saturate(180%)",
+              border: "1px solid rgba(0,0,0,0.08)",
               boxShadow: [
-                "0 4px 28px rgba(0,0,0,0.4)",
-                "inset 0 1.5px 0 rgba(255,255,255,0.20)",
-                "inset 0 -1px 0 rgba(0,0,0,0.20)",
+                "0 4px 28px rgba(0,0,0,0.08)",
+                "inset 0 1.5px 0 rgba(255,255,255,0.60)",
+                "inset 0 -1px 0 rgba(0,0,0,0.04)",
               ].join(", "),
               transition: "background 0.4s ease",
             }}
@@ -156,7 +156,7 @@ export const Header = () => {
                 inset: 0,
                 borderRadius: "999px",
                 background:
-                  "linear-gradient(180deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0) 50%)",
+                  "linear-gradient(180deg, rgba(255,255,255,0.50) 0%, rgba(255,255,255,0) 50%)",
                 pointerEvents: "none",
               }}
             />
@@ -194,7 +194,7 @@ export const Header = () => {
                     style={{
                       width: "1px",
                       height: "16px",
-                      background: "rgba(255,255,255,0.15)",
+                      background: "rgba(0,0,0,0.10)",
                       margin: "0 4px",
                       flexShrink: 0,
                     }}

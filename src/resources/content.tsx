@@ -49,10 +49,8 @@ const home: Home = {
   description: `Find and book premium Audi e-tron eFoil experiences in the Maldives. We connect you with trusted partners for delivery to your yacht, boat, or resort.`,
   headline: <>eFoil Experiences in the Maldives</>,
   featured: {
-    display: true,
-    title: (
-      <>AWAKE RÄVIK - <span style={{ color: "#eb4b42" }}>AUDI e-TRON</span> - <span style={{ color: "#38bdf8" }}>FLITEBOARD</span></>
-    ),
+    display: false,
+    title: <>AUDI e-TRON eFOIL</>,
     href: "/audi-foil-board",
   },
   subline: (
@@ -62,7 +60,7 @@ const home: Home = {
       <Text as="span" variant="body-default-m" onBackground="neutral-weak">A collaboration between Audi and Aerofoils.</Text>
       <br />
       <Text as="span" variant="body-default-m" onBackground="neutral-medium">We pride in excellent service, delivering our products to every lagoon in every atoll.{" "}</Text>
-      <Text as="span" weight="strong" style={{ color: "#eb4b42" }}>And fast.</Text>
+      <Text as="span" weight="strong" style={{ color: "#dc2626" }}>And fast.</Text>
     </>
   ),
 };

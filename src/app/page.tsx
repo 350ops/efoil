@@ -341,14 +341,14 @@ export default function Home() {
           </Grid>
           
           <Grid columns="3" gap="24" fillWidth>
-            <Column overflow="hidden" radius="l" style={{ background: "#fff" }}>
+            <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
               <Media
                 src="/images/gallery/efoil-white-background.jpeg"
                 alt="Audi e-tron eFoil hydrofoil wing and motor detail"
                 aspectRatio="4 / 3"
               />
             </Column>
-            <Column overflow="hidden" radius="l" style={{ background: "#fff" }}>
+            <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
               <Media
                 src="/images/gallery/engine-white-background.jpg"
                 alt="Audi e-tron eFoil integrated propulsion unit — fully enclosed propeller"

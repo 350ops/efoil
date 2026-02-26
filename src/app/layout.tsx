@@ -131,7 +131,7 @@ export async function generateMetadata() {
       images: [`${baseURL}/images/audi-efoil-maldives.jpg`],
     },
     other: {
-      "msapplication-TileColor": "#151515",
+      "msapplication-TileColor": "#ffffff",
       "msapplication-TileImage": "/mstile-150x150.png",
       "msapplication-config": "/browserconfig.xml",
     },
@@ -220,7 +220,7 @@ export default async function RootLayout({
                   });
                 } catch (e) {
                   console.error('Failed to initialize theme:', e);
-                  document.documentElement.setAttribute('data-theme', 'dark');
+                  document.documentElement.setAttribute('data-theme', 'light');
                 }
               })();
             `,
