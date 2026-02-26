@@ -245,7 +245,7 @@ export default function EfoilExperiencesPage() {
               <Heading as="h3" variant="heading-strong-l" align="center">
                 Discovery
               </Heading>
-              <Text variant="body-default-s" onBackground="brand-strong" align="center">From $150</Text>
+              <Text variant="body-default-s" onBackground="brand-strong" align="center">Half-day session</Text>
               <Text variant="body-default-m" onBackground="neutral-weak" align="center">
                 A half-day introduction to eFoiling. Your instructor guides you from first stand to confident riding. Ideal for individuals or couples looking for a unique Maldives activity.
               </Text>
@@ -260,7 +260,7 @@ export default function EfoilExperiencesPage() {
               <Heading as="h3" variant="heading-strong-l" align="center">
                 Sunset Session
               </Heading>
-              <Text variant="body-default-s" onBackground="brand-strong" align="center">From $250</Text>
+              <Text variant="body-default-s" onBackground="brand-strong" align="center">Golden hour experience</Text>
               <Text variant="body-default-m" onBackground="neutral-weak" align="center">
                 Ride into the golden hour. A curated afternoon-to-sunset experience with drone footage of your session. The signature Maldives eFoil moment — perfect for special occasions.
               </Text>
@@ -275,7 +275,7 @@ export default function EfoilExperiencesPage() {
               <Heading as="h3" variant="heading-strong-l" align="center">
                 Multi-Day
               </Heading>
-              <Text variant="body-default-s" onBackground="brand-strong" align="center">Custom pricing</Text>
+              <Text variant="body-default-s" onBackground="brand-strong" align="center">Tailored to your stay</Text>
               <Text variant="body-default-m" onBackground="neutral-weak" align="center">
                 The eFoil stays at your location for the duration of your charter or resort stay. Ride whenever you like with flexible daily sessions and priority scheduling.
               </Text>

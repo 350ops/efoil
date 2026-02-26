@@ -165,8 +165,8 @@ export default function AudiFoilBoard() {
           </Text>
         </Column>
         <Row gap="16">
-          <Button size="l" variant="primary" onClick={() => router.push('/book/location')}>
-            Book Now
+          <Button size="l" variant="primary" onClick={() => router.push('/efoil-experiences-maldives')}>
+            View Experiences
           </Button>
           <Button size="l" variant="secondary" onClick={() => router.push('/gallery')}>
             View Gallery

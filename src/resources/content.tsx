@@ -207,7 +207,7 @@ const crew: Crew = {
   path: "/crew",
   label: "Crew Trips",
   title: "Airline Crew Day Trip Maldives | Dolphins, Snorkeling, Sandbank & Sunset",
-  description: "The ultimate Maldives layover experience for airline crew. Swim with dolphins, snorkel pristine reefs, visit a private sandbank, and cruise into the sunset. From $80/person, groups up to 6.",
+  description: "The ultimate Maldives layover experience for airline crew. Swim with dolphins, snorkel pristine reefs, visit a private sandbank, and cruise into the sunset. Groups up to 6.",
 };
 
 const gallery: Gallery = {

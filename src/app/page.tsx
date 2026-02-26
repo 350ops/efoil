@@ -102,8 +102,6 @@ const serviceSchema = {
       {
         "@type": "Offer",
         name: "Determination Program",
-        price: "0.00",
-        priceCurrency: "USD",
         description:
           "First 3 eFoil experiences fully covered for people with any disability. Located in Hulhumalé.",
         url: `${baseURL}/efoil-experiences-maldives`,

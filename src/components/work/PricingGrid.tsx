@@ -108,7 +108,7 @@ export function PricingGrid() {
           {/* 1. Point to Point Delivery */}
           <ServiceCard
             title="Point to Point Delivery"
-            subtitle="Price calculated at checkout"
+            subtitle="Contact us for a quote"
             description="We bring the full Audi e-tron eFoil experience directly to your yacht, resort, or private villa location."
             features={[
               "Extend to multi-day stays for resorts, villas, and yachts",
@@ -118,7 +118,7 @@ export function PricingGrid() {
               "Optional add-ons available (extra battery, GoPro, premium accessories)"
 ]}
             ctaLabel="Delivery"
-            ctaAction={() => router.push("/book/location")}
+            ctaAction={() => router.push("/yachts")}
           />
 
           {/* 2. Test Drive */}

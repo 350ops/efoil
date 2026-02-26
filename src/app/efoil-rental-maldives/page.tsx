@@ -76,7 +76,7 @@ const faqSchema = {
       name: "How much does it cost to rent an eFoil in the Maldives?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "eFoil rental pricing in the Maldives starts from $150 for a half-day experience. Rates vary depending on location, duration, and delivery logistics. Yacht and resort delivery packages are custom-quoted based on distance and number of days. Contact us for a personalised quote.",
+        text: "eFoil rental rates in the Maldives vary depending on location, duration, and delivery logistics. Yacht and resort delivery packages are custom-quoted based on distance and number of days. Contact us for a personalised quote.",
       },
     },
     {
@@ -377,7 +377,7 @@ export default function EfoilRentalPage() {
                 Crew Day Trip
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak" align="center">
-                Airline crew on layover? Combine an eFoil session with dolphins, snorkeling, a private sandbank, and a sunset cruise — from $80/person.
+                Airline crew on layover? Combine an eFoil session with dolphins, snorkeling, a private sandbank, and a sunset cruise.
               </Text>
               <Button href="/crew" variant="secondary" size="m" arrowIcon>
                 Crew Day Trip

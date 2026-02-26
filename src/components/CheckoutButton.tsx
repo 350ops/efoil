@@ -15,7 +15,7 @@ export function CheckoutButton({ packageId, packageName, popular }: CheckoutButt
 
   const handleCheckout = () => {
     trackCheckout(packageId);
-    window.location.href = "/book/location";
+    window.location.href = "/efoil-experiences-maldives";
   };
 
   return (

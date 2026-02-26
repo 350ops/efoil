@@ -28,7 +28,6 @@ const routes: RoutesConfig = {
   "/yachts": true,
   "/resorts": true,
   "/partners": true,
-  "/book/location": true,
   "/audi-foil-board": true,
   "/privacy": true,
   "/terms": true,
