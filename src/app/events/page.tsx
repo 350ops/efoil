@@ -130,7 +130,7 @@ export default function EventsPage() {
               </Button>
               <Button
                 data-border="rounded"
-                href="/work"
+                href="/efoil-experiences-maldives"
                 variant="secondary"
                 size="l"
               >
@@ -544,8 +544,8 @@ export default function EventsPage() {
             No wind. No waves. Just you, flying above the Indian Ocean on an electric hydrofoil. Book an Audi e-tron eFoil session today.
           </Text>
           <Row gap="16" wrap horizontal="center" s={{ direction: "column" }}>
-            <Button href="/work" variant="primary" size="l" weight="strong" arrowIcon>
-              View eFoil Packages
+            <Button href="/efoil-experiences-maldives" variant="primary" size="l" weight="strong" arrowIcon>
+              View eFoil Experiences
             </Button>
             <Button href="/blog" variant="secondary" size="l">
               Read Our Blog

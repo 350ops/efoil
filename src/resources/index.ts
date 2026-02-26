@@ -9,6 +9,8 @@ export {
   work,
   gallery,
   events,
+  efoilExperiences,
+  efoilRental,
   crew,
 } from "./content";
 

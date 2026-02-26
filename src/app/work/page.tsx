@@ -21,7 +21,7 @@ export async function generateMetadata() {
       image: `/api/og/generate?title=${encodeURIComponent("eFoil Rental Packages")}`,
       path: work.path,
     }),
-    alternates: { canonical: "/work" },
+    alternates: { canonical: "/efoil-experiences-maldives" },
   };
 }
 

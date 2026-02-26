@@ -23,6 +23,22 @@ export const Footer = () => {
             © {currentYear} {person.name}
           </Text>
           <Text variant="body-default-s" onBackground="neutral-weak">·</Text>
+          <SmartLink href="/yachts">
+            <Text variant="body-default-s" onBackground="neutral-weak">Yacht Delivery</Text>
+          </SmartLink>
+          <Text variant="body-default-s" onBackground="neutral-weak">·</Text>
+          <SmartLink href="/efoil-experiences-maldives">
+            <Text variant="body-default-s" onBackground="neutral-weak">Experiences</Text>
+          </SmartLink>
+          <Text variant="body-default-s" onBackground="neutral-weak">·</Text>
+          <SmartLink href="/efoil-rental-maldives">
+            <Text variant="body-default-s" onBackground="neutral-weak">Rental</Text>
+          </SmartLink>
+          <Text variant="body-default-s" onBackground="neutral-weak">·</Text>
+          <SmartLink href="/crew">
+            <Text variant="body-default-s" onBackground="neutral-weak">Crew Trips</Text>
+          </SmartLink>
+          <Text variant="body-default-s" onBackground="neutral-weak">·</Text>
           <SmartLink href="/about">
             <Text variant="body-default-s" onBackground="neutral-weak">About</Text>
           </SmartLink>
@@ -33,10 +49,6 @@ export const Footer = () => {
           <Text variant="body-default-s" onBackground="neutral-weak">·</Text>
           <SmartLink href="/audi-foil-board">
             <Text variant="body-default-s" onBackground="neutral-weak">Audi Board</Text>
-          </SmartLink>
-          <Text variant="body-default-s" onBackground="neutral-weak">·</Text>
-          <SmartLink href="/crew">
-            <Text variant="body-default-s" onBackground="neutral-weak">Crew Trips</Text>
           </SmartLink>
           <Text variant="body-default-s" onBackground="neutral-weak">·</Text>
           <SmartLink href="/partners">

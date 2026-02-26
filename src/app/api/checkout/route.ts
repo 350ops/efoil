@@ -79,7 +79,7 @@ export async function POST(request: NextRequest) {
         date: date || "TBD",
       },
       success_url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://efoil.rent"}/booking/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://efoil.rent"}/work/audi-etron-efoil-experience`,
+      cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://efoil.rent"}/efoil-experiences-maldives`,
     });
 
     return NextResponse.json({

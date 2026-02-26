@@ -287,7 +287,7 @@ export default function CrewPage() {
               />
             </Column>
           </Grid>
-          <Button href="/work" variant="secondary" size="m" arrowIcon>
+          <Button href="/efoil-experiences-maldives" variant="secondary" size="m" arrowIcon>
             Learn More About eFoiling
           </Button>
         </Column>

@@ -19,11 +19,12 @@ const baseURL: string = "https://www.efoil.rent";
 const routes: RoutesConfig = {
   "/": true,
   "/about": true,
-  "/work": true,
   "/blog": true,
   "/gallery": true,
   "/events": true,
   "/crew": true,
+  "/efoil-experiences-maldives": true,
+  "/efoil-rental-maldives": true,
   "/yachts": true,
   "/resorts": true,
   "/partners": true,
