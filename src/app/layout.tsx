@@ -109,25 +109,25 @@ export async function generateMetadata() {
     openGraph: {
       siteName: "eFoil Maldives",
       type: "website",
-      title: "eFoil Rentals Maldives",
+      title: "eFoil Experiences Maldives",
       description:
-        "Premium Audi e-tron eFoil rentals in Maldives. Delivered to yachts, boats, and resorts.",
+        "Premium Audi e-tron eFoil experiences in the Maldives. Delivered to yachts, boats, and resorts.",
       url: baseURL,
       images: [
         {
           url: `${baseURL}/images/audi-efoil-maldives.jpg`,
           width: 2188,
           height: 1722,
-          alt: "Audi e-tron eFoil rental in Maldives lagoon",
+          alt: "Audi e-tron eFoil experience in Maldives lagoon",
           type: "image/jpeg",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "eFoil Rentals Maldives",
+      title: "eFoil Experiences Maldives",
       description:
-        "Premium Audi e-tron eFoil rentals in Maldives. Delivered to yachts, boats, and resorts.",
+        "Premium Audi e-tron eFoil experiences in the Maldives. Delivered to yachts, boats, and resorts.",
       images: [`${baseURL}/images/audi-efoil-maldives.jpg`],
     },
     other: {

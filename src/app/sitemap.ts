@@ -8,8 +8,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Priority map for SEO-important pages
   const priorityMap: Record<string, number> = {
     "/": 1.0,
-    "/work": 0.9,
     "/audi-foil-board": 0.9,
+    "/efoil-experiences-maldives": 0.9,
+    "/efoil-rental-maldives": 0.9,
     "/yachts": 0.85,
     "/resorts": 0.85,
     "/events": 0.8,
@@ -40,16 +41,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }))
     : [];
 
-  // Work/project pages
-  const works: MetadataRoute.Sitemap = routesConfig["/work"]
-    ? getPosts(["src", "app", "work", "projects"]).map((post) => ({
-        url: `${baseURL}/work/${post.slug}`,
-        lastModified: post.metadata.publishedAt,
-        changeFrequency: "monthly",
-        priority: 0.8,
-      }))
-    : [];
-
   // Additional pages not in the routes config
   const additionalPages: MetadataRoute.Sitemap = [
     {
@@ -60,5 +51,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  return [...staticRoutes, ...works, ...blogs, ...additionalPages];
+  return [...staticRoutes, ...blogs, ...additionalPages];
 }

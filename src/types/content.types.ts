@@ -236,6 +236,18 @@ export interface Events extends BasePageConfig {}
 export interface Crew extends BasePageConfig {}
 
 /**
+ * eFoil Experiences page configuration.
+ * @description Configuration for the premium eFoil experiences conversion page.
+ */
+export interface EfoilExperiences extends BasePageConfig {}
+
+/**
+ * eFoil Rental page configuration.
+ * @description Configuration for the SEO rental intent capture page.
+ */
+export interface EfoilRental extends BasePageConfig {}
+
+/**
  * Gallery page configuration.
  * @description Configuration for the Gallery page, including metadata, navigation label, and image list.
  */

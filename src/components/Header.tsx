@@ -6,7 +6,7 @@ import Link from "next/link";
 
 import { Fade, Flex, Row } from "@once-ui-system/core";
 
-import { routes, display, person, about, blog, work, gallery, events } from "@/resources";
+import { routes, display, person, about, blog, efoilExperiences, gallery, events } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
 
@@ -176,8 +176,8 @@ export const Header = () => {
               {routes["/about"] && (
                 <NavLink href="/about" label={about.label} selected={pathname === "/about"} />
               )}
-              {routes["/work"] && (
-                <NavLink href="/work" label={work.label} selected={pathname.startsWith("/work")} />
+              {routes["/efoil-experiences-maldives"] && (
+                <NavLink href="/efoil-experiences-maldives" label={efoilExperiences.label} selected={pathname.startsWith("/efoil-experiences-maldives")} />
               )}
               {routes["/blog"] && (
                 <NavLink href="/blog" label={blog.label} selected={pathname.startsWith("/blog")} />

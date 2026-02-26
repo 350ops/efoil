@@ -134,7 +134,7 @@ export default function YachtsPage() {
               </Button>
               <Button
                 data-border="rounded"
-                href="/work"
+                href="#packages"
                 variant="secondary"
                 size="l"
               >
@@ -280,6 +280,79 @@ export default function YachtsPage() {
         </Column>
       </RevealFx>
 
+      {/* Yacht Packages */}
+      <RevealFx translateY="16" delay={0.2} fillWidth>
+        <Column id="packages" fillWidth gap="l" paddingY="l">
+          <Column horizontal="center" gap="m">
+            <Heading as="h2" variant="display-strong-m" align="center">
+              Yacht Packages
+            </Heading>
+            <Text variant="body-default-l" onBackground="neutral-weak" align="center">
+              Flexible options tailored to your charter schedule
+            </Text>
+          </Column>
+
+          <Grid columns="3" gap="24" fillWidth>
+            <Column padding="32" gap="12" horizontal="center" background="neutral-alpha-weak" radius="l">
+              <Heading as="h3" variant="heading-strong-l" align="center">
+                Half-Day Session
+              </Heading>
+              <Text variant="body-default-m" onBackground="neutral-weak" align="center">
+                Up to 4 hours with a dedicated instructor. Ideal for a morning or afternoon activity for your guests.
+              </Text>
+              <Column gap="8" paddingTop="8">
+                <Text variant="body-default-s" onBackground="neutral-medium" align="center">Instructor on-site throughout</Text>
+                <Text variant="body-default-s" onBackground="neutral-medium" align="center">All safety gear included</Text>
+                <Text variant="body-default-s" onBackground="neutral-medium" align="center">Delivery & pickup at anchor</Text>
+              </Column>
+            </Column>
+            <Column padding="32" gap="12" horizontal="center" background="brand-alpha-weak" radius="l" border="brand-alpha-medium">
+              <Heading as="h3" variant="heading-strong-l" align="center">
+                Full-Day Charter Add-On
+              </Heading>
+              <Text variant="body-default-m" onBackground="neutral-weak" align="center">
+                The eFoil and instructor stay with your yacht for the full day. Guests ride whenever they like between activities.
+              </Text>
+              <Column gap="8" paddingTop="8">
+                <Text variant="body-default-s" onBackground="neutral-medium" align="center">Flexible scheduling throughout the day</Text>
+                <Text variant="body-default-s" onBackground="neutral-medium" align="center">Multiple battery rotations</Text>
+                <Text variant="body-default-s" onBackground="neutral-medium" align="center">Ideal for guest groups of 4+</Text>
+              </Column>
+            </Column>
+            <Column padding="32" gap="12" horizontal="center" background="neutral-alpha-weak" radius="l">
+              <Heading as="h3" variant="heading-strong-l" align="center">
+                Multi-Day Package
+              </Heading>
+              <Text variant="body-default-m" onBackground="neutral-weak" align="center">
+                The eFoil stays aboard for the duration of your charter. Daily sessions at your convenience across atolls.
+              </Text>
+              <Column gap="8" paddingTop="8">
+                <Text variant="body-default-s" onBackground="neutral-medium" align="center">Board remains onboard your yacht</Text>
+                <Text variant="body-default-s" onBackground="neutral-medium" align="center">Custom itinerary support</Text>
+                <Text variant="body-default-s" onBackground="neutral-medium" align="center">Best per-day rate</Text>
+              </Column>
+            </Column>
+          </Grid>
+
+          <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+            Pricing is based on delivery location and duration. Contact us for a custom quote.
+          </Text>
+
+          <Row fillWidth horizontal="center" paddingTop="m">
+            <Button
+              data-border="rounded"
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi, I'd like a quote for eFoil delivery to our yacht in Maldives.")}`}
+              variant="primary"
+              size="l"
+              weight="strong"
+              arrowIcon
+            >
+              Get a Custom Quote
+            </Button>
+          </Row>
+        </Column>
+      </RevealFx>
+
       {/* FAQ */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
         <Column fillWidth gap="l" paddingY="l">
@@ -301,6 +374,28 @@ export default function YachtsPage() {
               </Column>
             ))}
           </Column>
+        </Column>
+      </RevealFx>
+
+      {/* Cross-link */}
+      <RevealFx translateY="16" delay={0.2} fillWidth>
+        <Column
+          fillWidth
+          padding="32"
+          gap="16"
+          horizontal="center"
+          background="neutral-alpha-weak"
+          radius="xl"
+        >
+          <Heading as="h3" variant="heading-strong-l" align="center">
+            Not on a Yacht?
+          </Heading>
+          <Text variant="body-default-m" onBackground="neutral-weak" align="center">
+            We also offer private eFoil experiences delivered to resorts, private islands, and locations near Mal&eacute;.
+          </Text>
+          <Button href="/efoil-experiences-maldives" variant="secondary" size="m" arrowIcon>
+            View Private Experiences
+          </Button>
         </Column>
       </RevealFx>
 

@@ -29,9 +29,9 @@ export async function generateMetadata() {
     alternates: { canonical: "/" },
     openGraph: {
       type: "website",
-      title: "eFoil Rentals Maldives",
+      title: "eFoil Experiences Maldives",
       description:
-        "Premium Audi e-tron eFoil rentals in Maldives. Delivered to yachts, boats, and resorts.",
+        "Premium Audi e-tron eFoil experiences in Maldives. Delivered to yachts, boats, and resorts. Private sessions in Hulhumalé.",
       url: baseURL,
       siteName: "eFoil Maldives",
       images: [
@@ -51,7 +51,7 @@ const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "eFoil Rental Maldives",
+  name: "eFoil Experiences Maldives",
   description:
     " Connecting you with the official Audi e-tron eFoil distributor in the Maldives. Delivery to yachts, boats, and resorts with or without professional instruction.",
   provider: {
@@ -90,14 +90,14 @@ const serviceSchema = {
         name: "Point to Point Delivery",
         description:
           "24-hour eFoil rental with delivery to your yacht, resort, or any location in the Maldives. Includes initial instruction and safety gear.",
-        url: `${baseURL}/work`,
+        url: `${baseURL}/yachts`,
       },
       {
         "@type": "Offer",
-        name: "Test Drive",
+        name: "Private eFoil Experiences",
         description:
-          "eFoil rentals and lessons available through our partner Foiltribe in Hulhumalé. Open to all ages.",
-        url: `${baseURL}/work`,
+          "Curated private eFoil experiences delivered anywhere in the Maldives. Half-day, sunset, and multi-day packages available.",
+        url: `${baseURL}/efoil-experiences-maldives`,
       },
       {
         "@type": "Offer",
@@ -106,7 +106,7 @@ const serviceSchema = {
         priceCurrency: "USD",
         description:
           "First 3 eFoil experiences fully covered for people with any disability. Located in Hulhumalé.",
-        url: `${baseURL}/work`,
+        url: `${baseURL}/efoil-experiences-maldives`,
       },
     ],
   },
@@ -563,25 +563,63 @@ export default function Home() {
         </Grid>
       </RevealFx>
 
-      {/* Partner Promo */}
+      {/* Explore Experiences */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column
-          fillWidth
-          padding="32"
-          gap="12"
-          horizontal="center"
-          background="brand-alpha-weak"
-          radius="xl"
-        >
-          <Heading as="h2" variant="heading-strong-xl" align="center">
-            Explore Maldives
-          </Heading>
-          <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-            Full-day excursions, dolphin cruises, snorkeling, sandbanks, and private charters across the atolls.
-          </Text>
-          <Button href="https://maldivesdaytrips.com" variant="secondary" size="m" arrowIcon>
-            Visit Maldives Day Trips
-          </Button>
+        <Column fillWidth gap="l" paddingY="l">
+          <Column horizontal="center" gap="m">
+            <Heading as="h2" variant="display-strong-m" align="center">
+              Explore Experiences
+            </Heading>
+            <Text variant="body-default-l" onBackground="neutral-weak" align="center">
+              Choose the experience that fits your trip
+            </Text>
+          </Column>
+          <Grid columns="2" gap="24" fillWidth>
+            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l" horizontal="center">
+              <Heading as="h3" variant="heading-strong-m" align="center">
+                Yacht Delivery
+              </Heading>
+              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+                eFoil delivered to your superyacht or charter vessel. Instructor, safety gear, and zero-footprint logistics included.
+              </Text>
+              <Button href="/yachts" variant="secondary" size="m" arrowIcon>
+                Yacht Delivery
+              </Button>
+            </Column>
+            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l" horizontal="center">
+              <Heading as="h3" variant="heading-strong-m" align="center">
+                Private eFoil Experiences
+              </Heading>
+              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+                Curated experiences delivered anywhere in the Maldives. Half-day, sunset, and multi-day packages.
+              </Text>
+              <Button href="/efoil-experiences-maldives" variant="secondary" size="m" arrowIcon>
+                View Experiences
+              </Button>
+            </Column>
+            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l" horizontal="center">
+              <Heading as="h3" variant="heading-strong-m" align="center">
+                Crew & Layover
+              </Heading>
+              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+                Airline crew day trip: dolphins, snorkeling, sandbank, sunset cruise — with optional eFoil add-on.
+              </Text>
+              <Button href="/crew" variant="secondary" size="m" arrowIcon>
+                Crew Day Trip
+              </Button>
+            </Column>
+            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l" horizontal="center">
+              <Heading as="h3" variant="heading-strong-m" align="center">
+                Rental Information
+              </Heading>
+              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+                Everything you need to know about renting an eFoil in the Maldives — pricing, locations, and how to book.
+              </Text>
+              <Button href="/efoil-rental-maldives" variant="secondary" size="m" arrowIcon>
+                Rental Info
+              </Button>
+            </Column>
+          </Grid>
         </Column>
       </RevealFx>
 

@@ -1,4 +1,4 @@
-import type { About, Blog, Crew, Events, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import type { About, Blog, Crew, EfoilExperiences, EfoilRental, Events, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
@@ -47,13 +47,13 @@ const home: Home = {
   title: `eFoil Rental Maldives | Connect with Premium eFoil Providers`,
   // biome-ignore lint/style/noUnusedTemplateLiteral: <explanation>
   description: `Find and book premium Audi e-tron eFoil experiences in the Maldives. We connect you with trusted partners for delivery to your yacht, boat, or resort.`,
-  headline: <>eFoil Rental Maldives</>,
+  headline: <>eFoil Experiences in the Maldives</>,
   featured: {
     display: true,
     title: (
       <>AWAKE RÄVIK - <span style={{ color: "#eb4b42" }}>AUDI e-TRON</span> - <span style={{ color: "#38bdf8" }}>FLITEBOARD</span></>
     ),
-    href: "/work/audi-etron-efoil-experience",
+    href: "/audi-foil-board",
   },
   subline: (
     <>
@@ -176,10 +176,10 @@ const blog: Blog = {
 };
 
 const work: Work = {
-  path: "/work",
-  label: "Experience",
-  title: "eFoil Packages & Experiences | eFoil Maldives",
-  description: "Explore our eFoil rental packages, from hourly sessions to multi-day adventures in the Maldives.",
+  path: "/efoil-experiences-maldives",
+  label: "Experiences",
+  title: "Private eFoil Experiences Maldives | Yacht & Boat Delivery",
+  description: "Private eFoil experiences delivered to yachts, boats, and resorts across the Maldives.",
 };
 
 const events: Events = {
@@ -187,6 +187,20 @@ const events: Events = {
   label: "Events",
   title: "Maldives Watersports Events | Wingfoil, Kitesurf & Surf Competitions",
   description: "Explore the growing watersports scene in the Maldives. Upcoming wingfoil competitions, kitesurf events, surf contests, and why the Maldives is the next world-class watersports destination.",
+};
+
+const efoilExperiences: EfoilExperiences = {
+  path: "/efoil-experiences-maldives",
+  label: "Experiences",
+  title: "Private eFoil Experiences Maldives | Yacht & Boat Delivery",
+  description: "Curated private eFoil experiences across the Maldives. Audi e-tron electric hydrofoil delivered to your yacht, resort, or private location with professional instruction included.",
+};
+
+const efoilRental: EfoilRental = {
+  path: "/efoil-rental-maldives",
+  label: "Rental",
+  title: "eFoil Rental Maldives | Private Sessions & Yacht Delivery",
+  description: "Rent an Audi e-tron eFoil in the Maldives. Electric hydrofoil board rental with professional instruction, delivered to yachts, resorts, and private locations across the atolls.",
 };
 
 const crew: Crew = {
@@ -325,4 +339,4 @@ const gallery: Gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery, events, crew };
+export { person, social, newsletter, home, about, blog, work, gallery, events, efoilExperiences, efoilRental, crew };
