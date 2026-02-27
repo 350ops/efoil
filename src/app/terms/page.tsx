@@ -25,7 +25,7 @@ export default function TermsOfService() {
 
         <Column gap="24">
           <Section title="1. Service Description">
-            eFoil Maldives acts as a concierge service connecting customers with independent, vetted eFoil rental providers in the Maldives. We facilitate the communication and logistics for delivery to yachts, boats, and resorts.
+            eFoil Maldives provides premium eFoil experiences, instruction, and equipment access in the Maldives. We handle communication, logistics, and delivery to yachts, boats, and resorts.
           </Section>
 
           <Section title="2. Booking and Payments">
@@ -33,7 +33,7 @@ export default function TermsOfService() {
           </Section>
 
           <Section title="3. Safety and Liability">
-            eFoiling is an extreme sport. Users must follow all safety instructions provided by the equipment operators. eFoil Maldives is not liable for any injuries, accidents, or damages occurring during the use of equipment provided by our partners.
+            eFoiling is an extreme sport. Users must follow all safety instructions provided by our instructors. eFoil Maldives is not liable for any injuries, accidents, or damages occurring during the use of equipment.
           </Section>
 
           <Section title="4. Cancellations and Refunds">

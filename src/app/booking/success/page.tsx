@@ -62,7 +62,7 @@ export default function BookingSuccess() {
               2. We will contact you to confirm delivery details
             </Text>
             <Text variant="body-default-m" onBackground="neutral-weak" align="center">
-              3. Our partners will arrive at your location with everything you need
+              3. We arrive at your location with everything you need
             </Text>
           </Column>
         </Column>

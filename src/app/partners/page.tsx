@@ -79,7 +79,7 @@ const faqSchema = {
       name: "What are the revenue expectations?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Earnings depend on session volume and location. Our current pricing starts at $250 per hour with a 2-hour minimum. Partners operating in high-traffic atolls during peak season typically run multiple sessions per day.",
+        text: "Earnings depend on session volume, location, and partnership arrangement. Partners operating in high-traffic atolls during peak season typically run multiple sessions per day. Contact us to discuss revenue models and earning potential.",
       },
     },
   ],

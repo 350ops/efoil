@@ -46,7 +46,7 @@ const faqSchema = {
       name: "How much does the day trip cost?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Pricing starts from $80 per person and decreases as more people join. The boat holds up to 6 guests. When you book, you can share a link with colleagues to fill remaining spots — the more people who join, the less everyone pays.",
+        text: "Group pricing is available and decreases as more people join. The boat holds up to 6 guests. When you book, you can share a link with colleagues to fill remaining spots — the more people who join, the less everyone pays. Contact us for current rates.",
       },
     },
     {
@@ -62,7 +62,7 @@ const faqSchema = {
       name: "What is the eFoil add-on?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "For $150 per person, you can add an Audi e-tron eFoil session to your trip. This is an electric hydrofoil surfboard that lets you fly above the water — no experience needed. The session includes professional instruction, drone footage, and 360-camera content. It's offered by foiltribe, the first eFoil operators in Maldives.",
+        text: "You can add an Audi e-tron eFoil session to your trip. This is an electric hydrofoil surfboard that lets you fly above the water — no experience needed. The session includes professional instruction, drone footage, and 360-camera content. It's offered by foiltribe, the first eFoil operators in Maldives. Contact us for pricing.",
       },
     },
     {
@@ -131,7 +131,7 @@ export default function CrewPage() {
           </RevealFx>
           <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l" align="center">
-              One trip. Five hours. Dolphins, reef snorkeling, a private sandbank, and a sunset cruise across the Indian Ocean. Designed for airline crew on layover in Malé — from $80/person.
+              One trip. Five hours. Dolphins, reef snorkeling, a private sandbank, and a sunset cruise across the Indian Ocean. Designed for airline crew on layover in Malé.
             </Text>
           </RevealFx>
           <RevealFx paddingTop="12" delay={0.4} horizontal="center" fillWidth>
@@ -164,21 +164,21 @@ export default function CrewPage() {
         <Grid columns="3" gap="24" fillWidth>
           <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
-              src="/images/gallery/dolphins-maldives.png"
+              src="/images/gallery/dolphins-maldives.jpg"
               alt="Wild spinner dolphins in Maldives — swim with dolphins on the crew day trip"
               aspectRatio="4 / 3"
             />
           </Column>
           <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
-              src="/images/gallery/maldives-sandbank.png"
+              src="/images/gallery/maldives-sandbank.jpg"
               alt="Private white sandbank in the Indian Ocean — crew day trip picnic destination"
               aspectRatio="4 / 3"
             />
           </Column>
           <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
-              src="/images/gallery/maldives-sunset-ocean.png"
+              src="/images/gallery/maldives-sunset-ocean.jpg"
               alt="Golden sunset over the Indian Ocean — sunset cruise on Maldives crew day trip"
               aspectRatio="4 / 3"
             />
@@ -254,13 +254,13 @@ export default function CrewPage() {
         >
           <Text variant="label-strong-s" onBackground="brand-strong">OPTIONAL ADD-ON</Text>
           <Heading as="h2" variant="display-strong-m" align="center">
-            Add an Audi e-tron eFoil Session — $150/person
+            Add an Audi e-tron eFoil Session
           </Heading>
           <Text variant="body-default-l" onBackground="neutral-weak" align="center" style={{ maxWidth: 640 }}>
             Fly above the turquoise Maldives water on an electric hydrofoil surfboard. No experience needed — professional instruction, drone footage, and 360-camera content are all included. Offered by foiltribe, the first eFoil pioneers in Maldives.
           </Text>
           <Text variant="body-default-m" onBackground="neutral-weak" align="center">
-            Resorts charge $145–195 for just 30 minutes. With this trip, you get an eFoil session alongside dolphins, snorkeling, a sandbank, lunch, and a sunset cruise — starting at $80 + $150 for the eFoil.
+            With this trip, you get an eFoil session alongside dolphins, snorkeling, a sandbank, lunch, and a sunset cruise — all in one package. Message us for pricing.
           </Text>
           <Row fillWidth horizontal="center" paddingTop="8">
             <Column overflow="hidden" radius="l" style={{ maxWidth: 480 }}>
@@ -281,7 +281,7 @@ export default function CrewPage() {
             </Column>
             <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
               <Media
-                src="/images/gallery/efoil-drone.png"
+                src="/images/gallery/efoil-drone.jpg"
                 alt="Aerial drone shot of two eFoil riders above turquoise Maldives lagoon"
                 aspectRatio="16 / 10"
               />
@@ -367,14 +367,14 @@ export default function CrewPage() {
         <Grid columns="2" gap="24" fillWidth>
           <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
-              src="/images/gallery/turtle-maldives.png"
+              src="/images/gallery/turtle-maldives.jpg"
               alt="Sea turtle swimming over coral reef in Maldives — snorkeling on the crew day trip"
               aspectRatio="16 / 10"
             />
           </Column>
           <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
-              src="/images/gallery/sealion-maldives.png"
+              src="/images/gallery/sealion-maldives.jpg"
               alt="Marine wildlife in Maldives — reef encounters on the crew day trip"
               aspectRatio="16 / 10"
             />
@@ -397,33 +397,27 @@ export default function CrewPage() {
             </Text>
           </Column>
 
-          <Grid columns="3" gap="24" fillWidth>
-            <Column padding="32" gap="12" horizontal="center" background="neutral-alpha-weak" radius="l">
-              <Text variant="display-strong-l" onBackground="brand-strong">$120</Text>
-              <Text variant="label-strong-m">per person</Text>
-              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-                2–3 guests
-              </Text>
-            </Column>
-            <Column padding="32" gap="12" horizontal="center" background="brand-alpha-weak" radius="l" border="brand-alpha-medium">
-              <Text variant="display-strong-l" onBackground="brand-strong">$100</Text>
-              <Text variant="label-strong-m">per person</Text>
-              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-                4–5 guests
-              </Text>
-            </Column>
-            <Column padding="32" gap="12" horizontal="center" background="neutral-alpha-weak" radius="l">
-              <Text variant="display-strong-l" onBackground="brand-strong">$80</Text>
-              <Text variant="label-strong-m">per person</Text>
-              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-                6 guests (full boat)
-              </Text>
-            </Column>
-          </Grid>
+          <Column padding="32" gap="16" horizontal="center" background="neutral-alpha-weak" radius="l">
+            <Text variant="body-default-m" onBackground="neutral-weak" align="center">
+              Share the trip with your colleagues to fill the boat. The more people who join, the lower the per-person rate. Message us for current group rates.
+            </Text>
+            <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+              Optional eFoil add-on available — includes professional instruction, drone footage, and 360-camera content.
+            </Text>
+          </Column>
 
-          <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-            eFoil add-on: +$150/person. Includes professional instruction, drone footage, and 360-camera content.
-          </Text>
+          <Row fillWidth horizontal="center" paddingTop="m">
+            <Button
+              data-border="rounded"
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi! I'm airline crew and want to know about group pricing for the Maldives day trip.")}`}
+              variant="primary"
+              size="l"
+              weight="strong"
+              arrowIcon
+            >
+              Get Group Rates
+            </Button>
+          </Row>
 
           <Row fillWidth paddingLeft="64" horizontal="end" s={{ hide: true }}>
             <Line maxWidth={48} />

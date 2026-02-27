@@ -16,6 +16,8 @@ import {
 import { baseURL, person } from "@/resources";
 import { useRouter } from "next/navigation";
 
+const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
+
 export default function AudiFoilBoard() {
   const router = useRouter();
 
@@ -86,7 +88,6 @@ export default function AudiFoilBoard() {
               alt="Audi e-tron eFoil Motor"
               radius="l"
               aspectRatio="4 / 3"
-              style={{ background: '#fff' }}
             />
             <Column gap="24">
               <Heading as="h2" variant="display-strong-m">
@@ -156,20 +157,62 @@ export default function AudiFoilBoard() {
         </Column>
       </Column>
 
+      {/* Own an eFoil */}
+      <Column fillWidth maxWidth="l" paddingX="16" paddingY="l" gap="l">
+        <Column horizontal="center" gap="16">
+          <Heading as="h2" variant="display-strong-m" align="center">Own an eFoil in the Maldives</Heading>
+          <Text variant="body-default-l" onBackground="neutral-weak" align="center" style={{ maxWidth: '720px' }}>
+            We facilitate access to Audi e-tron eFoils in the Maldives through our trusted partner network. From acquisition to delivery, local support, and maintenance — we are with you every step of the way.
+          </Text>
+        </Column>
+        <Grid columns="3" gap="24">
+          <Column padding="24" gap="12" horizontal="center" background="neutral-alpha-weak" radius="l">
+            <Text variant="heading-strong-m" align="center">Ride on Your Schedule</Text>
+            <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+              No bookings, no availability constraints. Your board, your lagoon, whenever you want.
+            </Text>
+          </Column>
+          <Column padding="24" gap="12" horizontal="center" background="neutral-alpha-weak" radius="l">
+            <Text variant="heading-strong-m" align="center">Local Support</Text>
+            <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+              Spare parts, maintenance, and technical support available locally in the Maldives.
+            </Text>
+          </Column>
+          <Column padding="24" gap="12" horizontal="center" background="neutral-alpha-weak" radius="l">
+            <Text variant="heading-strong-m" align="center">Delivery & Setup</Text>
+            <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+              We handle delivery to your resort or yacht, initial setup, and a personal orientation session.
+            </Text>
+          </Column>
+        </Grid>
+        <Row fillWidth horizontal="center" paddingTop="m">
+          <Button
+            size="l"
+            variant="primary"
+            onClick={() => window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi, I'm interested in acquiring an Audi e-tron eFoil in the Maldives.")}`, '_blank')}
+          >
+            Enquire About Ownership
+          </Button>
+        </Row>
+      </Column>
+
       {/* CTA Section */}
       <Column fillWidth maxWidth="l" horizontal="center" paddingX="16" paddingY="xl" gap="32">
         <Column horizontal="center" gap="16">
-          <Heading as="h2" variant="display-strong-l" align="center">Ready to experience the flight?</Heading>
+          <Heading as="h2" variant="display-strong-l" align="center">Experience, Learn, or Own</Heading>
           <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-            Book your session with our premium eFoil partners today.
+            Three ways to get on the water with the Audi e-tron eFoil
           </Text>
         </Column>
-        <Row gap="16">
-          <Button size="l" variant="primary" onClick={() => router.push('/book/location')}>
-            Book Now
+        <Row gap="16" wrap horizontal="center">
+          <Button size="l" variant="primary" onClick={() => router.push('/efoil-experiences-maldives')}>
+            Experiences
           </Button>
-          <Button size="l" variant="secondary" onClick={() => router.push('/gallery')}>
-            View Gallery
+          <Button size="l" variant="secondary" onClick={() => router.push('/learn-efoil-maldives')}>
+            Learn
+          </Button>
+          <Button size="l" variant="tertiary" onClick={() => router.push('/gallery')}>
+            Gallery
           </Button>
         </Row>
       </Column>

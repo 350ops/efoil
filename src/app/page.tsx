@@ -29,16 +29,16 @@ export async function generateMetadata() {
     alternates: { canonical: "/" },
     openGraph: {
       type: "website",
-      title: "eFoil Experiences Maldives",
+      title: "eFoil Maldives | Experience, Learn & Own",
       description:
-        "Premium Audi e-tron eFoil experiences in Maldives. Delivered to yachts, boats, and resorts. Private sessions in Hulhumalé.",
+        "Premium Audi e-tron eFoil experiences in the Maldives. Private sessions, personal instruction, and equipment access — delivered to your yacht, resort, or private location.",
       url: baseURL,
       siteName: "eFoil Maldives",
       images: [
         {
           url: `${baseURL}/images/audi-efoil-maldives.jpg`,
-          width: 2188,
-          height: 1722,
+          width: 2400,
+          height: 1260,
           alt: "Audi e-tron eFoil rental in Maldives lagoon",
         },
       ],
@@ -53,7 +53,7 @@ const serviceSchema = {
   "@type": "Service",
   name: "eFoil Experiences Maldives",
   description:
-    " Connecting you with the official Audi e-tron eFoil distributor in the Maldives. Delivery to yachts, boats, and resorts with or without professional instruction.",
+    "Premium Audi e-tron eFoil experiences in the Maldives. Private sessions, personal instruction, and equipment access — delivered to your yacht, resort, or private location.",
   provider: {
     "@type": "Organization",
     name: "eFoil Maldives",
@@ -65,7 +65,7 @@ const serviceSchema = {
       {
         "@type": "ContactPoint",
         telephone: `+${whatsappNumber}`,
-        contactType: "concierge",
+        contactType: "customer service",
         availableLanguage: ["English", "Dhivehi"],
       },
       {
@@ -76,7 +76,7 @@ const serviceSchema = {
     ],
   },
   image: `${baseURL}/images/audi-efoil-maldives.jpg`,
-  serviceType: "eFoil rental",
+  serviceType: "eFoil experience",
   areaServed: {
     "@type": "Country",
     name: "Maldives",
@@ -101,12 +101,17 @@ const serviceSchema = {
       },
       {
         "@type": "Offer",
-        name: "Determination Program",
-        price: "0.00",
-        priceCurrency: "USD",
+        name: "Learn to eFoil",
         description:
-          "First 3 eFoil experiences fully covered for people with any disability. Located in Hulhumalé.",
-        url: `${baseURL}/efoil-experiences-maldives`,
+          "Private eFoil instruction in the Maldives. Discovery sessions, progression coaching, and advanced riding guidance on the Audi e-tron eFoil.",
+        url: `${baseURL}/learn-efoil-maldives`,
+      },
+      {
+        "@type": "Offer",
+        name: "Own an Audi eFoil",
+        description:
+          "Acquire your own Audi e-tron eFoil in the Maldives. We facilitate access through our trusted partner network with local support and delivery.",
+        url: `${baseURL}/audi-foil-board`,
       },
     ],
   },
@@ -137,7 +142,7 @@ const faqSchema = {
       name: "Is eFoiling suitable for beginners?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. All our partners provide professional instruction and safety briefings. The Audi e-tron eFoil is beginner-friendly, and most riders are up and flying within a short session.",
+        text: "Yes. We provide professional instruction and safety briefings with every session. The Audi e-tron eFoil is beginner-friendly, and most riders are up and flying within a short session.",
       },
     },
     {
@@ -145,7 +150,7 @@ const faqSchema = {
       name: "What is the minimum rental duration?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Our partners offer flexible packages starting from 2-hour sessions. You can also arrange to keep the eFoil for the duration of your stay (multiple days) for maximum freedom.",
+        text: "We offer flexible packages starting from half-day sessions. You can also arrange to keep the eFoil for the duration of your stay (multiple days) for maximum freedom.",
       },
     },
     {
@@ -153,7 +158,7 @@ const faqSchema = {
       name: "What happens if the weather is bad on my booking day?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Safety is paramount. Our partners monitor weather conditions and will work with you to reschedule if conditions are unsafe for riding.",
+        text: "Safety is paramount. We monitor weather conditions daily and will work with you to reschedule if conditions are unsafe for riding.",
       },
     },
     {
@@ -161,7 +166,7 @@ const faqSchema = {
       name: "Is a safety briefing included?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Every rental includes a safety briefing and equipment overview from the provider. Life vests and helmets are standard safety gear provided.",
+        text: "Yes. Every session includes a safety briefing and equipment overview. Impact vests and helmets are standard safety gear provided with all experiences.",
       },
     },
     {
@@ -169,7 +174,7 @@ const faqSchema = {
       name: "How do I book an eFoil rental?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Simply contact us via WhatsApp or email with your dates and location. We will coordinate with our partners to find the best package for you and handle the booking arrangements.",
+        text: "Simply contact us via WhatsApp or email with your dates and location. We will arrange the best package for you and handle all logistics.",
       },
     },
     {
@@ -177,7 +182,7 @@ const faqSchema = {
       name: "What eFoil equipment is used?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Our partners exclusively use the Audi e-tron eFoil, known for its safety features, performance, and silence. We ensure you ride the best equipment available in the Maldives.",
+        text: "We exclusively use the Audi e-tron eFoil, known for its safety features, performance, and silence — the best equipment available in the Maldives.",
       },
     },
   ],
@@ -254,10 +259,10 @@ export default function Home() {
       <Column fillWidth horizontal="center" gap="l" paddingY="l">
         <Column maxWidth="m" gap="m">
             <Text variant="body-default-m" onBackground="neutral-weak">
-              Premium eFoil rental in Maldives. Ride the world&apos;s most advanced electric hydrofoil boards with delivery to private island resorts, yachts, and liveaboards nationwide. Includes professional instruction so you can glide effortlessly over crystal-clear waters.
+              Premium eFoil experiences in the Maldives. Ride the Audi e-tron electric hydrofoil — the world&apos;s most advanced eFoil — delivered to your yacht, resort, or private location. Professional instruction included so you can glide effortlessly over crystal-clear waters.
             </Text>
             <Text variant="body-default-m" onBackground="neutral-weak">
-              Aiming to be Maldives finest eFoil tenders. Experience premium electric hydrofoil surfboards with experienced instructors available if requested. We cover all across Maldivian waters.
+              Experience, learn, or own. From private sessions and personal instruction to acquiring your own Audi eFoil — we cover every aspect of eFoiling across Maldivian waters.
             </Text>
         </Column>
       </Column>
@@ -288,7 +293,7 @@ export default function Home() {
             {/* Image Above Title */}
             <Column fillWidth radius="l" overflow="hidden" border="neutral-alpha-weak">
               <Media
-                src="/images/gallery/efoil-turquoise-water.png"
+                src="/images/gallery/efoil-turquoise-water.jpg"
                 alt="Person eFoiling above turquoise water"
                 aspectRatio="16 / 9"
               />
@@ -343,14 +348,14 @@ export default function Home() {
           </Grid>
           
           <Grid columns="3" gap="24" fillWidth>
-            <Column overflow="hidden" radius="l" style={{ background: "#fff" }}>
+            <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
               <Media
                 src="/images/gallery/efoil-white-background.jpeg"
                 alt="Audi e-tron eFoil hydrofoil wing and motor detail"
                 aspectRatio="4 / 3"
               />
             </Column>
-            <Column overflow="hidden" radius="l" style={{ background: "#fff" }}>
+            <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
               <Media
                 src="/images/gallery/engine-white-background.jpg"
                 alt="Audi e-tron eFoil integrated propulsion unit — fully enclosed propeller"
@@ -388,10 +393,10 @@ export default function Home() {
         <Column fillWidth gap="l" paddingY="l">
           <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
-              Our Partners Come to You
+              Delivered Where You Are
             </Heading>
             <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-              Network of providers delivering anywhere in the Maldives
+              We bring the eFoil to your yacht, resort, or private location
             </Text>
           </Column>
           
@@ -407,7 +412,7 @@ export default function Home() {
                 Superyachts
               </Heading>
               <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-                Our partners deliver to yachts and superyachts throughout the atolls
+                We deliver to yachts and superyachts throughout the atolls
               </Text>
             </Column>
             <Column
@@ -421,7 +426,7 @@ export default function Home() {
                 Liveaboards & Boats
               </Heading>
               <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-                Safari boats and private charters—delivered to your vessel
+                Safari boats and private charters — delivered to your vessel
               </Text>
             </Column>
             <Column
@@ -476,7 +481,7 @@ export default function Home() {
             Ready to Fly?
           </Heading>
           <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-            Book your eFoil experience today and create unforgettable memories in Maldives
+            Experience, learn, or own — tell us what you&apos;re looking for
           </Text>
           <BottomCTA />
         </Column>
@@ -563,62 +568,71 @@ export default function Home() {
         </Grid>
       </RevealFx>
 
-      {/* Explore Experiences */}
+      {/* 3 Ways to Experience eFoiling */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
         <Column fillWidth gap="l" paddingY="l">
           <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
-              Explore Experiences
+              3 Ways to Experience eFoiling
             </Heading>
             <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-              Choose the experience that fits your trip
+              Experience, learn, or own — choose what fits your journey
             </Text>
           </Column>
-          <Grid columns="2" gap="24" fillWidth>
+          <Grid columns="3" gap="24" fillWidth>
             <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l" horizontal="center">
               <Heading as="h3" variant="heading-strong-m" align="center">
-                Yacht Delivery
+                eFoil Experiences
               </Heading>
               <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-                eFoil delivered to your superyacht or charter vessel. Instructor, safety gear, and zero-footprint logistics included.
-              </Text>
-              <Button href="/yachts" variant="secondary" size="m" arrowIcon>
-                Yacht Delivery
-              </Button>
-            </Column>
-            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l" horizontal="center">
-              <Heading as="h3" variant="heading-strong-m" align="center">
-                Private eFoil Experiences
-              </Heading>
-              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-                Curated experiences delivered anywhere in the Maldives. Half-day, sunset, and multi-day packages.
+                Private sessions delivered to your yacht, resort, or boat. Half-day, sunset, and multi-day packages with everything included.
               </Text>
               <Button href="/efoil-experiences-maldives" variant="secondary" size="m" arrowIcon>
                 View Experiences
               </Button>
             </Column>
-            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l" horizontal="center">
+            <Column padding="32" gap="16" background="brand-alpha-weak" radius="l" border="brand-alpha-medium" horizontal="center">
               <Heading as="h3" variant="heading-strong-m" align="center">
-                Crew & Layover
+                Learn to eFoil
               </Heading>
               <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-                Airline crew day trip: dolphins, snorkeling, sandbank, sunset cruise — with optional eFoil add-on.
+                From your first ride to advanced carving. Private instruction with expert guidance on the Audi e-tron eFoil.
               </Text>
-              <Button href="/crew" variant="secondary" size="m" arrowIcon>
+              <Button href="/learn-efoil-maldives" variant="secondary" size="m" arrowIcon>
+                Start Learning
+              </Button>
+            </Column>
+            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l" horizontal="center">
+              <Heading as="h3" variant="heading-strong-m" align="center">
+                Own an eFoil
+              </Heading>
+              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+                Acquire your own Audi e-tron eFoil in the Maldives. We facilitate access through our trusted partner network.
+              </Text>
+              <Button href="/audi-foil-board" variant="secondary" size="m" arrowIcon>
+                Explore Ownership
+              </Button>
+            </Column>
+          </Grid>
+
+          {/* Secondary links */}
+          <Grid columns="2" gap="16" fillWidth>
+            <Row padding="20" gap="12" vertical="center" horizontal="center" background="neutral-alpha-weak" radius="l">
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                Airline crew layover?
+              </Text>
+              <Button href="/crew" variant="tertiary" size="s" arrowIcon>
                 Crew Day Trip
               </Button>
-            </Column>
-            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l" horizontal="center">
-              <Heading as="h3" variant="heading-strong-m" align="center">
-                Rental Information
-              </Heading>
-              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-                Everything you need to know about renting an eFoil in the Maldives — pricing, locations, and how to book.
+            </Row>
+            <Row padding="20" gap="12" vertical="center" horizontal="center" background="neutral-alpha-weak" radius="l">
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                Looking for rental details?
               </Text>
-              <Button href="/efoil-rental-maldives" variant="secondary" size="m" arrowIcon>
-                Rental Info
+              <Button href="/efoil-rental-maldives" variant="tertiary" size="s" arrowIcon>
+                Rental Information
               </Button>
-            </Column>
+            </Row>
           </Grid>
         </Column>
       </RevealFx>
@@ -631,7 +645,7 @@ export default function Home() {
               Frequently Asked Questions
             </Heading>
             <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-              Common questions about eFoil rentals in Maldives
+              Common questions about eFoiling in the Maldives
             </Text>
           </Column>
           

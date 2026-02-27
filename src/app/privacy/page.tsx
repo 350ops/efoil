@@ -29,7 +29,7 @@ export default function PrivacyPolicy() {
           </Section>
 
           <Section title="2. How We Use Your Information">
-            We use the information we collect to connect you with our vetted eFoil providers in the Maldives, facilitate your bookings, and communicate with you about our services. We do not sell your personal data to third parties.
+            We use the information we collect to arrange your eFoil experiences in the Maldives, facilitate your bookings, and communicate with you about our services. We do not sell your personal data to third parties.
           </Section>
 
           <Section title="3. Data Protection">

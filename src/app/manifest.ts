@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "Premium Audi e-tron eFoil rentals delivered to yachts, boats, and resorts across Maldives.",
     start_url: "/",
     display: "standalone",
-    background_color: "#151515",
-    theme_color: "#151515",
+    background_color: "#ffffff",
+    theme_color: "#ffffff",
     icons: [
       {
         src: "/android-chrome-192x192.png",

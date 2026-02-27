@@ -1,11 +1,11 @@
-import type { About, Blog, Crew, EfoilExperiences, EfoilRental, Events, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import type { About, Blog, Crew, EfoilExperiences, EfoilRental, Events, Gallery, Home, Learn, Newsletter, Person, Social, Work } from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
   firstName: "eFoil",
   lastName: "Maldives",
   name: "eFoil Maldives",
-  role: "Premium eFoil Rental Service",
+  role: "Premium eFoil Experiences",
   avatar: "/favicon.png",
   email: "hello@efoil.rent",
   location: "Indian/Maldives", // IANA time zone identifier
@@ -44,15 +44,13 @@ const home: Home = {
   image: "/images/audi-efoil-maldives.jpg",
   label: "Home",
   // biome-ignore lint/style/noUnusedTemplateLiteral: <explanation>
-  title: `eFoil Rental Maldives | Connect with Premium eFoil Providers`,
+  title: `eFoil Maldives | Experience, Learn & Own`,
   // biome-ignore lint/style/noUnusedTemplateLiteral: <explanation>
-  description: `Find and book premium Audi e-tron eFoil experiences in the Maldives. We connect you with trusted partners for delivery to your yacht, boat, or resort.`,
+  description: `Premium Audi e-tron eFoil experiences in the Maldives. Private sessions, personal instruction, and equipment access — delivered to your yacht, resort, or private location.`,
   headline: <>eFoil Experiences in the Maldives</>,
   featured: {
-    display: true,
-    title: (
-      <>AWAKE RÄVIK - <span style={{ color: "#eb4b42" }}>AUDI e-TRON</span> - <span style={{ color: "#38bdf8" }}>FLITEBOARD</span></>
-    ),
+    display: false,
+    title: <>AUDI e-TRON eFOIL</>,
     href: "/audi-foil-board",
   },
   subline: (
@@ -61,8 +59,8 @@ const home: Home = {
       <br />
       <Text as="span" variant="body-default-m" onBackground="neutral-weak">A collaboration between Audi and Aerofoils.</Text>
       <br />
-      <Text as="span" variant="body-default-m" onBackground="neutral-medium">We pride in excellent service, delivering our products to every lagoon in every atoll.{" "}</Text>
-      <Text as="span" weight="strong" style={{ color: "#eb4b42" }}>And fast.</Text>
+      <Text as="span" variant="body-default-m" onBackground="neutral-medium">Delivered to your yacht, resort, or private location — anywhere in the Maldives.{" "}</Text>
+      <Text as="span" weight="strong" style={{ color: "#dc2626" }}>And fast.</Text>
     </>
   ),
 };
@@ -70,8 +68,8 @@ const home: Home = {
 const about: About = {
   path: "/about",
   label: "About",
-  title: "About eFoil Maldives | Connecting You to Premium eFoil Experiences",
-  description: "We are your concierge for eFoil rentals in the Maldives, connecting you with trusted partners who deliver Audi e-tron eFoils to your location.",
+  title: "About eFoil Maldives | Experience, Learn & Own",
+  description: "Premium eFoil experiences, personal instruction, and Audi e-tron equipment access across the Maldives.",
   tableOfContent: {
     display: true,
     subItems: false,
@@ -85,13 +83,13 @@ const about: About = {
   },
   intro: {
     display: true,
-    title: "Your Concierge for Flying on Water",
+    title: "The eFoil Experience in the Maldives",
     description: (
       <>
-        eFoil Maldives connects you with the best eFoil providers in the archipelago. 
-        We work with reliable partners to bring the revolutionary Audi e-tron eFoil experience 
-        directly to your luxury yacht, liveaboard, or island resort. Our partners handle everything 
-        from delivery to instruction, ensuring a seamless and unforgettable experience.
+        eFoil Maldives delivers premium Audi e-tron eFoil experiences across the archipelago.
+        We bring the board, the instruction, and the logistics directly to your yacht, liveaboard,
+        or island resort. Whether you want to ride, learn, or own — we handle everything
+        for a seamless and unforgettable experience on the water.
       </>
     ),
   },
@@ -100,12 +98,12 @@ const about: About = {
     title: "Why Book With Us",
     experiences: [
       {
-        company: "Trusted Partners",
-        timeframe: "Vetted Providers",
-        role: "Reliable Network",
+        company: "Premium Equipment",
+        timeframe: "Audi e-tron eFoil",
+        role: "The Best on the Water",
         achievements: [
-          "We connect you only with established, high-quality eFoil operators.",
-          "Our partners are selected for their reliability, equipment quality, and safety standards.",
+          "We exclusively use the Audi e-tron eFoil — the most advanced electric hydrofoil available.",
+          "Silent propulsion, enclosed motor, wireless control, and the safest design in the industry.",
         ],
         images: [],
       },
@@ -114,18 +112,18 @@ const about: About = {
         timeframe: "Delivery & Pickup",
         role: "Hassle-Free Service",
         achievements: [
-          "Our partners deliver the eFoil directly to your location and pick it up when you're done.",
+          "We deliver the eFoil directly to your location and collect it when you're done.",
           "Perfect for yacht charters and resort stays where you want the freedom to ride on your schedule.",
         ],
         images: [],
       },
       {
-        company: "Complete Package",
-        timeframe: "Instruction Included",
-        role: "Safe & Fun",
+        company: "Expert Instruction",
+        timeframe: "Every Session",
+        role: "Learn at Any Level",
         achievements: [
-          "Initial lessons with professional instructors are arranged to get you flying safely.",
-          "Partners provide all necessary safety gear and briefings.",
+          "Professional instruction included with every experience — from first ride to advanced coaching.",
+          "All safety gear, briefings, and equipment setup handled by our team.",
         ],
         images: [],
       },
@@ -143,15 +141,15 @@ const about: About = {
       {
         title: "Request Your Dates",
         description: (
-          <>Let us know when and where you'll be staying. We coordinate availability with our partners.</>
+          <>Let us know when and where you'll be staying. We check availability and confirm your session.</>
         ),
         tags: [],
         images: [],
       },
       {
-        title: "We Arrange Delivery",
+        title: "We Deliver to You",
         description: (
-          <>Our partners deliver the eFoil to your yacht or resort, complete with setup and initial instruction.</>
+          <>We bring the eFoil to your yacht, resort, or private location — complete with setup and instruction.</>
         ),
         tags: [],
         images: [],
@@ -159,7 +157,7 @@ const about: About = {
       {
         title: "Ride & Return",
         description: (
-          <>Keep the board for your booking duration. When you're finished, our partners come to collect it.</>
+          <>Keep the board for your booking duration. When you're finished, we come to collect it.</>
         ),
         tags: [],
         images: [],
@@ -207,7 +205,14 @@ const crew: Crew = {
   path: "/crew",
   label: "Crew Trips",
   title: "Airline Crew Day Trip Maldives | Dolphins, Snorkeling, Sandbank & Sunset",
-  description: "The ultimate Maldives layover experience for airline crew. Swim with dolphins, snorkel pristine reefs, visit a private sandbank, and cruise into the sunset. From $80/person, groups up to 6.",
+  description: "The ultimate Maldives layover experience for airline crew. Swim with dolphins, snorkel pristine reefs, visit a private sandbank, and cruise into the sunset. Groups up to 6.",
+};
+
+const learn: Learn = {
+  path: "/learn-efoil-maldives",
+  label: "Learn",
+  title: "Learn to eFoil in the Maldives | Discovery, Progression & Advanced Coaching",
+  description: "Learn to ride an electric hydrofoil in the Maldives. Private eFoil instruction from discovery sessions to advanced coaching. Audi e-tron eFoil with expert guidance.",
 };
 
 const gallery: Gallery = {
@@ -227,12 +232,12 @@ const gallery: Gallery = {
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/efoil-action-turquoise.png",
+      src: "/images/gallery/efoil-action-turquoise.jpg",
       alt: "Rider flying on Audi e-tron eFoil above crystal clear turquoise Maldives water - Action shot",
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/efoil-drone.png",
+      src: "/images/gallery/efoil-drone.jpg",
       alt: "Two riders eFoiling over turquoise Maldives lagoon - Aerial drone shot",
       orientation: "horizontal",
     },
@@ -252,7 +257,7 @@ const gallery: Gallery = {
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/maldives-turquoise-lagoon.png",
+      src: "/images/gallery/maldives-turquoise-lagoon.jpg",
       alt: "Crystal clear turquoise lagoon in Maldives - Perfect watersports and eFoil conditions",
       orientation: "horizontal",
     },
@@ -267,22 +272,22 @@ const gallery: Gallery = {
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/dolphins-maldives.png",
+      src: "/images/gallery/dolphins-maldives.jpg",
       alt: "Wild spinner dolphins in Maldives - Marine life encounters during watersports sessions",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/efoil-turquoise-water.png",
+      src: "/images/gallery/efoil-turquoise-water.jpg",
       alt: "eFoil rider gliding above turquoise Maldives water - Electric hydrofoil adventure",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/maldives-aerial-island.png",
+      src: "/images/gallery/maldives-aerial-island.jpg",
       alt: "Aerial view of a Maldivian island surrounded by turquoise lagoon - Watersports paradise",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/turtle-maldives.png",
+      src: "/images/gallery/turtle-maldives.jpg",
       alt: "Sea turtle swimming over coral reef in Maldives - Snorkeling encounters",
       orientation: "horizontal",
     },
@@ -302,12 +307,12 @@ const gallery: Gallery = {
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/maldives-sunset-ocean.png",
+      src: "/images/gallery/maldives-sunset-ocean.jpg",
       alt: "Golden sunset over the Indian Ocean in Maldives - Perfect ending to a watersports day",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/maldives-sandbank.png",
+      src: "/images/gallery/maldives-sandbank.jpg",
       alt: "Private white sandbank in the middle of the Indian Ocean - Maldives day trip destination",
       orientation: "horizontal",
     },
@@ -339,4 +344,4 @@ const gallery: Gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery, events, efoilExperiences, efoilRental, crew };
+export { person, social, newsletter, home, about, blog, work, gallery, events, efoilExperiences, efoilRental, crew, learn };

@@ -145,7 +145,7 @@ export default function EventsPage() {
       <RevealFx translateY="16" delay={0.6} fillWidth>
         <Column fillWidth radius="l" overflow="hidden" border="neutral-alpha-weak">
           <Media
-            src="/images/gallery/efoil-drone.png"
+            src="/images/gallery/efoil-drone.jpg"
             alt="Two riders eFoiling over a turquoise Maldives lagoon — aerial drone shot"
             aspectRatio="16 / 7"
           />
@@ -157,21 +157,21 @@ export default function EventsPage() {
         <Grid columns="3" gap="24" fillWidth>
           <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
-              src="/images/gallery/efoil-action-turquoise.png"
+              src="/images/gallery/efoil-action-turquoise.jpg"
               alt="Rider flying on eFoil above crystal clear turquoise Maldives water — action shot"
               aspectRatio="3 / 4"
             />
           </Column>
           <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
-              src="/images/gallery/efoil-turquoise-water.png"
+              src="/images/gallery/efoil-turquoise-water.jpg"
               alt="eFoil rider gliding above turquoise Maldives water — electric hydrofoil watersports"
               aspectRatio="3 / 4"
             />
           </Column>
           <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
-              src="/images/gallery/maldives-turquoise-lagoon.png"
+              src="/images/gallery/maldives-turquoise-lagoon.jpg"
               alt="Crystal clear turquoise lagoon in Maldives — perfect watersports conditions"
               aspectRatio="3 / 4"
             />
@@ -310,7 +310,7 @@ export default function EventsPage() {
       <RevealFx translateY="16" delay={0.2} fillWidth>
         <Column fillWidth radius="l" overflow="hidden" border="neutral-alpha-weak">
           <Media
-            src="/images/gallery/maldives-aerial-island.png"
+            src="/images/gallery/maldives-aerial-island.jpg"
             alt="Aerial view of a Maldivian island surrounded by turquoise lagoon — watersports paradise"
             aspectRatio="21 / 9"
           />

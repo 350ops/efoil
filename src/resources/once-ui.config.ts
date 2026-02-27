@@ -25,10 +25,10 @@ const routes: RoutesConfig = {
   "/crew": true,
   "/efoil-experiences-maldives": true,
   "/efoil-rental-maldives": true,
+  "/learn-efoil-maldives": true,
   "/yachts": true,
   "/resorts": true,
   "/partners": true,
-  "/book/location": true,
   "/audi-foil-board": true,
   "/privacy": true,
   "/terms": true,
@@ -39,7 +39,7 @@ const routes: RoutesConfig = {
 const display: DisplayConfig = {
   location: false, // Not needed for business site
   time: false, // Not needed for business site
-  themeSwitcher: false, // Keep consistent dark theme
+  themeSwitcher: false, // Keep consistent light theme
 };
 
 // Enable password protection on selected routes
@@ -85,14 +85,14 @@ const fonts: FontsConfig = {
 
 // default customization applied to the HTML in the main layout.tsx
 const style: StyleConfig = {
-  theme: "dark", // dark | light | system - Dark theme for premium feel
-  neutral: "slate", // sand | gray | slate | custom
+  theme: "light", // dark | light | system
+  neutral: "gray", // sand | gray | slate | custom
   brand: "cyan", // Ocean/water theme colors
   accent: "aqua", // Complementary water color
   solid: "contrast", // color | contrast
   solidStyle: "flat", // flat | plastic
   border: "rounded", // rounded | playful | conservative - Clean, premium look
-  surface: "translucent", // filled | translucent
+  surface: "filled", // filled | translucent
   transition: "all", // all | micro | macro
   scaling: "100", // 90 | 95 | 100 | 105 | 110
 };
@@ -130,8 +130,8 @@ const effects: EffectsConfig = {
     colorEnd: "page-background",
   },
   dots: {
-    display: true,
-    opacity: 40,
+    display: false,
+    opacity: 20,
     size: "2",
     color: "brand-background-strong",
   },
@@ -200,7 +200,7 @@ const mailchimp: MailchimpConfig = {
 const schema: SchemaConfig = {
   logo: "/favicon.png",
   type: "LocalBusiness",
-  name: "eFoil Maldives - Premium eFoil Rentals",
+  name: "eFoil Maldives - Experience, Learn & Own",
   description: home.description,
   email: "hello@efoil.rent",
 };
