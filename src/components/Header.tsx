@@ -43,6 +43,9 @@ export const Header = () => {
     return pathname.startsWith(item.href);
   };
 
+  // Hide on /club — it renders its own ClubHeader
+  if (pathname === "/club") return null;
+
   return (
     <>
       <header className={styles.header}>

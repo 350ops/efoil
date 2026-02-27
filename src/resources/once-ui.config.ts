@@ -34,6 +34,7 @@ const routes: RoutesConfig = {
   "/terms": true,
   "/login": true,
   "/booking/success": true,
+  "/club": true,
 };
 
 const display: DisplayConfig = {

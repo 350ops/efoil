@@ -1,22 +1,13 @@
 "use client";
 
 import { IconButton, Row } from "@once-ui-system/core";
-import { usePathname } from "next/navigation";
 import { trackInstagram } from "@/lib/analytics";
 
 const INSTAGRAM_URL = "https://www.instagram.com/efoil.maldives/";
 
-export function MobileInstagramButton() {
-  const pathname = usePathname();
-
-  if (pathname === "/booking/success" || pathname === "/club") {
-    return null;
-  }
-
+export function ClubFloatingCTA() {
   return (
     <Row
-      hide
-      s={{ hide: false }}
       position="fixed"
       bottom="24"
       right="16"
@@ -27,8 +18,8 @@ export function MobileInstagramButton() {
         icon="instagram"
         variant="primary"
         size="l"
-        tooltip="Message us on Instagram"
-        onClick={() => trackInstagram("mobile_fab")}
+        tooltip="Instagram Concierge"
+        onClick={() => trackInstagram("club_floating_cta")}
         style={{
           boxShadow: "0 8px 24px rgba(0, 0, 0, 0.3)",
         }}

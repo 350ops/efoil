@@ -34,3 +34,15 @@ export function trackLeadSubmit(formType: "availability" | "partner") {
 export function trackSocialClick(platform: string) {
   track("social_click", { platform });
 }
+
+export function trackMembershipApply(source: string) {
+  track("membership_apply", { source });
+}
+
+export function trackWaitlistSignup(source: string) {
+  track("waitlist_signup", { source });
+}
+
+export function trackClubCTA(action: string) {
+  track("club_cta_click", { action });
+}
