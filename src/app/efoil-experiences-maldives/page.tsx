@@ -177,7 +177,7 @@ export default function EfoilExperiencesPage() {
           </Column>
           <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
-              src="/images/gallery/efoil-turquoise-water.png"
+              src="/images/gallery/efoil-turquoise-water.jpg"
               alt="eFoil gliding over crystal-clear lagoon in the Maldives"
               aspectRatio="16 / 10"
             />

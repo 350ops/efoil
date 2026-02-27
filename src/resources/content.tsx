@@ -225,12 +225,12 @@ const gallery: Gallery = {
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/efoil-action-turquoise.png",
+      src: "/images/gallery/efoil-action-turquoise.jpg",
       alt: "Rider flying on Audi e-tron eFoil above crystal clear turquoise Maldives water - Action shot",
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/efoil-drone.png",
+      src: "/images/gallery/efoil-drone.jpg",
       alt: "Two riders eFoiling over turquoise Maldives lagoon - Aerial drone shot",
       orientation: "horizontal",
     },
@@ -250,7 +250,7 @@ const gallery: Gallery = {
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/maldives-turquoise-lagoon.png",
+      src: "/images/gallery/maldives-turquoise-lagoon.jpg",
       alt: "Crystal clear turquoise lagoon in Maldives - Perfect watersports and eFoil conditions",
       orientation: "horizontal",
     },
@@ -265,22 +265,22 @@ const gallery: Gallery = {
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/dolphins-maldives.png",
+      src: "/images/gallery/dolphins-maldives.jpg",
       alt: "Wild spinner dolphins in Maldives - Marine life encounters during watersports sessions",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/efoil-turquoise-water.png",
+      src: "/images/gallery/efoil-turquoise-water.jpg",
       alt: "eFoil rider gliding above turquoise Maldives water - Electric hydrofoil adventure",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/maldives-aerial-island.png",
+      src: "/images/gallery/maldives-aerial-island.jpg",
       alt: "Aerial view of a Maldivian island surrounded by turquoise lagoon - Watersports paradise",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/turtle-maldives.png",
+      src: "/images/gallery/turtle-maldives.jpg",
       alt: "Sea turtle swimming over coral reef in Maldives - Snorkeling encounters",
       orientation: "horizontal",
     },
@@ -300,12 +300,12 @@ const gallery: Gallery = {
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/maldives-sunset-ocean.png",
+      src: "/images/gallery/maldives-sunset-ocean.jpg",
       alt: "Golden sunset over the Indian Ocean in Maldives - Perfect ending to a watersports day",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/maldives-sandbank.png",
+      src: "/images/gallery/maldives-sandbank.jpg",
       alt: "Private white sandbank in the middle of the Indian Ocean - Maldives day trip destination",
       orientation: "horizontal",
     },

@@ -29,8 +29,8 @@ const organizationSchema = {
   image: {
     "@type": "ImageObject",
     url: `${baseURL}/images/audi-efoil-maldives.jpg`,
-    width: 2188,
-    height: 1722,
+    width: 2400,
+    height: 1260,
     caption: "Audi e-tron eFoil rental in Maldives lagoon",
   },
   email: "hello@efoil.rent",
@@ -113,8 +113,8 @@ export async function generateMetadata() {
       images: [
         {
           url: `${baseURL}/images/audi-efoil-maldives.jpg`,
-          width: 2188,
-          height: 1722,
+          width: 2400,
+          height: 1260,
           alt: "Audi e-tron eFoil experience in Maldives lagoon",
           type: "image/jpeg",
         },

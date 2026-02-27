@@ -164,21 +164,21 @@ export default function CrewPage() {
         <Grid columns="3" gap="24" fillWidth>
           <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
-              src="/images/gallery/dolphins-maldives.png"
+              src="/images/gallery/dolphins-maldives.jpg"
               alt="Wild spinner dolphins in Maldives — swim with dolphins on the crew day trip"
               aspectRatio="4 / 3"
             />
           </Column>
           <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
-              src="/images/gallery/maldives-sandbank.png"
+              src="/images/gallery/maldives-sandbank.jpg"
               alt="Private white sandbank in the Indian Ocean — crew day trip picnic destination"
               aspectRatio="4 / 3"
             />
           </Column>
           <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
-              src="/images/gallery/maldives-sunset-ocean.png"
+              src="/images/gallery/maldives-sunset-ocean.jpg"
               alt="Golden sunset over the Indian Ocean — sunset cruise on Maldives crew day trip"
               aspectRatio="4 / 3"
             />
@@ -281,7 +281,7 @@ export default function CrewPage() {
             </Column>
             <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
               <Media
-                src="/images/gallery/efoil-drone.png"
+                src="/images/gallery/efoil-drone.jpg"
                 alt="Aerial drone shot of two eFoil riders above turquoise Maldives lagoon"
                 aspectRatio="16 / 10"
               />
@@ -367,14 +367,14 @@ export default function CrewPage() {
         <Grid columns="2" gap="24" fillWidth>
           <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
-              src="/images/gallery/turtle-maldives.png"
+              src="/images/gallery/turtle-maldives.jpg"
               alt="Sea turtle swimming over coral reef in Maldives — snorkeling on the crew day trip"
               aspectRatio="16 / 10"
             />
           </Column>
           <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
-              src="/images/gallery/sealion-maldives.png"
+              src="/images/gallery/sealion-maldives.jpg"
               alt="Marine wildlife in Maldives — reef encounters on the crew day trip"
               aspectRatio="16 / 10"
             />

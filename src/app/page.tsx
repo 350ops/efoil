@@ -37,8 +37,8 @@ export async function generateMetadata() {
       images: [
         {
           url: `${baseURL}/images/audi-efoil-maldives.jpg`,
-          width: 2188,
-          height: 1722,
+          width: 2400,
+          height: 1260,
           alt: "Audi e-tron eFoil rental in Maldives lagoon",
         },
       ],
@@ -286,7 +286,7 @@ export default function Home() {
             {/* Image Above Title */}
             <Column fillWidth radius="l" overflow="hidden" border="neutral-alpha-weak">
               <Media
-                src="/images/gallery/efoil-turquoise-water.png"
+                src="/images/gallery/efoil-turquoise-water.jpg"
                 alt="Person eFoiling above turquoise water"
                 aspectRatio="16 / 9"
               />
