@@ -5,33 +5,33 @@ import { trackBookNow, trackViewPackages } from "@/lib/analytics";
 
 export function HeroCTA() {
   return (
-    <Column gap="16" horizontal="center" fillWidth>
-      <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column" }}>
-        <Button
-          id="efoil-experiences"
-          data-border="rounded"
-          href="/efoil-experiences-maldives"
-          variant="primary"
-          size="l"
-          weight="strong"
-          arrowIcon
-          onClick={() => trackBookNow("hero_experiences")}
-        >
-          eFoil Experiences
-        </Button>
-        <Button
-          id="learn-efoil"
-          data-border="rounded"
-          href="/learn-efoil-maldives"
-          variant="primary"
-          size="l"
-          weight="strong"
-          arrowIcon
-          onClick={() => trackBookNow("hero_learn")}
-        >
-          Learn to eFoil
-        </Button>
-      </Row>
+    <Column gap="16" horizontal="center" fillWidth style={{ maxWidth: 480 }}>
+      <Button
+        id="efoil-experiences"
+        data-border="rounded"
+        href="/efoil-experiences-maldives"
+        variant="primary"
+        size="l"
+        weight="strong"
+        fillWidth
+        arrowIcon
+        onClick={() => trackBookNow("hero_experiences")}
+      >
+        eFoil Experiences
+      </Button>
+      <Button
+        id="learn-efoil"
+        data-border="rounded"
+        href="/learn-efoil-maldives"
+        variant="primary"
+        size="l"
+        weight="strong"
+        fillWidth
+        arrowIcon
+        onClick={() => trackBookNow("hero_learn")}
+      >
+        Learn to eFoil
+      </Button>
       <Button
         id="own-efoil"
         data-border="rounded"
@@ -49,12 +49,13 @@ export function HeroCTA() {
 
 export function BottomCTA() {
   return (
-    <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column" }}>
+    <Column gap="16" horizontal="center" fillWidth style={{ maxWidth: 480 }}>
       <Button
         href="/efoil-experiences-maldives"
         variant="primary"
         size="l"
         weight="strong"
+        fillWidth
         arrowIcon
         onClick={() => trackViewPackages("bottom_cta_experiences")}
       >
@@ -65,11 +66,12 @@ export function BottomCTA() {
         variant="secondary"
         size="l"
         weight="strong"
+        fillWidth
         arrowIcon
         onClick={() => trackViewPackages("bottom_cta_learn")}
       >
         Learn to eFoil
       </Button>
-    </Row>
+    </Column>
   );
 }
