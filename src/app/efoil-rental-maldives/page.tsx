@@ -14,7 +14,7 @@ import {
 } from "@once-ui-system/core";
 import { baseURL, person, about } from "@/resources";
 
-const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
+const instagramUrl = "https://www.instagram.com/efoil.maldives/";
 
 export async function generateMetadata() {
   return {
@@ -116,7 +116,7 @@ const faqSchema = {
       name: "How do I book an eFoil rental in the Maldives?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The fastest way is via WhatsApp. Send us your dates, location, and group size, and we will confirm availability within minutes. You can also email us at hello@efoil.rent. We recommend booking at least 48 hours in advance.",
+        text: "The fastest way is via Instagram. Send us your dates, location, and group size, and we will confirm availability within minutes. You can also email us at hello@efoil.rent. We recommend booking at least 48 hours in advance.",
       },
     },
     {
@@ -182,13 +182,13 @@ export default function EfoilRentalPage() {
             <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column" }}>
               <Button
                 data-border="rounded"
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi, I'd like to rent an eFoil in the Maldives.")}`}
+                href={instagramUrl}
                 variant="primary"
                 size="l"
                 weight="strong"
                 arrowIcon
               >
-                Book via WhatsApp
+                Book via Instagram
               </Button>
               <Button
                 data-border="rounded"
@@ -433,13 +433,13 @@ export default function EfoilRentalPage() {
           <Row gap="16" wrap horizontal="center" s={{ direction: "column" }}>
             <Button
               data-border="rounded"
-              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi, I'd like to rent an eFoil in the Maldives.")}`}
+              href={instagramUrl}
               variant="primary"
               size="l"
               weight="strong"
               arrowIcon
             >
-              Book via WhatsApp
+              Book via Instagram
             </Button>
             <Button
               data-border="rounded"

@@ -11,8 +11,6 @@ import {
 } from "@once-ui-system/core";
 import { useRouter } from "next/navigation";
 
-const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
-
 interface ServiceCardProps {
   title: string;
   subtitle?: string;

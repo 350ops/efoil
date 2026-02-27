@@ -14,7 +14,7 @@ import {
 } from "@once-ui-system/core";
 import { baseURL, person, about, crew } from "@/resources";
 
-const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
+const instagramUrl = "https://www.instagram.com/efoil.maldives/";
 
 export async function generateMetadata() {
   return {
@@ -70,7 +70,7 @@ const faqSchema = {
       name: "How do I book?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The fastest way to book is via WhatsApp. Tap the booking button on this page, choose your date, and you're confirmed within minutes. You can also share the trip with colleagues so they can join and everyone gets a better price.",
+        text: "The fastest way to book is via Instagram. Tap the booking button on this page, choose your date, and you're confirmed within minutes. You can also share the trip with colleagues so they can join and everyone gets a better price.",
       },
     },
     {
@@ -138,13 +138,13 @@ export default function CrewPage() {
             <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column" }}>
               <Button
                 data-border="rounded"
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi! I'm airline crew and interested in Maldives day trip.")}`}
+                href={instagramUrl}
                 variant="primary"
                 size="l"
                 weight="strong"
                 arrowIcon
               >
-                Book via WhatsApp
+                Book via Instagram
               </Button>
               <Button
                 data-border="rounded"
@@ -310,7 +310,7 @@ export default function CrewPage() {
               {
                 num: "01",
                 title: "Book",
-                desc: "Tap the WhatsApp button, pick your date, and you're confirmed in minutes. No app download or sign-up needed.",
+                desc: "Tap the Instagram button, pick your date, and you're confirmed in minutes. No app download or sign-up needed.",
               },
               {
                 num: "02",
@@ -409,7 +409,7 @@ export default function CrewPage() {
           <Row fillWidth horizontal="center" paddingTop="m">
             <Button
               data-border="rounded"
-              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi! I'm airline crew and want to know about group pricing for the Maldives day trip.")}`}
+              href={instagramUrl}
               variant="primary"
               size="l"
               weight="strong"
@@ -544,13 +544,13 @@ export default function CrewPage() {
           <Row gap="16" wrap horizontal="center" s={{ direction: "column" }}>
             <Button
               data-border="rounded"
-              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi! I'm airline crew and want to book Maldives day trip.")}`}
+              href={instagramUrl}
               variant="primary"
               size="l"
               weight="strong"
               arrowIcon
             >
-              Book via WhatsApp
+              Book via Instagram
             </Button>
             <Button
               data-border="rounded"

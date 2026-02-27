@@ -133,7 +133,7 @@ export function PartnerApplicationForm() {
         <Column fillWidth>
           <Input
             id="partner-phone"
-            label="Phone / WhatsApp (optional)"
+            label="Phone (optional)"
             type="tel"
             placeholder="+960..."
             value={form.phone}

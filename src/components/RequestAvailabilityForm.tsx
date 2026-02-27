@@ -122,7 +122,7 @@ export function RequestAvailabilityForm() {
         <Column fillWidth>
           <Input
             id="phone"
-            label="Phone / WhatsApp (optional)"
+            label="Phone (optional)"
             type="tel"
             placeholder="+960..."
             value={form.phone}

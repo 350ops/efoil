@@ -46,7 +46,7 @@ export async function generateMetadata() {
   };
 }
 
-const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
+const instagramUrl = "https://www.instagram.com/efoil.maldives/";
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -60,11 +60,10 @@ const serviceSchema = {
     url: baseURL,
     logo: `${baseURL}/favicon.png`,
     email: "hello@efoil.rent",
-    telephone: `+${whatsappNumber}`,
     contactPoint: [
       {
         "@type": "ContactPoint",
-        telephone: `+${whatsappNumber}`,
+        url: instagramUrl,
         contactType: "customer service",
         availableLanguage: ["English", "Dhivehi"],
       },
@@ -174,7 +173,7 @@ const faqSchema = {
       name: "How do I book an eFoil rental?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Simply contact us via WhatsApp or email with your dates and location. We will arrange the best package for you and handle all logistics.",
+        text: "Simply contact us via Instagram or email with your dates and location. We will arrange the best package for you and handle all logistics.",
       },
     },
     {
@@ -269,7 +268,7 @@ export default function Home() {
 
       {/* SEO-Optimized Image Section */}
       <RevealFx translateY="16" delay={0.4} fillWidth>
-        <Column fillWidth radius="l" overflow="hidden" border="neutral-alpha-weak">
+        <Column fillWidth radius="l" overflow="hidden" border="neutral-alpha-weak" style={{ maxWidth: 720, margin: "0 auto" }}>
           <Media
             src="/images/gallery/resort_efoil_rental_maldives.jpeg"
             alt="Person riding an Audi e-tron eFoil above the turquoise waters of the Maldives"
@@ -293,7 +292,7 @@ export default function Home() {
             {/* Image Above Title */}
             <Column fillWidth radius="l" overflow="hidden" border="neutral-alpha-weak">
               <Media
-                src="/images/gallery/efoil-turquoise-water.jpg"
+                src="/images/gallery/efoilduo.jpeg"
                 alt="Person eFoiling above turquoise water"
                 aspectRatio="16 / 9"
               />
@@ -340,7 +339,7 @@ export default function Home() {
             </Column>
             <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
               <Media
-                src="/images/gallery/efoiling.jpeg"
+                src="/images/gallery/efoilguy.jpeg"
                 alt="Rider flying above the water on Audi e-tron eFoil in Maldives"
                 aspectRatio="16 / 10"
               />

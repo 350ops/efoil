@@ -19,10 +19,6 @@ export function trackCheckout(packageId: string) {
   track("checkout_start", { package: packageId });
 }
 
-export function trackWhatsApp(source: string) {
-  track("whatsapp_click", { source });
-}
-
 export function trackEmail(source: string) {
   track("email_click", { source });
 }

@@ -25,7 +25,7 @@ export default function PrivacyPolicy() {
 
         <Column gap="24">
           <Section title="1. Information We Collect">
-            We collect information you provide directly to us when you request a booking, subscribe to our newsletter, or contact us. This includes your name, email address, phone number (WhatsApp), and location details (resort or yacht coordinates).
+            We collect information you provide directly to us when you request a booking, subscribe to our newsletter, or contact us. This includes your name, email address, phone number, and location details (resort or yacht coordinates).
           </Section>
 
           <Section title="2. How We Use Your Information">

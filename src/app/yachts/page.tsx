@@ -14,7 +14,7 @@ import {
 import { baseURL, person, about } from "@/resources";
 import { RequestAvailabilityForm } from "@/components/RequestAvailabilityForm";
 
-const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
+const instagramUrl = "https://www.instagram.com/efoil.maldives/";
 
 export async function generateMetadata() {
   return {
@@ -124,7 +124,7 @@ export default function YachtsPage() {
             <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column" }}>
               <Button
                 data-border="rounded"
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi, I'd like to arrange eFoil delivery to our yacht in Maldives.")}`}
+                href={instagramUrl}
                 variant="primary"
                 size="l"
                 weight="strong"
@@ -341,7 +341,7 @@ export default function YachtsPage() {
           <Row fillWidth horizontal="center" paddingTop="m">
             <Button
               data-border="rounded"
-              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi, I'd like a quote for eFoil delivery to our yacht in Maldives.")}`}
+              href={instagramUrl}
               variant="primary"
               size="l"
               weight="strong"

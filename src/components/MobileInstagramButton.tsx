@@ -4,11 +4,11 @@ import { IconButton, Row } from "@once-ui-system/core";
 import { usePathname } from "next/navigation";
 import { trackInstagram } from "@/lib/analytics";
 
-const INSTAGRAM_HANDLE = "efoil.maldives";
+const INSTAGRAM_URL = "https://www.instagram.com/efoil.maldives/";
 
-export function MobileWhatsAppButton() {
+export function MobileInstagramButton() {
   const pathname = usePathname();
-  
+
   if (pathname === "/booking/success") {
     return null;
   }
@@ -23,7 +23,7 @@ export function MobileWhatsAppButton() {
       zIndex={10}
     >
       <IconButton
-        href={`https://ig.me/m/${INSTAGRAM_HANDLE}`}
+        href={INSTAGRAM_URL}
         icon="instagram"
         variant="primary"
         size="l"

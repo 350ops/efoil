@@ -14,7 +14,7 @@ import {
 import { baseURL, person, about } from "@/resources";
 import { RequestAvailabilityForm } from "@/components/RequestAvailabilityForm";
 
-const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
+const instagramUrl = "https://www.instagram.com/efoil.maldives/";
 
 export async function generateMetadata() {
   return {
@@ -123,7 +123,7 @@ export default function ResortsPage() {
             <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column" }}>
               <Button
                 data-border="rounded"
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi, I'm interested in offering eFoil experiences at our resort.")}`}
+                href={instagramUrl}
                 variant="primary"
                 size="l"
                 weight="strong"

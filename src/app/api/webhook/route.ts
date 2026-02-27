@@ -68,7 +68,7 @@ export async function POST(request: NextRequest) {
       // TODO: Add your notification logic here
       // Options:
       // 1. Send email notification (using Resend, SendGrid, etc.)
-      // 2. Send WhatsApp notification (using Twilio)
+      // 2. Send notification
       // 3. Save to database
       // 4. Send to Slack/Discord
 

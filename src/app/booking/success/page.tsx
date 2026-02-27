@@ -9,7 +9,7 @@ import {
 } from "@once-ui-system/core";
 import { baseURL } from "@/resources";
 
-const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
+const instagramUrl = "https://www.instagram.com/efoil.maldives/";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -76,11 +76,11 @@ export default function BookingSuccess() {
             Back to Home
           </Button>
           <Button
-            href={`https://wa.me/${whatsappNumber}`}
+            href={instagramUrl}
             variant="secondary"
             size="l"
           >
-            Contact Us on WhatsApp
+            Contact Us on Instagram
           </Button>
         </Row>
       </Card>

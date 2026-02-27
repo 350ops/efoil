@@ -161,7 +161,7 @@ export type SocialSharingConfig = {
     linkedin: boolean;
     facebook: boolean;
     pinterest: boolean;
-    whatsapp: boolean;
+    instagram: boolean;
     reddit: boolean;
     telegram: boolean;
     email: boolean;

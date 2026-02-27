@@ -8,6 +8,6 @@ export { Providers } from "@/components/Providers";
 export { ScrollToHash } from "@/components/ScrollToHash";
 export { CustomMDX } from "@/components/mdx";
 export { CheckoutButton } from "@/components/CheckoutButton";
-export { MobileWhatsAppButton } from "@/components/MobileWhatsAppButton";
+export { MobileInstagramButton } from "@/components/MobileInstagramButton";
 export { RequestAvailabilityForm } from "@/components/RequestAvailabilityForm";
 export { PartnerApplicationForm } from "@/components/PartnerApplicationForm";

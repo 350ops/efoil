@@ -44,12 +44,12 @@ const socialPlatforms: Record<string, SocialPlatform> = {
     generateUrl: (title, url) => 
       `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(url)}&description=${encodeURIComponent(title)}`,
   },
-  whatsapp: {
-    name: "whatsapp",
-    icon: "whatsapp",
-    label: "WhatsApp",
+  instagram: {
+    name: "instagram",
+    icon: "instagram",
+    label: "Instagram",
     generateUrl: (title, url) => 
-      `https://wa.me/?text=${encodeURIComponent(`${title} ${url}`)}`,
+      `https://www.instagram.com/efoil.maldives/`,
   },
   reddit: {
     name: "reddit",

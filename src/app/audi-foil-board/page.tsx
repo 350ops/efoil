@@ -16,7 +16,7 @@ import {
 import { baseURL, person } from "@/resources";
 import { useRouter } from "next/navigation";
 
-const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
+const instagramUrl = "https://www.instagram.com/efoil.maldives/";
 
 export default function AudiFoilBoard() {
   const router = useRouter();
@@ -189,7 +189,7 @@ export default function AudiFoilBoard() {
           <Button
             size="l"
             variant="primary"
-            onClick={() => window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi, I'm interested in acquiring an Audi e-tron eFoil in the Maldives.")}`, '_blank')}
+            onClick={() => window.open(instagramUrl, '_blank')}
           >
             Enquire About Ownership
           </Button>

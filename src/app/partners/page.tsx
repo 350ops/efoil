@@ -14,7 +14,7 @@ import {
 import { baseURL, person, about } from "@/resources";
 import { PartnerApplicationForm } from "@/components/PartnerApplicationForm";
 
-const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344";
+const instagramUrl = "https://www.instagram.com/efoil.maldives/";
 
 export async function generateMetadata() {
   return {
@@ -123,7 +123,7 @@ export default function PartnersPage() {
             <Row gap="16" wrap horizontal="center" fillWidth s={{ direction: "column" }}>
               <Button
                 data-border="rounded"
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi, I'm interested in becoming an eFoil partner operator in Maldives.")}`}
+                href={instagramUrl}
                 variant="primary"
                 size="l"
                 weight="strong"

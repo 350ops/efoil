@@ -26,12 +26,6 @@ const social: Social = [
     essential: true,
   },
   {
-    name: "WhatsApp",
-    icon: "whatsapp",
-    link: `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9606783344"}`,
-    essential: true,
-  },
-  {
     name: "Email",
     icon: "email",
     link: `mailto:${person.email}`,
@@ -47,7 +41,7 @@ const home: Home = {
   title: `eFoil Maldives | Experience, Learn & Own`,
   // biome-ignore lint/style/noUnusedTemplateLiteral: <explanation>
   description: `Premium Audi e-tron eFoil experiences in the Maldives. Private sessions, personal instruction, and equipment access — delivered to your yacht, resort, or private location.`,
-  headline: <>eFoil Experiences in the Maldives</>,
+  headline: <>eFoil Experiences in the <span style={{ color: "white", backgroundColor: "#33A0FF", padding: "2px 6px", display: "inline-block" }}>Maldives</span></>,
   featured: {
     display: false,
     title: <>AUDI e-TRON eFOIL</>,
@@ -55,12 +49,12 @@ const home: Home = {
   },
   subline: (
     <>
-      <Text as="span" onBackground="neutral-strong" weight="strong">The Pinnacle of Electric Hydrofoiling.</Text>
+      <Text as="span" onBackground="neutral-strong" weight="strong">Innovative electric hydrofoil systems</Text>
       <br />
       <Text as="span" variant="body-default-m" onBackground="neutral-weak">A collaboration between Audi and Aerofoils.</Text>
       <br />
       <Text as="span" variant="body-default-m" onBackground="neutral-medium">Delivered to your yacht, resort, or private location — anywhere in the Maldives.{" "}</Text>
-      <Text as="span" weight="strong" style={{ color: "#dc2626" }}>And fast.</Text>
+      <Text as="span" weight="strong" style={{ color: "#dc2626" }}>Fast.</Text>
     </>
   ),
 };
