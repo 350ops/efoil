@@ -25,6 +25,7 @@ const routes: RoutesConfig = {
   "/crew": true,
   "/efoil-experiences-maldives": true,
   "/efoil-rental-maldives": true,
+  "/learn-efoil-maldives": true,
   "/yachts": true,
   "/resorts": true,
   "/partners": true,
@@ -199,7 +200,7 @@ const mailchimp: MailchimpConfig = {
 const schema: SchemaConfig = {
   logo: "/favicon.png",
   type: "LocalBusiness",
-  name: "eFoil Maldives - Premium eFoil Rentals",
+  name: "eFoil Maldives - Experience, Learn & Own",
   description: home.description,
   email: "hello@efoil.rent",
 };

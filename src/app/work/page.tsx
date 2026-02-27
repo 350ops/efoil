@@ -92,7 +92,7 @@ export default function Work() {
              <Column padding="24" gap="12" background="neutral-alpha-weak" radius="l">
                 <Heading as="h3" variant="heading-strong-s">Do I need to pay in advance?</Heading>
                 <Text variant="body-default-m" onBackground="neutral-weak">
-                  For yacht and resort deliveries, we typically require a deposit to secure your booking slot and logistics. The balance can be settled upon delivery or as arranged with our partner.
+                  For yacht and resort deliveries, we typically require a deposit to secure your booking slot and logistics. The balance can be settled upon delivery or as arranged with our team.
                 </Text>
              </Column>
              <Column padding="24" gap="12" background="neutral-alpha-weak" radius="l">

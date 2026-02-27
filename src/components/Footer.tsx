@@ -31,6 +31,10 @@ export const Footer = () => {
             <Text variant="body-default-s" onBackground="neutral-weak">Experiences</Text>
           </SmartLink>
           <Text variant="body-default-s" onBackground="neutral-weak">·</Text>
+          <SmartLink href="/learn-efoil-maldives">
+            <Text variant="body-default-s" onBackground="neutral-weak">Learn</Text>
+          </SmartLink>
+          <Text variant="body-default-s" onBackground="neutral-weak">·</Text>
           <SmartLink href="/efoil-rental-maldives">
             <Text variant="body-default-s" onBackground="neutral-weak">Rental</Text>
           </SmartLink>

@@ -12,6 +12,7 @@ export {
   efoilExperiences,
   efoilRental,
   crew,
+  learn,
 } from "./content";
 
 export {

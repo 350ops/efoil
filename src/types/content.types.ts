@@ -248,6 +248,12 @@ export interface EfoilExperiences extends BasePageConfig {}
 export interface EfoilRental extends BasePageConfig {}
 
 /**
+ * Learn to eFoil page configuration.
+ * @description Configuration for the eFoil instruction and learning page.
+ */
+export interface Learn extends BasePageConfig {}
+
+/**
  * Gallery page configuration.
  * @description Configuration for the Gallery page, including metadata, navigation label, and image list.
  */

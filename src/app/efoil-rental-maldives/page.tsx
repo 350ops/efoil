@@ -347,7 +347,7 @@ export default function EfoilRentalPage() {
                 Private Experiences
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak" align="center">
-                Curated eFoil experiences delivered anywhere in the Maldives. Half-day, sunset, and multi-day packages with a concierge-level service.
+                Curated eFoil experiences delivered anywhere in the Maldives. Half-day, sunset, and multi-day packages with premium service.
               </Text>
               <Button href="/efoil-experiences-maldives" variant="secondary" size="m" arrowIcon>
                 View Experiences
