@@ -58,6 +58,65 @@ const websiteSchema = {
   publisher: { "@id": `${baseURL}/#organization` },
   description:
     "Premium Audi e-tron eFoil rentals delivered to yachts, boats, and resorts across Maldives.",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${baseURL}/blog?q={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
+};
+
+const siteNavigationSchema = {
+  "@context": "https://schema.org",
+  "@type": "SiteNavigationElement",
+  "@id": `${baseURL}/#navigation`,
+  name: "Main Navigation",
+  hasPart: [
+    {
+      "@type": "SiteNavigationElement",
+      name: "eFoil Experiences",
+      description: "Private eFoil sessions delivered to yachts, resorts, and boats across the Maldives.",
+      url: `${baseURL}/efoil-experiences-maldives`,
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "Learn to eFoil",
+      description: "Private instruction from discovery to advanced coaching on the Audi e-tron eFoil.",
+      url: `${baseURL}/learn-efoil-maldives`,
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "Yacht Delivery",
+      description: "Audi e-tron eFoil delivered directly to superyachts, charter yachts, and liveaboards.",
+      url: `${baseURL}/yachts`,
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "Resorts",
+      description: "eFoil guest activity partnerships for luxury Maldives resorts.",
+      url: `${baseURL}/resorts`,
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "Audi e-tron eFoil",
+      description: "Explore or acquire the Audi e-tron electric hydrofoil — the world's most advanced eFoil.",
+      url: `${baseURL}/audi-foil-board`,
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "Blog",
+      description: "eFoil tips, watersports stories, and adventures across the Maldives.",
+      url: `${baseURL}/blog`,
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "Events",
+      description: "Wingfoil competitions, kitesurf events, and surf contests in the Maldives.",
+      url: `${baseURL}/events`,
+    },
+  ],
 };
 
 export async function generateMetadata() {
@@ -164,6 +223,12 @@ export default async function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(websiteSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(siteNavigationSchema),
           }}
         />
         <script

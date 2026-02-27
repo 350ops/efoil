@@ -122,7 +122,7 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "What is an eFoil?",
+      name: "Our e-foil: Audi e-tron eFoil",
       acceptedAnswer: {
         "@type": "Answer",
         text: "An eFoil — short for electric hydrofoil surfboard — is a cutting-edge watersport device. It merges traditional hydrofoil surfing with advanced electric propulsion, allowing riders to glide silently above the water. An eFoil consists of a board with a rechargeable battery, an electric motor, and a hydrofoil (mast with underwater wing). Speed is controlled via a wireless handheld remote, while altitude is managed by shifting body weight.",

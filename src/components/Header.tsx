@@ -9,11 +9,12 @@ import styles from "./Header.module.scss";
 
 const navItems = [
   { href: "/", label: "Home", routeKey: "/" as keyof typeof routes, exact: true },
-  { href: "/about", label: about.label, routeKey: "/about" as keyof typeof routes, exact: true },
-  { href: "/efoil-experiences-maldives", label: efoilExperiences.label, routeKey: "/efoil-experiences-maldives" as keyof typeof routes, exact: false },
-  { href: "/learn-efoil-maldives", label: learn.label, routeKey: "/learn-efoil-maldives" as keyof typeof routes, exact: false },
+  { href: "/efoil-experiences-maldives", label: "Experiences", routeKey: "/efoil-experiences-maldives" as keyof typeof routes, exact: false },
+  { href: "/learn-efoil-maldives", label: "Learn", routeKey: "/learn-efoil-maldives" as keyof typeof routes, exact: false },
+  { href: "/yachts", label: "Yachts", routeKey: "/yachts" as keyof typeof routes, exact: false },
+  { href: "/resorts", label: "Resorts", routeKey: "/resorts" as keyof typeof routes, exact: false },
+  { href: "/audi-foil-board", label: "Audi eFoil", routeKey: "/audi-foil-board" as keyof typeof routes, exact: false },
   { href: "/blog", label: blog.label, routeKey: "/blog" as keyof typeof routes, exact: false },
-  { href: "/gallery", label: gallery.label, routeKey: "/gallery" as keyof typeof routes, exact: false },
   { href: "/events", label: events.label, routeKey: "/events" as keyof typeof routes, exact: false },
 ];
 

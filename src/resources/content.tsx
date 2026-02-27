@@ -169,7 +169,7 @@ const blog: Blog = {
 
 const work: Work = {
   path: "/efoil-experiences-maldives",
-  label: "Experiences",
+  label: "Rent",
   title: "Private eFoil Experiences Maldives | Yacht & Boat Delivery",
   description: "Private eFoil experiences delivered to yachts, boats, and resorts across the Maldives.",
 };
@@ -183,7 +183,7 @@ const events: Events = {
 
 const efoilExperiences: EfoilExperiences = {
   path: "/efoil-experiences-maldives",
-  label: "Experiences",
+  label: "Rent",
   title: "Private eFoil Experiences Maldives | Yacht & Boat Delivery",
   description: "Curated private eFoil experiences across the Maldives. Audi e-tron electric hydrofoil delivered to your yacht, resort, or private location with professional instruction included.",
 };

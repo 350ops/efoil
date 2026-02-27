@@ -94,7 +94,7 @@ export default async function Project({
       />
       <Column maxWidth="s" gap="16" horizontal="center" align="center">
         <SmartLink href="/efoil-experiences-maldives">
-          <Text variant="label-strong-m">Experiences</Text>
+          <Text variant="label-strong-m">Rent</Text>
         </SmartLink>
         <Text variant="body-default-xs" onBackground="neutral-weak" marginBottom="12">
           {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}

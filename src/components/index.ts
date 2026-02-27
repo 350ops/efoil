@@ -11,3 +11,4 @@ export { CheckoutButton } from "@/components/CheckoutButton";
 export { MobileInstagramButton } from "@/components/MobileInstagramButton";
 export { RequestAvailabilityForm } from "@/components/RequestAvailabilityForm";
 export { PartnerApplicationForm } from "@/components/PartnerApplicationForm";
+export { BreadcrumbSchema } from "@/components/BreadcrumbSchema";

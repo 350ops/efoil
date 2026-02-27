@@ -157,14 +157,14 @@ export default function EventsPage() {
         <Grid columns="3" gap="24" fillWidth>
           <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
-              src="/images/gallery/efoil-action-turquoise.jpg"
+              src="/images/gallery/efoilguy.jpeg"
               alt="Rider flying on eFoil above crystal clear turquoise Maldives water — action shot"
               aspectRatio="3 / 4"
             />
           </Column>
           <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
-              src="/images/gallery/efoil-turquoise-water.jpg"
+              src="/images/gallery/efoilgirl.jpg"
               alt="eFoil rider gliding above turquoise Maldives water — electric hydrofoil watersports"
               aspectRatio="3 / 4"
             />

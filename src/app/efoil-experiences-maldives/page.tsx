@@ -13,6 +13,7 @@ import {
   Media,
 } from "@once-ui-system/core";
 import { baseURL, person, about } from "@/resources";
+import { BreadcrumbSchema } from "@/components";
 
 const instagramUrl = "https://www.instagram.com/efoil.maldives/";
 
@@ -103,6 +104,7 @@ const faqSchema = {
 export default function EfoilExperiencesPage() {
   return (
     <Column maxWidth="l" gap="xl" paddingY="12" paddingX="16" horizontal="center">
+      <BreadcrumbSchema items={[{ name: "eFoil Experiences", path: "/efoil-experiences-maldives" }]} />
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -170,14 +172,14 @@ export default function EfoilExperiencesPage() {
         <Grid columns="2" gap="24" fillWidth>
           <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
-              src="/images/gallery/efoiling.jpeg"
+              src="/images/gallery/efoilguy.jpeg"
               alt="Rider flying on Audi e-tron eFoil above turquoise Maldives water"
               aspectRatio="16 / 10"
             />
           </Column>
           <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
-              src="/images/gallery/efoil-turquoise-water.jpg"
+                src="/images/gallery/efoilgirl.jpeg"
               alt="eFoil gliding over crystal-clear lagoon in the Maldives"
               aspectRatio="16 / 10"
             />

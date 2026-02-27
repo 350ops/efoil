@@ -28,7 +28,7 @@ export const Footer = () => {
           </SmartLink>
           <Text variant="body-default-s" onBackground="neutral-weak">·</Text>
           <SmartLink href="/efoil-experiences-maldives">
-            <Text variant="body-default-s" onBackground="neutral-weak">Experiences</Text>
+            <Text variant="body-default-s" onBackground="neutral-weak">Rent</Text>
           </SmartLink>
           <Text variant="body-default-s" onBackground="neutral-weak">·</Text>
           <SmartLink href="/learn-efoil-maldives">

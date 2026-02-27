@@ -206,7 +206,7 @@ export default function AudiFoilBoard() {
         </Column>
         <Row gap="16" wrap horizontal="center">
           <Button size="l" variant="primary" onClick={() => router.push('/efoil-experiences-maldives')}>
-            Experiences
+            Rent
           </Button>
           <Button size="l" variant="secondary" onClick={() => router.push('/learn-efoil-maldives')}>
             Learn
