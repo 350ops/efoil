@@ -40,23 +40,14 @@ const home: Home = {
   // biome-ignore lint/style/noUnusedTemplateLiteral: <explanation>
   title: `eFoil Maldives | Experience, Learn & Own`,
   // biome-ignore lint/style/noUnusedTemplateLiteral: <explanation>
-  description: `Premium Audi e-tron eFoil experiences in the Maldives. Private sessions, personal instruction, and equipment access — delivered to your yacht, resort, or private location.`,
-  headline: <>eFoil Experiences in the <span style={{ color: "white", backgroundColor: "#33A0FF", padding: "2px 6px", display: "inline-block" }}>Maldives</span></>,
+  description: `Premium Audi e-tron eFoil experiences | Maldives. Private sessions, personal instruction, and equipment access — delivered to your yacht, resort, or private location.`,
+  headline: <>eFoil Experiences in the <span className="hero-accent">Maldives</span></>,
   featured: {
     display: false,
     title: <>AUDI e-TRON eFOIL</>,
     href: "/audi-foil-board",
   },
-  subline: (
-    <>
-      <Text as="span" onBackground="neutral-strong" weight="strong">Innovative electric hydrofoil systems</Text>
-      <br />
-      <Text as="span" variant="body-default-m" onBackground="neutral-weak">A collaboration between Audi and Aerofoils.</Text>
-      <br />
-      <Text as="span" variant="body-default-m" onBackground="neutral-medium">Delivered to your yacht, resort, or private location — anywhere in the Maldives.{" "}</Text>
-      <Text as="span" weight="strong" style={{ color: "#dc2626" }}>Fast.</Text>
-    </>
-  ),
+  subline: undefined,
 };
 
 const about: About = {
@@ -77,7 +68,7 @@ const about: About = {
   },
   intro: {
     display: true,
-    title: "The eFoil Experience in the Maldives",
+    title: "The eFoil Experience | Maldives",
     description: (
       <>
         eFoil Maldives delivers premium Audi e-tron eFoil experiences across the archipelago.
@@ -178,7 +169,7 @@ const events: Events = {
   path: "/events",
   label: "Events",
   title: "Maldives Watersports Events | Wingfoil, Kitesurf & Surf Competitions",
-  description: "Explore the growing watersports scene in the Maldives. Upcoming wingfoil competitions, kitesurf events, surf contests, and why the Maldives is the next world-class watersports destination.",
+  description: "Explore the growing watersports scene | Maldives. Upcoming wingfoil competitions, kitesurf events, surf contests, and why the Maldives is the next world-class watersports destination.",
 };
 
 const efoilExperiences: EfoilExperiences = {
@@ -192,7 +183,7 @@ const efoilRental: EfoilRental = {
   path: "/efoil-rental-maldives",
   label: "Rental",
   title: "eFoil Rental Maldives | Private Sessions & Yacht Delivery",
-  description: "Rent an Audi e-tron eFoil in the Maldives. Electric hydrofoil board rental with professional instruction, delivered to yachts, resorts, and private locations across the atolls.",
+  description: "Rent an Audi e-tron eFoil | Maldives. Electric hydrofoil board rental with professional instruction, delivered to yachts, resorts, and private locations across the atolls.",
 };
 
 const crew: Crew = {
@@ -205,8 +196,8 @@ const crew: Crew = {
 const learn: Learn = {
   path: "/learn-efoil-maldives",
   label: "Learn",
-  title: "Learn to eFoil in the Maldives | Discovery, Progression & Advanced Coaching",
-  description: "Learn to ride an electric hydrofoil in the Maldives. Private eFoil instruction from discovery sessions to advanced coaching. Audi e-tron eFoil with expert guidance.",
+  title: "Learn to eFoil | Maldives | Discovery, Progression & Advanced Coaching",
+  description: "Learn to ride an electric hydrofoil | Maldives. Private eFoil instruction from discovery sessions to advanced coaching. Audi e-tron eFoil with expert guidance.",
 };
 
 const gallery: Gallery = {

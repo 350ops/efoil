@@ -34,7 +34,7 @@ efoi.rent (also efoil.rent)
 - Access requests: WhatsApp / Application Form
 
 ## What We Do
-Private membership providing guaranteed, priority access to Audi e-tron eFoil sessions in the Maldives. Equipment delivered to yachts, private boats, resorts, and any island location. Membership is intentionally limited to preserve service quality and availability. A single-session path exists for non-members.
+Private membership providing guaranteed, priority access to Audi e-tron eFoil sessions | Maldives. Equipment delivered to yachts, private boats, resorts, and any island location. Membership is intentionally limited to preserve service quality and availability. A single-session path exists for non-members.
 
 ## Primary Target Audiences
 1. **Yacht & superyacht charter guests** — want seamless, zero-effort delivery to their vessel
@@ -48,7 +48,7 @@ Private membership providing guaranteed, priority access to Audi e-tron eFoil se
 - Instagram: https://www.instagram.com/efoil.maldives/
 
 ## Additional Context
-The Maldives eFoil Club is a private membership product built around the concept of "access" — removing the coordination friction of getting premium eFoil equipment and instruction in the Maldives. We exclusively use the Audi e-tron eFoil (in collaboration with official Audi eFoil distribution and local operational partners). The brand voice is restrained, declarative, and non-promotional — the experience speaks for itself; the copy does not.
+The Maldives eFoil Club is a private membership product built around the concept of "access" — removing the coordination friction of getting premium eFoil equipment and instruction | Maldives. We exclusively use the Audi e-tron eFoil (in collaboration with official Audi eFoil distribution and local operational partners). The brand voice is restrained, declarative, and non-promotional — the experience speaks for itself; the copy does not.
 
 Industry: Private luxury experiential membership / adventure watersports
 Location: Maldives (delivered anywhere across the atolls)

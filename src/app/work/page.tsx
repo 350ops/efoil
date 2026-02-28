@@ -52,7 +52,7 @@ export default function Work() {
             Whether you need delivery to your yacht, a local test drive, or an adaptive experience — we have you covered.
           </Text>
           <Text variant="body-default-m" onBackground="neutral-weak" align="center">
-            Our eFoil rental packages are designed for flexibility and convenience. We bring the Audi e-tron eFoil to you, anywhere in the Maldives. From hourly sessions for beginners to full-day rentals for experienced riders, we have the perfect package for your island adventure.
+            Our eFoil rental packages are designed for flexibility and convenience. We bring the Audi e-tron eFoil to you, anywhere | Maldives. From hourly sessions for beginners to full-day rentals for experienced riders, we have the perfect package for your island adventure.
           </Text>
         </Column>
       </Column>

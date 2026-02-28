@@ -117,7 +117,7 @@ export default function YachtsPage() {
           </RevealFx>
           <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l" align="center">
-              We arrange delivery of the Audi e-tron eFoil directly to your vessel—anywhere in the Maldives. Professional instructor, safety gear, and seamless logistics included.
+              We arrange delivery of the Audi e-tron eFoil directly to your vessel—anywhere | Maldives. Professional instructor, safety gear, and seamless logistics included.
             </Text>
           </RevealFx>
           <RevealFx paddingTop="12" delay={0.4} horizontal="center" fillWidth>

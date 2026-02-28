@@ -21,7 +21,7 @@ export async function generateMetadata() {
     ...Meta.generate({
       title: "Maldives eFoil Club | Private Membership",
       description:
-        "Private, application-only eFoil membership in the Maldives. Priority equipment reservation, managed logistics, and member-first scheduling — delivered to your resort, yacht, or island.",
+        "Private, application-only eFoil membership | Maldives. Priority equipment reservation, managed logistics, and member-first scheduling — delivered to your resort, yacht, or island.",
       baseURL: baseURL,
       path: "/club",
       image: "/images/audi-efoil-maldives.jpg",
@@ -31,7 +31,7 @@ export async function generateMetadata() {
       type: "website",
       title: "Maldives eFoil Club | Private Membership",
       description:
-        "Private, application-only eFoil membership in the Maldives. Priority equipment reservation, managed logistics, and member-first scheduling.",
+        "Private, application-only eFoil membership | Maldives. Priority equipment reservation, managed logistics, and member-first scheduling.",
       url: `${baseURL}/club`,
       siteName: "Maldives eFoil Club",
       images: [
@@ -107,7 +107,7 @@ export default function ClubPage() {
           baseURL={baseURL}
           path="/club"
           title="Maldives eFoil Club | Private Membership"
-          description="Private, application-only eFoil membership in the Maldives."
+          description="Private, application-only eFoil membership | Maldives."
           image="/images/audi-efoil-maldives.jpg"
           author={{
             name: person.name,

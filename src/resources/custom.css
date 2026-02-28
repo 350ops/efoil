@@ -1,54 +1,271 @@
-/* :root {
-  /*
-  /* Example setup for custom colors */
-/* Generate at: https://once-ui.com/customize */
-/*
-  --scheme-brand-100: #08002f;
-  --scheme-brand-200:  #04025c;
-  --scheme-brand-300:  #1f398e;
-  --scheme-brand-400:  #3856ae;
-  --scheme-brand-500:  #5071cc;
-  --scheme-brand-600:  #6f94f1;
-  --scheme-brand-700:  #8db3ff;
-  --scheme-brand-800:  #b2dbff;
-  --scheme-brand-900:  #bfe8ff;
-  --scheme-brand-1000: #ccf6ff;
-  --scheme-brand-1100: #d2fcff;
-  --scheme-brand-1200: #d2fcff;
-  --scheme-brand-600-10: rgba(111,148,241,0.1);
-  --scheme-brand-600-30: rgba(111,148,241,0.3);
-  --scheme-brand-600-50: rgba(111,148,241,0.5);
+/* ═══════════════════════════════════════
+   HERO OVERLAY — Multi-layer gradient
+   ═══════════════════════════════════════ */
 
-  --scheme-accent-100:  #030b10;
-  --scheme-accent-200:  #0d181d;
-  --scheme-accent-300:  #364248;
-  --scheme-accent-400:  #505d64;
-  --scheme-accent-500:  #69777e;
-  --scheme-accent-600:  #8a989f;
-  --scheme-accent-700:  #a8b7bf;
-  --scheme-accent-800:  #c8d7df;
-  --scheme-accent-900:  #d5e4ec;
-  --scheme-accent-1000: #e2f1f9;
-  --scheme-accent-1100: #e9f8ff;
-  --scheme-accent-1200: #efffff;
-  --scheme-accent-600-10: rgba(138,152,159,0.1);
-  --scheme-accent-600-30: rgba(138,152,159,0.3);
-  --scheme-accent-600-50: rgba(138,152,159,0.5);
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    /* 1. Strong bottom gradient — anchors the text area */
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.80) 0%,
+      rgba(0, 0, 0, 0.55) 30%,
+      rgba(0, 0, 0, 0.20) 55%,
+      rgba(0, 0, 0, 0.05) 75%,
+      transparent 100%
+    ),
+    /* 2. Left-side gradient — where the text sits */
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.40) 0%,
+      rgba(0, 0, 0, 0.12) 50%,
+      transparent 80%
+    ),
+    /* 3. Overall cinematic color grade */
+    linear-gradient(
+      135deg,
+      rgba(0, 18, 36, 0.30) 0%,
+      rgba(0, 0, 0, 0.08) 100%
+    );
+  border-radius: inherit;
+}
 
-  --scheme-neutral-100:  #020b10;
-  --scheme-neutral-200:  #0b181d;
-  --scheme-neutral-300:  #344248;
-  --scheme-neutral-400:  #4f5d64;
-  --scheme-neutral-500:  #68777e;
-  --scheme-neutral-600:  #89989f;
-  --scheme-neutral-700:  #a7b7be;
-  --scheme-neutral-800:  #c7d7df;
-  --scheme-neutral-900:  #d4e4ec;
-  --scheme-neutral-1000: #e1f2f9;
-  --scheme-neutral-1100: #e7f8ff;
-  --scheme-neutral-1200: #eeffff;
-  --scheme-neutral-600-10: rgba(137,152,159,0.1);
-  --scheme-neutral-600-30: rgba(137,152,159,0.3);
-  --scheme-neutral-600-50: rgba(137,152,159,0.5);
-  /*
-}*/
+/* Subtle grain texture */
+.hero-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 128px;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Hero text always white with shadow for extra separation */
+.hero-text-white {
+  color: #ffffff !important;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.35), 0 1px 3px rgba(0,0,0,0.25);
+}
+
+.hero-text-sub {
+  color: rgba(255,255,255,0.75) !important;
+  text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+}
+
+/* Accent text for "Maldives" highlight — glow instead of box */
+.hero-accent {
+  color: #00c8ff !important;
+  text-shadow:
+    0 0 40px rgba(0, 200, 255, 0.3),
+    0 2px 24px rgba(0, 0, 0, 0.35);
+  background: none !important;
+  padding: 0 !important;
+}
+
+/* Label/eyebrow style */
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #00c8ff;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: #00c8ff;
+}
+
+/* Hero stat bar */
+.hero-stats-bar {
+  display: flex;
+  justify-content: center;
+  gap: clamp(24px, 4vw, 56px);
+  padding: 16px clamp(24px, 4vw, 48px);
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0 0 var(--radius-xl, 20px) var(--radius-xl, 20px);
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+}
+
+.hero-stat {
+  text-align: center;
+}
+
+.hero-stat-value {
+  font-weight: 700;
+  font-size: clamp(16px, 1.8vw, 20px);
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.hero-stat-label {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* ═══════════════════════════════════════
+   HERO CTA BUTTONS — Dark theme override
+   ═══════════════════════════════════════ */
+
+.hero-btn-primary {
+  background: #ffffff !important;
+  color: #0a0a0a !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.hero-btn-primary:hover {
+  background: #00c8ff !important;
+  color: #0a0a0a !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 200, 255, 0.25);
+}
+
+.hero-btn-secondary {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease !important;
+}
+
+.hero-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.14) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════════
+   SECTION STYLES
+   ═══════════════════════════════════════ */
+
+/* Dark section backgrounds for contrast breaks */
+.section-dark {
+  background: #0a0a0a !important;
+  border-radius: var(--radius-xl, 20px);
+}
+
+.section-dark-subtle {
+  background: #050505 !important;
+  border-radius: var(--radius-xl, 20px);
+}
+
+/* Experience / Location cards with image + gradient overlay */
+.card-image-overlay {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-l, 16px);
+  cursor: pointer;
+}
+
+.card-image-overlay img {
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.card-image-overlay:hover img {
+  transform: scale(1.05) !important;
+}
+
+.card-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+.card-content-over {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px;
+  z-index: 2;
+  color: #ffffff;
+}
+
+/* Step numbers (How it works) */
+.step-number {
+  font-weight: 800;
+  font-size: 48px;
+  color: rgba(0, 200, 255, 0.12);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+/* Spec card value */
+.spec-value {
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: -0.03em;
+}
+
+.spec-unit {
+  font-size: 16px;
+  color: var(--neutral-on-background-weak);
+}
+
+/* ═══════════════════════════════════════
+   CTA section with background image
+   ═══════════════════════════════════════ */
+
+.cta-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.25) 100%),
+    linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, transparent 35%);
+  border-radius: inherit;
+}
+
+/* Testimonial cards */
+.testimonial-card {
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.testimonial-card:hover {
+  border-color: rgba(0, 200, 255, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 200, 255, 0.06);
+}
+
+/* Stars color */
+.stars {
+  color: #ffb800;
+  font-size: 14px;
+  letter-spacing: 2px;
+}

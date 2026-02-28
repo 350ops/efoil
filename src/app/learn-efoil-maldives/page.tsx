@@ -18,9 +18,9 @@ const instagramUrl = "https://www.instagram.com/efoil.maldives/";
 export async function generateMetadata() {
   return {
     ...Meta.generate({
-      title: "Learn to eFoil in the Maldives | Discovery, Progression & Advanced Coaching",
+      title: "Learn to eFoil | Maldives | Discovery, Progression & Advanced Coaching",
       description:
-        "Private eFoil instruction in the Maldives. From your first ride to advanced carving and wave riding. Audi e-tron eFoil with expert guidance across North Malé Atoll.",
+        "Private eFoil instruction | Maldives. From your first ride to advanced carving and wave riding. Audi e-tron eFoil with expert guidance across North Malé Atoll.",
       baseURL: baseURL,
       image: `/api/og/generate?title=${encodeURIComponent("Learn to eFoil")}`,
       path: "/learn-efoil-maldives",
@@ -34,7 +34,7 @@ const serviceSchema = {
   "@type": "Service",
   name: "Learn to eFoil — Maldives",
   description:
-    "Private eFoil instruction in the Maldives. Discovery sessions, progression coaching, and advanced riding guidance on the Audi e-tron eFoil.",
+    "Private eFoil instruction | Maldives. Discovery sessions, progression coaching, and advanced riding guidance on the Audi e-tron eFoil.",
   provider: {
     "@type": "Organization",
     name: "eFoil Maldives",
@@ -77,7 +77,7 @@ const faqSchema = {
       name: "Where do eFoil lessons take place?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Sessions are held in calm, sheltered lagoons around North Malé Atoll — ideal learning conditions. We can also deliver instruction to your yacht or resort location anywhere in the Maldives.",
+        text: "Sessions are held in calm, sheltered lagoons around North Malé Atoll — ideal learning conditions. We can also deliver instruction to your yacht or resort location anywhere | Maldives.",
       },
     },
     {
@@ -106,7 +106,7 @@ export default function LearnEfoilPage() {
         as="webPage"
         baseURL={baseURL}
         path="/learn-efoil-maldives"
-        title="Learn to eFoil in the Maldives"
+        title="Learn to eFoil | Maldives"
         description="Private eFoil instruction from discovery to advanced coaching."
         image={`/api/og/generate?title=${encodeURIComponent("Learn to eFoil")}`}
         author={{
@@ -136,7 +136,7 @@ export default function LearnEfoilPage() {
           </RevealFx>
           <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l" align="center">
-              From your first ride to advanced carving — private instruction on the Audi e-tron eFoil in the Maldives. No experience required.
+              From your first ride to advanced carving — private instruction on the Audi e-tron eFoil | Maldives. No experience required.
             </Text>
           </RevealFx>
           <RevealFx paddingTop="12" delay={0.4} horizontal="center" fillWidth>
@@ -380,7 +380,7 @@ export default function LearnEfoilPage() {
               Own an Audi eFoil
             </Heading>
             <Text variant="body-default-m" onBackground="neutral-weak" align="center">
-              Ready to ride whenever you want? We facilitate access to Audi eFoils in the Maldives through our partner network.
+              Ready to ride whenever you want? We facilitate access to Audi eFoils | Maldives through our partner network.
             </Text>
             <Button href="/audi-foil-board" variant="secondary" size="m" arrowIcon>
               Explore Ownership

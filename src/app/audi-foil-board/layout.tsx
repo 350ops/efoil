@@ -4,13 +4,13 @@ import { baseURL } from "@/resources";
 export const metadata: Metadata = {
   title: "Audi e-tron eFoil | The Future of Electric Hydrofoil Surfing",
   description:
-    "Explore or acquire the Audi e-tron eFoil in the Maldives. Premium electric hydrofoil with silent propulsion, smart app control, and up to 55 km/h top speed. We facilitate access through our trusted partner network.",
+    "Explore or acquire the Audi e-tron eFoil | Maldives. Premium electric hydrofoil with silent propulsion, smart app control, and up to 55 km/h top speed. We facilitate access through our trusted partner network.",
   alternates: { canonical: "/audi-foil-board" },
   openGraph: {
     type: "website",
     title: "Audi e-tron eFoil | The Future of Electric Hydrofoil Surfing",
     description:
-      "Premium electric hydrofoil with silent propulsion, smart app control, and up to 55 km/h top speed. Explore or acquire yours in the Maldives.",
+      "Premium electric hydrofoil with silent propulsion, smart app control, and up to 55 km/h top speed. Explore or acquire yours | Maldives.",
     url: `${baseURL}/audi-foil-board`,
     siteName: "eFoil Maldives",
     images: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Audi e-tron eFoil | Electric Hydrofoil Surfing",
     description:
-      "Premium electric hydrofoil with silent propulsion, smart app control, and up to 55 km/h. Explore or acquire in the Maldives.",
+      "Premium electric hydrofoil with silent propulsion, smart app control, and up to 55 km/h. Explore or acquire | Maldives.",
     images: [`${baseURL}/images/gallery/aeroloop.jpg`],
   },
 };

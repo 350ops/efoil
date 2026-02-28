@@ -14,6 +14,9 @@ import {
 } from "@once-ui-system/core";
 import { baseURL, person, about } from "@/resources";
 import { BreadcrumbSchema } from "@/components";
+import efoilmaldives from "../gallery/efoilmaldives.jpeg";
+import efoilgirl from "../gallery/efoilgirl.jpeg";
+import girlefoil from "../gallery/girlefoil.jpg";
 
 const instagramUrl = "https://www.instagram.com/efoil.maldives/";
 
@@ -36,7 +39,7 @@ const serviceSchema = {
   "@type": "Service",
   name: "Private eFoil Experiences Maldives",
   description:
-    "Curated private eFoil experiences delivered anywhere in the Maldives. Audi e-tron electric hydrofoil with professional instruction, safety gear, and all equipment included.",
+    "Curated private eFoil experiences delivered anywhere | Maldives. Audi e-tron electric hydrofoil with professional instruction, safety gear, and all equipment included.",
   provider: {
     "@type": "Organization",
     name: "eFoil Maldives",
@@ -52,7 +55,7 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "Where can I have an eFoil experience in the Maldives?",
+      name: "Where can I have an eFoil experience | Maldives?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "Anywhere. We deliver the Audi e-tron eFoil directly to your yacht, resort, private island, or any accessible coastline across the atolls. There is no fixed location — we come to you.",
@@ -110,7 +113,7 @@ export default function EfoilExperiencesPage() {
         baseURL={baseURL}
         path="/efoil-experiences-maldives"
         title="Private eFoil Experiences Maldives | Yacht & Boat Delivery"
-        description="Curated private eFoil experiences delivered anywhere in the Maldives."
+        description="Curated private eFoil experiences delivered anywhere | Maldives."
         image={`/api/og/generate?title=${encodeURIComponent("Private eFoil Experiences")}`}
         author={{
           name: person.name,
@@ -169,18 +172,25 @@ export default function EfoilExperiencesPage() {
 
       {/* Hero Images */}
       <RevealFx translateY="16" delay={0.6} fillWidth>
-        <Grid columns="2" gap="24" fillWidth>
+        <Grid columns="3" gap="24" fillWidth>
           <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
-              src="/images/gallery/efoilguy.jpeg"
+              src={efoilmaldives.src}
               alt="Rider flying on Audi e-tron eFoil above turquoise Maldives water"
               aspectRatio="16 / 10"
             />
           </Column>
           <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
             <Media
-                src="/images/gallery/efoilgirl.jpeg"
-              alt="eFoil gliding over crystal-clear lagoon in the Maldives"
+              src={efoilgirl.src}
+              alt="eFoil gliding over crystal-clear lagoon | Maldives"
+              aspectRatio="16 / 10"
+            />
+          </Column>
+          <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
+            <Media
+              src={girlefoil.src}
+              alt="Woman preparing for eFoil session in the Maldives"
               aspectRatio="16 / 10"
             />
           </Column>
@@ -192,7 +202,7 @@ export default function EfoilExperiencesPage() {
         <Column fillWidth gap="l" paddingY="l">
           <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
-              Delivered Anywhere in the Maldives
+              Delivered Anywhere | Maldives
             </Heading>
             <Text variant="body-default-l" onBackground="neutral-weak" align="center" style={{ maxWidth: 680 }}>
               There is no fixed location. We bring the complete eFoil experience directly to you — whether you are on a superyacht at anchor, a private island resort, or a liveaboard crossing the atolls. Our team handles all logistics so you simply step onto the board and fly.
@@ -392,7 +402,7 @@ export default function EfoilExperiencesPage() {
               eFoil Rental Information
             </Heading>
             <Text variant="body-default-m" onBackground="neutral-weak" align="center">
-              Looking for rental options, pricing details, and how eFoil hire works in the Maldives?
+              Looking for rental options, pricing details, and how eFoil hire works | Maldives?
             </Text>
             <Button href="/efoil-rental-maldives" variant="secondary" size="m" arrowIcon>
               Rental Information

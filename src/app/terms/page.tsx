@@ -25,7 +25,7 @@ export default function TermsOfService() {
 
         <Column gap="24">
           <Section title="1. Service Description">
-            eFoil Maldives provides premium eFoil experiences, instruction, and equipment access in the Maldives. We handle communication, logistics, and delivery to yachts, boats, and resorts.
+            eFoil Maldives provides premium eFoil experiences, instruction, and equipment access | Maldives. We handle communication, logistics, and delivery to yachts, boats, and resorts.
           </Section>
 
           <Section title="2. Booking and Payments">

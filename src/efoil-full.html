@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eFoil Maldives — Electric Hydrofoil Experiences</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --white: #ffffff;
+    --off-white: #f5f5f7;
+    --gray-50: #fafafa;
+    --gray-100: #e8e8ea;
+    --gray-200: #d1d1d6;
+    --gray-400: #8e8e93;
+    --gray-600: #636366;
+    --gray-800: #2c2c2e;
+    --dark: #0a0a0a;
+    --accent: #00c8ff;
+    --accent-dark: #009fd4;
+    --accent-glow: rgba(0,200,255,0.15);
+    --warm: #ff3b30;
+  }
+
+  html {
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--dark);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ═══════════════════════════════════════
+     UTILITY
+     ═══════════════════════════════════════ */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 5vw, 64px);
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .section-heading {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: clamp(32px, 4.5vw, 56px);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+  }
+
+  .section-sub {
+    font-size: clamp(15px, 1.6vw, 17px);
+    line-height: 1.7;
+    color: var(--gray-400);
+    font-weight: 300;
+    max-width: 520px;
+  }
+
+  /* ═══════════════════════════════════════
+     NAV
+     ═══════════════════════════════════════ */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 clamp(24px, 4vw, 56px);
+    height: 64px;
+    background: rgba(10,10,10,0.88);
+    backdrop-filter: blur(24px) saturate(1.8);
+    -webkit-backdrop-filter: blur(24px) saturate(1.8);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .nav-brand {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    transition: color 0.25s;
+  }
+
+  .nav-links a:hover, .nav-links a.active { color: var(--white); }
+
+  /* ═══════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════ */
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero-bg img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    transform: scale(1.05);
+    animation: heroZoom 14s ease-out forwards;
+  }
+
+  @keyframes heroZoom { to { transform: scale(1); } }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+      linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.7) 20%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.05) 75%, transparent 100%),
+      linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.15) 50%, transparent 80%),
+      linear-gradient(135deg, rgba(0,20,40,0.3), rgba(0,0,0,0.1));
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 clamp(32px, 8vw, 120px);
+    margin-bottom: clamp(80px, 12vh, 140px);
+    max-width: 800px;
+  }
+
+  .hero-label-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    opacity: 0; transform: translateY(16px);
+    animation: fadeUp 0.8s ease 0.3s forwards;
+  }
+
+  .hero-label-tag::before {
+    content: '';
+    width: 20px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero h1 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: clamp(44px, 6.5vw, 82px);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    text-shadow: 0 2px 30px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.3);
+    margin-bottom: 20px;
+    opacity: 0; transform: translateY(24px);
+    animation: fadeUp 0.9s ease 0.45s forwards;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+    text-shadow: 0 0 40px rgba(0,200,255,0.3), 0 2px 30px rgba(0,0,0,0.4);
+  }
+
+  .hero-sub {
+    font-size: clamp(15px, 1.8vw, 18px);
+    line-height: 1.65;
+    color: rgba(255,255,255,0.72);
+    max-width: 520px;
+    margin-bottom: 36px;
+    font-weight: 300;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.5);
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp 0.8s ease 0.6s forwards;
+  }
+
+  .hero-sub strong { color: var(--white); font-weight: 500; }
+
+  .hero-ctas {
+    display: flex; gap: 14px; flex-wrap: wrap;
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp 0.8s ease 0.75s forwards;
+  }
+
+  /* Buttons (shared) */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border-radius: 60px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+
+  .btn-primary { background: var(--white); color: var(--dark); }
+  .btn-primary:hover {
+    background: var(--accent); color: var(--dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,200,255,0.25);
+  }
+
+  .btn-secondary {
+    background: rgba(255,255,255,0.08);
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+  }
+  .btn-secondary:hover {
+    background: rgba(255,255,255,0.14);
+    border-color: rgba(255,255,255,0.3);
+    transform: translateY(-2px);
+  }
+
+  .btn-text {
+    background: none; color: rgba(255,255,255,0.6);
+    padding: 14px 20px;
+  }
+  .btn-text:hover { color: var(--white); }
+  .btn-text .arrow { transition: transform 0.25s; }
+  .btn-text:hover .arrow { transform: translateX(4px); }
+
+  .btn-accent {
+    background: var(--accent);
+    color: var(--dark);
+    font-weight: 600;
+  }
+  .btn-accent:hover {
+    background: #33d4ff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,200,255,0.3);
+  }
+
+  .btn-outline-light {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .btn-outline-light:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.4);
+    transform: translateY(-2px);
+  }
+
+  /* Hero stats */
+  .hero-stats {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    gap: clamp(32px, 5vw, 72px);
+    padding: 20px clamp(32px, 6vw, 80px);
+    background: rgba(10,10,10,0.6);
+    backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    opacity: 0;
+    animation: fadeUp 0.6s ease 1s forwards;
+  }
+
+  .stat { text-align: center; }
+  .stat-value {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: clamp(18px, 2.2vw, 24px);
+    letter-spacing: -0.02em;
+  }
+  .stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  /* ═══════════════════════════════════════
+     EXPERIENCES
+     ═══════════════════════════════════════ */
+  .experiences {
+    padding: clamp(80px, 12vw, 140px) 0;
+    background: var(--dark);
+  }
+
+  .experiences-header {
+    margin-bottom: 64px;
+  }
+
+  .experiences-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .exp-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    cursor: pointer;
+    group: true;
+  }
+
+  .exp-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+
+  .exp-card:hover img {
+    transform: scale(1.06);
+  }
+
+  .exp-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 40%, transparent 70%);
+    transition: background 0.4s;
+  }
+
+  .exp-card:hover .exp-card-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 70%);
+  }
+
+  .exp-card-content {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 28px;
+  }
+
+  .exp-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .exp-card h3 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: clamp(20px, 2vw, 26px);
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .exp-card p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.5;
+    font-weight: 300;
+  }
+
+  .exp-price {
+    margin-top: 16px;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .exp-price span:first-child {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--white);
+  }
+
+  .exp-price span:last-child {
+    font-size: 12px;
+    color: var(--gray-400);
+  }
+
+  /* ═══════════════════════════════════════
+     HOW IT WORKS
+     ═══════════════════════════════════════ */
+  .how-it-works {
+    padding: clamp(80px, 12vw, 140px) 0;
+    background: #050505;
+    border-top: 1px solid rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .how-header {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+
+  .how-header .section-sub {
+    margin: 16px auto 0;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+  }
+
+  .step {
+    position: relative;
+    padding: 48px 32px;
+    text-align: center;
+    background: rgba(255,255,255,0.02);
+    border-radius: 12px;
+    transition: background 0.3s;
+  }
+
+  .step:hover {
+    background: rgba(255,255,255,0.04);
+  }
+
+  .step-num {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 48px;
+    color: rgba(0,200,255,0.12);
+    letter-spacing: -0.04em;
+    margin-bottom: 20px;
+    line-height: 1;
+  }
+
+  .step h3 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+
+  .step p {
+    font-size: 13px;
+    color: var(--gray-400);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* connector line between steps */
+  .step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 64px;
+    right: -1px;
+    width: 2px;
+    height: 24px;
+    background: rgba(0,200,255,0.15);
+    display: none;
+  }
+
+  /* ═══════════════════════════════════════
+     THE EFOIL — SPECS
+     ═══════════════════════════════════════ */
+  .specs {
+    padding: clamp(80px, 12vw, 140px) 0;
+    background: var(--dark);
+  }
+
+  .specs-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(48px, 6vw, 96px);
+    align-items: center;
+  }
+
+  .specs-image {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+  }
+
+  .specs-image img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+
+  .specs-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.06);
+    pointer-events: none;
+  }
+
+  .specs-info .section-heading {
+    margin-bottom: 20px;
+  }
+
+  .specs-info .section-sub {
+    margin-bottom: 40px;
+  }
+
+  .spec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .spec-item {
+    padding: 20px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .spec-item-value {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: -0.03em;
+    margin-bottom: 4px;
+  }
+
+  .spec-item-label {
+    font-size: 12px;
+    color: var(--gray-400);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* ═══════════════════════════════════════
+     LOCATIONS
+     ═══════════════════════════════════════ */
+  .locations {
+    padding: clamp(80px, 12vw, 140px) 0;
+    background: #050505;
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .locations-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 56px;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .locations-scroll {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .loc-card {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    cursor: pointer;
+  }
+
+  .loc-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+
+  .loc-card:hover img { transform: scale(1.05); }
+
+  .loc-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%);
+  }
+
+  .loc-card-info {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 24px;
+  }
+
+  .loc-card h4 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+  }
+
+  .loc-card span {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ═══════════════════════════════════════
+     TESTIMONIALS
+     ═══════════════════════════════════════ */
+  .testimonials {
+    padding: clamp(80px, 12vw, 140px) 0;
+    background: var(--dark);
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .testimonials-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .test-card {
+    padding: 36px;
+    background: rgba(255,255,255,0.025);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .test-card:hover {
+    border-color: rgba(0,200,255,0.15);
+    background: rgba(255,255,255,0.04);
+  }
+
+  .test-stars {
+    color: #ffb800;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  .test-card blockquote {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 24px;
+  }
+
+  .test-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .test-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: rgba(0,200,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--accent);
+  }
+
+  .test-name {
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  .test-role {
+    font-size: 12px;
+    color: var(--gray-400);
+  }
+
+  /* ═══════════════════════════════════════
+     CTA
+     ═══════════════════════════════════════ */
+  .cta-section {
+    position: relative;
+    padding: clamp(100px, 14vw, 160px) 0;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .cta-bg {
+    position: absolute;
+    inset: 0;
+  }
+
+  .cta-bg img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+
+  .cta-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.3) 100%),
+      linear-gradient(to bottom, rgba(10,10,10,1) 0%, transparent 30%);
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .cta-content .section-heading {
+    margin-bottom: 20px;
+  }
+
+  .cta-content .section-sub {
+    margin: 0 auto 40px;
+    text-align: center;
+  }
+
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  /* ═══════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════ */
+  footer {
+    padding: 64px 0 32px;
+    background: var(--dark);
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 56px;
+  }
+
+  .footer-brand {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .footer-brand-desc {
+    font-size: 13px;
+    color: var(--gray-400);
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 280px;
+  }
+
+  .footer-col h5 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-col a {
+    font-size: 13px;
+    color: var(--gray-400);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--white); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    color: var(--gray-600);
+  }
+
+  .footer-socials {
+    display: flex;
+    gap: 20px;
+  }
+
+  .footer-socials a {
+    font-size: 12px;
+    color: var(--gray-400);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-socials a:hover { color: var(--white); }
+
+  /* ═══════════════════════════════════════
+     SCROLL ANIMATIONS
+     ═══════════════════════════════════════ */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ═══════════════════════════════════════
+     RESPONSIVE
+     ═══════════════════════════════════════ */
+  @media (max-width: 1024px) {
+    .experiences-grid { grid-template-columns: repeat(2, 1fr); }
+    .experiences-grid .exp-card:last-child { display: none; }
+    .steps { grid-template-columns: repeat(2, 1fr); }
+    .locations-scroll { grid-template-columns: repeat(2, 1fr); }
+    .testimonials-grid { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hero-content { padding: 0 24px; margin-bottom: 100px; }
+    .hero-ctas { flex-direction: column; }
+    .hero-ctas .btn { width: 100%; justify-content: center; }
+    .hero-ctas .btn-text { width: auto; }
+    .hero-stats { gap: 20px; padding: 16px 20px; }
+    .experiences-grid { grid-template-columns: 1fr; }
+    .experiences-grid .exp-card:last-child { display: block; }
+    .experiences-grid .exp-card { aspect-ratio: 16/10; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .specs-layout { grid-template-columns: 1fr; }
+    .specs-image { aspect-ratio: 16/10; }
+    .locations-scroll { grid-template-columns: 1fr 1fr; }
+    .cta-buttons { flex-direction: column; align-items: center; }
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <a href="#" class="nav-brand">eFoil Maldives</a>
+  <ul class="nav-links">
+    <li><a href="#" class="active">Home</a></li>
+    <li><a href="#experiences">Experiences</a></li>
+    <li><a href="#learn">Learn</a></li>
+    <li><a href="#yachts">Yachts</a></li>
+    <li><a href="#resorts">Resorts</a></li>
+    <li><a href="#specs">Audi eFoil</a></li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#">Events</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1920&q=85&auto=format" alt="Maldives crystal ocean">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label-tag">Audi × Aerofoils</div>
+    <h1>eFoil Experiences<br>in the <em>Maldives</em></h1>
+    <p class="hero-sub">Innovative electric hydrofoil systems delivered to your yacht, resort, or private island — anywhere in the Maldives. <strong>Fast.</strong></p>
+    <div class="hero-ctas">
+      <a href="#experiences" class="btn btn-primary">eFoil Experiences</a>
+      <a href="#learn" class="btn btn-secondary">Learn to eFoil</a>
+      <a href="#" class="btn btn-text">Own an eFoil <span class="arrow">→</span></a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-value">45 km/h</div><div class="stat-label">Top Speed</div></div>
+    <div class="stat"><div class="stat-value">90 min</div><div class="stat-label">Battery Life</div></div>
+    <div class="stat"><div class="stat-value">120+</div><div class="stat-label">Resorts Served</div></div>
+    <div class="stat"><div class="stat-value">4.9 ★</div><div class="stat-label">Guest Rating</div></div>
+  </div>
+</section>
+
+<!-- ═══ EXPERIENCES ═══ -->
+<section class="experiences" id="experiences">
+  <div class="container">
+    <div class="experiences-header reveal">
+      <div class="section-label">Experiences</div>
+      <h2 class="section-heading">Choose Your Ride</h2>
+      <p class="section-sub" style="margin-top:16px;">From sunset cruises to full-day island-hopping adventures. Every session includes expert instruction and premium equipment.</p>
+    </div>
+    <div class="experiences-grid">
+      <div class="exp-card reveal">
+        <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=800&q=80&auto=format" alt="Sunset eFoil session">
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-content">
+          <div class="exp-tag">Most Popular</div>
+          <h3>Sunset Session</h3>
+          <p>90-minute guided ride through golden hour waters. Includes photography.</p>
+          <div class="exp-price"><span>$290</span><span>per person</span></div>
+        </div>
+      </div>
+      <div class="exp-card reveal" style="transition-delay:0.1s;">
+        <img src="https://images.unsplash.com/photo-1540202404-a2f29016b523?w=800&q=80&auto=format" alt="Island hopping">
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-content">
+          <div class="exp-tag">Full Day</div>
+          <h3>Island Explorer</h3>
+          <p>Full-day eFoil adventure across multiple atolls with lunch on a sandbank.</p>
+          <div class="exp-price"><span>$680</span><span>per person</span></div>
+        </div>
+      </div>
+      <div class="exp-card reveal" style="transition-delay:0.2s;">
+        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80&auto=format" alt="Private charter">
+        <div class="exp-card-overlay"></div>
+        <div class="exp-card-content">
+          <div class="exp-tag">Exclusive</div>
+          <h3>Private Charter</h3>
+          <p>Dedicated yacht, instructor, and eFoils for your group. Up to 8 guests.</p>
+          <div class="exp-price"><span>$2,400</span><span>per group</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section class="how-it-works" id="learn">
+  <div class="container">
+    <div class="how-header reveal">
+      <div class="section-label" style="justify-content:center;">How It Works</div>
+      <h2 class="section-heading">Flying in 15 Minutes</h2>
+      <p class="section-sub">No experience needed. Our certified instructors get first-timers airborne in a single session.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <h3>Book Online</h3>
+        <p>Choose your experience, date, and location. We come to you — resort, yacht, or private island.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:0.1s;">
+        <div class="step-num">02</div>
+        <h3>Safety Briefing</h3>
+        <p>10-minute land briefing covering controls, stance, and safety protocols before you touch water.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:0.2s;">
+        <div class="step-num">03</div>
+        <h3>Learn to Fly</h3>
+        <p>Start kneeling, progress to standing. The wireless remote lets you control speed precisely.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:0.3s;">
+        <div class="step-num">04</div>
+        <h3>Ride Solo</h3>
+        <p>Once comfortable, explore the lagoon at your own pace. Most riders are flying within 15 minutes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ THE EFOIL ═══ -->
+<section class="specs" id="specs">
+  <div class="container">
+    <div class="specs-layout">
+      <div class="specs-image reveal">
+        <img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=800&q=80&auto=format" alt="The Audi eFoil board">
+      </div>
+      <div class="specs-info reveal" style="transition-delay:0.15s;">
+        <div class="section-label">Audi × Aerofoils</div>
+        <h2 class="section-heading">Built for<br>Open Water</h2>
+        <p class="section-sub">The Audi e-tron foil combines German engineering with carbon fiber construction. Silent, zero-emission, and absurdly fast.</p>
+        <div class="spec-grid">
+          <div class="spec-item">
+            <div class="spec-item-value">45 <span style="font-size:16px;color:var(--gray-400);">km/h</span></div>
+            <div class="spec-item-label">Top Speed</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-item-value">90 <span style="font-size:16px;color:var(--gray-400);">min</span></div>
+            <div class="spec-item-label">Battery</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-item-value">6.2 <span style="font-size:16px;color:var(--gray-400);">kW</span></div>
+            <div class="spec-item-label">Motor Power</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-item-value">32 <span style="font-size:16px;color:var(--gray-400);">kg</span></div>
+            <div class="spec-item-label">Board Weight</div>
+          </div>
+        </div>
+        <a href="#" class="btn btn-accent">Explore the eFoil</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LOCATIONS ═══ -->
+<section class="locations" id="resorts">
+  <div class="container">
+    <div class="locations-header reveal">
+      <div>
+        <div class="section-label">Locations</div>
+        <h2 class="section-heading">We Come to You</h2>
+      </div>
+      <a href="#" class="btn btn-outline-light">View All Resorts <span style="margin-left:4px;">→</span></a>
+    </div>
+    <div class="locations-scroll">
+      <div class="loc-card reveal">
+        <img src="https://images.unsplash.com/photo-1512100356356-de1b84283e18?w=600&q=80&auto=format" alt="Soneva Fushi">
+        <div class="loc-card-overlay"></div>
+        <div class="loc-card-info">
+          <h4>Soneva Fushi</h4>
+          <span>Baa Atoll</span>
+        </div>
+      </div>
+      <div class="loc-card reveal" style="transition-delay:0.08s;">
+        <img src="https://images.unsplash.com/photo-1540202404-a2f29016b523?w=600&q=80&auto=format" alt="Ithaafushi">
+        <div class="loc-card-overlay"></div>
+        <div class="loc-card-info">
+          <h4>Waldorf Astoria</h4>
+          <span>Ithaafushi</span>
+        </div>
+      </div>
+      <div class="loc-card reveal" style="transition-delay:0.16s;">
+        <img src="https://images.unsplash.com/photo-1551918120-9739cb430c6d?w=600&q=80&auto=format" alt="Raa Atoll">
+        <div class="loc-card-overlay"></div>
+        <div class="loc-card-info">
+          <h4>St. Regis</h4>
+          <span>Vommuli</span>
+        </div>
+      </div>
+      <div class="loc-card reveal" style="transition-delay:0.24s;">
+        <img src="https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=600&q=80&auto=format" alt="North Male Atoll">
+        <div class="loc-card-overlay"></div>
+        <div class="loc-card-info">
+          <h4>One&Only Reethi Rah</h4>
+          <span>North Malé</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section class="testimonials">
+  <div class="container">
+    <div class="testimonials-header reveal">
+      <div class="section-label" style="justify-content:center;">Reviews</div>
+      <h2 class="section-heading">What Guests Say</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="test-card reveal">
+        <div class="test-stars">★★★★★</div>
+        <blockquote>"The most exhilarating thing I've done on water. Was flying within ten minutes — the instructor was incredible."</blockquote>
+        <div class="test-author">
+          <div class="test-avatar">JR</div>
+          <div><div class="test-name">James R.</div><div class="test-role">Soneva Fushi Guest</div></div>
+        </div>
+      </div>
+      <div class="test-card reveal" style="transition-delay:0.1s;">
+        <div class="test-stars">★★★★★</div>
+        <blockquote>"They brought everything to our yacht. Setup was fast, gear was spotless. Absolute highlight of the trip."</blockquote>
+        <div class="test-author">
+          <div class="test-avatar">SK</div>
+          <div><div class="test-name">Sarah K.</div><div class="test-role">Private Yacht Charter</div></div>
+        </div>
+      </div>
+      <div class="test-card reveal" style="transition-delay:0.2s;">
+        <div class="test-stars">★★★★★</div>
+        <blockquote>"Booked the sunset session for our anniversary. Gliding above crystal water at golden hour — nothing compares."</blockquote>
+        <div class="test-author">
+          <div class="test-avatar">MT</div>
+          <div><div class="test-name">Marco T.</div><div class="test-role">Waldorf Astoria Guest</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section">
+  <div class="cta-bg">
+    <img src="https://images.unsplash.com/photo-1468413253725-0d5181091126?w=1920&q=80&auto=format" alt="Maldives aerial">
+    <div class="cta-bg-overlay"></div>
+  </div>
+  <div class="container cta-content reveal">
+    <div class="section-label" style="justify-content:center;">Ready?</div>
+    <h2 class="section-heading">Your Next Session<br>Starts Here</h2>
+    <p class="section-sub">Available across 120+ resorts and private locations throughout the Maldives. Book today and fly tomorrow.</p>
+    <div class="cta-buttons">
+      <a href="#" class="btn btn-accent">Book an Experience</a>
+      <a href="#" class="btn btn-outline-light">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">eFoil Maldives</div>
+        <p class="footer-brand-desc">Electric hydrofoil experiences delivered anywhere in the Maldives. A collaboration between Audi and Aerofoils.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Experiences</h5>
+        <ul>
+          <li><a href="#">Sunset Session</a></li>
+          <li><a href="#">Island Explorer</a></li>
+          <li><a href="#">Private Charter</a></li>
+          <li><a href="#">Learn to eFoil</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Resorts</a></li>
+          <li><a href="#">Yachts</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Support</h5>
+        <ul>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Safety</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 eFoil Maldives. All rights reserved.</span>
+      <div class="footer-socials">
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+        <a href="#">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll reveal script -->
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

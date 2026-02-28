@@ -38,7 +38,7 @@ export async function generateMetadata() {
           url: `${baseURL}/images/gallery/resort_efoil_rental_maldives.jpeg`,
           width: 1200,
           height: 675,
-          alt: "Premium eFoil rental experience in the Maldives — electric hydrofoil at a resort",
+          alt: "Premium eFoil rental experience | Maldives — electric hydrofoil at a resort",
           type: "image/jpeg",
         },
       ],

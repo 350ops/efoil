@@ -21,7 +21,7 @@ export async function generateMetadata() {
     ...Meta.generate({
       title: "eFoil Rental Maldives | Private Sessions & Yacht Delivery",
       description:
-        "Rent an Audi e-tron eFoil in the Maldives. Electric hydrofoil board rental with professional instruction, delivered to yachts, resorts, and private locations across the atolls.",
+        "Rent an Audi e-tron eFoil | Maldives. Electric hydrofoil board rental with professional instruction, delivered to yachts, resorts, and private locations across the atolls.",
       baseURL: baseURL,
       image: `/api/og/generate?title=${encodeURIComponent("eFoil Rental Maldives")}`,
       path: "/efoil-rental-maldives",
@@ -53,7 +53,7 @@ const serviceSchema = {
         "@type": "Offer",
         name: "Private eFoil Experiences",
         description:
-          "Curated private eFoil experiences delivered anywhere in the Maldives. Half-day, sunset, and multi-day packages available.",
+          "Curated private eFoil experiences delivered anywhere | Maldives. Half-day, sunset, and multi-day packages available.",
         url: `${baseURL}/efoil-experiences-maldives`,
       },
       {
@@ -73,15 +73,15 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "How much does it cost to rent an eFoil in the Maldives?",
+      name: "How much does it cost to rent an eFoil | Maldives?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "eFoil rental rates in the Maldives vary depending on location, duration, and delivery logistics. Yacht and resort delivery packages are custom-quoted based on distance and number of days. Contact us for a personalised quote.",
+        text: "eFoil rental rates | Maldives vary depending on location, duration, and delivery logistics. Yacht and resort delivery packages are custom-quoted based on distance and number of days. Contact us for a personalised quote.",
       },
     },
     {
       "@type": "Question",
-      name: "Where can I rent an eFoil in the Maldives?",
+      name: "Where can I rent an eFoil | Maldives?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "We deliver eFoils across the entire Maldives archipelago. Popular areas include North Malé Atoll, South Malé Atoll, Baa Atoll, Ari Atoll, and Raa Atoll. We also serve locations near Malé and Hulhumalé for visitors on shorter stays or layovers.",
@@ -89,7 +89,7 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "What eFoil brand do you rent in the Maldives?",
+      name: "What eFoil brand do you rent | Maldives?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "We exclusively offer the Audi e-tron eFoil — a collaboration between Audi and Aerofoils GmbH. It is the most advanced consumer electric hydrofoil available, featuring an enclosed jet propulsion system, wireless smart controller, and a design engineered for both safety and performance.",
@@ -113,7 +113,7 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "How do I book an eFoil rental in the Maldives?",
+      name: "How do I book an eFoil rental | Maldives?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "The fastest way is via Instagram. Send us your dates, location, and group size, and we will confirm availability within minutes. You can also email us at hello@efoil.rent. We recommend booking at least 48 hours in advance.",
@@ -146,7 +146,7 @@ export default function EfoilRentalPage() {
         baseURL={baseURL}
         path="/efoil-rental-maldives"
         title="eFoil Rental Maldives | Private Sessions & Yacht Delivery"
-        description="Rent an Audi e-tron eFoil in the Maldives. Delivered to yachts, resorts, and private locations."
+        description="Rent an Audi e-tron eFoil | Maldives. Delivered to yachts, resorts, and private locations."
         image={`/api/og/generate?title=${encodeURIComponent("eFoil Rental Maldives")}`}
         author={{
           name: person.name,
@@ -230,7 +230,7 @@ export default function EfoilRentalPage() {
               The Audi e-tron eFoil represents the pinnacle of this technology. Developed in collaboration between Audi and Aerofoils GmbH, it features a fully enclosed jet propulsion system (no exposed propeller), a swappable battery that provides up to two hours of riding, and a smart wireless controller with real-time speed and battery display. Weighing just 32 kg, it is designed for both beginners and experienced riders.
             </Text>
             <Text variant="body-default-m" onBackground="neutral-weak">
-              In the Maldives, the combination of warm water, calm lagoons, and stunning visibility creates ideal conditions for eFoiling year-round. Whether you are staying on a yacht, at a resort, or visiting for just a few days, renting an eFoil is one of the most memorable ways to experience the islands from above the water.
+              | Maldives, the combination of warm water, calm lagoons, and stunning visibility creates ideal conditions for eFoiling year-round. Whether you are staying on a yacht, at a resort, or visiting for just a few days, renting an eFoil is one of the most memorable ways to experience the islands from above the water.
             </Text>
           </Column>
         </Column>
@@ -319,7 +319,7 @@ export default function EfoilRentalPage() {
                 Delivery & Collection
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak">
-                We bring the eFoil to your yacht, resort, or any accessible location in the Maldives and collect it when your session is complete. You do not need to store, charge, or transport anything.
+                We bring the eFoil to your yacht, resort, or any accessible location | Maldives and collect it when your session is complete. You do not need to store, charge, or transport anything.
               </Text>
             </Column>
           </Grid>
@@ -347,7 +347,7 @@ export default function EfoilRentalPage() {
                 Private Experiences
               </Heading>
               <Text variant="body-default-m" onBackground="neutral-weak" align="center">
-                Curated eFoil experiences delivered anywhere in the Maldives. Half-day, sunset, and multi-day packages with premium service.
+                Curated eFoil experiences delivered anywhere | Maldives. Half-day, sunset, and multi-day packages with premium service.
               </Text>
               <Button href="/efoil-experiences-maldives" variant="secondary" size="m" arrowIcon>
                 View Experiences
@@ -395,7 +395,7 @@ export default function EfoilRentalPage() {
               eFoil Rental FAQ
             </Heading>
             <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-              Common questions about renting an eFoil in the Maldives
+              Common questions about renting an eFoil | Maldives
             </Text>
           </Column>
 

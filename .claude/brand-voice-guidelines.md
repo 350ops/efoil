@@ -4,7 +4,7 @@
 
 **Company:** Maldives eFoil Club
 **Tagline:** Private Access. Priority Delivery. Seamless Experiences.
-**Core promise:** Consistent, effortless access to eFoiling in the Maldives — without coordination, uncertainty, or limitation.
+**Core promise:** Consistent, effortless access to eFoiling | Maldives — without coordination, uncertainty, or limitation.
 **Model:** Private membership (limited, application-based)
 
 ---

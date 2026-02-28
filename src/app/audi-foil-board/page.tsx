@@ -160,9 +160,9 @@ export default function AudiFoilBoard() {
       {/* Own an eFoil */}
       <Column fillWidth maxWidth="l" paddingX="16" paddingY="l" gap="l">
         <Column horizontal="center" gap="16">
-          <Heading as="h2" variant="display-strong-m" align="center">Own an eFoil in the Maldives</Heading>
+          <Heading as="h2" variant="display-strong-m" align="center">Own an eFoil | Maldives</Heading>
           <Text variant="body-default-l" onBackground="neutral-weak" align="center" style={{ maxWidth: '720px' }}>
-            We facilitate access to Audi e-tron eFoils in the Maldives through our trusted partner network. From acquisition to delivery, local support, and maintenance — we are with you every step of the way.
+            We facilitate access to Audi e-tron eFoils | Maldives through our trusted partner network. From acquisition to delivery, local support, and maintenance — we are with you every step of the way.
           </Text>
         </Column>
         <Grid columns="3" gap="24">
@@ -175,7 +175,7 @@ export default function AudiFoilBoard() {
           <Column padding="24" gap="12" horizontal="center" background="neutral-alpha-weak" radius="l">
             <Text variant="heading-strong-m" align="center">Local Support</Text>
             <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-              Spare parts, maintenance, and technical support available locally in the Maldives.
+              Spare parts, maintenance, and technical support available locally | Maldives.
             </Text>
           </Column>
           <Column padding="24" gap="12" horizontal="center" background="neutral-alpha-weak" radius="l">

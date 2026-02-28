@@ -1,21 +1,23 @@
+import { Mailchimp } from "@/components";
+import { BottomCTA, HeroCTA } from "@/components/HeroCTA";
+import { Posts } from "@/components/blog/Posts";
+import { about, baseURL, gallery, home, person, routes } from "@/resources";
 import {
-  Heading,
-  Text,
-  Button,
-  RevealFx,
-  Column,
   Badge,
-  Row,
-  Schema,
-  Meta,
+  Button,
+  Column,
+  Grid,
+  Heading,
   Line,
   Media,
-  Grid,
+  Meta,
+  RevealFx,
+  Row,
+  Schema,
+  Text,
 } from "@once-ui-system/core";
-import { home, about, person, baseURL, routes, gallery } from "@/resources";
-import { Mailchimp } from "@/components";
-import { HeroCTA, BottomCTA } from "@/components/HeroCTA";
-import { Posts } from "@/components/blog/Posts";
+import Image from "next/image";
+import heroBg from "./gallery/mlv.png";
 
 export async function generateMetadata() {
   return {
@@ -31,7 +33,7 @@ export async function generateMetadata() {
       type: "website",
       title: "eFoil Maldives | Experience, Learn & Own",
       description:
-        "Premium Audi e-tron eFoil experiences in the Maldives. Private sessions, personal instruction, and equipment access — delivered to your yacht, resort, or private location.",
+        "Premium Audi e-tron eFoil experiences | Maldives. Private sessions, personal instruction, and equipment access — delivered to your yacht, resort, or private location.",
       url: baseURL,
       siteName: "eFoil Maldives",
       images: [
@@ -53,7 +55,7 @@ const serviceSchema = {
   "@type": "Service",
   name: "eFoil Experiences Maldives",
   description:
-    "Premium Audi e-tron eFoil experiences in the Maldives. Private sessions, personal instruction, and equipment access — delivered to your yacht, resort, or private location.",
+    "Premium Audi e-tron eFoil experiences | Maldives. Private sessions, personal instruction, and equipment access — delivered to your yacht, resort, or private location.",
   provider: {
     "@type": "Organization",
     name: "eFoil Maldives",
@@ -88,28 +90,28 @@ const serviceSchema = {
         "@type": "Offer",
         name: "Point to Point Delivery",
         description:
-          "24-hour eFoil rental with delivery to your yacht, resort, or any location in the Maldives. Includes initial instruction and safety gear.",
+          "24-hour eFoil rental with delivery to your yacht, resort, or any location | Maldives. Includes initial instruction and safety gear.",
         url: `${baseURL}/yachts`,
       },
       {
         "@type": "Offer",
         name: "Private eFoil Experiences",
         description:
-          "Curated private eFoil experiences delivered anywhere in the Maldives. Half-day, sunset, and multi-day packages available.",
+          "Curated private eFoil experiences delivered anywhere | Maldives. Half-day, sunset, and multi-day packages available.",
         url: `${baseURL}/efoil-experiences-maldives`,
       },
       {
         "@type": "Offer",
         name: "Learn to eFoil",
         description:
-          "Private eFoil instruction in the Maldives. Discovery sessions, progression coaching, and advanced riding guidance on the Audi e-tron eFoil.",
+          "Private eFoil instruction | Maldives. Discovery sessions, progression coaching, and advanced riding guidance on the Audi e-tron eFoil.",
         url: `${baseURL}/learn-efoil-maldives`,
       },
       {
         "@type": "Offer",
         name: "Own an Audi eFoil",
         description:
-          "Acquire your own Audi e-tron eFoil in the Maldives. We facilitate access through our trusted partner network with local support and delivery.",
+          "Acquire your own Audi e-tron eFoil | Maldives. We facilitate access through our trusted partner network with local support and delivery.",
         url: `${baseURL}/audi-foil-board`,
       },
     ],
@@ -181,7 +183,7 @@ const faqSchema = {
       name: "What eFoil equipment is used?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We exclusively use the Audi e-tron eFoil, known for its safety features, performance, and silence — the best equipment available in the Maldives.",
+        text: "We exclusively use the Audi e-tron eFoil, known for its safety features, performance, and silence — the best equipment available | Maldives.",
       },
     },
   ],
@@ -213,17 +215,41 @@ export default function Home() {
         // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      
-      {/* Hero Section */}
-      <Column fillWidth horizontal="center" gap="l">
-        <Column maxWidth="m" horizontal="center" align="center">
+
+      {/* ═══ HERO ═══ */}
+      <Column
+        position="relative"
+        fillWidth
+        horizontal="center"
+        gap="l"
+        radius="xl"
+        overflow="hidden"
+        style={{ minHeight: "75vh", justifyContent: "flex-end", paddingBottom: "80px" }}
+      >
+        {/* Background image */}
+        <Image
+          src={heroBg}
+          alt="eFoil Maldives Hero Background"
+          fill
+          style={{ objectFit: "cover", objectPosition: "center", zIndex: 0 }}
+          quality={90}
+          priority
+        />
+
+        {/* Multi-layer gradient overlay (replaces single flat overlay) */}
+        <div className="hero-overlay" />
+
+        {/* Hero content — bottom-aligned for clarity */}
+        <Column
+          maxWidth="m"
+          horizontal="center"
+          align="center"
+          position="relative"
+          style={{ zIndex: 2 }}
+          gap="16"
+        >
           {home.featured.display && (
-            <RevealFx
-              fillWidth
-              horizontal="center"
-              paddingTop="16"
-              paddingBottom="24"
-            >
+            <RevealFx fillWidth horizontal="center" paddingBottom="16">
               <Badge
                 background="brand-alpha-weak"
                 paddingX="16"
@@ -233,42 +259,88 @@ export default function Home() {
                 arrow={false}
                 href={home.featured.href}
               >
-                <Row gap="12" vertical="center" paddingY="2">{home.featured.title}</Row>
+                <Row gap="12" vertical="center" paddingY="2">
+                  {home.featured.title}
+                </Row>
               </Badge>
             </RevealFx>
           )}
-          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16">
-            <Heading as="h1" wrap="balance" variant="display-strong-xl" align="center">
+
+          <RevealFx fillWidth horizontal="center" paddingBottom="8">
+            <span className="hero-eyebrow">Audi × Aerofoils</span>
+          </RevealFx>
+
+          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="8">
+            <Heading
+              as="h1"
+              wrap="balance"
+              variant="display-strong-xl"
+              align="center"
+              className="hero-text-white"
+            >
               {home.headline}
             </Heading>
           </RevealFx>
-          <RevealFx translateY="8" delay={0.1} fillWidth horizontal="center" paddingBottom="32">
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l" align="center">
-              {home.subline}
+
+          <RevealFx translateY="8" delay={0.1} fillWidth horizontal="center" paddingBottom="16">
+            <Text
+              wrap="balance"
+              variant="body-default-l"
+              align="center"
+              className="hero-text-sub"
+              style={{ maxWidth: 520 }}
+            >
+              Innovative electric hydrofoil systems delivered to your yacht, resort, or private
+              island — anywhere in the Maldives.
             </Text>
           </RevealFx>
-          <RevealFx paddingTop="12" delay={0.2} horizontal="center" fillWidth>
+
+          <RevealFx paddingTop="8" delay={0.2} horizontal="center" fillWidth>
             <HeroCTA />
           </RevealFx>
         </Column>
 
+        {/* Stats bar */}
+        <div className="hero-stats-bar">
+          {[
+            { value: "55 km/h", label: "Top Speed" },
+            { value: "120 min", label: "Battery Life" },
+            { value: "120+", label: "Resorts Served" },
+            { value: "4.9 ★", label: "Guest Rating" },
+          ].map((s) => (
+            <div key={s.label} className="hero-stat">
+              <div className="hero-stat-value">{s.value}</div>
+              <div className="hero-stat-label">{s.label}</div>
+            </div>
+          ))}
+        </div>
       </Column>
 
-      {/* SEO Content Section */}
+      {/* ═══ SEO INTRO ═══ */}
       <Column fillWidth horizontal="center" gap="l" paddingY="l">
         <Column maxWidth="m" gap="m">
-            <Text variant="body-default-m" onBackground="neutral-weak">
-              Premium eFoil experiences in the Maldives. Ride the Audi e-tron electric hydrofoil — the world&apos;s most advanced eFoil — delivered to your yacht, resort, or private location. Professional instruction included so you can glide effortlessly over crystal-clear waters.
-            </Text>
-            <Text variant="body-default-m" onBackground="neutral-weak">
-              Experience, learn, or own. From private sessions and personal instruction to acquiring your own Audi eFoil — we cover every aspect of eFoiling across Maldivian waters.
-            </Text>
+          <Text variant="body-default-l" onBackground="neutral-strong">
+            Premium eFoil experiences | Maldives. Ride the Audi e-tron electric hydrofoil — the
+            world&apos;s most advanced eFoil — delivered to your yacht, resort, or private location.
+            Professional instruction included so you can glide effortlessly over crystal-clear
+            waters.
+          </Text>
+          <Text variant="body-default-m" onBackground="neutral-weak">
+            Experience, learn, or own. From private sessions and personal instruction to acquiring
+            your own Audi eFoil — we cover every aspect of eFoiling across Maldivian waters.
+          </Text>
         </Column>
       </Column>
 
-      {/* SEO-Optimized Image Section */}
+      {/* ═══ GALLERY HERO IMAGE ═══ */}
       <RevealFx translateY="16" delay={0.4} fillWidth>
-        <Column fillWidth radius="l" overflow="hidden" border="neutral-alpha-weak" style={{ maxWidth: 720, margin: "0 auto" }}>
+        <Column
+          fillWidth
+          radius="l"
+          overflow="hidden"
+          border="neutral-alpha-weak"
+          style={{ maxWidth: 720, margin: "0 auto" }}
+        >
           <Media
             src="/images/gallery/resort_efoil_rental_maldives.jpeg"
             alt="Person riding an Audi e-tron eFoil above the turquoise waters of the Maldives"
@@ -277,19 +349,24 @@ export default function Home() {
         </Column>
       </RevealFx>
 
-      {/* What is an eFoil? */}
+      {/* ═══ WHAT IS AN EFOIL ═══ */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
         <Column fillWidth gap="l" paddingY="l">
           <Column horizontal="center" gap="m">
             <Heading as="h2" variant="display-strong-m" align="center">
               What is an eFoil?
             </Heading>
-            <Text variant="body-default-l" onBackground="neutral-weak" align="center" style={{ maxWidth: 720 }}>
-              An eFoil — short for electric hydrofoil surfboard — is a cutting-edge watersport device that's rapidly gaining popularity worldwide.
+            <Text
+              variant="body-default-l"
+              onBackground="neutral-weak"
+              align="center"
+              style={{ maxWidth: 720 }}
+            >
+              An eFoil — short for electric hydrofoil surfboard — is a cutting-edge watersport
+              device that's rapidly gaining popularity worldwide.
             </Text>
           </Column>
           <Column gap="m" style={{ maxWidth: 720, margin: "0 auto" }}>
-            {/* Image Above Title */}
             <Column fillWidth radius="l" overflow="hidden" border="neutral-alpha-weak">
               <Media
                 src="/images/gallery/efoilduo.jpeg"
@@ -297,24 +374,28 @@ export default function Home() {
                 aspectRatio="16 / 9"
               />
             </Column>
-            
+
             <Heading as="h3" variant="heading-strong-m" paddingTop="24">
               How an eFoil Works
             </Heading>
-            
+
             <Text variant="body-default-m" onBackground="neutral-weak">
-              An eFoil consists of three main components: the board, an electric motor, and the hydrofoil (a mast with an underwater wing and propulsion unit). The board is built slightly larger and more stable than a standard surfboard to house the rechargeable battery and electronics. The battery is swappable, allowing for extended sessions on the water. The motor drives either a propeller or a modern jet unit mounted on the foil beneath the board.
+              An eFoil consists of three main components: the board, an electric motor, and the
+              hydrofoil (a mast with an underwater wing and propulsion unit). The board is built
+              slightly larger and more stable than a standard surfboard to house the rechargeable
+              battery and electronics. The battery is swappable, allowing for extended sessions on
+              the water. The motor drives either a propeller or a modern jet unit mounted on the
+              foil beneath the board.
             </Text>
             <Text variant="body-default-m" onBackground="neutral-weak">
-              Speed is controlled through a wireless handheld remote. Altitude — how high you fly above the water — is managed by shifting your body weight forward or back.
+              Speed is controlled through a wireless handheld remote. Altitude — how high you fly
+              above the water — is managed by shifting your body weight forward or back.
             </Text>
           </Column>
         </Column>
       </RevealFx>
 
-
-
-      {/* Equipment Showcase */}
+      {/* ═══ EQUIPMENT SHOWCASE ═══ */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
         <Column fillWidth gap="l" paddingY="l">
           <Row fillWidth paddingRight="64" s={{ hide: true }}>
@@ -328,16 +409,26 @@ export default function Home() {
               Ride the revolutionary Audi e-tron eFoil—engineered for performance and safety
             </Text>
           </Column>
-          
+
           <Grid columns="2" gap="24" fillWidth>
-            <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
+            <Column
+              overflow="hidden"
+              radius="l"
+              border="neutral-alpha-weak"
+              background="neutral-alpha-weak"
+            >
               <Media
                 src="/images/gallery/aeroloop.jpg"
                 alt="Audi e-tron Aeroloop eFoil — brand new premium electric hydrofoil board"
                 aspectRatio="16 / 10"
               />
             </Column>
-            <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
+            <Column
+              overflow="hidden"
+              radius="l"
+              border="neutral-alpha-weak"
+              background="neutral-alpha-weak"
+            >
               <Media
                 src="/images/gallery/efoilguy.jpeg"
                 alt="Rider flying above the water on Audi e-tron eFoil in Maldives"
@@ -345,23 +436,38 @@ export default function Home() {
               />
             </Column>
           </Grid>
-          
+
           <Grid columns="3" gap="24" fillWidth>
-            <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
+            <Column
+              overflow="hidden"
+              radius="l"
+              border="neutral-alpha-weak"
+              background="neutral-alpha-weak"
+            >
               <Media
                 src="/images/gallery/efoil-white-background.jpeg"
                 alt="Audi e-tron eFoil hydrofoil wing and motor detail"
                 aspectRatio="4 / 3"
               />
             </Column>
-            <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
+            <Column
+              overflow="hidden"
+              radius="l"
+              border="neutral-alpha-weak"
+              background="neutral-alpha-weak"
+            >
               <Media
                 src="/images/gallery/engine-white-background.jpg"
                 alt="Audi e-tron eFoil integrated propulsion unit — fully enclosed propeller"
                 aspectRatio="4 / 3"
               />
             </Column>
-            <Column overflow="hidden" radius="l" border="neutral-alpha-weak" background="neutral-alpha-weak">
+            <Column
+              overflow="hidden"
+              radius="l"
+              border="neutral-alpha-weak"
+              background="neutral-alpha-weak"
+            >
               <Media
                 src="/images/gallery/remote.jpg"
                 alt="Audi e-tron eFoil smart wireless controller with speed and battery display"
@@ -369,15 +475,9 @@ export default function Home() {
               />
             </Column>
           </Grid>
-          
+
           <Row fillWidth horizontal="center" paddingTop="l">
-            <Button
-              href="/gallery"
-              variant="secondary"
-              size="m"
-              arrowIcon
-             
-            >
+            <Button href="/gallery" variant="secondary" size="m" arrowIcon>
               View Full Gallery
             </Button>
           </Row>
@@ -387,7 +487,148 @@ export default function Home() {
         </Column>
       </RevealFx>
 
-      {/* Delivery Locations */}
+      {/* ═══ PRODUCT SPECS ═══ */}
+      <RevealFx translateY="16" delay={0.2} fillWidth>
+        <Grid columns="4" gap="24" fillWidth>
+          {[
+            {
+              icon: (
+                <svg
+                  height="40"
+                  viewBox="0 0 64 64"
+                  width="40"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ stroke: "var(--brand-on-background-strong)", strokeWidth: 2 }}
+                  aria-hidden="true"
+                >
+                  <title>Specification Icon</title>
+                  <g
+                    style={{
+                      fill: "none",
+                      strokeMiterlimit: 10,
+                      strokeLinejoin: "round",
+                      strokeLinecap: "round",
+                    }}
+                  >
+                    <path d="m17 15h26c2.3 0 2.1 1.6 1.7 3.1s-3.7 14.9-3.7 14.9h10.1l4-2 3.9 2v8c0 1.3-.5 2-2 2h-8m-40 0h6.6m9.4 0h14.6" />
+                    <path d="m43.6 23h5.4l6.1 8m-24.1-8h-22m18 8h-22" />
+                    <path d="m24.8 44a6.9 6.9 0 0 1 -6.2 5c-2.7 0-4.2-2.2-3.4-5a6.9 6.9 0 0 1 6.2-5c2.6 0 4.2 2.2 3.4 5zm24 0a6.9 6.9 0 0 1 -6.2 5c-2.7 0-4.2-2.2-3.4-5a6.9 6.9 0 0 1 6.2-5c2.6 0 4.2 2.2 3.4 5z" />
+                  </g>
+                </svg>
+              ),
+              stat: "Up to 55 km/h",
+              label: "Speed",
+            },
+            {
+              icon: (
+                <svg
+                  height="40"
+                  viewBox="0 0 64 64"
+                  width="40"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ stroke: "var(--brand-on-background-strong)", strokeWidth: 2 }}
+                  aria-hidden="true"
+                >
+                  <title>Specification Icon</title>
+                  <g
+                    style={{
+                      fill: "none",
+                      strokeLinecap: "round",
+                      strokeMiterlimit: 10,
+                      strokeLinejoin: "round",
+                    }}
+                  >
+                    <path d="m54 6v10h-10m-12 43a27 27 0 1 1 21.751-43m-8.766 39.678a26.819 26.819 0 0 1 -6.985 2.653m15.751-10.331a27.159 27.159 0 0 1 -4.711 4.945m8.751-12.932a26.821 26.821 0 0 1 -1.58 3.952" />
+                    <circle cx="32" cy="32" r="3" />
+                    <path d="m33.961 34.261 10.039 7.739m-12-30v17" />
+                  </g>
+                </svg>
+              ),
+              stat: "Up to 2h Battery",
+              label: "Range",
+            },
+            {
+              icon: (
+                <svg
+                  height="40"
+                  viewBox="0 0 64 64"
+                  width="40"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ stroke: "var(--brand-on-background-strong)", strokeWidth: 2 }}
+                  aria-hidden="true"
+                >
+                  <title>Specification Icon</title>
+                  <g
+                    style={{
+                      fill: "none",
+                      strokeMiterlimit: 10,
+                      strokeLinejoin: "round",
+                      strokeLinecap: "round",
+                    }}
+                  >
+                    <path d="m6 2h52v22.064a41.973 41.973 0 0 1 -26.006 37.936 41.97 41.97 0 0 1 -25.994-37.936z" />
+                    <path d="m22 27 9 9 15-16" />
+                  </g>
+                </svg>
+              ),
+              stat: "Smart Functions",
+              label: "foil app",
+            },
+            {
+              icon: (
+                <svg
+                  height="40"
+                  viewBox="0 0 64 64"
+                  width="40"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ stroke: "var(--brand-on-background-strong)", strokeWidth: 2 }}
+                  aria-hidden="true"
+                >
+                  <title>Specification Icon</title>
+                  <g
+                    style={{
+                      strokeMiterlimit: 10,
+                      fill: "none",
+                      strokeLinejoin: "round",
+                      strokeLinecap: "round",
+                    }}
+                  >
+                    <path d="m10 36.125v14.037l22 11.58 22-11.58v-14.037" />
+                    <path d="m54 23.246 7-8.549-21.742-11.42-7.324 8.42z" />
+                    <path d="m32 61.742v-27" />
+                    <path d="m31.934 11.704-7.258-8.42-21.676 11.485 7 8.742z" />
+                    <path d="m32 34.742-8.584 8.929-20.449-11.676 7.033-8.484zm22-11.496 7 8.742-20.324 11.743-8.676-8.989z" />
+                  </g>
+                </svg>
+              ),
+              stat: "Lightweight 32 kg",
+              label: "Weight",
+            },
+          ].map((spec) => (
+            <Column
+              key={spec.label}
+              fillWidth
+              padding="24"
+              gap="16"
+              horizontal="center"
+              background="neutral-alpha-weak"
+              radius="l"
+            >
+              {spec.icon}
+              <Column gap="4" horizontal="center">
+                <Text variant="heading-strong-m" align="center" onBackground="neutral-strong">
+                  {spec.stat}
+                </Text>
+                <Text variant="label-default-s" align="center" onBackground="neutral-weak">
+                  {spec.label}
+                </Text>
+              </Column>
+            </Column>
+          ))}
+        </Grid>
+      </RevealFx>
+
+      {/* ═══ DELIVERY LOCATIONS ═══ */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
         <Column fillWidth gap="l" paddingY="l">
           <Column horizontal="center" gap="m">
@@ -398,7 +639,7 @@ export default function Home() {
               We bring the eFoil to your yacht, resort, or private location
             </Text>
           </Column>
-          
+
           <Grid columns="3" gap="24" fillWidth>
             <Column
               padding="24"
@@ -446,7 +687,112 @@ export default function Home() {
         </Column>
       </RevealFx>
 
-      {/* From Our Blog */}
+      {/* ═══ 3 WAYS TO EXPERIENCE ═══ */}
+      <RevealFx translateY="16" delay={0.2} fillWidth>
+        <Column fillWidth gap="l" paddingY="l">
+          <Column horizontal="center" gap="m">
+            <Heading as="h2" variant="display-strong-m" align="center">
+              3 Ways to Experience eFoiling
+            </Heading>
+            <Text variant="body-default-l" onBackground="neutral-weak" align="center">
+              Experience, learn, or own — choose what fits your journey
+            </Text>
+          </Column>
+          <Grid columns="3" gap="24" fillWidth>
+            <Column
+              padding="32"
+              gap="16"
+              background="neutral-alpha-weak"
+              radius="l"
+              horizontal="center"
+            >
+              <Heading as="h3" variant="heading-strong-m" align="center">
+                eFoil Experiences
+              </Heading>
+              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+                Private sessions delivered to your yacht, resort, or boat. Half-day, sunset, and
+                multi-day packages with everything included.
+              </Text>
+              <Button href="/efoil-experiences-maldives" variant="secondary" size="m" arrowIcon>
+                View Experiences
+              </Button>
+            </Column>
+            <Column
+              padding="32"
+              gap="16"
+              background="brand-alpha-weak"
+              radius="l"
+              border="brand-alpha-medium"
+              horizontal="center"
+            >
+              <Heading as="h3" variant="heading-strong-m" align="center">
+                Learn to eFoil
+              </Heading>
+              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+                From your first ride to advanced carving. Private instruction with expert guidance
+                on the Audi e-tron eFoil.
+              </Text>
+              <Button href="/learn-efoil-maldives" variant="secondary" size="m" arrowIcon>
+                Start Learning
+              </Button>
+            </Column>
+            <Column
+              padding="32"
+              gap="16"
+              background="neutral-alpha-weak"
+              radius="l"
+              horizontal="center"
+            >
+              <Heading as="h3" variant="heading-strong-m" align="center">
+                Own an eFoil
+              </Heading>
+              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+                Acquire your own Audi e-tron eFoil | Maldives. We facilitate access through our
+                trusted partner network.
+              </Text>
+              <Button href="/audi-foil-board" variant="secondary" size="m" arrowIcon>
+                Explore Ownership
+              </Button>
+            </Column>
+          </Grid>
+
+          {/* Secondary links */}
+          <Grid columns="2" gap="16" fillWidth>
+            <Row
+              padding="20"
+              gap="12"
+              vertical="center"
+              horizontal="center"
+              background="neutral-alpha-weak"
+              radius="l"
+            >
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                Airline crew layover?
+              </Text>
+              <Button href="/crew" variant="tertiary" size="s" arrowIcon>
+                Crew Day Trip
+              </Button>
+            </Row>
+            <Row
+              padding="20"
+              gap="12"
+              vertical="center"
+              horizontal="center"
+              background="neutral-alpha-weak"
+              radius="l"
+            >
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                Looking for rental details?
+              </Text>
+              <Button href="/efoil-rental-maldives" variant="tertiary" size="s" arrowIcon>
+                Rental Information
+              </Button>
+            </Row>
+          </Grid>
+        </Column>
+      </RevealFx>
+
+      {/* ═══ BLOG ═══ */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
         <Column fillWidth gap="l" paddingY="l">
           <Column horizontal="center" gap="m">
@@ -466,7 +812,7 @@ export default function Home() {
         </Column>
       </RevealFx>
 
-      {/* CTA Section */}
+      {/* ═══ CTA ═══ */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
         <Column
           fillWidth
@@ -486,157 +832,7 @@ export default function Home() {
         </Column>
       </RevealFx>
 
-      {/* Product Specs */}
-      <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Grid columns="4" gap="24" fillWidth>
-          {[
-            {
-              icon: (
-                <svg height="40" viewBox="0 0 64 64" width="40" xmlns="http://www.w3.org/2000/svg" style={{ stroke: "var(--brand-on-background-strong)", strokeWidth: 2 }}>
-                  <g style={{ fill: "none", strokeMiterlimit: 10, strokeLinejoin: "round", strokeLinecap: "round" }}>
-                    <path d="m17 15h26c2.3 0 2.1 1.6 1.7 3.1s-3.7 14.9-3.7 14.9h10.1l4-2 3.9 2v8c0 1.3-.5 2-2 2h-8m-40 0h6.6m9.4 0h14.6" />
-                    <path d="m43.6 23h5.4l6.1 8m-24.1-8h-22m18 8h-22" />
-                    <path d="m24.8 44a6.9 6.9 0 0 1 -6.2 5c-2.7 0-4.2-2.2-3.4-5a6.9 6.9 0 0 1 6.2-5c2.6 0 4.2 2.2 3.4 5zm24 0a6.9 6.9 0 0 1 -6.2 5c-2.7 0-4.2-2.2-3.4-5a6.9 6.9 0 0 1 6.2-5c2.6 0 4.2 2.2 3.4 5z" />
-                  </g>
-                </svg>
-              ),
-              stat: "Up to 55 km/h",
-              label: "Speed",
-            },
-            {
-              icon: (
-                <svg height="40" viewBox="0 0 64 64" width="40" xmlns="http://www.w3.org/2000/svg" style={{ stroke: "var(--brand-on-background-strong)", strokeWidth: 2 }}>
-                  <g style={{ fill: "none", strokeLinecap: "round", strokeMiterlimit: 10, strokeLinejoin: "round" }}>
-                    <path d="m54 6v10h-10m-12 43a27 27 0 1 1 21.751-43m-8.766 39.678a26.819 26.819 0 0 1 -6.985 2.653m15.751-10.331a27.159 27.159 0 0 1 -4.711 4.945m8.751-12.932a26.821 26.821 0 0 1 -1.58 3.952" />
-                    <circle cx="32" cy="32" r="3" />
-                    <path d="m33.961 34.261 10.039 7.739m-12-30v17" />
-                  </g>
-                </svg>
-              ),
-              stat: "Up to 2h Battery",
-              label: "Range",
-            },
-            {
-              icon: (
-                <svg height="40" viewBox="0 0 64 64" width="40" xmlns="http://www.w3.org/2000/svg" style={{ stroke: "var(--brand-on-background-strong)", strokeWidth: 2 }}>
-                  <g style={{ fill: "none", strokeMiterlimit: 10, strokeLinejoin: "round", strokeLinecap: "round" }}>
-                    <path d="m6 2h52v22.064a41.973 41.973 0 0 1 -26.006 37.936 41.97 41.97 0 0 1 -25.994-37.936z" />
-                    <path d="m22 27 9 9 15-16" />
-                  </g>
-                </svg>
-              ),
-              stat: "Smart Functions",
-              label: "foil app",
-            },
-            {
-              icon: (
-                <svg height="40" viewBox="0 0 64 64" width="40" xmlns="http://www.w3.org/2000/svg" style={{ stroke: "var(--brand-on-background-strong)", strokeWidth: 2 }}>
-                  <g style={{ strokeMiterlimit: 10, fill: "none", strokeLinejoin: "round", strokeLinecap: "round" }}>
-                    <path d="m10 36.125v14.037l22 11.58 22-11.58v-14.037" />
-                    <path d="m54 23.246 7-8.549-21.742-11.42-7.324 8.42z" />
-                    <path d="m32 61.742v-27" />
-                    <path d="m31.934 11.704-7.258-8.42-21.676 11.485 7 8.742z" />
-                    <path d="m32 34.742-8.584 8.929-20.449-11.676 7.033-8.484zm22-11.496 7 8.742-20.324 11.743-8.676-8.989z" />
-                  </g>
-                </svg>
-              ),
-              stat: "Lightweight 32 kg",
-              label: "Weight",
-            },
-          ].map((spec) => (
-            <Column
-              key={spec.label}
-              fillWidth
-              padding="24"
-              gap="16"
-              horizontal="center"
-              background="neutral-alpha-weak"
-              radius="l"
-            >
-              {spec.icon}
-              <Column gap="4" horizontal="center">
-                <Text variant="heading-strong-m" align="center" onBackground="neutral-strong">
-                  {spec.stat}
-                </Text>
-                <Text variant="label-default-s" align="center" onBackground="neutral-weak">
-                  {spec.label}
-                </Text>
-              </Column>
-            </Column>
-          ))}
-        </Grid>
-      </RevealFx>
-
-      {/* 3 Ways to Experience eFoiling */}
-      <RevealFx translateY="16" delay={0.2} fillWidth>
-        <Column fillWidth gap="l" paddingY="l">
-          <Column horizontal="center" gap="m">
-            <Heading as="h2" variant="display-strong-m" align="center">
-              3 Ways to Experience eFoiling
-            </Heading>
-            <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-              Experience, learn, or own — choose what fits your journey
-            </Text>
-          </Column>
-          <Grid columns="3" gap="24" fillWidth>
-            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l" horizontal="center">
-              <Heading as="h3" variant="heading-strong-m" align="center">
-                eFoil Experiences
-              </Heading>
-              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-                Private sessions delivered to your yacht, resort, or boat. Half-day, sunset, and multi-day packages with everything included.
-              </Text>
-              <Button href="/efoil-experiences-maldives" variant="secondary" size="m" arrowIcon>
-                View Experiences
-              </Button>
-            </Column>
-            <Column padding="32" gap="16" background="brand-alpha-weak" radius="l" border="brand-alpha-medium" horizontal="center">
-              <Heading as="h3" variant="heading-strong-m" align="center">
-                Learn to eFoil
-              </Heading>
-              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-                From your first ride to advanced carving. Private instruction with expert guidance on the Audi e-tron eFoil.
-              </Text>
-              <Button href="/learn-efoil-maldives" variant="secondary" size="m" arrowIcon>
-                Start Learning
-              </Button>
-            </Column>
-            <Column padding="32" gap="16" background="neutral-alpha-weak" radius="l" horizontal="center">
-              <Heading as="h3" variant="heading-strong-m" align="center">
-                Own an eFoil
-              </Heading>
-              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-                Acquire your own Audi e-tron eFoil in the Maldives. We facilitate access through our trusted partner network.
-              </Text>
-              <Button href="/audi-foil-board" variant="secondary" size="m" arrowIcon>
-                Explore Ownership
-              </Button>
-            </Column>
-          </Grid>
-
-          {/* Secondary links */}
-          <Grid columns="2" gap="16" fillWidth>
-            <Row padding="20" gap="12" vertical="center" horizontal="center" background="neutral-alpha-weak" radius="l">
-              <Text variant="body-default-s" onBackground="neutral-weak">
-                Airline crew layover?
-              </Text>
-              <Button href="/crew" variant="tertiary" size="s" arrowIcon>
-                Crew Day Trip
-              </Button>
-            </Row>
-            <Row padding="20" gap="12" vertical="center" horizontal="center" background="neutral-alpha-weak" radius="l">
-              <Text variant="body-default-s" onBackground="neutral-weak">
-                Looking for rental details?
-              </Text>
-              <Button href="/efoil-rental-maldives" variant="tertiary" size="s" arrowIcon>
-                Rental Information
-              </Button>
-            </Row>
-          </Grid>
-        </Column>
-      </RevealFx>
-
-      {/* Visible FAQ Section */}
+      {/* ═══ FAQ ═══ */}
       <RevealFx translateY="16" delay={0.2} fillWidth>
         <Column fillWidth gap="l" paddingY="l">
           <Column horizontal="center" gap="m">
@@ -644,18 +840,18 @@ export default function Home() {
               Frequently Asked Questions
             </Heading>
             <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-              Common questions about eFoiling in the Maldives
+              Common questions about eFoiling | Maldives
             </Text>
           </Column>
-          
+
           <Grid columns="2" gap="24" fillWidth>
-            {faqSchema.mainEntity.map((faq, index) => (
-              <Column 
-                key={index} 
-                padding="24" 
-                gap="12" 
-                background="neutral-alpha-weak" 
-                radius="l" 
+            {faqSchema.mainEntity.map((faq) => (
+              <Column
+                key={faq.name}
+                padding="24"
+                gap="12"
+                background="neutral-alpha-weak"
+                radius="l"
               >
                 <Heading as="h3" variant="heading-strong-s">
                   {faq.name}
@@ -669,7 +865,7 @@ export default function Home() {
         </Column>
       </RevealFx>
 
-      {/* Newsletter */}
+      {/* ═══ NEWSLETTER ═══ */}
       <Mailchimp />
     </Column>
   );

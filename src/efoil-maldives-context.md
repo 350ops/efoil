@@ -1,7 +1,7 @@
 # eFoil Maldives — Repository Context
 
 ## What it does
-A marketing + booking website for **eFoil Maldives**, a premium electric hydrofoil rental/experience business operating in the Maldives. The site handles:
+A marketing + booking website for **eFoil Maldives**, a premium electric hydrofoil rental/experience business operating | Maldives. The site handles:
 - Service showcase (experiences, lessons, equipment ownership)
 - Lead capture forms (availability requests, partnerships, waitlist, club membership)
 - Stripe-powered checkout/booking flows

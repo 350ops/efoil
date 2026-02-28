@@ -113,7 +113,7 @@ const siteNavigationSchema = {
     {
       "@type": "SiteNavigationElement",
       name: "Events",
-      description: "Wingfoil competitions, kitesurf events, and surf contests in the Maldives.",
+      description: "Wingfoil competitions, kitesurf events, and surf contests | Maldives.",
       url: `${baseURL}/events`,
     },
   ],
@@ -167,7 +167,7 @@ export async function generateMetadata() {
       type: "website",
       title: "eFoil Experiences Maldives",
       description:
-        "Premium Audi e-tron eFoil experiences in the Maldives. Delivered to yachts, boats, and resorts.",
+        "Premium Audi e-tron eFoil experiences  Maldives. Delivered to yachts, boats, and resorts.",
       url: baseURL,
       images: [
         {
@@ -183,7 +183,7 @@ export async function generateMetadata() {
       card: "summary_large_image",
       title: "eFoil Experiences Maldives",
       description:
-        "Premium Audi e-tron eFoil experiences in the Maldives. Delivered to yachts, boats, and resorts.",
+        "Premium Audi e-tron eFoil experiences Maldives. Delivered to yachts, boats, and resorts.",
       images: [`${baseURL}/images/audi-efoil-maldives.jpg`],
     },
     other: {
