@@ -213,6 +213,7 @@ export default async function RootLayout({
       )}
     >
       <head>
+        <meta name="facebook-domain-verification" content="eyb2f9v9vmck2qt4g5jsy4cmgdx94u" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
